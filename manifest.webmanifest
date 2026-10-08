@@ -1,0 +1,10 @@
+{
+  "name": "FGC 2026 Queue Sheet",
+  "short_name": "Queue Sheet",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1b2330",
+  "theme_color": "#1b2330",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
