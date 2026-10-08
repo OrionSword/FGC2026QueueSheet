@@ -124,7 +124,11 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .chip.st-queue { background: var(--queue-bg); border-color: var(--queue); color: var(--queue); }
 .chip.st-done { background: var(--surface2); color: var(--done); }
 .delta { font-weight: 800; font-variant-numeric: tabular-nums; }
-.delta.late { color: var(--late); } .delta.early { color: var(--early); } .delta.zero { color: var(--muted); }
+.delta.late { color: var(--late); } .delta.early { color: var(--early); } .delta.zero { color: var(--accent); }
+.delta.none { color: var(--muted); font-weight: 600; }
+/* The header is always dark: use light variants there. */
+.status-line .delta { white-space: nowrap; }
+.status-line .delta.late { color: #ff8a80; } .status-line .delta.early { color: #69f0ae; } .status-line .delta.zero { color: #9cc0ff; }
 .startbtn { border: 0; background: var(--head); color: #fff; border-radius: 8px; padding: 7px 12px; font-weight: 800; font-size: 14px; white-space: nowrap; }
 @media (prefers-color-scheme: dark) { .startbtn { background: #e8ecf3; color: #111; } }
 
@@ -345,7 +349,12 @@ const fDayKey = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric"
 const hm = t => fTime.format(t);
 // Same, with a smaller AM/PM for the big time displays.
 const hmH = t => fTime.formatToParts(t).map(p => p.type === "dayPeriod" ? `<small class="ampm">${p.value}</small>` : p.type === "literal" && p.value.trim() === "" ? "" : esc(p.value)).join("");
-const fmtDelta = d => d == null ? "" : d === 0 ? "±0" : (d > 0 ? "+" : "−") + Math.abs(d);
+// Start delta: 0 is a recorded "on time" start, null means nothing recorded (shown differently).
+const fmtDelta = d => d == null ? "" : d === 0 ? "On time" : (d > 0 ? "+" : "−") + Math.abs(d);
+const fmtDeltaMin = d => d == null ? "" : d === 0 ? "on time" : fmtDelta(d) + " min";
+// Minutes between the scheduled minute and the current clock minute: starting any time during
+// the scheduled minute (e.g. 11:15:00–11:15:59 for an 11:15 match) counts as on time.
+const clockDelta = m => Math.floor(Date.now() / 60e3) - Math.floor(m.t / 60e3);
 const deltaCls = d => d == null ? "" : d > 0 ? "late" : d < 0 ? "early" : "zero";
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 // Country name exactly as published by FIRST Global (minus the generic "Team " prefix).
@@ -401,7 +410,7 @@ function teamHtml(m, c) {
 function matchHtml(m) {
   const st = statusOf(m), x = peek(m.id);
   const chip = st === "done"
-    ? `<button class="chip st-done" data-act="sheet" data-m="${esc(m.id)}">Played${x.d != null ? ` <span class="delta ${deltaCls(x.d)}">${fmtDelta(x.d)}</span>` : ""}</button>`
+    ? `<button class="chip st-done" data-act="sheet" data-m="${esc(m.id)}">Played${x.d != null ? ` · <span class="delta ${deltaCls(x.d)}">${fmtDelta(x.d)}</span>` : ""}</button>`
     : st === "queue"
       ? `<button class="chip st-queue" data-act="sheet" data-m="${esc(m.id)}">Queuing</button>`
       : "";
@@ -508,7 +517,7 @@ function updateStatusLine() {
     s += ` · Next <b>${esc(n.label || n.number)}</b> F${n.field} <b>${hm(n.t)}</b>`;
     if (d) s += ` → ~<b>${hm(n.t + d * 60e3)}</b>`;
   }
-  if (d != null) s += ` · <span class="delta ${deltaCls(d)}">${fmtDelta(d)} min</span>`;
+  if (d != null) s += ` · <span class="delta ${deltaCls(d)}">${fmtDeltaMin(d)}</span>`;
   document.getElementById("statusLine").innerHTML = s;
 }
 
@@ -549,7 +558,7 @@ function setStatus(id, s) {
 function startMatch(id) {
   snapshot();
   const m = BY_ID.get(id), x = mk(id);
-  const d = Math.round((Date.now() - m.t) / 60e3);
+  const d = clockDelta(m);
   x.s = "done";
   // Only auto-record the delta when it is plausible (i.e. we're marking it live, not catching up).
   if (Math.abs(d) <= 90) x.d = d; else delete x.d;
@@ -558,7 +567,7 @@ function startMatch(id) {
   const label = `${TYPE_LABEL[m.type] || ""} ${m.label || m.number}`;
   const actions = [["Undo", undo], ["Edit", () => openMatchSheet(id)]];
   if (earlier.length) actions.push([`Cross out ${earlier.length} earlier`, () => markEarlierDone(m)]);
-  toast(`${label} started${x.d != null ? ` ${fmtDelta(x.d)} min` : ""}`, actions, earlier.length ? 9000 : 5000);
+  toast(`${label} started${x.d != null ? ` ${fmtDeltaMin(x.d)}` : ""}`, actions, earlier.length ? 9000 : 5000);
 }
 // Still-open matches listed above `m`, either in the current view or across all fields.
 // Matches the volunteer reopened for a replay are left alone.
@@ -623,10 +632,10 @@ function openMatchSheet(id) {
       ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose “Not started” or “Queuing” to reopen it for a replay.</p>` : ""}
       <h3>Start time vs schedule (minutes)</h3>
       <div class="stepper"><button class="btn" data-a="d" data-v="-5">−5</button><button class="btn" data-a="d" data-v="-1">−1</button>
-        <span class="val delta ${deltaCls(x.d)}">${x.d == null ? "—" : fmtDelta(x.d)}</span>
+        <span class="val delta ${x.d == null ? "none" : deltaCls(x.d)}">${x.d == null ? "—" : fmtDelta(x.d)}</span>
         <button class="btn" data-a="d" data-v="1">+1</button><button class="btn" data-a="d" data-v="5">+5</button></div>
-      <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDelta(Math.round((Date.now() - m.t) / 60e3))})</button>` : ""}<button class="btn" data-a="dclear">Clear delta</button></div>
-      <p class="note">Positive = started late, negative = started early. Setting a delta marks the match played.</p>
+      <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDeltaMin(clockDelta(m))})</button>` : ""}<button class="btn" data-a="dzero">On time</button><button class="btn" data-a="dclear">Clear delta</button></div>
+      <p class="note">${x.d == null ? "<b>Not recorded.</b> " : ""}Positive = started late, negative = started early. Setting a delta marks the match played.</p>
       ${bulkHtml()}
       <h3 style="color:var(--red)">Red alliance</h3>${m.red.map(trow).join("")}
       <h3 style="color:var(--blue)">Blue alliance</h3>${m.blue.map(trow).join("")}
@@ -643,7 +652,8 @@ function openMatchSheet(id) {
         if (x.s !== "done") delete x.d;
         break;
       case "d": x.d = (x.d || 0) + Number(b.dataset.v); x.s = "done"; break;
-      case "dnow": x.d = Math.round((Date.now() - m.t) / 60e3); x.s = "done"; break;
+      case "dnow": x.d = clockDelta(m); x.s = "done"; break;
+      case "dzero": x.d = 0; x.s = "done"; break;
       case "dclear": delete x.d; break;
       case "mark": if (b.dataset.k) x.t[b.dataset.t] = b.dataset.k; else delete x.t[b.dataset.t]; break;
       case "clearall": if (!confirm("Clear all marks for this match?")) return; delete S.m[id]; break;
