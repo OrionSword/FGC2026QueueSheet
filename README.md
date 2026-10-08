@@ -7,9 +7,10 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 | File | Purpose |
 | --- | --- |
 | `index.html` | The whole app (HTML, CSS, JS inline). |
-| `data.js` | Schedule, team names and flags (`window.FGC_DATA`). **Currently DEMO data.** |
+| `data.js` | Schedule and teams, generated from results.first.global. Do not edit by hand. |
+| `flags/*.png` | Official FIRST Global flags, rendered from the site's SVGs. |
 | `sw.js`, `manifest.webmanifest`, `icon.svg` | Offline support and "Add to Home screen". |
-| `tools/make_demo_data.py` | Generates the placeholder `data.js`. |
+| `tools/fetch_fgc_data.py`, `tools/rasterize_flags.mjs` | Rebuild `data.js` and `flags/` from the results site. |
 
 ## Using it
 
@@ -30,18 +31,30 @@ The best option is to serve the folder over HTTPS, e.g. GitHub Pages (Settings �
 
 Opening `index.html` directly from the phone's storage also works, but offline caching and wake lock are unavailable there.
 
-## Data format (`data.js`)
+### GitHub Pages, step by step
 
-```js
-window.FGC_DATA = {
-  event: { id: "fgc2026", name: "...", tz: "Asia/Seoul", source: "results.first.global, fetched 2026-10-08" },
-  teams: { "KOR": { name: "<exact name from results.first.global>", flag: "flags/kor.png" }, ... },
-  matches: [
-    { type: "ranking" /* practice | ranking | playoff */, number: 12, field: 3,
-      time: "2026-10-08T10:24:00+09:00", red: ["KOR", "...", "..."], blue: ["...", "...", "..."] },
-    ...
-  ]
-};
+1. Merge this branch into `main` (or pick this branch directly in step 2).
+2. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**. Pick the branch and the `/ (root)` folder, then **Save**.
+3. After a minute or two the site is live at `https://<owner>.github.io/<repo>/`. The URL is shown at the top of the Pages settings.
+4. On each phone, open that URL in Chrome and choose **⋮ → Add to Home screen → Install**. Every file, flags included, is cached on that first visit, so it then works with no signal.
+5. To publish updates, push to the same branch. Pages redeploys automatically, and phones get the new version the next time they open the app while online.
+
+Notes: Pages sites are public, although the URL is not advertised; the schedule is public anyway, and the volunteers' marks never leave the phone. Free accounts need a public repository for Pages. Private repositories need a paid plan.
+
+## Data source and refreshing it
+
+Everything comes from https://results.first.global/, which is the authority for country names, flags and the schedule:
+
+* The schedule and team list are read from the JSON the site embeds in its home page (`__NEXT_DATA__`). Red is stations 11–13 and blue is 21–23, the same rule the site uses.
+* Names are shown exactly as published, minus the generic leading "Team " (e.g. "Team Côte d'Ivoire" → "Côte d'Ivoire"). Special teams such as "Team Hope (Refugees)" keep their full name.
+* Flags are the site's own SVGs (`/static/flags/4x3/<code>.svg`). Some are over 1 MB, 45 MB in total, so they are rendered once in Chromium to small PNGs (~0.8 MB total) at their original proportions.
+* Scores and played state are **not** imported, so every phone starts with a clean sheet.
+
+To refresh (e.g. when playoff matches are published):
+
+```sh
+python3 tools/fetch_fgc_data.py      # writes data.js, caches official SVGs in tools/.flag-cache/
+node tools/rasterize_flags.mjs       # needs the playwright package + Chromium
 ```
 
-Team names and flags must come **only** from https://results.first.global/, which is the authority on country names and flags. Do not edit them by hand. Keep `event.id` stable once volunteers start using the app, because changing it starts a fresh, empty sheet.
+Then commit and push. Match IDs and the event ID stay the same, so marks already on phones are kept. Phones pick up the new data the next time they open the page online.

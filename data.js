@@ -1,2 +1,7057 @@
-/* Generated file. See README for how to regenerate from results.first.global. */
-window.FGC_DATA = {"event":{"id":"fgc2026-demo","name":"FIRST Global Challenge 2026 — DEMO DATA","tz":"Asia/Seoul","demo":true,"source":"Synthetic placeholder schedule (not from results.first.global)"},"teams":{"T001":{"name":"Demo Team 001","flag":""},"T002":{"name":"Demo Team 002","flag":""},"T003":{"name":"Demo Team 003","flag":""},"T004":{"name":"Demo Team 004","flag":""},"T005":{"name":"Demo Team 005","flag":""},"T006":{"name":"Demo Team 006","flag":""},"T007":{"name":"Demo Team 007","flag":""},"T008":{"name":"Demo Team 008","flag":""},"T009":{"name":"Demo Team 009","flag":""},"T010":{"name":"Demo Team 010","flag":""},"T011":{"name":"Demo Team 011","flag":""},"T012":{"name":"Demo Team 012","flag":""},"T013":{"name":"Demo Team 013","flag":""},"T014":{"name":"Demo Team 014","flag":""},"T015":{"name":"Demo Team 015","flag":""},"T016":{"name":"Demo Team 016","flag":""},"T017":{"name":"Demo Team 017","flag":""},"T018":{"name":"Demo Team 018","flag":""},"T019":{"name":"Demo Team 019","flag":""},"T020":{"name":"Demo Team 020","flag":""},"T021":{"name":"Demo Team 021","flag":""},"T022":{"name":"Demo Team 022","flag":""},"T023":{"name":"Demo Team 023","flag":""},"T024":{"name":"Demo Team 024","flag":""},"T025":{"name":"Demo Team 025","flag":""},"T026":{"name":"Demo Team 026","flag":""},"T027":{"name":"Demo Team 027","flag":""},"T028":{"name":"Demo Team 028","flag":""},"T029":{"name":"Demo Team 029","flag":""},"T030":{"name":"Demo Team 030","flag":""},"T031":{"name":"Demo Team 031","flag":""},"T032":{"name":"Demo Team 032","flag":""},"T033":{"name":"Demo Team 033","flag":""},"T034":{"name":"Demo Team 034","flag":""},"T035":{"name":"Demo Team 035","flag":""},"T036":{"name":"Demo Team 036","flag":""},"T037":{"name":"Demo Team 037","flag":""},"T038":{"name":"Demo Team 038","flag":""},"T039":{"name":"Demo Team 039","flag":""},"T040":{"name":"Demo Team 040","flag":""},"T041":{"name":"Demo Team 041","flag":""},"T042":{"name":"Demo Team 042","flag":""},"T043":{"name":"Demo Team 043","flag":""},"T044":{"name":"Demo Team 044","flag":""},"T045":{"name":"Demo Team 045","flag":""},"T046":{"name":"Demo Team 046","flag":""},"T047":{"name":"Demo Team 047","flag":""},"T048":{"name":"Demo Team 048","flag":""},"T049":{"name":"Demo Team 049","flag":""},"T050":{"name":"Demo Team 050","flag":""},"T051":{"name":"Demo Team 051","flag":""},"T052":{"name":"Demo Team 052","flag":""},"T053":{"name":"Demo Team 053","flag":""},"T054":{"name":"Demo Team 054","flag":""},"T055":{"name":"Demo Team 055","flag":""},"T056":{"name":"Demo Team 056","flag":""},"T057":{"name":"Demo Team 057","flag":""},"T058":{"name":"Demo Team 058","flag":""},"T059":{"name":"Demo Team 059","flag":""},"T060":{"name":"Demo Team 060","flag":""},"T061":{"name":"Demo Team 061","flag":""},"T062":{"name":"Demo Team 062","flag":""},"T063":{"name":"Demo Team 063","flag":""},"T064":{"name":"Demo Team 064","flag":""},"T065":{"name":"Demo Team 065","flag":""},"T066":{"name":"Demo Team 066","flag":""},"T067":{"name":"Demo Team 067","flag":""},"T068":{"name":"Demo Team 068","flag":""},"T069":{"name":"Demo Team 069","flag":""},"T070":{"name":"Demo Team 070","flag":""},"T071":{"name":"Demo Team 071","flag":""},"T072":{"name":"Demo Team 072","flag":""},"T073":{"name":"Demo Team 073","flag":""},"T074":{"name":"Demo Team 074","flag":""},"T075":{"name":"Demo Team 075","flag":""},"T076":{"name":"Demo Team 076","flag":""},"T077":{"name":"Demo Team 077","flag":""},"T078":{"name":"Demo Team 078","flag":""},"T079":{"name":"Demo Team 079","flag":""},"T080":{"name":"Demo Team 080","flag":""},"T081":{"name":"Demo Team 081","flag":""},"T082":{"name":"Demo Team 082","flag":""},"T083":{"name":"Demo Team 083","flag":""},"T084":{"name":"Demo Team 084","flag":""},"T085":{"name":"Demo Team 085","flag":""},"T086":{"name":"Demo Team 086","flag":""},"T087":{"name":"Demo Team 087","flag":""},"T088":{"name":"Demo Team 088","flag":""},"T089":{"name":"Demo Team 089","flag":""},"T090":{"name":"Demo Team 090","flag":""},"T091":{"name":"Demo Team 091","flag":""},"T092":{"name":"Demo Team 092","flag":""},"T093":{"name":"Demo Team 093","flag":""},"T094":{"name":"Demo Team 094","flag":""},"T095":{"name":"Demo Team 095","flag":""},"T096":{"name":"Demo Team 096","flag":""},"T097":{"name":"Demo Team 097","flag":""},"T098":{"name":"Demo Team 098","flag":""},"T099":{"name":"Demo Team 099","flag":""},"T100":{"name":"Demo Team 100","flag":""},"T101":{"name":"Demo Team 101","flag":""},"T102":{"name":"Demo Team 102","flag":""},"T103":{"name":"Demo Team 103","flag":""},"T104":{"name":"Demo Team 104","flag":""},"T105":{"name":"Demo Team 105","flag":""},"T106":{"name":"Demo Team 106","flag":""},"T107":{"name":"Demo Team 107","flag":""},"T108":{"name":"Demo Team 108","flag":""},"T109":{"name":"Demo Team 109","flag":""},"T110":{"name":"Demo Team 110","flag":""},"T111":{"name":"Demo Team 111","flag":""},"T112":{"name":"Demo Team 112","flag":""},"T113":{"name":"Demo Team 113","flag":""},"T114":{"name":"Demo Team 114","flag":""},"T115":{"name":"Demo Team 115","flag":""},"T116":{"name":"Demo Team 116","flag":""},"T117":{"name":"Demo Team 117","flag":""},"T118":{"name":"Demo Team 118","flag":""},"T119":{"name":"Demo Team 119","flag":""},"T120":{"name":"Demo Team 120","flag":""},"T121":{"name":"Demo Team 121","flag":""},"T122":{"name":"Demo Team 122","flag":""},"T123":{"name":"Demo Team 123","flag":""},"T124":{"name":"Demo Team 124","flag":""},"T125":{"name":"Demo Team 125","flag":""},"T126":{"name":"Demo Team 126","flag":""},"T127":{"name":"Demo Team 127","flag":""},"T128":{"name":"Demo Team 128","flag":""},"T129":{"name":"Demo Team 129","flag":""},"T130":{"name":"Demo Team 130","flag":""},"T131":{"name":"Demo Team 131","flag":""},"T132":{"name":"Demo Team 132","flag":""},"T133":{"name":"Demo Team 133","flag":""},"T134":{"name":"Demo Team 134","flag":""},"T135":{"name":"Demo Team 135","flag":""},"T136":{"name":"Demo Team 136","flag":""},"T137":{"name":"Demo Team 137","flag":""},"T138":{"name":"Demo Team 138","flag":""},"T139":{"name":"Demo Team 139","flag":""},"T140":{"name":"Demo Team 140","flag":""},"T141":{"name":"Demo Team 141","flag":""},"T142":{"name":"Demo Team 142","flag":""},"T143":{"name":"Demo Team 143","flag":""},"T144":{"name":"Demo Team 144","flag":""},"T145":{"name":"Demo Team 145","flag":""},"T146":{"name":"Demo Team 146","flag":""},"T147":{"name":"Demo Team 147","flag":""},"T148":{"name":"Demo Team 148","flag":""},"T149":{"name":"Demo Team 149","flag":""},"T150":{"name":"Demo Team 150","flag":""},"T151":{"name":"Demo Team 151","flag":""},"T152":{"name":"Demo Team 152","flag":""},"T153":{"name":"Demo Team 153","flag":""},"T154":{"name":"Demo Team 154","flag":""},"T155":{"name":"Demo Team 155","flag":""},"T156":{"name":"Demo Team 156","flag":""},"T157":{"name":"Demo Team 157","flag":""},"T158":{"name":"Demo Team 158","flag":""},"T159":{"name":"Demo Team 159","flag":""},"T160":{"name":"Demo Team 160","flag":""},"T161":{"name":"Demo Team 161","flag":""},"T162":{"name":"Demo Team 162","flag":""},"T163":{"name":"Demo Team 163","flag":""},"T164":{"name":"Demo Team 164","flag":""},"T165":{"name":"Demo Team 165","flag":""},"T166":{"name":"Demo Team 166","flag":""},"T167":{"name":"Demo Team 167","flag":""},"T168":{"name":"Demo Team 168","flag":""},"T169":{"name":"Demo Team 169","flag":""},"T170":{"name":"Demo Team 170","flag":""},"T171":{"name":"Demo Team 171","flag":""},"T172":{"name":"Demo Team 172","flag":""},"T173":{"name":"Demo Team 173","flag":""},"T174":{"name":"Demo Team 174","flag":""},"T175":{"name":"Demo Team 175","flag":""},"T176":{"name":"Demo Team 176","flag":""},"T177":{"name":"Demo Team 177","flag":""},"T178":{"name":"Demo Team 178","flag":""},"T179":{"name":"Demo Team 179","flag":""},"T180":{"name":"Demo Team 180","flag":""},"T181":{"name":"Demo Team 181","flag":""},"T182":{"name":"Demo Team 182","flag":""},"T183":{"name":"Demo Team 183","flag":""},"T184":{"name":"Demo Team 184","flag":""},"T185":{"name":"Demo Team 185","flag":""},"T186":{"name":"Demo Team 186","flag":""},"T187":{"name":"Demo Team 187","flag":""},"T188":{"name":"Demo Team 188","flag":""},"T189":{"name":"Demo Team 189","flag":""},"T190":{"name":"Demo Team 190","flag":""}},"matches":[{"type":"practice","number":1,"field":1,"time":"2026-10-07T09:00:00+09:00","red":["T069","T176","T171"],"blue":["T039","T009","T015"]},{"type":"practice","number":2,"field":3,"time":"2026-10-07T09:00:00+09:00","red":["T004","T120","T117"],"blue":["T100","T106","T099"]},{"type":"practice","number":3,"field":4,"time":"2026-10-07T09:00:00+09:00","red":["T175","T051","T155"],"blue":["T053","T017","T093"]},{"type":"practice","number":4,"field":2,"time":"2026-10-07T09:06:00+09:00","red":["T049","T079","T036"],"blue":["T096","T073","T140"]},{"type":"practice","number":5,"field":3,"time":"2026-10-07T09:06:00+09:00","red":["T148","T025","T085"],"blue":["T115","T022","T011"]},{"type":"practice","number":6,"field":5,"time":"2026-10-07T09:06:00+09:00","red":["T043","T150","T183"],"blue":["T068","T186","T008"]},{"type":"practice","number":7,"field":1,"time":"2026-10-07T09:12:00+09:00","red":["T111","T050","T044"],"blue":["T089","T104","T046"]},{"type":"practice","number":8,"field":3,"time":"2026-10-07T09:12:00+09:00","red":["T045","T006","T173"],"blue":["T170","T010","T185"]},{"type":"practice","number":9,"field":4,"time":"2026-10-07T09:12:00+09:00","red":["T048","T189","T135"],"blue":["T178","T032","T018"]},{"type":"practice","number":10,"field":2,"time":"2026-10-07T09:18:00+09:00","red":["T042","T098","T190"],"blue":["T149","T163","T028"]},{"type":"practice","number":11,"field":3,"time":"2026-10-07T09:18:00+09:00","red":["T012","T144","T076"],"blue":["T188","T078","T057"]},{"type":"practice","number":12,"field":5,"time":"2026-10-07T09:18:00+09:00","red":["T013","T172","T041"],"blue":["T145","T107","T134"]},{"type":"practice","number":13,"field":1,"time":"2026-10-07T09:24:00+09:00","red":["T127","T064","T066"],"blue":["T060","T110","T139"]},{"type":"practice","number":14,"field":3,"time":"2026-10-07T09:24:00+09:00","red":["T125","T047","T063"],"blue":["T131","T157","T077"]},{"type":"practice","number":15,"field":4,"time":"2026-10-07T09:24:00+09:00","red":["T084","T156","T005"],"blue":["T002","T035","T038"]},{"type":"practice","number":16,"field":2,"time":"2026-10-07T09:30:00+09:00","red":["T168","T056","T101"],"blue":["T122","T112","T161"]},{"type":"practice","number":17,"field":3,"time":"2026-10-07T09:30:00+09:00","red":["T083","T071","T040"],"blue":["T121","T052","T072"]},{"type":"practice","number":18,"field":5,"time":"2026-10-07T09:30:00+09:00","red":["T033","T070","T153"],"blue":["T167","T087","T059"]},{"type":"practice","number":19,"field":1,"time":"2026-10-07T09:36:00+09:00","red":["T182","T164","T016"],"blue":["T137","T152","T174"]},{"type":"practice","number":20,"field":3,"time":"2026-10-07T09:36:00+09:00","red":["T019","T061","T055"],"blue":["T179","T159","T014"]},{"type":"practice","number":21,"field":4,"time":"2026-10-07T09:36:00+09:00","red":["T086","T114","T133"],"blue":["T091","T124","T136"]},{"type":"practice","number":22,"field":2,"time":"2026-10-07T09:42:00+09:00","red":["T105","T034","T184"],"blue":["T146","T123","T180"]},{"type":"practice","number":23,"field":3,"time":"2026-10-07T09:42:00+09:00","red":["T067","T162","T165"],"blue":["T130","T142","T030"]},{"type":"practice","number":24,"field":5,"time":"2026-10-07T09:42:00+09:00","red":["T128","T103","T024"],"blue":["T109","T119","T094"]},{"type":"practice","number":25,"field":1,"time":"2026-10-07T09:48:00+09:00","red":["T095","T007","T080"],"blue":["T037","T118","T169"]},{"type":"practice","number":26,"field":3,"time":"2026-10-07T09:48:00+09:00","red":["T075","T138","T181"],"blue":["T023","T088","T020"]},{"type":"practice","number":27,"field":4,"time":"2026-10-07T09:48:00+09:00","red":["T187","T097","T092"],"blue":["T090","T065","T102"]},{"type":"practice","number":28,"field":2,"time":"2026-10-07T09:54:00+09:00","red":["T054","T081","T177"],"blue":["T003","T116","T026"]},{"type":"practice","number":29,"field":3,"time":"2026-10-07T09:54:00+09:00","red":["T074","T029","T021"],"blue":["T158","T001","T062"]},{"type":"practice","number":30,"field":5,"time":"2026-10-07T09:54:00+09:00","red":["T113","T151","T126"],"blue":["T141","T147","T108"]},{"type":"practice","number":31,"field":1,"time":"2026-10-07T10:00:00+09:00","red":["T143","T160","T154"],"blue":["T058","T027","T166"]},{"type":"practice","number":32,"field":3,"time":"2026-10-07T10:00:00+09:00","red":["T132","T129","T082"],"blue":["T031","T149","T148"]},{"type":"practice","number":33,"field":4,"time":"2026-10-07T10:00:00+09:00","red":["T119","T177","T117"],"blue":["T129","T031","T033"]},{"type":"practice","number":34,"field":2,"time":"2026-10-07T10:06:00+09:00","red":["T126","T161","T063"],"blue":["T168","T146","T156"]},{"type":"practice","number":35,"field":3,"time":"2026-10-07T10:06:00+09:00","red":["T061","T181","T029"],"blue":["T169","T025","T010"]},{"type":"practice","number":36,"field":5,"time":"2026-10-07T10:06:00+09:00","red":["T132","T155","T090"],"blue":["T163","T104","T082"]},{"type":"practice","number":37,"field":1,"time":"2026-10-07T10:12:00+09:00","red":["T047","T071","T174"],"blue":["T162","T101","T066"]},{"type":"practice","number":38,"field":3,"time":"2026-10-07T10:12:00+09:00","red":["T039","T026","T003"],"blue":["T106","T058","T172"]},{"type":"practice","number":39,"field":4,"time":"2026-10-07T10:12:00+09:00","red":["T180","T085","T164"],"blue":["T130","T020","T002"]},{"type":"practice","number":40,"field":2,"time":"2026-10-07T10:18:00+09:00","red":["T115","T182","T096"],"blue":["T125","T052","T055"]},{"type":"practice","number":41,"field":3,"time":"2026-10-07T10:18:00+09:00","red":["T050","T027","T144"],"blue":["T121","T077","T076"]},{"type":"practice","number":42,"field":5,"time":"2026-10-07T10:18:00+09:00","red":["T011","T094","T188"],"blue":["T005","T123","T098"]},{"type":"practice","number":43,"field":1,"time":"2026-10-07T10:24:00+09:00","red":["T158","T041","T065"],"blue":["T142","T097","T093"]},{"type":"practice","number":44,"field":3,"time":"2026-10-07T10:24:00+09:00","red":["T008","T187","T022"],"blue":["T143","T075","T145"]},{"type":"practice","number":45,"field":4,"time":"2026-10-07T10:24:00+09:00","red":["T108","T017","T178"],"blue":["T035","T081","T038"]},{"type":"practice","number":46,"field":2,"time":"2026-10-07T10:30:00+09:00","red":["T111","T184","T073"],"blue":["T092","T110","T080"]},{"type":"practice","number":47,"field":3,"time":"2026-10-07T10:30:00+09:00","red":["T015","T135","T069"],"blue":["T074","T088","T072"]},{"type":"practice","number":48,"field":5,"time":"2026-10-07T10:30:00+09:00","red":["T095","T185","T046"],"blue":["T004","T024","T086"]},{"type":"practice","number":49,"field":1,"time":"2026-10-07T10:36:00+09:00","red":["T137","T165","T043"],"blue":["T083","T059","T167"]},{"type":"practice","number":50,"field":3,"time":"2026-10-07T10:36:00+09:00","red":["T001","T030","T190"],"blue":["T150","T171","T157"]},{"type":"practice","number":51,"field":4,"time":"2026-10-07T10:36:00+09:00","red":["T113","T114","T102"],"blue":["T173","T016","T057"]},{"type":"practice","number":52,"field":2,"time":"2026-10-07T10:42:00+09:00","red":["T062","T067","T151"],"blue":["T023","T127","T037"]},{"type":"practice","number":53,"field":3,"time":"2026-10-07T10:42:00+09:00","red":["T054","T105","T138"],"blue":["T064","T170","T068"]},{"type":"practice","number":54,"field":5,"time":"2026-10-07T10:42:00+09:00","red":["T153","T186","T139"],"blue":["T079","T099","T021"]},{"type":"practice","number":55,"field":1,"time":"2026-10-07T10:48:00+09:00","red":["T107","T109","T070"],"blue":["T189","T048","T042"]},{"type":"practice","number":56,"field":3,"time":"2026-10-07T10:48:00+09:00","red":["T036","T133","T056"],"blue":["T136","T034","T006"]},{"type":"practice","number":57,"field":4,"time":"2026-10-07T10:48:00+09:00","red":["T124","T049","T176"],"blue":["T013","T140","T012"]},{"type":"practice","number":58,"field":2,"time":"2026-10-07T10:54:00+09:00","red":["T045","T051","T009"],"blue":["T103","T141","T018"]},{"type":"practice","number":59,"field":3,"time":"2026-10-07T10:54:00+09:00","red":["T060","T154","T118"],"blue":["T087","T160","T112"]},{"type":"practice","number":60,"field":5,"time":"2026-10-07T10:54:00+09:00","red":["T053","T134","T152"],"blue":["T040","T044","T159"]},{"type":"practice","number":61,"field":1,"time":"2026-10-07T11:00:00+09:00","red":["T147","T120","T128"],"blue":["T032","T179","T116"]},{"type":"practice","number":62,"field":3,"time":"2026-10-07T11:00:00+09:00","red":["T078","T175","T084"],"blue":["T122","T131","T183"]},{"type":"practice","number":63,"field":4,"time":"2026-10-07T11:00:00+09:00","red":["T007","T091","T166"],"blue":["T089","T014","T019"]},{"type":"practice","number":64,"field":2,"time":"2026-10-07T11:06:00+09:00","red":["T100","T028","T164"],"blue":["T017","T027","T125"]},{"type":"practice","number":65,"field":3,"time":"2026-10-07T11:06:00+09:00","red":["T124","T178","T141"],"blue":["T056","T170","T065"]},{"type":"practice","number":66,"field":5,"time":"2026-10-07T11:06:00+09:00","red":["T127","T186","T133"],"blue":["T189","T022","T054"]},{"type":"practice","number":67,"field":1,"time":"2026-10-07T11:12:00+09:00","red":["T096","T073","T016"],"blue":["T037","T004","T119"]},{"type":"practice","number":68,"field":3,"time":"2026-10-07T11:12:00+09:00","red":["T076","T055","T126"],"blue":["T095","T175","T007"]},{"type":"practice","number":69,"field":4,"time":"2026-10-07T11:12:00+09:00","red":["T157","T052","T085"],"blue":["T024","T177","T165"]},{"type":"practice","number":70,"field":2,"time":"2026-10-07T11:18:00+09:00","red":["T162","T077","T152"],"blue":["T160","T045","T080"]},{"type":"practice","number":71,"field":3,"time":"2026-10-07T11:18:00+09:00","red":["T012","T002","T094"],"blue":["T110","T114","T144"]},{"type":"practice","number":72,"field":5,"time":"2026-10-07T11:18:00+09:00","red":["T083","T190","T188"],"blue":["T181","T100","T041"]},{"type":"practice","number":73,"field":1,"time":"2026-10-07T11:24:00+09:00","red":["T169","T086","T064"],"blue":["T009","T128","T060"]},{"type":"practice","number":74,"field":3,"time":"2026-10-07T11:24:00+09:00","red":["T035","T120","T089"],"blue":["T058","T113","T106"]},{"type":"practice","number":75,"field":4,"time":"2026-10-07T11:24:00+09:00","red":["T079","T112","T140"],"blue":["T043","T050","T019"]},{"type":"practice","number":76,"field":2,"time":"2026-10-07T11:30:00+09:00","red":["T172","T014","T158"],"blue":["T105","T098","T084"]},{"type":"practice","number":77,"field":3,"time":"2026-10-07T11:30:00+09:00","red":["T049","T051","T155"],"blue":["T074","T151","T167"]},{"type":"practice","number":78,"field":5,"time":"2026-10-07T11:30:00+09:00","red":["T028","T069","T136"],"blue":["T013","T018","T034"]},{"type":"practice","number":79,"field":1,"time":"2026-10-07T11:36:00+09:00","red":["T070","T118","T130"],"blue":["T011","T146","T115"]},{"type":"practice","number":80,"field":3,"time":"2026-10-07T11:36:00+09:00","red":["T154","T129","T090"],"blue":["T067","T117","T001"]},{"type":"practice","number":81,"field":4,"time":"2026-10-07T11:36:00+09:00","red":["T135","T020","T053"],"blue":["T148","T021","T025"]},{"type":"practice","number":82,"field":2,"time":"2026-10-07T11:42:00+09:00","red":["T040","T075","T087"],"blue":["T101","T061","T104"]},{"type":"practice","number":83,"field":3,"time":"2026-10-07T11:42:00+09:00","red":["T180","T116","T138"],"blue":["T156","T145","T048"]},{"type":"practice","number":84,"field":5,"time":"2026-10-07T11:42:00+09:00","red":["T026","T111","T044"],"blue":["T147","T150","T072"]},{"type":"practice","number":85,"field":1,"time":"2026-10-07T11:48:00+09:00","red":["T030","T187","T122"],"blue":["T093","T103","T039"]},{"type":"practice","number":86,"field":3,"time":"2026-10-07T11:48:00+09:00","red":["T131","T179","T137"],"blue":["T121","T063","T003"]},{"type":"practice","number":87,"field":4,"time":"2026-10-07T11:48:00+09:00","red":["T015","T082","T182"],"blue":["T088","T174","T132"]},{"type":"practice","number":88,"field":2,"time":"2026-10-07T11:54:00+09:00","red":["T184","T142","T046"],"blue":["T023","T036","T081"]},{"type":"practice","number":89,"field":3,"time":"2026-10-07T11:54:00+09:00","red":["T068","T171","T123"],"blue":["T161","T071","T005"]},{"type":"practice","number":90,"field":5,"time":"2026-10-07T11:54:00+09:00","red":["T006","T059","T038"],"blue":["T066","T102","T143"]},{"type":"practice","number":91,"field":1,"time":"2026-10-07T12:00:00+09:00","red":["T163","T176","T139"],"blue":["T047","T173","T057"]},{"type":"practice","number":92,"field":3,"time":"2026-10-07T12:00:00+09:00","red":["T108","T062","T097"],"blue":["T099","T107","T092"]},{"type":"practice","number":93,"field":4,"time":"2026-10-07T12:00:00+09:00","red":["T183","T149","T109"],"blue":["T008","T078","T168"]},{"type":"practice","number":94,"field":2,"time":"2026-10-07T12:06:00+09:00","red":["T166","T153","T091"],"blue":["T134","T033","T010"]},{"type":"practice","number":95,"field":3,"time":"2026-10-07T12:06:00+09:00","red":["T031","T032","T159"],"blue":["T042","T029","T185"]},{"type":"practice","number":96,"field":5,"time":"2026-10-07T12:06:00+09:00","red":["T106","T001","T171"],"blue":["T070","T101","T091"]},{"type":"practice","number":97,"field":1,"time":"2026-10-07T12:12:00+09:00","red":["T142","T077","T028"],"blue":["T053","T063","T056"]},{"type":"practice","number":98,"field":3,"time":"2026-10-07T12:12:00+09:00","red":["T110","T064","T124"],"blue":["T179","T155","T108"]},{"type":"practice","number":99,"field":4,"time":"2026-10-07T12:12:00+09:00","red":["T073","T034","T147"],"blue":["T065","T133","T116"]},{"type":"practice","number":100,"field":2,"time":"2026-10-07T12:18:00+09:00","red":["T045","T148","T112"],"blue":["T041","T019","T007"]},{"type":"practice","number":101,"field":3,"time":"2026-10-07T12:18:00+09:00","red":["T010","T026","T139"],"blue":["T161","T168","T088"]},{"type":"practice","number":102,"field":5,"time":"2026-10-07T12:18:00+09:00","red":["T030","T177","T024"],"blue":["T050","T132","T009"]},{"type":"practice","number":103,"field":1,"time":"2026-10-07T12:24:00+09:00","red":["T086","T094","T121"],"blue":["T049","T122","T141"]},{"type":"practice","number":104,"field":3,"time":"2026-10-07T12:24:00+09:00","red":["T149","T181","T039"],"blue":["T021","T120","T160"]},{"type":"practice","number":105,"field":4,"time":"2026-10-07T12:24:00+09:00","red":["T074","T166","T078"],"blue":["T162","T015","T115"]},{"type":"practice","number":106,"field":2,"time":"2026-10-07T12:30:00+09:00","red":["T047","T189","T012"],"blue":["T135","T071","T095"]},{"type":"practice","number":107,"field":3,"time":"2026-10-07T12:30:00+09:00","red":["T004","T014","T187"],"blue":["T067","T128","T096"]},{"type":"practice","number":108,"field":5,"time":"2026-10-07T12:30:00+09:00","red":["T159","T188","T092"],"blue":["T176","T099","T113"]},{"type":"practice","number":109,"field":1,"time":"2026-10-07T12:36:00+09:00","red":["T020","T013","T102"],"blue":["T157","T131","T117"]},{"type":"practice","number":110,"field":3,"time":"2026-10-07T12:36:00+09:00","red":["T011","T048","T182"],"blue":["T184","T036","T066"]},{"type":"practice","number":111,"field":4,"time":"2026-10-07T12:36:00+09:00","red":["T059","T027","T003"],"blue":["T042","T138","T134"]},{"type":"practice","number":112,"field":2,"time":"2026-10-07T12:42:00+09:00","red":["T016","T151","T029"],"blue":["T097","T005","T123"]},{"type":"practice","number":113,"field":3,"time":"2026-10-07T12:42:00+09:00","red":["T180","T062","T061"],"blue":["T136","T100","T107"]},{"type":"practice","number":114,"field":5,"time":"2026-10-07T12:42:00+09:00","red":["T129","T079","T126"],"blue":["T075","T125","T017"]},{"type":"practice","number":115,"field":1,"time":"2026-10-07T12:48:00+09:00","red":["T156","T164","T072"],"blue":["T035","T002","T186"]},{"type":"practice","number":116,"field":3,"time":"2026-10-07T12:48:00+09:00","red":["T093","T052","T167"],"blue":["T008","T043","T174"]},{"type":"practice","number":117,"field":4,"time":"2026-10-07T12:48:00+09:00","red":["T173","T109","T054"],"blue":["T172","T025","T087"]},{"type":"practice","number":118,"field":2,"time":"2026-10-07T12:54:00+09:00","red":["T163","T143","T006"],"blue":["T137","T103","T118"]},{"type":"practice","number":119,"field":3,"time":"2026-10-07T12:54:00+09:00","red":["T076","T145","T032"],"blue":["T037","T153","T060"]},{"type":"practice","number":120,"field":5,"time":"2026-10-07T12:54:00+09:00","red":["T190","T140","T038"],"blue":["T183","T158","T154"]},{"type":"ranking","number":1,"field":1,"time":"2026-10-08T09:00:00+09:00","red":["T133","T103","T145"],"blue":["T083","T082","T125"]},{"type":"ranking","number":2,"field":3,"time":"2026-10-08T09:00:00+09:00","red":["T178","T088","T130"],"blue":["T116","T073","T138"]},{"type":"ranking","number":3,"field":4,"time":"2026-10-08T09:00:00+09:00","red":["T080","T115","T020"],"blue":["T005","T063","T168"]},{"type":"ranking","number":4,"field":2,"time":"2026-10-08T09:06:00+09:00","red":["T134","T067","T124"],"blue":["T042","T087","T166"]},{"type":"ranking","number":5,"field":3,"time":"2026-10-08T09:06:00+09:00","red":["T045","T170","T159"],"blue":["T068","T003","T002"]},{"type":"ranking","number":6,"field":5,"time":"2026-10-08T09:06:00+09:00","red":["T052","T058","T053"],"blue":["T127","T114","T066"]},{"type":"ranking","number":7,"field":1,"time":"2026-10-08T09:12:00+09:00","red":["T111","T006","T017"],"blue":["T122","T050","T095"]},{"type":"ranking","number":8,"field":3,"time":"2026-10-08T09:12:00+09:00","red":["T129","T041","T165"],"blue":["T071","T060","T100"]},{"type":"ranking","number":9,"field":4,"time":"2026-10-08T09:12:00+09:00","red":["T075","T153","T010"],"blue":["T099","T007","T157"]},{"type":"ranking","number":10,"field":2,"time":"2026-10-08T09:18:00+09:00","red":["T032","T074","T185"],"blue":["T018","T086","T030"]},{"type":"ranking","number":11,"field":3,"time":"2026-10-08T09:18:00+09:00","red":["T160","T102","T141"],"blue":["T051","T187","T161"]},{"type":"ranking","number":12,"field":5,"time":"2026-10-08T09:18:00+09:00","red":["T176","T019","T113"],"blue":["T150","T184","T121"]},{"type":"ranking","number":13,"field":1,"time":"2026-10-08T09:24:00+09:00","red":["T089","T023","T079"],"blue":["T096","T123","T128"]},{"type":"ranking","number":14,"field":3,"time":"2026-10-08T09:24:00+09:00","red":["T015","T104","T098"],"blue":["T108","T186","T078"]},{"type":"ranking","number":15,"field":4,"time":"2026-10-08T09:24:00+09:00","red":["T164","T169","T081"],"blue":["T183","T027","T047"]},{"type":"ranking","number":16,"field":2,"time":"2026-10-08T09:30:00+09:00","red":["T059","T182","T093"],"blue":["T107","T152","T112"]},{"type":"ranking","number":17,"field":3,"time":"2026-10-08T09:30:00+09:00","red":["T175","T028","T064"],"blue":["T163","T029","T031"]},{"type":"ranking","number":18,"field":5,"time":"2026-10-08T09:30:00+09:00","red":["T022","T026","T056"],"blue":["T085","T179","T012"]},{"type":"ranking","number":19,"field":1,"time":"2026-10-08T09:36:00+09:00","red":["T117","T025","T065"],"blue":["T021","T004","T097"]},{"type":"ranking","number":20,"field":3,"time":"2026-10-08T09:36:00+09:00","red":["T043","T149","T148"],"blue":["T136","T090","T091"]},{"type":"ranking","number":21,"field":4,"time":"2026-10-08T09:36:00+09:00","red":["T109","T076","T154"],"blue":["T013","T151","T001"]},{"type":"ranking","number":22,"field":2,"time":"2026-10-08T09:42:00+09:00","red":["T061","T011","T038"],"blue":["T173","T143","T105"]},{"type":"ranking","number":23,"field":3,"time":"2026-10-08T09:42:00+09:00","red":["T120","T024","T172"],"blue":["T180","T057","T155"]},{"type":"ranking","number":24,"field":5,"time":"2026-10-08T09:42:00+09:00","red":["T188","T140","T177"],"blue":["T106","T162","T146"]},{"type":"ranking","number":25,"field":1,"time":"2026-10-08T09:48:00+09:00","red":["T014","T048","T044"],"blue":["T118","T181","T092"]},{"type":"ranking","number":26,"field":3,"time":"2026-10-08T09:48:00+09:00","red":["T171","T069","T036"],"blue":["T046","T077","T072"]},{"type":"ranking","number":27,"field":4,"time":"2026-10-08T09:48:00+09:00","red":["T009","T016","T147"],"blue":["T034","T037","T040"]},{"type":"ranking","number":28,"field":2,"time":"2026-10-08T09:54:00+09:00","red":["T142","T190","T039"],"blue":["T049","T139","T158"]},{"type":"ranking","number":29,"field":3,"time":"2026-10-08T09:54:00+09:00","red":["T137","T101","T167"],"blue":["T094","T084","T174"]},{"type":"ranking","number":30,"field":5,"time":"2026-10-08T09:54:00+09:00","red":["T144","T035","T126"],"blue":["T070","T189","T132"]},{"type":"ranking","number":31,"field":1,"time":"2026-10-08T10:00:00+09:00","red":["T033","T135","T131"],"blue":["T110","T054","T062"]},{"type":"ranking","number":32,"field":3,"time":"2026-10-08T10:00:00+09:00","red":["T119","T008","T055"],"blue":["T156","T053","T105"]},{"type":"ranking","number":33,"field":4,"time":"2026-10-08T10:00:00+09:00","red":["T008","T162","T127"],"blue":["T052","T017","T021"]},{"type":"ranking","number":34,"field":2,"time":"2026-10-08T10:06:00+09:00","red":["T140","T190","T019"],"blue":["T119","T133","T150"]},{"type":"ranking","number":35,"field":3,"time":"2026-10-08T10:06:00+09:00","red":["T059","T014","T024"],"blue":["T078","T047","T146"]},{"type":"ranking","number":36,"field":5,"time":"2026-10-08T10:06:00+09:00","red":["T055","T004","T141"],"blue":["T106","T039","T041"]},{"type":"ranking","number":37,"field":1,"time":"2026-10-08T10:12:00+09:00","red":["T054","T045","T142"],"blue":["T096","T112","T073"]},{"type":"ranking","number":38,"field":3,"time":"2026-10-08T10:12:00+09:00","red":["T050","T077","T085"],"blue":["T138","T023","T157"]},{"type":"ranking","number":39,"field":4,"time":"2026-10-08T10:12:00+09:00","red":["T137","T123","T166"],"blue":["T042","T018","T171"]},{"type":"ranking","number":40,"field":2,"time":"2026-10-08T10:18:00+09:00","red":["T074","T115","T013"],"blue":["T057","T065","T145"]},{"type":"ranking","number":41,"field":3,"time":"2026-10-08T10:18:00+09:00","red":["T116","T088","T185"],"blue":["T135","T175","T178"]},{"type":"ranking","number":42,"field":5,"time":"2026-10-08T10:18:00+09:00","red":["T102","T094","T181"],"blue":["T082","T003","T016"]},{"type":"ranking","number":43,"field":1,"time":"2026-10-08T10:24:00+09:00","red":["T186","T161","T051"],"blue":["T165","T100","T090"]},{"type":"ranking","number":44,"field":3,"time":"2026-10-08T10:24:00+09:00","red":["T170","T188","T075"],"blue":["T067","T110","T087"]},{"type":"ranking","number":45,"field":4,"time":"2026-10-08T10:24:00+09:00","red":["T070","T010","T160"],"blue":["T061","T006","T080"]},{"type":"ranking","number":46,"field":2,"time":"2026-10-08T10:30:00+09:00","red":["T037","T001","T027"],"blue":["T164","T154","T130"]},{"type":"ranking","number":47,"field":3,"time":"2026-10-08T10:30:00+09:00","red":["T114","T012","T038"],"blue":["T125","T149","T093"]},{"type":"ranking","number":48,"field":5,"time":"2026-10-08T10:30:00+09:00","red":["T084","T025","T101"],"blue":["T109","T066","T060"]},{"type":"ranking","number":49,"field":1,"time":"2026-10-08T10:36:00+09:00","red":["T089","T046","T167"],"blue":["T187","T071","T058"]},{"type":"ranking","number":50,"field":3,"time":"2026-10-08T10:36:00+09:00","red":["T015","T072","T092"],"blue":["T163","T147","T173"]},{"type":"ranking","number":51,"field":4,"time":"2026-10-08T10:36:00+09:00","red":["T143","T131","T158"],"blue":["T183","T033","T172"]},{"type":"ranking","number":52,"field":2,"time":"2026-10-08T10:42:00+09:00","red":["T168","T117","T035"],"blue":["T068","T022","T129"]},{"type":"ranking","number":53,"field":3,"time":"2026-10-08T10:42:00+09:00","red":["T097","T034","T144"],"blue":["T026","T139","T002"]},{"type":"ranking","number":54,"field":5,"time":"2026-10-08T10:42:00+09:00","red":["T179","T107","T028"],"blue":["T029","T104","T118"]},{"type":"ranking","number":55,"field":1,"time":"2026-10-08T10:48:00+09:00","red":["T044","T020","T156"],"blue":["T095","T032","T169"]},{"type":"ranking","number":56,"field":3,"time":"2026-10-08T10:48:00+09:00","red":["T043","T148","T091"],"blue":["T007","T111","T069"]},{"type":"ranking","number":57,"field":4,"time":"2026-10-08T10:48:00+09:00","red":["T174","T189","T176"],"blue":["T076","T036","T180"]},{"type":"ranking","number":58,"field":2,"time":"2026-10-08T10:54:00+09:00","red":["T159","T009","T099"],"blue":["T056","T128","T005"]},{"type":"ranking","number":59,"field":3,"time":"2026-10-08T10:54:00+09:00","red":["T136","T124","T098"],"blue":["T152","T122","T151"]},{"type":"ranking","number":60,"field":5,"time":"2026-10-08T10:54:00+09:00","red":["T030","T049","T113"],"blue":["T048","T153","T064"]},{"type":"ranking","number":61,"field":1,"time":"2026-10-08T11:00:00+09:00","red":["T126","T011","T108"],"blue":["T081","T132","T182"]},{"type":"ranking","number":62,"field":3,"time":"2026-10-08T11:00:00+09:00","red":["T103","T063","T177"],"blue":["T120","T083","T062"]},{"type":"ranking","number":63,"field":4,"time":"2026-10-08T11:00:00+09:00","red":["T121","T079","T040"],"blue":["T184","T086","T031"]},{"type":"ranking","number":64,"field":2,"time":"2026-10-08T11:06:00+09:00","red":["T134","T155","T116"],"blue":["T148","T096","T093"]},{"type":"ranking","number":65,"field":3,"time":"2026-10-08T11:06:00+09:00","red":["T128","T131","T019"],"blue":["T009","T074","T108"]},{"type":"ranking","number":66,"field":5,"time":"2026-10-08T11:06:00+09:00","red":["T061","T090","T177"],"blue":["T100","T120","T188"]},{"type":"ranking","number":67,"field":1,"time":"2026-10-08T11:12:00+09:00","red":["T078","T001","T010"],"blue":["T042","T144","T046"]},{"type":"ranking","number":68,"field":3,"time":"2026-10-08T11:12:00+09:00","red":["T124","T189","T092"],"blue":["T021","T047","T020"]},{"type":"ranking","number":69,"field":4,"time":"2026-10-08T11:12:00+09:00","red":["T015","T004","T094"],"blue":["T062","T087","T186"]},{"type":"ranking","number":70,"field":2,"time":"2026-10-08T11:18:00+09:00","red":["T162","T035","T117"],"blue":["T060","T125","T174"]},{"type":"ranking","number":71,"field":3,"time":"2026-10-08T11:18:00+09:00","red":["T028","T011","T031"],"blue":["T168","T180","T164"]},{"type":"ranking","number":72,"field":5,"time":"2026-10-08T11:18:00+09:00","red":["T012","T014","T091"],"blue":["T007","T067","T048"]},{"type":"ranking","number":73,"field":1,"time":"2026-10-08T11:24:00+09:00","red":["T130","T182","T165"],"blue":["T036","T016","T052"]},{"type":"ranking","number":74,"field":3,"time":"2026-10-08T11:24:00+09:00","red":["T073","T024","T154"],"blue":["T140","T085","T112"]},{"type":"ranking","number":75,"field":4,"time":"2026-10-08T11:24:00+09:00","red":["T132","T054","T160"],"blue":["T119","T068","T173"]},{"type":"ranking","number":76,"field":2,"time":"2026-10-08T11:30:00+09:00","red":["T147","T107","T142"],"blue":["T037","T109","T111"]},{"type":"ranking","number":77,"field":3,"time":"2026-10-08T11:30:00+09:00","red":["T172","T133","T097"],"blue":["T072","T167","T126"]},{"type":"ranking","number":78,"field":5,"time":"2026-10-08T11:30:00+09:00","red":["T139","T101","T040"],"blue":["T141","T134","T064"]},{"type":"ranking","number":79,"field":1,"time":"2026-10-08T11:36:00+09:00","red":["T082","T110","T057"],"blue":["T122","T075","T086"]},{"type":"ranking","number":80,"field":3,"time":"2026-10-08T11:36:00+09:00","red":["T056","T127","T102"],"blue":["T026","T166","T095"]},{"type":"ranking","number":81,"field":4,"time":"2026-10-08T11:36:00+09:00","red":["T005","T145","T066"],"blue":["T023","T153","T175"]},{"type":"ranking","number":82,"field":2,"time":"2026-10-08T11:42:00+09:00","red":["T185","T034","T089"],"blue":["T049","T184","T070"]},{"type":"ranking","number":83,"field":3,"time":"2026-10-08T11:42:00+09:00","red":["T158","T146","T190"],"blue":["T135","T051","T069"]},{"type":"ranking","number":84,"field":5,"time":"2026-10-08T11:42:00+09:00","red":["T083","T043","T143"],"blue":["T017","T050","T030"]},{"type":"ranking","number":85,"field":1,"time":"2026-10-08T11:48:00+09:00","red":["T013","T103","T022"],"blue":["T150","T058","T104"]},{"type":"ranking","number":86,"field":3,"time":"2026-10-08T11:48:00+09:00","red":["T138","T055","T053"],"blue":["T187","T027","T044"]},{"type":"ranking","number":87,"field":4,"time":"2026-10-08T11:48:00+09:00","red":["T081","T159","T178"],"blue":["T106","T115","T163"]},{"type":"ranking","number":88,"field":2,"time":"2026-10-08T11:54:00+09:00","red":["T077","T149","T113"],"blue":["T071","T099","T179"]},{"type":"ranking","number":89,"field":3,"time":"2026-10-08T11:54:00+09:00","red":["T155","T084","T059"],"blue":["T181","T032","T151"]},{"type":"ranking","number":90,"field":5,"time":"2026-10-08T11:54:00+09:00","red":["T161","T169","T098"],"blue":["T039","T076","T176"]},{"type":"ranking","number":91,"field":1,"time":"2026-10-08T12:00:00+09:00","red":["T114","T006","T065"],"blue":["T105","T038","T080"]},{"type":"ranking","number":92,"field":3,"time":"2026-10-08T12:00:00+09:00","red":["T136","T157","T002"],"blue":["T033","T018","T029"]},{"type":"ranking","number":93,"field":4,"time":"2026-10-08T12:00:00+09:00","red":["T123","T170","T129"],"blue":["T156","T041","T121"]},{"type":"ranking","number":94,"field":2,"time":"2026-10-08T12:06:00+09:00","red":["T171","T063","T025"],"blue":["T152","T118","T183"]},{"type":"ranking","number":95,"field":3,"time":"2026-10-08T12:06:00+09:00","red":["T045","T088","T008"],"blue":["T003","T137","T079"]},{"type":"ranking","number":96,"field":5,"time":"2026-10-08T12:06:00+09:00","red":["T189","T121","T125"],"blue":["T100","T092","T143"]},{"type":"ranking","number":97,"field":1,"time":"2026-10-08T12:12:00+09:00","red":["T103","T036","T156"],"blue":["T031","T169","T011"]},{"type":"ranking","number":98,"field":3,"time":"2026-10-08T12:12:00+09:00","red":["T152","T070","T187"],"blue":["T054","T010","T071"]},{"type":"ranking","number":99,"field":4,"time":"2026-10-08T12:12:00+09:00","red":["T162","T084","T160"],"blue":["T074","T166","T124"]},{"type":"ranking","number":100,"field":2,"time":"2026-10-08T12:18:00+09:00","red":["T096","T142","T069"],"blue":["T029","T137","T186"]},{"type":"ranking","number":101,"field":3,"time":"2026-10-08T12:18:00+09:00","red":["T098","T097","T008"],"blue":["T051","T127","T132"]},{"type":"ranking","number":102,"field":5,"time":"2026-10-08T12:18:00+09:00","red":["T133","T019","T101"],"blue":["T170","T129","T088"]},{"type":"ranking","number":103,"field":1,"time":"2026-10-08T12:24:00+09:00","red":["T117","T030","T035"],"blue":["T173","T179","T086"]},{"type":"ranking","number":104,"field":3,"time":"2026-10-08T12:24:00+09:00","red":["T072","T012","T161"],"blue":["T005","T004","T095"]},{"type":"ranking","number":105,"field":4,"time":"2026-10-08T12:24:00+09:00","red":["T188","T157","T063"],"blue":["T102","T158","T059"]},{"type":"ranking","number":106,"field":2,"time":"2026-10-08T12:30:00+09:00","red":["T145","T025","T174"],"blue":["T104","T043","T113"]},{"type":"ranking","number":107,"field":3,"time":"2026-10-08T12:30:00+09:00","red":["T007","T038","T153"],"blue":["T178","T093","T053"]},{"type":"ranking","number":108,"field":5,"time":"2026-10-08T12:30:00+09:00","red":["T136","T139","T062"],"blue":["T033","T045","T050"]},{"type":"ranking","number":109,"field":1,"time":"2026-10-08T12:36:00+09:00","red":["T081","T002","T177"],"blue":["T126","T073","T042"]},{"type":"ranking","number":110,"field":3,"time":"2026-10-08T12:36:00+09:00","red":["T130","T147","T056"],"blue":["T048","T014","T087"]},{"type":"ranking","number":111,"field":4,"time":"2026-10-08T12:36:00+09:00","red":["T049","T111","T138"],"blue":["T151","T055","T083"]},{"type":"ranking","number":112,"field":2,"time":"2026-10-08T12:42:00+09:00","red":["T052","T131","T085"],"blue":["T171","T182","T123"]},{"type":"ranking","number":113,"field":3,"time":"2026-10-08T12:42:00+09:00","red":["T041","T155","T154"],"blue":["T107","T077","T167"]},{"type":"ranking","number":114,"field":5,"time":"2026-10-08T12:42:00+09:00","red":["T001","T190","T078"],"blue":["T149","T015","T116"]},{"type":"ranking","number":115,"field":1,"time":"2026-10-08T12:48:00+09:00","red":["T180","T040","T172"],"blue":["T165","T046","T021"]},{"type":"ranking","number":116,"field":3,"time":"2026-10-08T12:48:00+09:00","red":["T057","T076","T146"],"blue":["T099","T184","T091"]},{"type":"ranking","number":117,"field":4,"time":"2026-10-08T12:48:00+09:00","red":["T148","T150","T144"],"blue":["T075","T118","T134"]},{"type":"ranking","number":118,"field":2,"time":"2026-10-08T12:54:00+09:00","red":["T009","T065","T108"],"blue":["T164","T159","T060"]},{"type":"ranking","number":119,"field":3,"time":"2026-10-08T12:54:00+09:00","red":["T080","T163","T082"],"blue":["T068","T022","T106"]},{"type":"ranking","number":120,"field":5,"time":"2026-10-08T12:54:00+09:00","red":["T020","T094","T058"],"blue":["T027","T112","T067"]},{"type":"ranking","number":121,"field":1,"time":"2026-10-08T13:00:00+09:00","red":["T079","T037","T003"],"blue":["T044","T168","T028"]},{"type":"ranking","number":122,"field":3,"time":"2026-10-08T13:00:00+09:00","red":["T175","T064","T135"],"blue":["T140","T066","T018"]},{"type":"ranking","number":123,"field":4,"time":"2026-10-08T13:00:00+09:00","red":["T110","T047","T105"],"blue":["T013","T183","T090"]},{"type":"ranking","number":124,"field":2,"time":"2026-10-08T13:06:00+09:00","red":["T122","T115","T016"],"blue":["T128","T185","T017"]},{"type":"ranking","number":125,"field":3,"time":"2026-10-08T13:06:00+09:00","red":["T181","T119","T176"],"blue":["T006","T024","T034"]},{"type":"ranking","number":126,"field":5,"time":"2026-10-08T13:06:00+09:00","red":["T109","T141","T026"],"blue":["T120","T114","T039"]},{"type":"ranking","number":127,"field":1,"time":"2026-10-08T13:12:00+09:00","red":["T061","T089","T023"],"blue":["T032","T149","T131"]},{"type":"ranking","number":128,"field":3,"time":"2026-10-08T13:12:00+09:00","red":["T097","T105","T179"],"blue":["T129","T164","T089"]},{"type":"ranking","number":129,"field":4,"time":"2026-10-08T13:12:00+09:00","red":["T079","T115","T011"],"blue":["T154","T081","T167"]},{"type":"ranking","number":130,"field":2,"time":"2026-10-08T13:18:00+09:00","red":["T125","T114","T141"],"blue":["T116","T052","T060"]},{"type":"ranking","number":131,"field":3,"time":"2026-10-08T13:18:00+09:00","red":["T133","T185","T157"],"blue":["T091","T049","T170"]},{"type":"ranking","number":132,"field":5,"time":"2026-10-08T13:18:00+09:00","red":["T021","T146","T043"],"blue":["T030","T139","T122"]},{"type":"ranking","number":133,"field":1,"time":"2026-10-08T13:24:00+09:00","red":["T073","T006","T178"],"blue":["T144","T137","T104"]},{"type":"ranking","number":134,"field":3,"time":"2026-10-08T13:24:00+09:00","red":["T102","T175","T067"],"blue":["T145","T086","T042"]},{"type":"ranking","number":135,"field":4,"time":"2026-10-08T13:24:00+09:00","red":["T068","T110","T028"],"blue":["T107","T096","T055"]},{"type":"ranking","number":136,"field":1,"time":"2026-10-08T13:30:00+09:00","red":["T113","T025","T043"],"blue":["T019","T159","T162"]},{"type":"ranking","number":137,"field":3,"time":"2026-10-08T13:30:00+09:00","red":["T107","T004","T099"],"blue":["T144","T142","T028"]},{"type":"ranking","number":138,"field":4,"time":"2026-10-08T13:30:00+09:00","red":["T030","T136","T088"],"blue":["T055","T061","T188"]},{"type":"ranking","number":139,"field":2,"time":"2026-10-08T13:36:00+09:00","red":["T168","T171","T047"],"blue":["T038","T040","T146"]},{"type":"ranking","number":140,"field":3,"time":"2026-10-08T13:36:00+09:00","red":["T187","T098","T096"],"blue":["T167","T084","T182"]},{"type":"ranking","number":141,"field":5,"time":"2026-10-08T13:36:00+09:00","red":["T152","T039","T190"],"blue":["T177","T086","T134"]},{"type":"ranking","number":142,"field":1,"time":"2026-10-08T13:42:00+09:00","red":["T076","T089","T127"],"blue":["T044","T054","T151"]},{"type":"ranking","number":143,"field":3,"time":"2026-10-08T13:42:00+09:00","red":["T005","T065","T027"],"blue":["T066","T049","T053"]},{"type":"ranking","number":144,"field":4,"time":"2026-10-08T13:42:00+09:00","red":["T189","T149","T129"],"blue":["T033","T114","T064"]},{"type":"ranking","number":145,"field":2,"time":"2026-10-08T13:48:00+09:00","red":["T138","T103","T060"],"blue":["T115","T130","T183"]},{"type":"ranking","number":146,"field":3,"time":"2026-10-08T13:48:00+09:00","red":["T015","T013","T121"],"blue":["T020","T026","T070"]},{"type":"ranking","number":147,"field":5,"time":"2026-10-08T13:48:00+09:00","red":["T150","T014","T132"],"blue":["T007","T063","T106"]},{"type":"ranking","number":148,"field":1,"time":"2026-10-08T13:54:00+09:00","red":["T077","T094","T116"],"blue":["T006","T003","T125"]},{"type":"ranking","number":149,"field":3,"time":"2026-10-08T13:54:00+09:00","red":["T009","T161","T083"],"blue":["T001","T128","T173"]},{"type":"ranking","number":150,"field":4,"time":"2026-10-08T13:54:00+09:00","red":["T154","T148","T166"],"blue":["T163","T157","T110"]},{"type":"ranking","number":151,"field":2,"time":"2026-10-08T14:00:00+09:00","red":["T185","T093","T123"],"blue":["T122","T139","T010"]},{"type":"ranking","number":152,"field":3,"time":"2026-10-08T14:00:00+09:00","red":["T169","T092","T170"],"blue":["T124","T059","T164"]},{"type":"ranking","number":153,"field":5,"time":"2026-10-08T14:00:00+09:00","red":["T160","T135","T036"],"blue":["T073","T022","T037"]},{"type":"ranking","number":154,"field":1,"time":"2026-10-08T14:06:00+09:00","red":["T176","T002","T035"],"blue":["T137","T184","T186"]},{"type":"ranking","number":155,"field":3,"time":"2026-10-08T14:06:00+09:00","red":["T029","T041","T145"],"blue":["T178","T104","T042"]},{"type":"ranking","number":156,"field":4,"time":"2026-10-08T14:06:00+09:00","red":["T032","T017","T133"],"blue":["T067","T008","T091"]},{"type":"ranking","number":157,"field":2,"time":"2026-10-08T14:12:00+09:00","red":["T016","T072","T031"],"blue":["T158","T108","T081"]},{"type":"ranking","number":158,"field":3,"time":"2026-10-08T14:12:00+09:00","red":["T174","T131","T100"],"blue":["T018","T087","T119"]},{"type":"ranking","number":159,"field":5,"time":"2026-10-08T14:12:00+09:00","red":["T175","T012","T024"],"blue":["T075","T071","T011"]},{"type":"ranking","number":160,"field":1,"time":"2026-10-08T14:18:00+09:00","red":["T117","T120","T105"],"blue":["T080","T058","T057"]},{"type":"ranking","number":161,"field":3,"time":"2026-10-08T14:18:00+09:00","red":["T181","T118","T021"],"blue":["T048","T069","T050"]},{"type":"ranking","number":162,"field":4,"time":"2026-10-08T14:18:00+09:00","red":["T172","T141","T085"],"blue":["T062","T082","T068"]},{"type":"ranking","number":163,"field":2,"time":"2026-10-08T14:24:00+09:00","red":["T126","T147","T153"],"blue":["T140","T156","T056"]},{"type":"ranking","number":164,"field":3,"time":"2026-10-08T14:24:00+09:00","red":["T095","T097","T102"],"blue":["T023","T052","T179"]},{"type":"ranking","number":165,"field":5,"time":"2026-10-08T14:24:00+09:00","red":["T143","T112","T109"],"blue":["T074","T111","T079"]},{"type":"ranking","number":166,"field":1,"time":"2026-10-08T14:30:00+09:00","red":["T046","T078","T155"],"blue":["T180","T051","T034"]},{"type":"ranking","number":167,"field":3,"time":"2026-10-08T14:30:00+09:00","red":["T165","T101","T045"],"blue":["T090","T152","T090"]},{"type":"ranking","number":168,"field":4,"time":"2026-10-08T14:30:00+09:00","red":["T161","T017","T083"],"blue":["T057","T014","T050"]},{"type":"ranking","number":169,"field":2,"time":"2026-10-08T14:36:00+09:00","red":["T027","T103","T037"],"blue":["T162","T054","T129"]},{"type":"ranking","number":170,"field":3,"time":"2026-10-08T14:36:00+09:00","red":["T071","T076","T069"],"blue":["T086","T011","T056"]},{"type":"ranking","number":171,"field":5,"time":"2026-10-08T14:36:00+09:00","red":["T019","T046","T182"],"blue":["T179","T005","T078"]},{"type":"ranking","number":172,"field":1,"time":"2026-10-08T14:42:00+09:00","red":["T001","T043","T065"],"blue":["T114","T098","T101"]},{"type":"ranking","number":173,"field":3,"time":"2026-10-08T14:42:00+09:00","red":["T111","T036","T055"],"blue":["T063","T080","T062"]},{"type":"ranking","number":174,"field":4,"time":"2026-10-08T14:42:00+09:00","red":["T176","T167","T003"],"blue":["T165","T030","T009"]},{"type":"ranking","number":175,"field":2,"time":"2026-10-08T14:48:00+09:00","red":["T185","T177","T042"],"blue":["T013","T137","T180"]},{"type":"ranking","number":176,"field":3,"time":"2026-10-08T14:48:00+09:00","red":["T124","T136","T120"],"blue":["T138","T012","T106"]},{"type":"ranking","number":177,"field":5,"time":"2026-10-08T14:48:00+09:00","red":["T010","T073","T048"],"blue":["T061","T160","T064"]},{"type":"ranking","number":178,"field":1,"time":"2026-10-08T14:54:00+09:00","red":["T112","T007","T164"],"blue":["T099","T041","T156"]},{"type":"ranking","number":179,"field":3,"time":"2026-10-08T14:54:00+09:00","red":["T187","T100","T058"],"blue":["T072","T084","T070"]},{"type":"ranking","number":180,"field":4,"time":"2026-10-08T14:54:00+09:00","red":["T166","T008","T117"],"blue":["T151","T047","T077"]},{"type":"ranking","number":181,"field":2,"time":"2026-10-08T15:00:00+09:00","red":["T089","T060","T184"],"blue":["T163","T118","T052"]},{"type":"ranking","number":182,"field":3,"time":"2026-10-08T15:00:00+09:00","red":["T113","T134","T135"],"blue":["T097","T144","T142"]},{"type":"ranking","number":183,"field":5,"time":"2026-10-08T15:00:00+09:00","red":["T040","T093","T173"],"blue":["T127","T092","T094"]},{"type":"ranking","number":184,"field":1,"time":"2026-10-08T15:06:00+09:00","red":["T068","T002","T023"],"blue":["T079","T139","T004"]},{"type":"ranking","number":185,"field":3,"time":"2026-10-08T15:06:00+09:00","red":["T074","T022","T110"],"blue":["T146","T020","T157"]},{"type":"ranking","number":186,"field":4,"time":"2026-10-08T15:06:00+09:00","red":["T130","T175","T096"],"blue":["T105","T029","T034"]},{"type":"ranking","number":187,"field":2,"time":"2026-10-08T15:12:00+09:00","red":["T171","T021","T091"],"blue":["T149","T148","T123"]},{"type":"ranking","number":188,"field":3,"time":"2026-10-08T15:12:00+09:00","red":["T115","T145","T168"],"blue":["T158","T172","T188"]},{"type":"ranking","number":189,"field":5,"time":"2026-10-08T15:12:00+09:00","red":["T066","T170","T119"],"blue":["T082","T038","T133"]},{"type":"ranking","number":190,"field":1,"time":"2026-10-08T15:18:00+09:00","red":["T107","T189","T141"],"blue":["T025","T085","T059"]},{"type":"ranking","number":191,"field":3,"time":"2026-10-08T15:18:00+09:00","red":["T102","T109","T015"],"blue":["T147","T140","T067"]},{"type":"ranking","number":192,"field":4,"time":"2026-10-08T15:18:00+09:00","red":["T081","T088","T121"],"blue":["T104","T183","T169"]},{"type":"ranking","number":193,"field":2,"time":"2026-10-08T15:24:00+09:00","red":["T075","T028","T154"],"blue":["T174","T178","T035"]},{"type":"ranking","number":194,"field":3,"time":"2026-10-08T15:24:00+09:00","red":["T031","T143","T095"],"blue":["T032","T108","T132"]},{"type":"ranking","number":195,"field":5,"time":"2026-10-08T15:24:00+09:00","red":["T026","T125","T033"],"blue":["T016","T126","T051"]},{"type":"ranking","number":196,"field":1,"time":"2026-10-08T15:30:00+09:00","red":["T049","T018","T190"],"blue":["T153","T053","T044"]},{"type":"ranking","number":197,"field":3,"time":"2026-10-08T15:30:00+09:00","red":["T159","T150","T045"],"blue":["T186","T128","T087"]},{"type":"ranking","number":198,"field":4,"time":"2026-10-08T15:30:00+09:00","red":["T006","T122","T116"],"blue":["T155","T039","T024"]},{"type":"ranking","number":199,"field":2,"time":"2026-10-08T15:36:00+09:00","red":["T181","T131","T098"],"blue":["T016","T108","T190"]},{"type":"ranking","number":200,"field":3,"time":"2026-10-08T15:36:00+09:00","red":["T053","T043","T003"],"blue":["T066","T009","T083"]},{"type":"ranking","number":201,"field":5,"time":"2026-10-08T15:36:00+09:00","red":["T120","T181","T073"],"blue":["T079","T130","T068"]},{"type":"ranking","number":202,"field":1,"time":"2026-10-08T15:42:00+09:00","red":["T132","T146","T176"],"blue":["T152","T088","T071"]},{"type":"ranking","number":203,"field":3,"time":"2026-10-08T15:42:00+09:00","red":["T072","T064","T008"],"blue":["T062","T077","T080"]},{"type":"ranking","number":204,"field":4,"time":"2026-10-08T15:42:00+09:00","red":["T110","T054","T013"],"blue":["T034","T147","T177"]},{"type":"ranking","number":205,"field":2,"time":"2026-10-08T15:48:00+09:00","red":["T059","T082","T138"],"blue":["T180","T167","T081"]},{"type":"ranking","number":206,"field":3,"time":"2026-10-08T15:48:00+09:00","red":["T025","T156","T039"],"blue":["T075","T076","T014"]},{"type":"ranking","number":207,"field":5,"time":"2026-10-08T15:48:00+09:00","red":["T187","T121","T045"],"blue":["T118","T115","T078"]},{"type":"ranking","number":208,"field":1,"time":"2026-10-08T15:54:00+09:00","red":["T004","T173","T141"],"blue":["T145","T114","T117"]},{"type":"ranking","number":209,"field":3,"time":"2026-10-08T15:54:00+09:00","red":["T026","T172","T174"],"blue":["T096","T119","T144"]},{"type":"ranking","number":210,"field":4,"time":"2026-10-08T15:54:00+09:00","red":["T154","T158","T126"],"blue":["T029","T012","T113"]},{"type":"ranking","number":211,"field":2,"time":"2026-10-08T16:00:00+09:00","red":["T139","T099","T134"],"blue":["T052","T057","T085"]},{"type":"ranking","number":212,"field":3,"time":"2026-10-08T16:00:00+09:00","red":["T188","T101","T021"],"blue":["T169","T136","T160"]},{"type":"ranking","number":213,"field":5,"time":"2026-10-08T16:00:00+09:00","red":["T178","T018","T033"],"blue":["T157","T097","T042"]},{"type":"ranking","number":214,"field":1,"time":"2026-10-08T16:06:00+09:00","red":["T109","T111","T155"],"blue":["T037","T171","T040"]},{"type":"ranking","number":215,"field":3,"time":"2026-10-08T16:06:00+09:00","red":["T047","T002","T092"],"blue":["T168","T006","T051"]},{"type":"ranking","number":216,"field":4,"time":"2026-10-08T16:06:00+09:00","red":["T127","T060","T069"],"blue":["T182","T102","T063"]},{"type":"ranking","number":217,"field":2,"time":"2026-10-08T16:12:00+09:00","red":["T163","T049","T089"],"blue":["T086","T067","T124"]},{"type":"ranking","number":218,"field":3,"time":"2026-10-08T16:12:00+09:00","red":["T129","T151","T148"],"blue":["T023","T024","T123"]},{"type":"ranking","number":219,"field":5,"time":"2026-10-08T16:12:00+09:00","red":["T093","T116","T015"],"blue":["T170","T128","T103"]},{"type":"ranking","number":220,"field":1,"time":"2026-10-08T16:18:00+09:00","red":["T048","T133","T106"],"blue":["T017","T104","T135"]},{"type":"ranking","number":221,"field":3,"time":"2026-10-08T16:18:00+09:00","red":["T035","T164","T165"],"blue":["T074","T055","T131"]},{"type":"ranking","number":222,"field":4,"time":"2026-10-08T16:18:00+09:00","red":["T030","T161","T036"],"blue":["T137","T179","T022"]},{"type":"ranking","number":223,"field":2,"time":"2026-10-08T16:24:00+09:00","red":["T031","T095","T150"],"blue":["T149","T091","T159"]},{"type":"ranking","number":224,"field":3,"time":"2026-10-08T16:24:00+09:00","red":["T041","T001","T090"],"blue":["T046","T038","T007"]},{"type":"ranking","number":225,"field":5,"time":"2026-10-08T16:24:00+09:00","red":["T189","T011","T020"],"blue":["T100","T028","T056"]},{"type":"ranking","number":226,"field":1,"time":"2026-10-08T16:30:00+09:00","red":["T065","T084","T027"],"blue":["T005","T140","T105"]},{"type":"ranking","number":227,"field":3,"time":"2026-10-08T16:30:00+09:00","red":["T143","T153","T010"],"blue":["T175","T142","T087"]},{"type":"ranking","number":228,"field":4,"time":"2026-10-08T16:30:00+09:00","red":["T107","T183","T094"],"blue":["T162","T061","T058"]},{"type":"ranking","number":229,"field":2,"time":"2026-10-08T16:36:00+09:00","red":["T070","T044","T032"],"blue":["T166","T186","T122"]},{"type":"ranking","number":230,"field":3,"time":"2026-10-08T16:36:00+09:00","red":["T184","T019","T125"],"blue":["T185","T050","T112"]},{"type":"ranking","number":231,"field":5,"time":"2026-10-08T16:36:00+09:00","red":["T082","T176","T055"],"blue":["T162","T157","T030"]},{"type":"ranking","number":232,"field":1,"time":"2026-10-08T16:42:00+09:00","red":["T123","T159","T093"],"blue":["T089","T185","T142"]},{"type":"ranking","number":233,"field":3,"time":"2026-10-08T16:42:00+09:00","red":["T181","T095","T042"],"blue":["T052","T059","T097"]},{"type":"ranking","number":234,"field":4,"time":"2026-10-08T16:42:00+09:00","red":["T073","T143","T160"],"blue":["T166","T130","T088"]},{"type":"ranking","number":235,"field":2,"time":"2026-10-08T16:48:00+09:00","red":["T020","T096","T180"],"blue":["T182","T092","T034"]},{"type":"ranking","number":236,"field":3,"time":"2026-10-08T16:48:00+09:00","red":["T001","T106","T171"],"blue":["T036","T003","T087"]},{"type":"ranking","number":237,"field":5,"time":"2026-10-08T16:48:00+09:00","red":["T117","T049","T053"],"blue":["T140","T026","T062"]},{"type":"ranking","number":238,"field":1,"time":"2026-10-08T16:54:00+09:00","red":["T165","T031","T013"],"blue":["T155","T132","T145"]},{"type":"ranking","number":239,"field":3,"time":"2026-10-08T16:54:00+09:00","red":["T101","T072","T119"],"blue":["T175","T019","T032"]},{"type":"ranking","number":240,"field":4,"time":"2026-10-08T16:54:00+09:00","red":["T065","T164","T079"],"blue":["T100","T024","T138"]},{"type":"ranking","number":241,"field":2,"time":"2026-10-08T17:00:00+09:00","red":["T050","T125","T041"],"blue":["T084","T153","T110"]},{"type":"ranking","number":242,"field":3,"time":"2026-10-08T17:00:00+09:00","red":["T075","T063","T035"],"blue":["T094","T016","T025"]},{"type":"ranking","number":243,"field":5,"time":"2026-10-08T17:00:00+09:00","red":["T068","T167","T112"],"blue":["T060","T172","T115"]},{"type":"ranking","number":244,"field":1,"time":"2026-10-08T17:06:00+09:00","red":["T091","T054","T066"],"blue":["T129","T122","T173"]},{"type":"ranking","number":245,"field":3,"time":"2026-10-08T17:06:00+09:00","red":["T010","T126","T108"],"blue":["T124","T151","T074"]},{"type":"ranking","number":246,"field":4,"time":"2026-10-08T17:06:00+09:00","red":["T076","T136","T179"],"blue":["T150","T187","T103"]},{"type":"ranking","number":247,"field":2,"time":"2026-10-08T17:12:00+09:00","red":["T018","T104","T051"],"blue":["T085","T078","T102"]},{"type":"ranking","number":248,"field":3,"time":"2026-10-08T17:12:00+09:00","red":["T083","T118","T039"],"blue":["T148","T139","T028"]},{"type":"ranking","number":249,"field":5,"time":"2026-10-08T17:12:00+09:00","red":["T107","T189","T121"],"blue":["T186","T141","T011"]},{"type":"ranking","number":250,"field":1,"time":"2026-10-08T17:18:00+09:00","red":["T021","T077","T058"],"blue":["T057","T116","T061"]},{"type":"ranking","number":251,"field":3,"time":"2026-10-08T17:18:00+09:00","red":["T090","T188","T015"],"blue":["T152","T081","T022"]},{"type":"ranking","number":252,"field":4,"time":"2026-10-08T17:18:00+09:00","red":["T027","T156","T099"],"blue":["T178","T070","T113"]},{"type":"ranking","number":253,"field":2,"time":"2026-10-08T17:24:00+09:00","red":["T120","T017","T056"],"blue":["T069","T071","T040"]},{"type":"ranking","number":254,"field":3,"time":"2026-10-08T17:24:00+09:00","red":["T098","T014","T037"],"blue":["T163","T177","T048"]},{"type":"ranking","number":255,"field":5,"time":"2026-10-08T17:24:00+09:00","red":["T080","T067","T134"],"blue":["T038","T109","T168"]},{"type":"ranking","number":256,"field":1,"time":"2026-10-09T09:00:00+09:00","red":["T076","T023","T055"],"blue":["T172","T033","T022"]},{"type":"ranking","number":257,"field":3,"time":"2026-10-09T09:00:00+09:00","red":["T071","T109","T095"],"blue":["T117","T106","T063"]},{"type":"ranking","number":258,"field":4,"time":"2026-10-09T09:00:00+09:00","red":["T105","T112","T144"],"blue":["T120","T012","T007"]},{"type":"ranking","number":259,"field":2,"time":"2026-10-09T09:06:00+09:00","red":["T180","T139","T182"],"blue":["T079","T081","T111"]},{"type":"ranking","number":260,"field":3,"time":"2026-10-09T09:06:00+09:00","red":["T038","T014","T089"],"blue":["T157","T009","T031"]},{"type":"ranking","number":261,"field":5,"time":"2026-10-09T09:06:00+09:00","red":["T140","T058","T136"],"blue":["T162","T101","T041"]},{"type":"ranking","number":262,"field":1,"time":"2026-10-09T09:12:00+09:00","red":["T072","T137","T001"],"blue":["T122","T005","T164"]},{"type":"ranking","number":263,"field":3,"time":"2026-10-09T09:12:00+09:00","red":["T134","T026","T092"],"blue":["T086","T036","T150"]},{"type":"ranking","number":264,"field":4,"time":"2026-10-09T09:12:00+09:00","red":["T126","T025","T128"],"blue":["T029","T167","T062"]},{"type":"ranking","number":265,"field":2,"time":"2026-10-09T09:18:00+09:00","red":["T129","T113","T084"],"blue":["T015","T181","T107"]},{"type":"ranking","number":266,"field":3,"time":"2026-10-09T09:18:00+09:00","red":["T132","T189","T124"],"blue":["T118","T149","T032"]},{"type":"ranking","number":267,"field":5,"time":"2026-10-09T09:18:00+09:00","red":["T158","T040","T143"],"blue":["T070","T050","T088"]},{"type":"ranking","number":268,"field":1,"time":"2026-10-09T09:24:00+09:00","red":["T021","T121","T053"],"blue":["T003","T103","T138"]},{"type":"ranking","number":269,"field":3,"time":"2026-10-09T09:24:00+09:00","red":["T104","T174","T185"],"blue":["T052","T045","T083"]},{"type":"ranking","number":270,"field":4,"time":"2026-10-09T09:24:00+09:00","red":["T170","T116","T028"],"blue":["T133","T102","T146"]},{"type":"ranking","number":271,"field":2,"time":"2026-10-09T09:30:00+09:00","red":["T100","T099","T127"],"blue":["T069","T024","T123"]},{"type":"ranking","number":272,"field":3,"time":"2026-10-09T09:30:00+09:00","red":["T161","T152","T187"],"blue":["T178","T135","T184"]},{"type":"ranking","number":273,"field":5,"time":"2026-10-09T09:30:00+09:00","red":["T047","T048","T049"],"blue":["T159","T006","T065"]},{"type":"ranking","number":274,"field":1,"time":"2026-10-09T09:36:00+09:00","red":["T078","T179","T166"],"blue":["T145","T002","T066"]},{"type":"ranking","number":275,"field":3,"time":"2026-10-09T09:36:00+09:00","red":["T093","T034","T039"],"blue":["T060","T153","T169"]},{"type":"ranking","number":276,"field":4,"time":"2026-10-09T09:36:00+09:00","red":["T037","T115","T042"],"blue":["T163","T190","T151"]},{"type":"ranking","number":277,"field":2,"time":"2026-10-09T09:42:00+09:00","red":["T186","T082","T114"],"blue":["T098","T056","T059"]},{"type":"ranking","number":278,"field":3,"time":"2026-10-09T09:42:00+09:00","red":["T176","T057","T046"],"blue":["T077","T020","T154"]},{"type":"ranking","number":279,"field":5,"time":"2026-10-09T09:42:00+09:00","red":["T183","T073","T168"],"blue":["T130","T141","T173"]},{"type":"ranking","number":280,"field":1,"time":"2026-10-09T09:48:00+09:00","red":["T043","T010","T147"],"blue":["T075","T155","T044"]},{"type":"ranking","number":281,"field":3,"time":"2026-10-09T09:48:00+09:00","red":["T013","T018","T035"],"blue":["T064","T090","T125"]},{"type":"ranking","number":282,"field":4,"time":"2026-10-09T09:48:00+09:00","red":["T091","T027","T094"],"blue":["T171","T097","T080"]},{"type":"ranking","number":283,"field":2,"time":"2026-10-09T09:54:00+09:00","red":["T068","T074","T087"],"blue":["T148","T030","T016"]},{"type":"ranking","number":284,"field":3,"time":"2026-10-09T09:54:00+09:00","red":["T177","T004","T188"],"blue":["T108","T160","T165"]},{"type":"ranking","number":285,"field":5,"time":"2026-10-09T09:54:00+09:00","red":["T085","T156","T019"],"blue":["T131","T119","T051"]},{"type":"ranking","number":286,"field":1,"time":"2026-10-09T10:00:00+09:00","red":["T142","T008","T175"],"blue":["T067","T011","T110"]},{"type":"ranking","number":287,"field":3,"time":"2026-10-09T10:00:00+09:00","red":["T096","T017","T061"],"blue":["T054","T186","T083"]},{"type":"ranking","number":288,"field":4,"time":"2026-10-09T10:00:00+09:00","red":["T163","T123","T019"],"blue":["T045","T052","T165"]},{"type":"ranking","number":289,"field":2,"time":"2026-10-09T10:06:00+09:00","red":["T134","T040","T190"],"blue":["T169","T168","T182"]},{"type":"ranking","number":290,"field":3,"time":"2026-10-09T10:06:00+09:00","red":["T189","T105","T159"],"blue":["T152","T001","T054"]},{"type":"ranking","number":291,"field":5,"time":"2026-10-09T10:06:00+09:00","red":["T112","T085","T035"],"blue":["T055","T078","T140"]},{"type":"ranking","number":292,"field":1,"time":"2026-10-09T10:12:00+09:00","red":["T160","T157","T180"],"blue":["T070","T130","T162"]},{"type":"ranking","number":293,"field":3,"time":"2026-10-09T10:12:00+09:00","red":["T173","T011","T155"],"blue":["T077","T149","T081"]},{"type":"ranking","number":294,"field":4,"time":"2026-10-09T10:12:00+09:00","red":["T030","T043","T092"],"blue":["T084","T184","T153"]},{"type":"ranking","number":295,"field":2,"time":"2026-10-09T10:18:00+09:00","red":["T111","T107","T013"],"blue":["T029","T175","T064"]},{"type":"ranking","number":296,"field":3,"time":"2026-10-09T10:18:00+09:00","red":["T032","T094","T037"],"blue":["T071","T101","T066"]},{"type":"ranking","number":297,"field":5,"time":"2026-10-09T10:18:00+09:00","red":["T056","T021","T014"],"blue":["T178","T047","T008"]},{"type":"ranking","number":298,"field":1,"time":"2026-10-09T10:24:00+09:00","red":["T080","T091","T174"],"blue":["T062","T098","T116"]},{"type":"ranking","number":299,"field":3,"time":"2026-10-09T10:24:00+09:00","red":["T099","T025","T090"],"blue":["T028","T023","T074"]},{"type":"ranking","number":300,"field":4,"time":"2026-10-09T10:24:00+09:00","red":["T138","T050","T015"],"blue":["T181","T102","T185"]},{"type":"ranking","number":301,"field":2,"time":"2026-10-09T10:30:00+09:00","red":["T088","T046","T122"],"blue":["T154","T156","T060"]},{"type":"ranking","number":302,"field":3,"time":"2026-10-09T10:30:00+09:00","red":["T117","T061","T109"],"blue":["T068","T170","T005"]},{"type":"ranking","number":303,"field":5,"time":"2026-10-09T10:30:00+09:00","red":["T183","T119","T042"],"blue":["T027","T007","T079"]},{"type":"ranking","number":304,"field":1,"time":"2026-10-09T10:36:00+09:00","red":["T108","T022","T057"],"blue":["T012","T073","T010"]},{"type":"ranking","number":305,"field":3,"time":"2026-10-09T10:36:00+09:00","red":["T002","T128","T121"],"blue":["T135","T171","T036"]},{"type":"ranking","number":306,"field":4,"time":"2026-10-09T10:36:00+09:00","red":["T146","T053","T026"],"blue":["T167","T124","T058"]},{"type":"ranking","number":307,"field":2,"time":"2026-10-09T10:42:00+09:00","red":["T063","T009","T059"],"blue":["T067","T113","T039"]},{"type":"ranking","number":308,"field":3,"time":"2026-10-09T10:42:00+09:00","red":["T187","T034","T024"],"blue":["T115","T051","T018"]},{"type":"ranking","number":309,"field":5,"time":"2026-10-09T10:42:00+09:00","red":["T164","T144","T188"],"blue":["T166","T016","T145"]},{"type":"ranking","number":310,"field":1,"time":"2026-10-09T10:48:00+09:00","red":["T143","T049","T136"],"blue":["T075","T093","T096"]},{"type":"ranking","number":311,"field":3,"time":"2026-10-09T10:48:00+09:00","red":["T003","T110","T106"],"blue":["T176","T150","T082"]},{"type":"ranking","number":312,"field":4,"time":"2026-10-09T10:48:00+09:00","red":["T089","T139","T118"],"blue":["T126","T031","T104"]},{"type":"ranking","number":313,"field":2,"time":"2026-10-09T10:54:00+09:00","red":["T151","T148","T147"],"blue":["T065","T131","T127"]},{"type":"ranking","number":314,"field":3,"time":"2026-10-09T10:54:00+09:00","red":["T132","T133","T097"],"blue":["T125","T017","T137"]},{"type":"ranking","number":315,"field":5,"time":"2026-10-09T10:54:00+09:00","red":["T114","T158","T120"],"blue":["T161","T095","T041"]},{"type":"ranking","number":316,"field":1,"time":"2026-10-09T11:00:00+09:00","red":["T006","T142","T086"],"blue":["T172","T033","T087"]},{"type":"ranking","number":317,"field":3,"time":"2026-10-09T11:00:00+09:00","red":["T141","T069","T129"],"blue":["T048","T004","T038"]},{"type":"ranking","number":318,"field":4,"time":"2026-10-09T11:00:00+09:00","red":["T044","T020","T076"],"blue":["T103","T100","T179"]},{"type":"ranking","number":319,"field":2,"time":"2026-10-09T11:06:00+09:00","red":["T072","T177","T080"],"blue":["T172","T032","T176"]},{"type":"ranking","number":320,"field":3,"time":"2026-10-09T11:06:00+09:00","red":["T184","T028","T012"],"blue":["T008","T156","T136"]},{"type":"ranking","number":321,"field":5,"time":"2026-10-09T11:06:00+09:00","red":["T127","T071","T104"],"blue":["T153","T062","T117"]},{"type":"ranking","number":322,"field":1,"time":"2026-10-09T11:12:00+09:00","red":["T162","T054","T107"],"blue":["T180","T157","T165"]},{"type":"ranking","number":323,"field":3,"time":"2026-10-09T11:12:00+09:00","red":["T004","T124","T177"],"blue":["T002","T051","T025"]},{"type":"ranking","number":324,"field":4,"time":"2026-10-09T11:12:00+09:00","red":["T081","T070","T151"],"blue":["T143","T066","T129"]},{"type":"ranking","number":325,"field":2,"time":"2026-10-09T11:18:00+09:00","red":["T063","T082","T149"],"blue":["T085","T133","T144"]},{"type":"ranking","number":326,"field":3,"time":"2026-10-09T11:18:00+09:00","red":["T036","T189","T059"],"blue":["T049","T135","T174"]},{"type":"ranking","number":327,"field":5,"time":"2026-10-09T11:18:00+09:00","red":["T003","T181","T137"],"blue":["T068","T186","T140"]},{"type":"ranking","number":328,"field":1,"time":"2026-10-09T11:24:00+09:00","red":["T183","T078","T145"],"blue":["T173","T159","T134"]},{"type":"ranking","number":329,"field":3,"time":"2026-10-09T11:24:00+09:00","red":["T056","T147","T103"],"blue":["T060","T119","T041"]},{"type":"ranking","number":330,"field":4,"time":"2026-10-09T11:24:00+09:00","red":["T011","T045","T074"],"blue":["T128","T064","T161"]},{"type":"ranking","number":331,"field":2,"time":"2026-10-09T11:30:00+09:00","red":["T034","T141","T072"],"blue":["T126","T120","T108"]},{"type":"ranking","number":332,"field":3,"time":"2026-10-09T11:30:00+09:00","red":["T123","T048","T187"],"blue":["T175","T017","T118"]},{"type":"ranking","number":333,"field":5,"time":"2026-10-09T11:30:00+09:00","red":["T015","T055","T088"],"blue":["T096","T154","T001"]},{"type":"ranking","number":334,"field":1,"time":"2026-10-09T11:36:00+09:00","red":["T114","T178","T065"],"blue":["T031","T029","T105"]},{"type":"ranking","number":335,"field":3,"time":"2026-10-09T11:36:00+09:00","red":["T125","T076","T113"],"blue":["T130","T142","T033"]},{"type":"ranking","number":336,"field":4,"time":"2026-10-09T11:36:00+09:00","red":["T170","T150","T052"],"blue":["T146","T115","T097"]},{"type":"ranking","number":337,"field":2,"time":"2026-10-09T11:42:00+09:00","red":["T163","T030","T111"],"blue":["T069","T067","T166"]},{"type":"ranking","number":338,"field":3,"time":"2026-10-09T11:42:00+09:00","red":["T109","T027","T022"],"blue":["T090","T023","T099"]},{"type":"ranking","number":339,"field":5,"time":"2026-10-09T11:42:00+09:00","red":["T058","T043","T155"],"blue":["T112","T042","T050"]},{"type":"ranking","number":340,"field":1,"time":"2026-10-09T11:48:00+09:00","red":["T106","T040","T009"],"blue":["T116","T010","T005"]},{"type":"ranking","number":341,"field":3,"time":"2026-10-09T11:48:00+09:00","red":["T014","T057","T185"],"blue":["T188","T089","T083"]},{"type":"ranking","number":342,"field":4,"time":"2026-10-09T11:48:00+09:00","red":["T006","T110","T079"],"blue":["T091","T160","T152"]},{"type":"ranking","number":343,"field":2,"time":"2026-10-09T11:54:00+09:00","red":["T038","T093","T013"],"blue":["T169","T168","T046"]},{"type":"ranking","number":344,"field":3,"time":"2026-10-09T11:54:00+09:00","red":["T016","T092","T061"],"blue":["T139","T190","T101"]},{"type":"ranking","number":345,"field":5,"time":"2026-10-09T11:54:00+09:00","red":["T047","T100","T021"],"blue":["T018","T095","T171"]},{"type":"ranking","number":346,"field":1,"time":"2026-10-09T12:00:00+09:00","red":["T037","T077","T007"],"blue":["T039","T094","T035"]},{"type":"ranking","number":347,"field":3,"time":"2026-10-09T12:00:00+09:00","red":["T020","T121","T167"],"blue":["T044","T102","T098"]},{"type":"ranking","number":348,"field":4,"time":"2026-10-09T12:00:00+09:00","red":["T138","T084","T019"],"blue":["T182","T073","T122"]},{"type":"ranking","number":349,"field":2,"time":"2026-10-09T12:06:00+09:00","red":["T086","T158","T179"],"blue":["T075","T164","T026"]},{"type":"ranking","number":350,"field":3,"time":"2026-10-09T12:06:00+09:00","red":["T131","T053","T132"],"blue":["T024","T148","T087"]},{"type":"ranking","number":351,"field":5,"time":"2026-10-09T12:06:00+09:00","red":["T137","T011","T047"],"blue":["T166","T088","T151"]},{"type":"ranking","number":352,"field":1,"time":"2026-10-09T12:12:00+09:00","red":["T018","T082","T002"],"blue":["T055","T042","T172"]},{"type":"ranking","number":353,"field":3,"time":"2026-10-09T12:12:00+09:00","red":["T113","T144","T009"],"blue":["T159","T171","T063"]},{"type":"ranking","number":354,"field":4,"time":"2026-10-09T12:12:00+09:00","red":["T048","T141","T164"],"blue":["T052","T169","T045"]},{"type":"ranking","number":355,"field":2,"time":"2026-10-09T12:18:00+09:00","red":["T068","T095","T010"],"blue":["T178","T145","T079"]},{"type":"ranking","number":356,"field":3,"time":"2026-10-09T12:18:00+09:00","red":["T022","T085","T098"],"blue":["T021","T118","T123"]},{"type":"ranking","number":357,"field":5,"time":"2026-10-09T12:18:00+09:00","red":["T073","T147","T046"],"blue":["T014","T096","T033"]},{"type":"ranking","number":358,"field":1,"time":"2026-10-09T12:24:00+09:00","red":["T090","T080","T140"],"blue":["T188","T026","T186"]},{"type":"ranking","number":359,"field":3,"time":"2026-10-09T12:24:00+09:00","red":["T148","T001","T110"],"blue":["T180","T183","T157"]},{"type":"ranking","number":360,"field":4,"time":"2026-10-09T12:24:00+09:00","red":["T067","T015","T175"],"blue":["T165","T081","T019"]},{"type":"ranking","number":361,"field":2,"time":"2026-10-09T12:30:00+09:00","red":["T030","T070","T174"],"blue":["T028","T097","T061"]},{"type":"ranking","number":362,"field":3,"time":"2026-10-09T12:30:00+09:00","red":["T101","T037","T150"],"blue":["T125","T036","T184"]},{"type":"ranking","number":363,"field":5,"time":"2026-10-09T12:30:00+09:00","red":["T107","T043","T132"],"blue":["T032","T155","T167"]},{"type":"ranking","number":364,"field":1,"time":"2026-10-09T12:36:00+09:00","red":["T024","T139","T111"],"blue":["T054","T074","T136"]},{"type":"ranking","number":365,"field":3,"time":"2026-10-09T12:36:00+09:00","red":["T109","T134","T017"],"blue":["T038","T025","T130"]},{"type":"ranking","number":366,"field":4,"time":"2026-10-09T12:36:00+09:00","red":["T093","T100","T091"],"blue":["T059","T060","T117"]},{"type":"ranking","number":367,"field":2,"time":"2026-10-09T12:42:00+09:00","red":["T152","T161","T065"],"blue":["T056","T119","T168"]},{"type":"ranking","number":368,"field":3,"time":"2026-10-09T12:42:00+09:00","red":["T066","T106","T112"],"blue":["T121","T154","T149"]},{"type":"ranking","number":369,"field":5,"time":"2026-10-09T12:42:00+09:00","red":["T116","T062","T049"],"blue":["T077","T051","T016"]},{"type":"ranking","number":370,"field":1,"time":"2026-10-09T12:48:00+09:00","red":["T189","T133","T114"],"blue":["T004","T064","T153"]},{"type":"ranking","number":371,"field":3,"time":"2026-10-09T12:48:00+09:00","red":["T170","T162","T128"],"blue":["T029","T185","T078"]},{"type":"ranking","number":372,"field":4,"time":"2026-10-09T12:48:00+09:00","red":["T005","T122","T143"],"blue":["T008","T158","T057"]},{"type":"ranking","number":373,"field":2,"time":"2026-10-09T12:54:00+09:00","red":["T190","T089","T131"],"blue":["T135","T156","T094"]},{"type":"ranking","number":374,"field":3,"time":"2026-10-09T12:54:00+09:00","red":["T006","T105","T040"],"blue":["T092","T181","T103"]},{"type":"ranking","number":375,"field":5,"time":"2026-10-09T12:54:00+09:00","red":["T124","T087","T102"],"blue":["T020","T039","T083"]},{"type":"ranking","number":376,"field":1,"time":"2026-10-09T13:00:00+09:00","red":["T160","T086","T044"],"blue":["T035","T176","T023"]},{"type":"ranking","number":377,"field":3,"time":"2026-10-09T13:00:00+09:00","red":["T104","T173","T126"],"blue":["T027","T075","T012"]},{"type":"ranking","number":378,"field":4,"time":"2026-10-09T13:00:00+09:00","red":["T031","T053","T069"],"blue":["T187","T142","T163"]},{"type":"ranking","number":379,"field":2,"time":"2026-10-09T13:06:00+09:00","red":["T177","T179","T076"],"blue":["T127","T182","T084"]},{"type":"ranking","number":380,"field":3,"time":"2026-10-09T13:06:00+09:00","red":["T072","T071","T108"],"blue":["T034","T058","T120"]},{"type":"ranking","number":381,"field":5,"time":"2026-10-09T13:06:00+09:00","red":["T115","T041","T099"],"blue":["T138","T013","T146"]},{"type":"ranking","number":382,"field":1,"time":"2026-10-09T13:12:00+09:00","red":["T003","T129","T007"],"blue":["T050","T103","T170"]},{"type":"ranking","number":383,"field":3,"time":"2026-10-09T13:12:00+09:00","red":["T001","T123","T187"],"blue":["T177","T145","T074"]},{"type":"ranking","number":384,"field":4,"time":"2026-10-09T13:12:00+09:00","red":["T049","T129","T059"],"blue":["T135","T118","T024"]},{"type":"ranking","number":385,"field":2,"time":"2026-10-09T13:18:00+09:00","red":["T157","T086","T160"],"blue":["T027","T052","T130"]},{"type":"ranking","number":386,"field":3,"time":"2026-10-09T13:18:00+09:00","red":["T023","T010","T079"],"blue":["T143","T034","T111"]},{"type":"ranking","number":387,"field":5,"time":"2026-10-09T13:18:00+09:00","red":["T165","T178","T144"],"blue":["T141","T025","T181"]},{"type":"ranking","number":388,"field":1,"time":"2026-10-09T13:24:00+09:00","red":["T127","T076","T122"],"blue":["T183","T081","T057"]},{"type":"ranking","number":389,"field":3,"time":"2026-10-09T13:24:00+09:00","red":["T164","T089","T087"],"blue":["T088","T009","T060"]},{"type":"ranking","number":390,"field":4,"time":"2026-10-09T13:24:00+09:00","red":["T017","T066","T099"],"blue":["T186","T047","T147"]},{"type":"ranking","number":391,"field":1,"time":"2026-10-09T13:30:00+09:00","red":["T092","T056","T182"],"blue":["T122","T120","T085"]},{"type":"ranking","number":392,"field":3,"time":"2026-10-09T13:30:00+09:00","red":["T109","T121","T138"],"blue":["T172","T074","T134"]},{"type":"ranking","number":393,"field":4,"time":"2026-10-09T13:30:00+09:00","red":["T080","T087","T076"],"blue":["T107","T184","T179"]},{"type":"ranking","number":394,"field":2,"time":"2026-10-09T13:36:00+09:00","red":["T001","T027","T148"],"blue":["T065","T106","T032"]},{"type":"ranking","number":395,"field":3,"time":"2026-10-09T13:36:00+09:00","red":["T028","T070","T166"],"blue":["T008","T044","T188"]},{"type":"ranking","number":396,"field":5,"time":"2026-10-09T13:36:00+09:00","red":["T039","T135","T181"],"blue":["T036","T114","T099"]},{"type":"ranking","number":397,"field":1,"time":"2026-10-09T13:42:00+09:00","red":["T037","T062","T158"],"blue":["T086","T075","T060"]},{"type":"ranking","number":398,"field":3,"time":"2026-10-09T13:42:00+09:00","red":["T078","T141","T038"],"blue":["T063","T133","T169"]},{"type":"ranking","number":399,"field":4,"time":"2026-10-09T13:42:00+09:00","red":["T185","T031","T077"],"blue":["T167","T136","T190"]},{"type":"ranking","number":400,"field":2,"time":"2026-10-09T13:48:00+09:00","red":["T140","T072","T147"],"blue":["T066","T170","T059"]},{"type":"ranking","number":401,"field":3,"time":"2026-10-09T13:48:00+09:00","red":["T115","T108","T014"],"blue":["T006","T023","T102"]},{"type":"ranking","number":402,"field":5,"time":"2026-10-09T13:48:00+09:00","red":["T152","T149","T163"],"blue":["T118","T097","T093"]},{"type":"ranking","number":403,"field":1,"time":"2026-10-09T13:54:00+09:00","red":["T129","T046","T101"],"blue":["T088","T151","T054"]},{"type":"ranking","number":404,"field":3,"time":"2026-10-09T13:54:00+09:00","red":["T058","T173","T150"],"blue":["T142","T113","T105"]},{"type":"ranking","number":405,"field":4,"time":"2026-10-09T13:54:00+09:00","red":["T131","T119","T095"],"blue":["T017","T125","T020"]},{"type":"ranking","number":406,"field":2,"time":"2026-10-09T14:00:00+09:00","red":["T175","T030","T082"],"blue":["T183","T043","T042"]},{"type":"ranking","number":407,"field":3,"time":"2026-10-09T14:00:00+09:00","red":["T083","T002","T159"],"blue":["T127","T055","T050"]},{"type":"ranking","number":408,"field":5,"time":"2026-10-09T14:00:00+09:00","red":["T049","T089","T007"],"blue":["T081","T024","T011"]},{"type":"ranking","number":409,"field":1,"time":"2026-10-09T14:06:00+09:00","red":["T143","T155","T005"],"blue":["T003","T162","T104"]},{"type":"ranking","number":410,"field":3,"time":"2026-10-09T14:06:00+09:00","red":["T051","T057","T025"],"blue":["T156","T112","T040"]},{"type":"ranking","number":411,"field":4,"time":"2026-10-09T14:06:00+09:00","red":["T098","T100","T034"],"blue":["T013","T071","T068"]},{"type":"ranking","number":412,"field":2,"time":"2026-10-09T14:12:00+09:00","red":["T187","T103","T018"],"blue":["T153","T064","T090"]},{"type":"ranking","number":413,"field":3,"time":"2026-10-09T14:12:00+09:00","red":["T146","T160","T045"],"blue":["T171","T164","T041"]},{"type":"ranking","number":414,"field":5,"time":"2026-10-09T14:12:00+09:00","red":["T110","T144","T186"],"blue":["T033","T021","T145"]},{"type":"ranking","number":415,"field":1,"time":"2026-10-09T14:18:00+09:00","red":["T128","T069","T168"],"blue":["T111","T016","T053"]},{"type":"ranking","number":416,"field":3,"time":"2026-10-09T14:18:00+09:00","red":["T176","T154","T178"],"blue":["T035","T174","T026"]},{"type":"ranking","number":417,"field":4,"time":"2026-10-09T14:18:00+09:00","red":["T165","T004","T019"],"blue":["T177","T022","T139"]},{"type":"ranking","number":418,"field":2,"time":"2026-10-09T14:24:00+09:00","red":["T124","T137","T189"],"blue":["T079","T180","T096"]},{"type":"ranking","number":419,"field":3,"time":"2026-10-09T14:24:00+09:00","red":["T117","T161","T126"],"blue":["T157","T047","T012"]},{"type":"ranking","number":420,"field":5,"time":"2026-10-09T14:24:00+09:00","red":["T091","T009","T010"],"blue":["T052","T094","T116"]},{"type":"ranking","number":421,"field":1,"time":"2026-10-09T14:30:00+09:00","red":["T132","T123","T073"],"blue":["T048","T084","T061"]},{"type":"ranking","number":422,"field":3,"time":"2026-10-09T14:30:00+09:00","red":["T015","T029","T130"],"blue":["T067","T012","T080"]},{"type":"ranking","number":423,"field":4,"time":"2026-10-09T14:30:00+09:00","red":["T182","T185","T010"],"blue":["T069","T187","T034"]},{"type":"ranking","number":424,"field":2,"time":"2026-10-09T14:36:00+09:00","red":["T183","T114","T116"],"blue":["T002","T016","T164"]},{"type":"ranking","number":425,"field":3,"time":"2026-10-09T14:36:00+09:00","red":["T117","T176","T098"],"blue":["T082","T054","T139"]},{"type":"ranking","number":426,"field":5,"time":"2026-10-09T14:36:00+09:00","red":["T055","T091","T025"],"blue":["T133","T154","T063"]},{"type":"ranking","number":427,"field":1,"time":"2026-10-09T14:42:00+09:00","red":["T095","T104","T097"],"blue":["T035","T156","T024"]},{"type":"ranking","number":428,"field":3,"time":"2026-10-09T14:42:00+09:00","red":["T135","T004","T072"],"blue":["T021","T094","T074"]},{"type":"ranking","number":429,"field":4,"time":"2026-10-09T14:42:00+09:00","red":["T011","T122","T053"],"blue":["T188","T111","T064"]},{"type":"ranking","number":430,"field":2,"time":"2026-10-09T14:48:00+09:00","red":["T152","T056","T136"],"blue":["T127","T062","T167"]},{"type":"ranking","number":431,"field":3,"time":"2026-10-09T14:48:00+09:00","red":["T058","T023","T070"],"blue":["T065","T046","T060"]},{"type":"ranking","number":432,"field":5,"time":"2026-10-09T14:48:00+09:00","red":["T051","T118","T110"],"blue":["T124","T081","T100"]},{"type":"ranking","number":433,"field":1,"time":"2026-10-09T14:54:00+09:00","red":["T067","T166","T042"],"blue":["T155","T160","T086"]},{"type":"ranking","number":434,"field":3,"time":"2026-10-09T14:54:00+09:00","red":["T015","T147","T102"],"blue":["T103","T088","T143"]},{"type":"ranking","number":435,"field":4,"time":"2026-10-09T14:54:00+09:00","red":["T171","T077","T115"],"blue":["T043","T170","T089"]},{"type":"ranking","number":436,"field":2,"time":"2026-10-09T15:00:00+09:00","red":["T061","T107","T039"],"blue":["T140","T169","T013"]},{"type":"ranking","number":437,"field":3,"time":"2026-10-09T15:00:00+09:00","red":["T181","T148","T059"],"blue":["T112","T040","T177"]},{"type":"ranking","number":438,"field":5,"time":"2026-10-09T15:00:00+09:00","red":["T145","T020","T179"],"blue":["T120","T052","T038"]},{"type":"ranking","number":439,"field":1,"time":"2026-10-09T15:06:00+09:00","red":["T172","T032","T006"],"blue":["T128","T165","T041"]},{"type":"ranking","number":440,"field":3,"time":"2026-10-09T15:06:00+09:00","red":["T050","T161","T129"],"blue":["T108","T150","T158"]},{"type":"ranking","number":441,"field":4,"time":"2026-10-09T15:06:00+09:00","red":["T137","T005","T096"],"blue":["T044","T162","T113"]},{"type":"ranking","number":442,"field":2,"time":"2026-10-09T15:12:00+09:00","red":["T087","T045","T003"],"blue":["T132","T130","T076"]},{"type":"ranking","number":443,"field":3,"time":"2026-10-09T15:12:00+09:00","red":["T092","T190","T189"],"blue":["T121","T099","T146"]},{"type":"ranking","number":444,"field":5,"time":"2026-10-09T15:12:00+09:00","red":["T075","T174","T033"],"blue":["T149","T123","T159"]},{"type":"ranking","number":445,"field":1,"time":"2026-10-09T15:18:00+09:00","red":["T153","T007","T151"],"blue":["T001","T186","T017"]},{"type":"ranking","number":446,"field":3,"time":"2026-10-09T15:18:00+09:00","red":["T079","T144","T078"],"blue":["T057","T138","T008"]},{"type":"ranking","number":447,"field":4,"time":"2026-10-09T15:18:00+09:00","red":["T071","T049","T134"],"blue":["T014","T126","T085"]},{"type":"ranking","number":448,"field":2,"time":"2026-10-09T15:24:00+09:00","red":["T018","T066","T180"],"blue":["T157","T090","T073"]},{"type":"ranking","number":449,"field":3,"time":"2026-10-09T15:24:00+09:00","red":["T175","T141","T101"],"blue":["T030","T026","T048"]},{"type":"ranking","number":450,"field":5,"time":"2026-10-09T15:24:00+09:00","red":["T019","T184","T109"],"blue":["T173","T047","T119"]},{"type":"ranking","number":451,"field":1,"time":"2026-10-09T15:30:00+09:00","red":["T105","T083","T028"],"blue":["T009","T068","T084"]},{"type":"ranking","number":452,"field":3,"time":"2026-10-09T15:30:00+09:00","red":["T163","T142","T036"],"blue":["T178","T125","T131"]},{"type":"ranking","number":453,"field":4,"time":"2026-10-09T15:30:00+09:00","red":["T106","T029","T022"],"blue":["T027","T168","T031"]},{"type":"ranking","number":454,"field":2,"time":"2026-10-09T15:36:00+09:00","red":["T037","T093","T030"],"blue":["T105","T021","T127"]},{"type":"ranking","number":455,"field":3,"time":"2026-10-09T15:36:00+09:00","red":["T121","T131","T067"],"blue":["T190","T149","T072"]},{"type":"ranking","number":456,"field":5,"time":"2026-10-09T15:36:00+09:00","red":["T184","T018","T153"],"blue":["T119","T066","T175"]},{"type":"ranking","number":457,"field":1,"time":"2026-10-09T15:42:00+09:00","red":["T182","T099","T170"],"blue":["T047","T050","T143"]},{"type":"ranking","number":458,"field":3,"time":"2026-10-09T15:42:00+09:00","red":["T168","T164","T006"],"blue":["T002","T054","T152"]},{"type":"ranking","number":459,"field":4,"time":"2026-10-09T15:42:00+09:00","red":["T045","T185","T040"],"blue":["T084","T138","T003"]},{"type":"ranking","number":460,"field":2,"time":"2026-10-09T15:48:00+09:00","red":["T137","T024","T058"],"blue":["T132","T100","T136"]},{"type":"ranking","number":461,"field":3,"time":"2026-10-09T15:48:00+09:00","red":["T079","T117","T111"],"blue":["T140","T060","T096"]},{"type":"ranking","number":462,"field":5,"time":"2026-10-09T15:48:00+09:00","red":["T189","T156","T036"],"blue":["T091","T078","T034"]},{"type":"ranking","number":463,"field":1,"time":"2026-10-09T15:54:00+09:00","red":["T112","T023","T174"],"blue":["T062","T144","T106"]},{"type":"ranking","number":464,"field":3,"time":"2026-10-09T15:54:00+09:00","red":["T101","T028","T041"],"blue":["T042","T016","T166"]},{"type":"ranking","number":465,"field":4,"time":"2026-10-09T15:54:00+09:00","red":["T102","T146","T157"],"blue":["T113","T169","T019"]},{"type":"ranking","number":466,"field":2,"time":"2026-10-09T16:00:00+09:00","red":["T073","T001","T087"],"blue":["T097","T123","T089"]},{"type":"ranking","number":467,"field":3,"time":"2026-10-09T16:00:00+09:00","red":["T108","T177","T014"],"blue":["T116","T007","T129"]},{"type":"ranking","number":468,"field":5,"time":"2026-10-09T16:00:00+09:00","red":["T188","T017","T059"],"blue":["T172","T104","T065"]},{"type":"ranking","number":469,"field":1,"time":"2026-10-09T16:06:00+09:00","red":["T053","T086","T110"],"blue":["T103","T038","T048"]},{"type":"ranking","number":470,"field":3,"time":"2026-10-09T16:06:00+09:00","red":["T037","T187","T049"],"blue":["T031","T008","T080"]},{"type":"ranking","number":471,"field":4,"time":"2026-10-09T16:06:00+09:00","red":["T124","T081","T130"],"blue":["T044","T133","T068"]},{"type":"ranking","number":472,"field":2,"time":"2026-10-09T16:12:00+09:00","red":["T004","T159","T135"],"blue":["T020","T022","T013"]},{"type":"ranking","number":473,"field":3,"time":"2026-10-09T16:12:00+09:00","red":["T043","T061","T139"],"blue":["T180","T160","T158"]},{"type":"ranking","number":474,"field":5,"time":"2026-10-09T16:12:00+09:00","red":["T025","T134","T151"],"blue":["T148","T090","T122"]},{"type":"ranking","number":475,"field":1,"time":"2026-10-09T16:18:00+09:00","red":["T035","T052","T074"],"blue":["T142","T027","T056"]},{"type":"ranking","number":476,"field":3,"time":"2026-10-09T16:18:00+09:00","red":["T077","T032","T176"],"blue":["T005","T181","T178"]},{"type":"ranking","number":477,"field":4,"time":"2026-10-09T16:18:00+09:00","red":["T051","T114","T163"],"blue":["T126","T165","T088"]},{"type":"ranking","number":478,"field":2,"time":"2026-10-09T16:24:00+09:00","red":["T115","T039","T085"],"blue":["T057","T070","T095"]},{"type":"ranking","number":479,"field":3,"time":"2026-10-09T16:24:00+09:00","red":["T075","T055","T010"],"blue":["T064","T141","T009"]},{"type":"ranking","number":480,"field":5,"time":"2026-10-09T16:24:00+09:00","red":["T015","T154","T012"],"blue":["T094","T083","T183"]},{"type":"ranking","number":481,"field":1,"time":"2026-10-09T16:30:00+09:00","red":["T082","T167","T120"],"blue":["T128","T011","T029"]},{"type":"ranking","number":482,"field":3,"time":"2026-10-09T16:30:00+09:00","red":["T033","T063","T076"],"blue":["T109","T071","T145"]},{"type":"ranking","number":483,"field":4,"time":"2026-10-09T16:30:00+09:00","red":["T118","T026","T161"],"blue":["T093","T150","T147"]},{"type":"ranking","number":484,"field":2,"time":"2026-10-09T16:36:00+09:00","red":["T125","T173","T171"],"blue":["T107","T179","T092"]},{"type":"ranking","number":485,"field":3,"time":"2026-10-09T16:36:00+09:00","red":["T162","T098","T186"],"blue":["T155","T069","T046"]},{"type":"ranking","number":486,"field":5,"time":"2026-10-09T16:36:00+09:00","red":["T080","T134","T146"],"blue":["T135","T023","T118"]},{"type":"ranking","number":487,"field":1,"time":"2026-10-09T16:42:00+09:00","red":["T137","T038","T005"],"blue":["T128","T123","T033"]},{"type":"ranking","number":488,"field":3,"time":"2026-10-09T16:42:00+09:00","red":["T075","T177","T170"],"blue":["T015","T131","T140"]},{"type":"ranking","number":489,"field":4,"time":"2026-10-09T16:42:00+09:00","red":["T124","T058","T095"],"blue":["T085","T067","T013"]},{"type":"ranking","number":490,"field":2,"time":"2026-10-09T16:48:00+09:00","red":["T048","T157","T028"],"blue":["T029","T078","T025"]},{"type":"ranking","number":491,"field":3,"time":"2026-10-09T16:48:00+09:00","red":["T188","T063","T133"],"blue":["T020","T113","T162"]},{"type":"ranking","number":492,"field":5,"time":"2026-10-09T16:48:00+09:00","red":["T181","T006","T077"],"blue":["T064","T054","T182"]},{"type":"ranking","number":493,"field":1,"time":"2026-10-09T16:54:00+09:00","red":["T081","T121","T161"],"blue":["T130","T156","T017"]},{"type":"ranking","number":494,"field":3,"time":"2026-10-09T16:54:00+09:00","red":["T008","T187","T096"],"blue":["T163","T061","T179"]},{"type":"ranking","number":495,"field":4,"time":"2026-10-09T16:54:00+09:00","red":["T165","T127","T079"],"blue":["T045","T021","T001"]},{"type":"ranking","number":496,"field":2,"time":"2026-10-09T17:00:00+09:00","red":["T111","T178","T115"],"blue":["T012","T062","T142"]},{"type":"ranking","number":497,"field":3,"time":"2026-10-09T17:00:00+09:00","red":["T035","T089","T004"],"blue":["T189","T011","T071"]},{"type":"ranking","number":498,"field":5,"time":"2026-10-09T17:00:00+09:00","red":["T065","T126","T122"],"blue":["T109","T019","T138"]},{"type":"ranking","number":499,"field":1,"time":"2026-10-09T17:06:00+09:00","red":["T143","T168","T147"],"blue":["T102","T046","T185"]},{"type":"ranking","number":500,"field":3,"time":"2026-10-09T17:06:00+09:00","red":["T105","T149","T016"],"blue":["T103","T172","T119"]},{"type":"ranking","number":501,"field":4,"time":"2026-10-09T17:06:00+09:00","red":["T007","T145","T091"],"blue":["T110","T174","T030"]},{"type":"ranking","number":502,"field":2,"time":"2026-10-09T17:12:00+09:00","red":["T052","T153","T050"],"blue":["T032","T101","T073"]},{"type":"ranking","number":503,"field":3,"time":"2026-10-09T17:12:00+09:00","red":["T040","T116","T031"],"blue":["T176","T171","T010"]},{"type":"ranking","number":504,"field":5,"time":"2026-10-09T17:12:00+09:00","red":["T112","T059","T002"],"blue":["T099","T041","T092"]},{"type":"ranking","number":505,"field":1,"time":"2026-10-09T17:18:00+09:00","red":["T076","T094","T141"],"blue":["T120","T139","T183"]},{"type":"ranking","number":506,"field":3,"time":"2026-10-09T17:18:00+09:00","red":["T074","T152","T043"],"blue":["T154","T104","T144"]},{"type":"ranking","number":507,"field":4,"time":"2026-10-09T17:18:00+09:00","red":["T053","T164","T100"],"blue":["T057","T034","T169"]},{"type":"ranking","number":508,"field":2,"time":"2026-10-09T17:24:00+09:00","red":["T069","T107","T129"],"blue":["T083","T148","T084"]},{"type":"ranking","number":509,"field":3,"time":"2026-10-09T17:24:00+09:00","red":["T093","T009","T039"],"blue":["T151","T066","T190"]},{"type":"ranking","number":510,"field":5,"time":"2026-10-09T17:24:00+09:00","red":["T098","T082","T056"],"blue":["T072","T060","T167"]},{"type":"playoff","number":1,"field":3,"time":"2026-10-10T10:00:00+09:00","red":["T152","T136","T083"],"blue":["T155","T039","T126"]},{"type":"playoff","number":2,"field":3,"time":"2026-10-10T10:06:00+09:00","red":["T049","T188","T093"],"blue":["T138","T001","T159"]},{"type":"playoff","number":3,"field":3,"time":"2026-10-10T10:12:00+09:00","red":["T062","T102","T037"],"blue":["T176","T092","T181"]},{"type":"playoff","number":4,"field":3,"time":"2026-10-10T10:18:00+09:00","red":["T041","T005","T068"],"blue":["T145","T141","T143"]},{"type":"playoff","number":5,"field":3,"time":"2026-10-10T10:24:00+09:00","red":["T190","T134","T056"],"blue":["T065","T030","T185"]},{"type":"playoff","number":6,"field":3,"time":"2026-10-10T10:30:00+09:00","red":["T105","T091","T118"],"blue":["T183","T017","T090"]},{"type":"playoff","number":7,"field":3,"time":"2026-10-10T10:36:00+09:00","red":["T085","T010","T058"],"blue":["T142","T150","T055"]},{"type":"playoff","number":8,"field":3,"time":"2026-10-10T10:42:00+09:00","red":["T016","T057","T140"],"blue":["T076","T018","T162"]},{"type":"playoff","number":9,"field":3,"time":"2026-10-10T10:48:00+09:00","red":["T099","T164","T027"],"blue":["T160","T101","T054"]},{"type":"playoff","number":10,"field":3,"time":"2026-10-10T10:54:00+09:00","red":["T184","T147","T187"],"blue":["T038","T124","T151"]},{"type":"playoff","number":11,"field":3,"time":"2026-10-10T11:00:00+09:00","red":["T061","T074","T175"],"blue":["T158","T156","T130"]},{"type":"playoff","number":12,"field":3,"time":"2026-10-10T11:06:00+09:00","red":["T047","T009","T115"],"blue":["T024","T112","T117"]},{"type":"playoff","number":13,"field":3,"time":"2026-10-10T11:12:00+09:00","red":["T066","T034","T106"],"blue":["T008","T084","T180"]},{"type":"playoff","number":14,"field":3,"time":"2026-10-10T11:18:00+09:00","red":["T050","T069","T080"],"blue":["T173","T132","T157"]},{"type":"playoff","number":15,"field":3,"time":"2026-10-10T11:24:00+09:00","red":["T031","T111","T079"],"blue":["T128","T015","T113"]},{"type":"playoff","number":16,"field":3,"time":"2026-10-10T11:30:00+09:00","red":["T135","T116","T098"],"blue":["T060","T019","T100"]}]};
+/* Generated by tools/fetch_fgc_data.py from results.first.global. Do not edit by hand. */
+self.FGC_DATA = {
+"event": {
+"id": "FGC_2026-FGC-CMP",
+"name": "2026 FIRST Global Challenge",
+"tz": "Asia/Seoul",
+"source": "results.first.global, fetched 2026-10-08 07:32 UTC"
+},
+"teams": {
+"AFG": {
+"name": "Team Afghanistan",
+"flag": "flags/af.png",
+"country": "Afghanistan"
+},
+"ALB": {
+"name": "Team Albania",
+"flag": "flags/al.png",
+"country": "Albania"
+},
+"ALG": {
+"name": "Team Algeria",
+"flag": "flags/dz.png",
+"country": "Algeria"
+},
+"ANG": {
+"name": "Team Angola",
+"flag": "flags/ao.png",
+"country": "Angola"
+},
+"ANT": {
+"name": "Team Antigua and Barbuda",
+"flag": "flags/ag.png",
+"country": "Antigua and Barbuda"
+},
+"ARG": {
+"name": "Team Argentina",
+"flag": "flags/ar.png",
+"country": "Argentina"
+},
+"ARU": {
+"name": "Team Aruba",
+"flag": "flags/aw.png",
+"country": "Aruba"
+},
+"ASA": {
+"name": "Team American Samoa",
+"flag": "flags/as.png",
+"country": "American Samoa"
+},
+"AUS": {
+"name": "Team Australia",
+"flag": "flags/au.png",
+"country": "Australia"
+},
+"AUT": {
+"name": "Team Austria",
+"flag": "flags/at.png",
+"country": "Austria"
+},
+"AZE": {
+"name": "Team Azerbaijan",
+"flag": "flags/az.png",
+"country": "Azerbaijan"
+},
+"BAN": {
+"name": "Team Bangladesh",
+"flag": "flags/bd.png",
+"country": "Bangladesh"
+},
+"BAR": {
+"name": "Team Barbados",
+"flag": "flags/bb.png",
+"country": "Barbados"
+},
+"BEL": {
+"name": "Team Belgium",
+"flag": "flags/be.png",
+"country": "Belgium"
+},
+"BEN": {
+"name": "Team Benin",
+"flag": "flags/bj.png",
+"country": "Benin"
+},
+"BHU": {
+"name": "Team Bhutan",
+"flag": "flags/bt.png",
+"country": "Bhutan"
+},
+"BIH": {
+"name": "Team Bosnia and Herzegovina",
+"flag": "flags/ba.png",
+"country": "Bosnia and Herzegovina"
+},
+"BIZ": {
+"name": "Team Belize",
+"flag": "flags/bz.png",
+"country": "Belize"
+},
+"BLR": {
+"name": "Team Belarus",
+"flag": "flags/by.png",
+"country": "Belarus"
+},
+"BOL": {
+"name": "Team Bolivia",
+"flag": "flags/bo.png",
+"country": "Bolivia"
+},
+"BOT": {
+"name": "Team Botswana",
+"flag": "flags/bw.png",
+"country": "Botswana"
+},
+"BRA": {
+"name": "Team Brazil",
+"flag": "flags/br.png",
+"country": "Brazil"
+},
+"BRU": {
+"name": "Team Brunei Darussalam",
+"flag": "flags/bn.png",
+"country": "Brunei Darussalam"
+},
+"BUL": {
+"name": "Team Bulgaria",
+"flag": "flags/bg.png",
+"country": "Bulgaria"
+},
+"BUR": {
+"name": "Team Burkina Faso",
+"flag": "flags/bf.png",
+"country": "Burkina Faso"
+},
+"CAF": {
+"name": "Team Central African Republic",
+"flag": "flags/cf.png",
+"country": "Central African Republic"
+},
+"CAM": {
+"name": "Team Cambodia",
+"flag": "flags/kh.png",
+"country": "Cambodia"
+},
+"CAN": {
+"name": "Team Canada",
+"flag": "flags/ca.png",
+"country": "Canada"
+},
+"CAY": {
+"name": "Team Cayman Islands",
+"flag": "flags/ky.png",
+"country": "Cayman Islands"
+},
+"CGO": {
+"name": "Team Congo",
+"flag": "flags/cg.png",
+"country": "Congo"
+},
+"CHA": {
+"name": "Team Chad",
+"flag": "flags/td.png",
+"country": "Chad"
+},
+"CHI": {
+"name": "Team Chile",
+"flag": "flags/cl.png",
+"country": "Chile"
+},
+"CHN": {
+"name": "Team People's Republic of China",
+"flag": "flags/cn.png",
+"country": "People's Republic of China"
+},
+"CIV": {
+"name": "Team Côte d'Ivoire",
+"flag": "flags/ci.png",
+"country": "Côte d'Ivoire"
+},
+"CMR": {
+"name": "Team Cameroon",
+"flag": "flags/cm.png",
+"country": "Cameroon"
+},
+"COD": {
+"name": "Team Democratic Republic of the Congo",
+"flag": "flags/cd.png",
+"country": "Democratic Republic of the Congo"
+},
+"COK": {
+"name": "Team Cook Islands",
+"flag": "flags/ck.png",
+"country": "Cook Islands"
+},
+"COL": {
+"name": "Team Colombia",
+"flag": "flags/co.png",
+"country": "Colombia"
+},
+"COM": {
+"name": "Team Comoros",
+"flag": "flags/km.png",
+"country": "Comoros"
+},
+"CPV": {
+"name": "Team Cabo Verde",
+"flag": "flags/cv.png",
+"country": "Cabo Verde"
+},
+"CRC": {
+"name": "Team Costa Rica",
+"flag": "flags/cr.png",
+"country": "Costa Rica"
+},
+"CRO": {
+"name": "Team Croatia",
+"flag": "flags/hr.png",
+"country": "Croatia"
+},
+"CUB": {
+"name": "Team Cuba",
+"flag": "flags/cu.png",
+"country": "Cuba"
+},
+"CZE": {
+"name": "Team Czechia",
+"flag": "flags/cz.png",
+"country": "Czechia"
+},
+"DEN": {
+"name": "Team Denmark",
+"flag": "flags/dk.png",
+"country": "Denmark"
+},
+"DJI": {
+"name": "Team Djibouti",
+"flag": "flags/dj.png",
+"country": "Djibouti"
+},
+"DMA": {
+"name": "Team Dominica",
+"flag": "flags/dm.png",
+"country": "Dominica"
+},
+"DOM": {
+"name": "Team Dominican Republic",
+"flag": "flags/do.png",
+"country": "Dominican Republic"
+},
+"ECU": {
+"name": "Team Ecuador",
+"flag": "flags/ec.png",
+"country": "Ecuador"
+},
+"EGY": {
+"name": "Team Egypt",
+"flag": "flags/eg.png",
+"country": "Egypt"
+},
+"ERI": {
+"name": "Team Eritrea",
+"flag": "flags/er.png",
+"country": "Eritrea"
+},
+"ESA": {
+"name": "Team El Salvador",
+"flag": "flags/sv.png",
+"country": "El Salvador"
+},
+"ESP": {
+"name": "Team Spain",
+"flag": "flags/es.png",
+"country": "Spain"
+},
+"EST": {
+"name": "Team Estonia",
+"flag": "flags/ee.png",
+"country": "Estonia"
+},
+"ETH": {
+"name": "Team Ethiopia",
+"flag": "flags/et.png",
+"country": "Ethiopia"
+},
+"FIJ": {
+"name": "Team Fiji",
+"flag": "flags/fj.png",
+"country": "Fiji"
+},
+"FIN": {
+"name": "Team Finland",
+"flag": "flags/fi.png",
+"country": "Finland"
+},
+"FRA": {
+"name": "Team France",
+"flag": "flags/fr.png",
+"country": "France"
+},
+"FSM": {
+"name": "Team Federated States of Micronesia",
+"flag": "flags/fm.png",
+"country": "Federated States of Micronesia"
+},
+"GAB": {
+"name": "Team Gabon",
+"flag": "flags/ga.png",
+"country": "Gabon"
+},
+"GAM": {
+"name": "Team Gambia",
+"flag": "flags/gm.png",
+"country": "Gambia"
+},
+"GBR": {
+"name": "Team Great Britain",
+"flag": "flags/gb.png",
+"country": "Great Britain"
+},
+"GBS": {
+"name": "Team Guinea-Bissau",
+"flag": "flags/gw.png",
+"country": "Guinea-Bissau"
+},
+"GEO": {
+"name": "Team Georgia",
+"flag": "flags/ge.png",
+"country": "Georgia"
+},
+"GEQ": {
+"name": "Team Equatorial Guinea",
+"flag": "flags/gq.png",
+"country": "Equatorial Guinea"
+},
+"GER": {
+"name": "Team Germany",
+"flag": "flags/de.png",
+"country": "Germany"
+},
+"GHA": {
+"name": "Team Ghana",
+"flag": "flags/gh.png",
+"country": "Ghana"
+},
+"GRE": {
+"name": "Team Greece",
+"flag": "flags/gr.png",
+"country": "Greece"
+},
+"GRN": {
+"name": "Team Grenada",
+"flag": "flags/gd.png",
+"country": "Grenada"
+},
+"GUA": {
+"name": "Team Guatemala",
+"flag": "flags/gt.png",
+"country": "Guatemala"
+},
+"GUI": {
+"name": "Team Guinea",
+"flag": "flags/gn.png",
+"country": "Guinea"
+},
+"GUM": {
+"name": "Team Guam",
+"flag": "flags/gu.png",
+"country": "Guam"
+},
+"GUY": {
+"name": "Team Guyana",
+"flag": "flags/gy.png",
+"country": "Guyana"
+},
+"HAI": {
+"name": "Team Haiti",
+"flag": "flags/ht.png",
+"country": "Haiti"
+},
+"HKG": {
+"name": "Team Hong Kong, China",
+"flag": "flags/hk.png",
+"country": "Hong Kong, China"
+},
+"HON": {
+"name": "Team Honduras",
+"flag": "flags/hn.png",
+"country": "Honduras"
+},
+"HPE": {
+"name": "Team Hope (Refugees)",
+"flag": "flags/10_hope.png"
+},
+"HUN": {
+"name": "Team Hungary",
+"flag": "flags/hu.png",
+"country": "Hungary"
+},
+"INA": {
+"name": "Team Indonesia",
+"flag": "flags/id.png",
+"country": "Indonesia"
+},
+"IND": {
+"name": "Team India",
+"flag": "flags/in.png",
+"country": "India"
+},
+"IRI": {
+"name": "Team Islamic Republic of Iran",
+"flag": "flags/ir.png",
+"country": "Islamic Republic of Iran"
+},
+"IRL": {
+"name": "Team Ireland",
+"flag": "flags/ie.png",
+"country": "Ireland"
+},
+"IRQ": {
+"name": "Team Iraq",
+"flag": "flags/iq.png",
+"country": "Iraq"
+},
+"ISR": {
+"name": "Team Israel",
+"flag": "flags/il.png",
+"country": "Israel"
+},
+"ISV": {
+"name": "Team U.S. Virgin Islands",
+"flag": "flags/vi.png",
+"country": "U.S. Virgin Islands"
+},
+"ITA": {
+"name": "Team Italy",
+"flag": "flags/it.png",
+"country": "Italy"
+},
+"IVB": {
+"name": "Team British Virgin Islands",
+"flag": "flags/vg.png",
+"country": "British Virgin Islands"
+},
+"JAM": {
+"name": "Team Jamaica",
+"flag": "flags/jm.png",
+"country": "Jamaica"
+},
+"JOR": {
+"name": "Team Jordan",
+"flag": "flags/jo.png",
+"country": "Jordan"
+},
+"JPN": {
+"name": "Team Japan",
+"flag": "flags/jp.png",
+"country": "Japan"
+},
+"KAZ": {
+"name": "Team Kazakhstan",
+"flag": "flags/kz.png",
+"country": "Kazakhstan"
+},
+"KEN": {
+"name": "Team Kenya",
+"flag": "flags/ke.png",
+"country": "Kenya"
+},
+"KGZ": {
+"name": "Team Kyrgyzstan",
+"flag": "flags/kg.png",
+"country": "Kyrgyzstan"
+},
+"KIR": {
+"name": "Team Kiribati",
+"flag": "flags/ki.png",
+"country": "Kiribati"
+},
+"KOR": {
+"name": "Team Republic of Korea",
+"flag": "flags/kr.png",
+"country": "Republic of Korea"
+},
+"KOS": {
+"name": "Team Kosovo",
+"flag": "flags/xk.png",
+"country": "Kosovo"
+},
+"LAO": {
+"name": "Team Lao People's Democratic Republic",
+"flag": "flags/la.png",
+"country": "Lao People's Democratic Republic"
+},
+"LAT": {
+"name": "Team Latvia",
+"flag": "flags/lv.png",
+"country": "Latvia"
+},
+"LBA": {
+"name": "Team Libya",
+"flag": "flags/ly.png",
+"country": "Libya"
+},
+"LBN": {
+"name": "Team Lebanon",
+"flag": "flags/lb.png",
+"country": "Lebanon"
+},
+"LBR": {
+"name": "Team Liberia",
+"flag": "flags/lr.png",
+"country": "Liberia"
+},
+"LCA": {
+"name": "Team Saint Lucia",
+"flag": "flags/lc.png",
+"country": "Saint Lucia"
+},
+"LES": {
+"name": "Team Lesotho",
+"flag": "flags/ls.png",
+"country": "Lesotho"
+},
+"LTU": {
+"name": "Team Lithuania",
+"flag": "flags/lt.png",
+"country": "Lithuania"
+},
+"LUX": {
+"name": "Team Luxembourg",
+"flag": "flags/lu.png",
+"country": "Luxembourg"
+},
+"MAD": {
+"name": "Team Madagascar",
+"flag": "flags/mg.png",
+"country": "Madagascar"
+},
+"MAR": {
+"name": "Team Morocco",
+"flag": "flags/ma.png",
+"country": "Morocco"
+},
+"MAS": {
+"name": "Team Malaysia",
+"flag": "flags/my.png",
+"country": "Malaysia"
+},
+"MAW": {
+"name": "Team Malawi",
+"flag": "flags/mw.png",
+"country": "Malawi"
+},
+"MDA": {
+"name": "Team Republic of Moldova",
+"flag": "flags/md.png",
+"country": "Republic of Moldova"
+},
+"MDV": {
+"name": "Team Maldives",
+"flag": "flags/mv.png",
+"country": "Maldives"
+},
+"MEX": {
+"name": "Team Mexico",
+"flag": "flags/mx.png",
+"country": "Mexico"
+},
+"MGL": {
+"name": "Team Mongolia",
+"flag": "flags/mn.png",
+"country": "Mongolia"
+},
+"MHL": {
+"name": "Team Marshall Islands",
+"flag": "flags/mh.png",
+"country": "Marshall Islands"
+},
+"MKD": {
+"name": "Team North Macedonia",
+"flag": "flags/mk.png",
+"country": "North Macedonia"
+},
+"MLI": {
+"name": "Team Mali",
+"flag": "flags/ml.png",
+"country": "Mali"
+},
+"MLT": {
+"name": "Team Malta",
+"flag": "flags/mt.png",
+"country": "Malta"
+},
+"MNE": {
+"name": "Team Montenegro",
+"flag": "flags/me.png",
+"country": "Montenegro"
+},
+"MOZ": {
+"name": "Team Mozambique",
+"flag": "flags/mz.png",
+"country": "Mozambique"
+},
+"MRI": {
+"name": "Team Mauritius",
+"flag": "flags/mu.png",
+"country": "Mauritius"
+},
+"MTN": {
+"name": "Team Mauritania",
+"flag": "flags/mr.png",
+"country": "Mauritania"
+},
+"MYA": {
+"name": "Team Myanmar",
+"flag": "flags/mm.png",
+"country": "Myanmar"
+},
+"NAM": {
+"name": "Team Namibia",
+"flag": "flags/na.png",
+"country": "Namibia"
+},
+"NCA": {
+"name": "Team Nicaragua",
+"flag": "flags/ni.png",
+"country": "Nicaragua"
+},
+"NED": {
+"name": "Team Netherlands",
+"flag": "flags/nl.png",
+"country": "Netherlands"
+},
+"NEP": {
+"name": "Team Nepal",
+"flag": "flags/np.png",
+"country": "Nepal"
+},
+"NGR": {
+"name": "Team Nigeria",
+"flag": "flags/ng.png",
+"country": "Nigeria"
+},
+"NIG": {
+"name": "Team Niger",
+"flag": "flags/ne.png",
+"country": "Niger"
+},
+"NOR": {
+"name": "Team Norway",
+"flag": "flags/no.png",
+"country": "Norway"
+},
+"OMA": {
+"name": "Team Oman",
+"flag": "flags/om.png",
+"country": "Oman"
+},
+"PAK": {
+"name": "Team Pakistan",
+"flag": "flags/pk.png",
+"country": "Pakistan"
+},
+"PAN": {
+"name": "Team Panama",
+"flag": "flags/pa.png",
+"country": "Panama"
+},
+"PAR": {
+"name": "Team Paraguay",
+"flag": "flags/py.png",
+"country": "Paraguay"
+},
+"PER": {
+"name": "Team Peru",
+"flag": "flags/pe.png",
+"country": "Peru"
+},
+"PHI": {
+"name": "Team Philippines",
+"flag": "flags/ph.png",
+"country": "Philippines"
+},
+"PLE": {
+"name": "Team Palestine",
+"flag": "flags/ps.png",
+"country": "Palestine"
+},
+"PNG": {
+"name": "Team Papua New Guinea",
+"flag": "flags/pg.png",
+"country": "Papua New Guinea"
+},
+"POL": {
+"name": "Team Poland",
+"flag": "flags/pl.png",
+"country": "Poland"
+},
+"POR": {
+"name": "Team Portugal",
+"flag": "flags/pt.png",
+"country": "Portugal"
+},
+"PUR": {
+"name": "Team Puerto Rico",
+"flag": "flags/pr.png",
+"country": "Puerto Rico"
+},
+"QAT": {
+"name": "Team Qatar",
+"flag": "flags/qa.png",
+"country": "Qatar"
+},
+"ROU": {
+"name": "Team Romania",
+"flag": "flags/ro.png",
+"country": "Romania"
+},
+"RSA": {
+"name": "Team South Africa",
+"flag": "flags/za.png",
+"country": "South Africa"
+},
+"RUS": {
+"name": "Team Russian Federation",
+"flag": "flags/ru.png",
+"country": "Russian Federation"
+},
+"RWA": {
+"name": "Team Rwanda",
+"flag": "flags/rw.png",
+"country": "Rwanda"
+},
+"SEN": {
+"name": "Team Senegal",
+"flag": "flags/sn.png",
+"country": "Senegal"
+},
+"SEY": {
+"name": "Team Seychelles",
+"flag": "flags/sc.png",
+"country": "Seychelles"
+},
+"SKN": {
+"name": "Team Saint Kitts and Nevis",
+"flag": "flags/kn.png",
+"country": "Saint Kitts and Nevis"
+},
+"SLE": {
+"name": "Team Sierra Leone",
+"flag": "flags/sl.png",
+"country": "Sierra Leone"
+},
+"SLO": {
+"name": "Team Slovenia",
+"flag": "flags/si.png",
+"country": "Slovenia"
+},
+"SOL": {
+"name": "Team Solomon Islands",
+"flag": "flags/sb.png",
+"country": "Solomon Islands"
+},
+"SOM": {
+"name": "Team Somalia",
+"flag": "flags/so.png",
+"country": "Somalia"
+},
+"SRB": {
+"name": "Team Serbia",
+"flag": "flags/rs.png",
+"country": "Serbia"
+},
+"SRI": {
+"name": "Team Sri Lanka",
+"flag": "flags/lk.png",
+"country": "Sri Lanka"
+},
+"SSD": {
+"name": "Team South Sudan",
+"flag": "flags/ss.png",
+"country": "South Sudan"
+},
+"STP": {
+"name": "Team São Tomé and Príncipe",
+"flag": "flags/st.png",
+"country": "São Tomé and Príncipe"
+},
+"SUD": {
+"name": "Team Sudan",
+"flag": "flags/sd.png",
+"country": "Sudan"
+},
+"SVK": {
+"name": "Team Slovakia",
+"flag": "flags/sk.png",
+"country": "Slovakia"
+},
+"SWE": {
+"name": "Team Sweden",
+"flag": "flags/se.png",
+"country": "Sweden"
+},
+"SWZ": {
+"name": "Team Eswatini",
+"flag": "flags/sz.png",
+"country": "Eswatini"
+},
+"SYR": {
+"name": "Team Syrian Arab Republic",
+"flag": "flags/sy.png",
+"country": "Syrian Arab Republic"
+},
+"TAN": {
+"name": "Team United Republic of Tanzania",
+"flag": "flags/tz.png",
+"country": "United Republic of Tanzania"
+},
+"TGA": {
+"name": "Team Tonga",
+"flag": "flags/to.png",
+"country": "Tonga"
+},
+"THA": {
+"name": "Team Thailand",
+"flag": "flags/th.png",
+"country": "Thailand"
+},
+"TJK": {
+"name": "Team Tajikistan",
+"flag": "flags/tj.png",
+"country": "Tajikistan"
+},
+"TKM": {
+"name": "Team Turkmenistan",
+"flag": "flags/tm.png",
+"country": "Turkmenistan"
+},
+"TLS": {
+"name": "Team Timor-Leste",
+"flag": "flags/tl.png",
+"country": "Timor-Leste"
+},
+"TOG": {
+"name": "Team Togo",
+"flag": "flags/tg.png",
+"country": "Togo"
+},
+"TPE": {
+"name": "Team Chinese Taipei",
+"flag": "flags/tw.png",
+"country": "Chinese Taipei"
+},
+"TTO": {
+"name": "Team Trinidad and Tobago",
+"flag": "flags/tt.png",
+"country": "Trinidad and Tobago"
+},
+"TUN": {
+"name": "Team Tunisia",
+"flag": "flags/tn.png",
+"country": "Tunisia"
+},
+"TUR": {
+"name": "Team Türkiye",
+"flag": "flags/tr.png",
+"country": "Türkiye"
+},
+"UAE": {
+"name": "Team United Arab Emirates",
+"flag": "flags/ae.png",
+"country": "United Arab Emirates"
+},
+"UGA": {
+"name": "Team Uganda",
+"flag": "flags/ug.png",
+"country": "Uganda"
+},
+"UKR": {
+"name": "Team Ukraine",
+"flag": "flags/ua.png",
+"country": "Ukraine"
+},
+"URU": {
+"name": "Team Uruguay",
+"flag": "flags/uy.png",
+"country": "Uruguay"
+},
+"USA": {
+"name": "Team United States of America",
+"flag": "flags/us.png",
+"country": "United States of America"
+},
+"UZB": {
+"name": "Team Uzbekistan",
+"flag": "flags/uz.png",
+"country": "Uzbekistan"
+},
+"VAN": {
+"name": "Team Vanuatu",
+"flag": "flags/vu.png",
+"country": "Vanuatu"
+},
+"VEN": {
+"name": "Team Venezuela",
+"flag": "flags/ve.png",
+"country": "Venezuela"
+},
+"VIE": {
+"name": "Team Vietnam",
+"flag": "flags/vn.png",
+"country": "Vietnam"
+},
+"VIN": {
+"name": "Team Saint Vincent and the Grenadines",
+"flag": "flags/vc.png",
+"country": "Saint Vincent and the Grenadines"
+},
+"YEM": {
+"name": "Team Yemen",
+"flag": "flags/ye.png",
+"country": "Yemen"
+},
+"ZAM": {
+"name": "Team Zambia",
+"flag": "flags/zm.png",
+"country": "Zambia"
+},
+"ZIM": {
+"name": "Team Zimbabwe",
+"flag": "flags/zw.png",
+"country": "Zimbabwe"
+}
+},
+"matches": [
+{
+"id": "t2-1",
+"type": "ranking",
+"number": 1,
+"name": "Ranking Match 1",
+"field": 1,
+"time": "2026-10-08T11:15:00.900+09:00",
+"red": [
+"SLE",
+"ARU",
+"AFG"
+],
+"blue": [
+"ANG",
+"SRB",
+"NOR"
+]
+},
+{
+"id": "t2-3",
+"type": "ranking",
+"number": 3,
+"name": "Ranking Match 3",
+"field": 3,
+"time": "2026-10-08T11:15:00.900+09:00",
+"red": [
+"JPN",
+"COD",
+"COL"
+],
+"blue": [
+"LTU",
+"CPV",
+"MAW"
+]
+},
+{
+"id": "t2-2",
+"type": "ranking",
+"number": 2,
+"name": "Ranking Match 2",
+"field": 4,
+"time": "2026-10-08T11:15:00.900+09:00",
+"red": [
+"URU",
+"CRC",
+"RUS"
+],
+"blue": [
+"KAZ",
+"VAN",
+"KOS"
+]
+},
+{
+"id": "t2-4",
+"type": "ranking",
+"number": 4,
+"name": "Ranking Match 4",
+"field": 2,
+"time": "2026-10-08T11:23:00.900+09:00",
+"red": [
+"MLI",
+"BOT",
+"ETH"
+],
+"blue": [
+"BOL",
+"MHL",
+"SWE"
+]
+},
+{
+"id": "t2-6",
+"type": "ranking",
+"number": 6,
+"name": "Ranking Match 6",
+"field": 3,
+"time": "2026-10-08T11:23:00.900+09:00",
+"red": [
+"FSM",
+"BLR",
+"UKR"
+],
+"blue": [
+"CAM",
+"GEO",
+"MNE"
+]
+},
+{
+"id": "t2-5",
+"type": "ranking",
+"number": 5,
+"name": "Ranking Match 5",
+"field": 5,
+"time": "2026-10-08T11:23:00.900+09:00",
+"red": [
+"POL",
+"PNG",
+"CAY"
+],
+"blue": [
+"MAD",
+"MYA",
+"PHI"
+]
+},
+{
+"id": "t2-7",
+"type": "ranking",
+"number": 7,
+"name": "Ranking Match 7",
+"field": 1,
+"time": "2026-10-08T11:31:00.900+09:00",
+"red": [
+"ASA",
+"ECU",
+"CIV"
+],
+"blue": [
+"TGA",
+"CRO",
+"ANT"
+]
+},
+{
+"id": "t2-9",
+"type": "ranking",
+"number": 9,
+"name": "Ranking Match 9",
+"field": 3,
+"time": "2026-10-08T11:31:00.900+09:00",
+"red": [
+"KOR",
+"MKD",
+"KIR"
+],
+"blue": [
+"BUL",
+"BIZ",
+"SYR"
+]
+},
+{
+"id": "t2-8",
+"type": "ranking",
+"number": 8,
+"name": "Ranking Match 8",
+"field": 4,
+"time": "2026-10-08T11:31:00.900+09:00",
+"red": [
+"TPE",
+"YEM",
+"FRA"
+],
+"blue": [
+"CHN",
+"ZAM",
+"BRA"
+]
+},
+{
+"id": "t2-10",
+"type": "ranking",
+"number": 10,
+"name": "Ranking Match 10",
+"field": 2,
+"time": "2026-10-08T11:39:00.900+09:00",
+"red": [
+"SKN",
+"VIN",
+"INA"
+],
+"blue": [
+"PAN",
+"GUM",
+"COM"
+]
+},
+{
+"id": "t2-12",
+"type": "ranking",
+"number": 12,
+"name": "Ranking Match 12",
+"field": 3,
+"time": "2026-10-08T11:39:00.900+09:00",
+"red": [
+"KEN",
+"MDA",
+"FIN"
+],
+"blue": [
+"MRI",
+"TTO",
+"IRL"
+]
+},
+{
+"id": "t2-11",
+"type": "ranking",
+"number": 11,
+"name": "Ranking Match 11",
+"field": 5,
+"time": "2026-10-08T11:39:00.900+09:00",
+"red": [
+"AZE",
+"MDV",
+"MTN"
+],
+"blue": [
+"LCA",
+"SSD",
+"RWA"
+]
+},
+{
+"id": "t2-13",
+"type": "ranking",
+"number": 13,
+"name": "Ranking Match 13",
+"field": 1,
+"time": "2026-10-08T11:47:00.900+09:00",
+"red": [
+"ALG",
+"SOL",
+"SUD"
+],
+"blue": [
+"UZB",
+"HUN",
+"MEX"
+]
+},
+{
+"id": "t2-15",
+"type": "ranking",
+"number": 15,
+"name": "Ranking Match 15",
+"field": 3,
+"time": "2026-10-08T11:47:00.900+09:00",
+"red": [
+"CMR",
+"DMA",
+"RSA"
+],
+"blue": [
+"SOM",
+"JOR",
+"TJK"
+]
+},
+{
+"id": "t2-14",
+"type": "ranking",
+"number": 14,
+"name": "Ranking Match 14",
+"field": 4,
+"time": "2026-10-08T11:47:00.900+09:00",
+"red": [
+"GBS",
+"BAN",
+"ZIM"
+],
+"blue": [
+"PAK",
+"IVB",
+"SEN"
+]
+},
+{
+"id": "t2-16",
+"type": "ranking",
+"number": 16,
+"name": "Ranking Match 16",
+"field": 2,
+"time": "2026-10-08T11:55:00.900+09:00",
+"red": [
+"GAB",
+"HPE",
+"BHU"
+],
+"blue": [
+"NIG",
+"COK",
+"ITA"
+]
+},
+{
+"id": "t2-18",
+"type": "ranking",
+"number": 18,
+"name": "Ranking Match 18",
+"field": 3,
+"time": "2026-10-08T11:55:00.900+09:00",
+"red": [
+"CZE",
+"TUR",
+"GHA"
+],
+"blue": [
+"TKM",
+"ESP",
+"DEN"
+]
+},
+{
+"id": "t2-17",
+"type": "ranking",
+"number": 17,
+"name": "Ranking Match 17",
+"field": 5,
+"time": "2026-10-08T11:55:00.900+09:00",
+"red": [
+"BEN",
+"ALB",
+"ESA"
+],
+"blue": [
+"BAR",
+"CGO",
+"EST"
+]
+},
+{
+"id": "t2-19",
+"type": "ranking",
+"number": 19,
+"name": "Ranking Match 19",
+"field": 1,
+"time": "2026-10-08T12:03:00.900+09:00",
+"red": [
+"BUR",
+"SLO",
+"CUB"
+],
+"blue": [
+"PAR",
+"NAM",
+"IND"
+]
+},
+{
+"id": "t2-21",
+"type": "ranking",
+"number": 21,
+"name": "Ranking Match 21",
+"field": 3,
+"time": "2026-10-08T12:03:00.900+09:00",
+"red": [
+"GUY",
+"BRU",
+"GRE"
+],
+"blue": [
+"LAT",
+"CHA",
+"GUA"
+]
+},
+{
+"id": "t2-20",
+"type": "ranking",
+"number": 20,
+"name": "Ranking Match 20",
+"field": 4,
+"time": "2026-10-08T12:03:00.900+09:00",
+"red": [
+"HAI",
+"ERI",
+"USA"
+],
+"blue": [
+"EGY",
+"LBN",
+"BEL"
+]
+},
+{
+"id": "t2-22",
+"type": "ranking",
+"number": 22,
+"name": "Ranking Match 22",
+"field": 2,
+"time": "2026-10-08T12:11:00.900+09:00",
+"red": [
+"BIH",
+"JAM",
+"LBR"
+],
+"blue": [
+"IRQ",
+"ROU",
+"TOG"
+]
+},
+{
+"id": "t2-24",
+"type": "ranking",
+"number": 24,
+"name": "Ranking Match 24",
+"field": 3,
+"time": "2026-10-08T12:11:00.900+09:00",
+"red": [
+"SVK",
+"CHI",
+"GRN"
+],
+"blue": [
+"HON",
+"IRI",
+"NCA"
+]
+},
+{
+"id": "t2-23",
+"type": "ranking",
+"number": 23,
+"name": "Ranking Match 23",
+"field": 5,
+"time": "2026-10-08T12:11:00.900+09:00",
+"red": [
+"MLT",
+"MGL",
+"MAS"
+],
+"blue": [
+"MAR",
+"KGZ",
+"NGR"
+]
+},
+{
+"id": "t2-25",
+"type": "ranking",
+"number": 25,
+"name": "Ranking Match 25",
+"field": 1,
+"time": "2026-10-08T12:19:00.900+09:00",
+"red": [
+"ISV",
+"TUN",
+"GBR"
+],
+"blue": [
+"PER",
+"THA",
+"PLE"
+]
+},
+{
+"id": "t2-27",
+"type": "ranking",
+"number": 27,
+"name": "Ranking Match 27",
+"field": 3,
+"time": "2026-10-08T12:19:00.900+09:00",
+"red": [
+"ISR",
+"DJI",
+"TLS"
+],
+"blue": [
+"DOM",
+"FIJ",
+"TAN"
+]
+},
+{
+"id": "t2-26",
+"type": "ranking",
+"number": 26,
+"name": "Ranking Match 26",
+"field": 4,
+"time": "2026-10-08T12:19:00.900+09:00",
+"red": [
+"PUR",
+"LBA",
+"MOZ"
+],
+"blue": [
+"STP",
+"OMA",
+"HKG"
+]
+},
+{
+"id": "t2-28",
+"type": "ranking",
+"number": 28,
+"name": "Ranking Match 28",
+"field": 2,
+"time": "2026-10-08T12:27:00.900+09:00",
+"red": [
+"QAT",
+"CAF",
+"AUT"
+],
+"blue": [
+"LUX",
+"UGA",
+"SWZ"
+]
+},
+{
+"id": "t2-30",
+"type": "ranking",
+"number": 30,
+"name": "Ranking Match 30",
+"field": 3,
+"time": "2026-10-08T12:27:00.900+09:00",
+"red": [
+"GER",
+"LAO",
+"GUI"
+],
+"blue": [
+"GEQ",
+"SRI",
+"SEY"
+]
+},
+{
+"id": "t2-29",
+"type": "ranking",
+"number": 29,
+"name": "Ranking Match 29",
+"field": 5,
+"time": "2026-10-08T12:27:00.900+09:00",
+"red": [
+"GAM",
+"VEN",
+"POR"
+],
+"blue": [
+"CAN",
+"AUS",
+"ARG"
+]
+},
+{
+"id": "t2-31",
+"type": "ranking",
+"number": 31,
+"name": "Ranking Match 31",
+"field": 1,
+"time": "2026-10-08T12:35:00.900+09:00",
+"red": [
+"NEP",
+"UAE",
+"ECU"
+],
+"blue": [
+"NED",
+"LES",
+"VIE"
+]
+},
+{
+"id": "t2-33",
+"type": "ranking",
+"number": 33,
+"name": "Ranking Match 33",
+"field": 3,
+"time": "2026-10-08T12:35:00.900+09:00",
+"red": [
+"MTN",
+"MKD",
+"ITA"
+],
+"blue": [
+"PAK",
+"ANT",
+"PAN"
+]
+},
+{
+"id": "t2-32",
+"type": "ranking",
+"number": 32,
+"name": "Ranking Match 32",
+"field": 4,
+"time": "2026-10-08T12:35:00.900+09:00",
+"red": [
+"FRA",
+"BOT",
+"SLE"
+],
+"blue": [
+"IVB",
+"COM",
+"KEN"
+]
+},
+{
+"id": "t2-34",
+"type": "ranking",
+"number": 34,
+"name": "Ranking Match 34",
+"field": 2,
+"time": "2026-10-08T12:43:00.900+09:00",
+"red": [
+"AZE",
+"FIN",
+"MHL"
+],
+"blue": [
+"KOR",
+"CMR",
+"ALG"
+]
+},
+{
+"id": "t2-36",
+"type": "ranking",
+"number": 36,
+"name": "Ranking Match 36",
+"field": 3,
+"time": "2026-10-08T12:43:00.900+09:00",
+"red": [
+"SLO",
+"TJK",
+"ESP"
+],
+"blue": [
+"ESA",
+"COK",
+"JPN"
+]
+},
+{
+"id": "t2-35",
+"type": "ranking",
+"number": 35,
+"name": "Ranking Match 35",
+"field": 5,
+"time": "2026-10-08T12:43:00.900+09:00",
+"red": [
+"CUB",
+"VAN",
+"SOM"
+],
+"blue": [
+"ETH",
+"GHA",
+"LCA"
+]
+},
+{
+"id": "t2-37",
+"type": "ranking",
+"number": 37,
+"name": "Ranking Match 37",
+"field": 1,
+"time": "2026-10-08T12:51:00.900+09:00",
+"red": [
+"NOR",
+"CAM",
+"IRL"
+],
+"blue": [
+"COL",
+"CRO",
+"CRC"
+]
+},
+{
+"id": "t2-39",
+"type": "ranking",
+"number": 39,
+"name": "Ranking Match 39",
+"field": 3,
+"time": "2026-10-08T12:51:00.900+09:00",
+"red": [
+"SSD",
+"ANG",
+"MLT"
+],
+"blue": [
+"MLI",
+"NIG",
+"GUA"
+]
+},
+{
+"id": "t2-38",
+"type": "ranking",
+"number": 38,
+"name": "Ranking Match 38",
+"field": 4,
+"time": "2026-10-08T12:51:00.900+09:00",
+"red": [
+"GUY",
+"USA",
+"KAZ"
+],
+"blue": [
+"JOR",
+"LBR",
+"BAR"
+]
+},
+{
+"id": "t2-40",
+"type": "ranking",
+"number": 40,
+"name": "Ranking Match 40",
+"field": 2,
+"time": "2026-10-08T14:00:00.900+09:00",
+"red": [
+"DEN",
+"BIH",
+"PAR"
+],
+"blue": [
+"CGO",
+"GBS",
+"HPE"
+]
+},
+{
+"id": "t2-42",
+"type": "ranking",
+"number": 42,
+"name": "Ranking Match 42",
+"field": 3,
+"time": "2026-10-08T14:00:00.900+09:00",
+"red": [
+"CZE",
+"CAY",
+"IRI"
+],
+"blue": [
+"TPE",
+"TUN",
+"GRE"
+]
+},
+{
+"id": "t2-41",
+"type": "ranking",
+"number": 41,
+"name": "Ranking Match 41",
+"field": 5,
+"time": "2026-10-08T14:00:00.900+09:00",
+"red": [
+"CPV",
+"BOL",
+"PHI"
+],
+"blue": [
+"ZIM",
+"MNE",
+"CHA"
+]
+},
+{
+"id": "t2-43",
+"type": "ranking",
+"number": 43,
+"name": "Ranking Match 43",
+"field": 1,
+"time": "2026-10-08T14:08:00.900+09:00",
+"red": [
+"BEL",
+"SVK",
+"MAW"
+],
+"blue": [
+"PLE",
+"UZB",
+"MAD"
+]
+},
+{
+"id": "t2-45",
+"type": "ranking",
+"number": 45,
+"name": "Ranking Match 45",
+"field": 3,
+"time": "2026-10-08T14:08:00.900+09:00",
+"red": [
+"TUR",
+"DOM",
+"BRA"
+],
+"blue": [
+"EST",
+"SWZ",
+"VEN"
+]
+},
+{
+"id": "t2-44",
+"type": "ranking",
+"number": 44,
+"name": "Ranking Match 44",
+"field": 4,
+"time": "2026-10-08T14:08:00.900+09:00",
+"red": [
+"CHN",
+"KIR",
+"TTO"
+],
+"blue": [
+"HUN",
+"COD",
+"ARU"
+]
+},
+{
+"id": "t2-46",
+"type": "ranking",
+"number": 46,
+"name": "Ranking Match 46",
+"field": 2,
+"time": "2026-10-08T14:16:00.900+09:00",
+"red": [
+"MAR",
+"AUT",
+"MEX"
+],
+"blue": [
+"LBA",
+"NAM",
+"HAI"
+]
+},
+{
+"id": "t2-48",
+"type": "ranking",
+"number": 48,
+"name": "Ranking Match 48",
+"field": 3,
+"time": "2026-10-08T14:16:00.900+09:00",
+"red": [
+"SOL",
+"HKG",
+"ISR"
+],
+"blue": [
+"POL",
+"MDA",
+"AFG"
+]
+},
+{
+"id": "t2-47",
+"type": "ranking",
+"number": 47,
+"name": "Ranking Match 47",
+"field": 5,
+"time": "2026-10-08T14:16:00.900+09:00",
+"red": [
+"NGR",
+"GBR",
+"MRI"
+],
+"blue": [
+"INA",
+"LUX",
+"BAN"
+]
+},
+{
+"id": "t2-49",
+"type": "ranking",
+"number": 49,
+"name": "Ranking Match 49",
+"field": 1,
+"time": "2026-10-08T14:24:00.900+09:00",
+"red": [
+"VIN",
+"UAE",
+"DJI"
+],
+"blue": [
+"GRN",
+"ERI",
+"CIV"
+]
+},
+{
+"id": "t2-51",
+"type": "ranking",
+"number": 51,
+"name": "Ranking Match 51",
+"field": 3,
+"time": "2026-10-08T14:24:00.900+09:00",
+"red": [
+"TOG",
+"ISV",
+"ARG"
+],
+"blue": [
+"SWE",
+"OMA",
+"ALB"
+]
+},
+{
+"id": "t2-50",
+"type": "ranking",
+"number": 50,
+"name": "Ranking Match 50",
+"field": 4,
+"time": "2026-10-08T14:24:00.900+09:00",
+"red": [
+"SRB",
+"GEO",
+"HON"
+],
+"blue": [
+"TKM",
+"POR",
+"KGZ"
+]
+},
+{
+"id": "t2-52",
+"type": "ranking",
+"number": 52,
+"name": "Ranking Match 52",
+"field": 2,
+"time": "2026-10-08T14:32:00.900+09:00",
+"red": [
+"SRI",
+"RWA",
+"ROU"
+],
+"blue": [
+"CAF",
+"NED",
+"BRU"
+]
+},
+{
+"id": "t2-54",
+"type": "ranking",
+"number": 54,
+"name": "Ranking Match 54",
+"field": 3,
+"time": "2026-10-08T14:32:00.900+09:00",
+"red": [
+"CAN",
+"URU",
+"BHU"
+],
+"blue": [
+"MGL",
+"EGY",
+"CHI"
+]
+},
+{
+"id": "t2-53",
+"type": "ranking",
+"number": 53,
+"name": "Ranking Match 53",
+"field": 5,
+"time": "2026-10-08T14:32:00.900+09:00",
+"red": [
+"PNG",
+"GEQ",
+"BEN"
+],
+"blue": [
+"SYR",
+"MDV",
+"TAN"
+]
+},
+{
+"id": "t2-55",
+"type": "ranking",
+"number": 55,
+"name": "Ranking Match 55",
+"field": 1,
+"time": "2026-10-08T14:40:00.900+09:00",
+"red": [
+"TLS",
+"NCA",
+"KOS"
+],
+"blue": [
+"VIE",
+"SEY",
+"BLR"
+]
+},
+{
+"id": "t2-57",
+"type": "ranking",
+"number": 57,
+"name": "Ranking Match 57",
+"field": 3,
+"time": "2026-10-08T14:40:00.900+09:00",
+"red": [
+"LAT",
+"RUS",
+"GAM"
+],
+"blue": [
+"RSA",
+"SEN",
+"LES"
+]
+},
+{
+"id": "t2-56",
+"type": "ranking",
+"number": 56,
+"name": "Ranking Match 56",
+"field": 4,
+"time": "2026-10-08T14:40:00.900+09:00",
+"red": [
+"MOZ",
+"IRQ",
+"THA"
+],
+"blue": [
+"NEP",
+"SKN",
+"YEM"
+]
+},
+{
+"id": "t2-58",
+"type": "ranking",
+"number": 58,
+"name": "Ranking Match 58",
+"field": 2,
+"time": "2026-10-08T14:48:00.900+09:00",
+"red": [
+"UGA",
+"GAB",
+"BUR"
+],
+"blue": [
+"BIZ",
+"UKR",
+"GER"
+]
+},
+{
+"id": "t2-60",
+"type": "ranking",
+"number": 60,
+"name": "Ranking Match 60",
+"field": 3,
+"time": "2026-10-08T14:48:00.900+09:00",
+"red": [
+"STP",
+"LBN",
+"ASA"
+],
+"blue": [
+"SUD",
+"LAO",
+"LTU"
+]
+},
+{
+"id": "t2-59",
+"type": "ranking",
+"number": 59,
+"name": "Ranking Match 59",
+"field": 5,
+"time": "2026-10-08T14:48:00.900+09:00",
+"red": [
+"AUS",
+"FIJ",
+"GUM"
+],
+"blue": [
+"DMA",
+"PUR",
+"BUL"
+]
+},
+{
+"id": "t2-61",
+"type": "ranking",
+"number": 61,
+"name": "Ranking Match 61",
+"field": 1,
+"time": "2026-10-08T14:56:00.900+09:00",
+"red": [
+"MAS",
+"PER",
+"FSM"
+],
+"blue": [
+"TGA",
+"IND",
+"MYA"
+]
+},
+{
+"id": "t2-63",
+"type": "ranking",
+"number": 63,
+"name": "Ranking Match 63",
+"field": 3,
+"time": "2026-10-08T14:56:00.900+09:00",
+"red": [
+"CMR",
+"GRE",
+"TUR"
+],
+"blue": [
+"BOT",
+"BIH",
+"KIR"
+]
+},
+{
+"id": "t2-62",
+"type": "ranking",
+"number": 62,
+"name": "Ranking Match 62",
+"field": 4,
+"time": "2026-10-08T14:56:00.900+09:00",
+"red": [
+"ZAM",
+"AZE",
+"QAT"
+],
+"blue": [
+"GUI",
+"JAM",
+"PLE"
+]
+},
+{
+"id": "t2-64",
+"type": "ranking",
+"number": 64,
+"name": "Ranking Match 64",
+"field": 2,
+"time": "2026-10-08T15:04:00.900+09:00",
+"red": [
+"IVB",
+"HKG",
+"HPE"
+],
+"blue": [
+"MNE",
+"IRI",
+"INA"
+]
+},
+{
+"id": "t2-66",
+"type": "ranking",
+"number": 66,
+"name": "Ranking Match 66",
+"field": 3,
+"time": "2026-10-08T15:04:00.900+09:00",
+"red": [
+"VAN",
+"COK",
+"SRB"
+],
+"blue": [
+"TUN",
+"UAE",
+"CHA"
+]
+},
+{
+"id": "t2-65",
+"type": "ranking",
+"number": 65,
+"name": "Ranking Match 65",
+"field": 5,
+"time": "2026-10-08T15:04:00.900+09:00",
+"red": [
+"NOR",
+"GHA",
+"SVK"
+],
+"blue": [
+"MLI",
+"PAK",
+"KOR"
+]
+},
+{
+"id": "t2-67",
+"type": "ranking",
+"number": 67,
+"name": "Ranking Match 67",
+"field": 1,
+"time": "2026-10-08T15:12:00.900+09:00",
+"red": [
+"DJI",
+"CAY",
+"CPV"
+],
+"blue": [
+"ISV",
+"ITA",
+"SOM"
+]
+},
+{
+"id": "t2-69",
+"type": "ranking",
+"number": 69,
+"name": "Ranking Match 69",
+"field": 3,
+"time": "2026-10-08T15:12:00.900+09:00",
+"red": [
+"BOL",
+"VIN",
+"CAF"
+],
+"blue": [
+"ISR",
+"GEO",
+"GUY"
+]
+},
+{
+"id": "t2-68",
+"type": "ranking",
+"number": 68,
+"name": "Ranking Match 68",
+"field": 4,
+"time": "2026-10-08T15:12:00.900+09:00",
+"red": [
+"CUB",
+"CAM",
+"NIG"
+],
+"blue": [
+"CHN",
+"EST",
+"AFG"
+]
+},
+{
+"id": "t2-70",
+"type": "ranking",
+"number": 70,
+"name": "Ranking Match 70",
+"field": 2,
+"time": "2026-10-08T15:20:00.900+09:00",
+"red": [
+"CRO",
+"HAI",
+"CZE"
+],
+"blue": [
+"KAZ",
+"SYR",
+"MRI"
+]
+},
+{
+"id": "t2-72",
+"type": "ranking",
+"number": 72,
+"name": "Ranking Match 72",
+"field": 3,
+"time": "2026-10-08T15:20:00.900+09:00",
+"red": [
+"IRL",
+"BRA",
+"TKM"
+],
+"blue": [
+"SRI",
+"MEX",
+"ECU"
+]
+},
+{
+"id": "t2-71",
+"type": "ranking",
+"number": 71,
+"name": "Ranking Match 71",
+"field": 5,
+"time": "2026-10-08T15:20:00.900+09:00",
+"red": [
+"OMA",
+"HUN",
+"TLS"
+],
+"blue": [
+"GRN",
+"ETH",
+"BRU"
+]
+},
+{
+"id": "t2-73",
+"type": "ranking",
+"number": 73,
+"name": "Ranking Match 73",
+"field": 1,
+"time": "2026-10-08T15:28:00.900+09:00",
+"red": [
+"EGY",
+"IRQ",
+"PNG"
+],
+"blue": [
+"TPE",
+"PAR",
+"RUS"
+]
+},
+{
+"id": "t2-75",
+"type": "ranking",
+"number": 75,
+"name": "Ranking Match 75",
+"field": 3,
+"time": "2026-10-08T15:28:00.900+09:00",
+"red": [
+"GBR",
+"BUL",
+"CHI"
+],
+"blue": [
+"SLO",
+"GER",
+"COL"
+]
+},
+{
+"id": "t2-74",
+"type": "ranking",
+"number": 74,
+"name": "Ranking Match 74",
+"field": 4,
+"time": "2026-10-08T15:28:00.900+09:00",
+"red": [
+"KEN",
+"MAR",
+"URU"
+],
+"blue": [
+"GUA",
+"ARG",
+"JOR"
+]
+},
+{
+"id": "t2-76",
+"type": "ranking",
+"number": 76,
+"name": "Ranking Match 76",
+"field": 2,
+"time": "2026-10-08T15:45:00.900+09:00",
+"red": [
+"ROU",
+"SEN",
+"NEP"
+],
+"blue": [
+"NCA",
+"LBN",
+"SOL"
+]
+},
+{
+"id": "t2-78",
+"type": "ranking",
+"number": 78,
+"name": "Ranking Match 78",
+"field": 3,
+"time": "2026-10-08T15:45:00.900+09:00",
+"red": [
+"SLE",
+"LCA",
+"DOM"
+],
+"blue": [
+"COD",
+"ANT",
+"PUR"
+]
+},
+{
+"id": "t2-77",
+"type": "ranking",
+"number": 77,
+"name": "Ranking Match 77",
+"field": 5,
+"time": "2026-10-08T15:45:00.900+09:00",
+"red": [
+"DEN",
+"SWZ",
+"TOG"
+],
+"blue": [
+"BEL",
+"ESA",
+"FSM"
+]
+},
+{
+"id": "t2-79",
+"type": "ranking",
+"number": 79,
+"name": "Ranking Match 79",
+"field": 1,
+"time": "2026-10-08T15:53:00.900+09:00",
+"red": [
+"TJK",
+"TGA",
+"UZB"
+],
+"blue": [
+"NAM",
+"LUX",
+"LAO"
+]
+},
+{
+"id": "t2-81",
+"type": "ranking",
+"number": 81,
+"name": "Ranking Match 81",
+"field": 3,
+"time": "2026-10-08T15:53:00.900+09:00",
+"red": [
+"POL",
+"JPN",
+"MTN"
+],
+"blue": [
+"STP",
+"CRC",
+"USA"
+]
+},
+{
+"id": "t2-80",
+"type": "ranking",
+"number": 80,
+"name": "Ranking Match 80",
+"field": 4,
+"time": "2026-10-08T15:53:00.900+09:00",
+"red": [
+"SSD",
+"ALG",
+"SKN"
+],
+"blue": [
+"LES",
+"MAS",
+"GUI"
+]
+},
+{
+"id": "t2-82",
+"type": "ranking",
+"number": 82,
+"name": "Ranking Match 82",
+"field": 2,
+"time": "2026-10-08T16:01:00.900+09:00",
+"red": [
+"BAR",
+"MOZ",
+"PER"
+],
+"blue": [
+"GAB",
+"PHI",
+"ARU"
+]
+},
+{
+"id": "t2-84",
+"type": "ranking",
+"number": 84,
+"name": "Ranking Match 84",
+"field": 3,
+"time": "2026-10-08T16:01:00.900+09:00",
+"red": [
+"TTO",
+"ASA",
+"BIZ"
+],
+"blue": [
+"BHU",
+"GUM",
+"ZAM"
+]
+},
+{
+"id": "t2-83",
+"type": "ranking",
+"number": 83,
+"name": "Ranking Match 83",
+"field": 5,
+"time": "2026-10-08T16:01:00.900+09:00",
+"red": [
+"LBR",
+"MDA",
+"ESP"
+],
+"blue": [
+"PAN",
+"MAW",
+"RSA"
+]
+},
+{
+"id": "t2-85",
+"type": "ranking",
+"number": 85,
+"name": "Ranking Match 85",
+"field": 1,
+"time": "2026-10-08T16:09:00.900+09:00",
+"red": [
+"YEM",
+"MLT",
+"ERI"
+],
+"blue": [
+"RWA",
+"JAM",
+"ZIM"
+]
+},
+{
+"id": "t2-87",
+"type": "ranking",
+"number": 87,
+"name": "Ranking Match 87",
+"field": 3,
+"time": "2026-10-08T16:09:00.900+09:00",
+"red": [
+"LAT",
+"MYA",
+"BUR"
+],
+"blue": [
+"SEY",
+"DMA",
+"CGO"
+]
+},
+{
+"id": "t2-86",
+"type": "ranking",
+"number": 86,
+"name": "Ranking Match 86",
+"field": 4,
+"time": "2026-10-08T16:09:00.900+09:00",
+"red": [
+"MKD",
+"VEN",
+"TAN"
+],
+"blue": [
+"BAN",
+"AUT",
+"ALB"
+]
+},
+{
+"id": "t2-88",
+"type": "ranking",
+"number": 88,
+"name": "Ranking Match 88",
+"field": 2,
+"time": "2026-10-08T16:17:00.900+09:00",
+"red": [
+"NGR",
+"THA",
+"POR"
+],
+"blue": [
+"LBA",
+"BEN",
+"VIE"
+]
+},
+{
+"id": "t2-90",
+"type": "ranking",
+"number": 90,
+"name": "Ranking Match 90",
+"field": 3,
+"time": "2026-10-08T16:17:00.900+09:00",
+"red": [
+"MAD",
+"ANG",
+"IND"
+],
+"blue": [
+"CAN",
+"MDV",
+"NED"
+]
+},
+{
+"id": "t2-89",
+"type": "ranking",
+"number": 89,
+"name": "Ranking Match 89",
+"field": 5,
+"time": "2026-10-08T16:17:00.900+09:00",
+"red": [
+"UKR",
+"GBS",
+"GAM"
+],
+"blue": [
+"GEQ",
+"KGZ",
+"SWE"
+]
+},
+{
+"id": "t2-91",
+"type": "ranking",
+"number": 91,
+"name": "Ranking Match 91",
+"field": 1,
+"time": "2026-10-08T16:25:00.900+09:00",
+"red": [
+"MGL",
+"QAT",
+"MHL"
+],
+"blue": [
+"FIJ",
+"LTU",
+"KOS"
+]
+},
+{
+"id": "t2-93",
+"type": "ranking",
+"number": 93,
+"name": "Ranking Match 93",
+"field": 3,
+"time": "2026-10-08T16:25:00.900+09:00",
+"red": [
+"BLR",
+"AZE",
+"COM"
+],
+"blue": [
+"AUS",
+"JOR",
+"SLO"
+]
+},
+{
+"id": "t2-92",
+"type": "ranking",
+"number": 92,
+"name": "Ranking Match 92",
+"field": 4,
+"time": "2026-10-08T16:25:00.900+09:00",
+"red": [
+"CIV",
+"FRA",
+"UGA"
+],
+"blue": [
+"SUD",
+"FIN",
+"HON"
+]
+},
+{
+"id": "t2-94",
+"type": "ranking",
+"number": 94,
+"name": "Ranking Match 94",
+"field": 2,
+"time": "2026-10-08T16:33:00.900+09:00",
+"red": [
+"MRI",
+"PLE",
+"OMA"
+],
+"blue": [
+"DEN",
+"BRA",
+"SOM"
+]
+},
+{
+"id": "t2-96",
+"type": "ranking",
+"number": 96,
+"name": "Ranking Match 96",
+"field": 3,
+"time": "2026-10-08T16:33:00.900+09:00",
+"red": [
+"LBN",
+"LUX",
+"IRQ"
+],
+"blue": [
+"IRI",
+"KOR",
+"UAE"
+]
+},
+{
+"id": "t2-95",
+"type": "ranking",
+"number": 95,
+"name": "Ranking Match 95",
+"field": 5,
+"time": "2026-10-08T16:33:00.900+09:00",
+"red": [
+"LAO",
+"MEX",
+"CRO"
+],
+"blue": [
+"PNG",
+"BRU",
+"NCA"
+]
+},
+{
+"id": "t2-97",
+"type": "ranking",
+"number": 97,
+"name": "Ranking Match 97",
+"field": 1,
+"time": "2026-10-08T16:41:00.900+09:00",
+"red": [
+"MAS",
+"STP",
+"SWZ"
+],
+"blue": [
+"TLS",
+"SEN",
+"SLE"
+]
+},
+{
+"id": "t2-99",
+"type": "ranking",
+"number": 99,
+"name": "Ranking Match 99",
+"field": 3,
+"time": "2026-10-08T16:41:00.900+09:00",
+"red": [
+"INA",
+"UZB",
+"CHI"
+],
+"blue": [
+"ESP",
+"KIR",
+"MAR"
+]
+},
+{
+"id": "t2-98",
+"type": "ranking",
+"number": 98,
+"name": "Ranking Match 98",
+"field": 4,
+"time": "2026-10-08T16:41:00.900+09:00",
+"red": [
+"PER",
+"SRI",
+"SSD"
+],
+"blue": [
+"ARG",
+"ANT",
+"SOL"
+]
+},
+{
+"id": "t2-100",
+"type": "ranking",
+"number": 100,
+"name": "Ranking Match 100",
+"field": 2,
+"time": "2026-10-08T16:49:00.900+09:00",
+"red": [
+"NOR",
+"GUI",
+"ISR"
+],
+"blue": [
+"PAR",
+"URU",
+"MOZ"
+]
+},
+{
+"id": "t2-102",
+"type": "ranking",
+"number": 102,
+"name": "Ranking Match 102",
+"field": 3,
+"time": "2026-10-08T16:49:00.900+09:00",
+"red": [
+"ASA",
+"MKD",
+"ISV"
+],
+"blue": [
+"MLT",
+"GRE",
+"TJK"
+]
+},
+{
+"id": "t2-101",
+"type": "ranking",
+"number": 101,
+"name": "Ranking Match 101",
+"field": 5,
+"time": "2026-10-08T16:49:00.900+09:00",
+"red": [
+"EGY",
+"GER",
+"CZE"
+],
+"blue": [
+"PHI",
+"CAF",
+"EST"
+]
+},
+{
+"id": "t2-103",
+"type": "ranking",
+"number": 103,
+"name": "Ranking Match 103",
+"field": 1,
+"time": "2026-10-08T16:57:00.900+09:00",
+"red": [
+"HKG",
+"CHA",
+"GUM"
+],
+"blue": [
+"BAN",
+"NEP",
+"RWA"
+]
+},
+{
+"id": "t2-105",
+"type": "ranking",
+"number": 105,
+"name": "Ranking Match 105",
+"field": 3,
+"time": "2026-10-08T16:57:00.900+09:00",
+"red": [
+"ALG",
+"SWE",
+"ROU"
+],
+"blue": [
+"KAZ",
+"FSM",
+"AUT"
+]
+},
+{
+"id": "t2-104",
+"type": "ranking",
+"number": 104,
+"name": "Ranking Match 104",
+"field": 4,
+"time": "2026-10-08T16:57:00.900+09:00",
+"red": [
+"DOM",
+"BOL",
+"CHN"
+],
+"blue": [
+"BUL",
+"GHA",
+"MTN"
+]
+},
+{
+"id": "t2-106",
+"type": "ranking",
+"number": 106,
+"name": "Ranking Match 106",
+"field": 2,
+"time": "2026-10-08T17:05:00.900+09:00",
+"red": [
+"ITA",
+"RSA",
+"GUY"
+],
+"blue": [
+"SKN",
+"IRL",
+"CAN"
+]
+},
+{
+"id": "t2-108",
+"type": "ranking",
+"number": 108,
+"name": "Ranking Match 108",
+"field": 3,
+"time": "2026-10-08T17:05:00.900+09:00",
+"red": [
+"POR",
+"MAW",
+"USA"
+],
+"blue": [
+"TAN",
+"UKR",
+"IVB"
+]
+},
+{
+"id": "t2-107",
+"type": "ranking",
+"number": 107,
+"name": "Ranking Match 107",
+"field": 5,
+"time": "2026-10-08T17:05:00.900+09:00",
+"red": [
+"TGA",
+"BIZ",
+"HUN"
+],
+"blue": [
+"YEM",
+"SEY",
+"MDV"
+]
+},
+{
+"id": "t2-109",
+"type": "ranking",
+"number": 109,
+"name": "Ranking Match 109",
+"field": 1,
+"time": "2026-10-08T17:13:00.900+09:00",
+"red": [
+"IND",
+"SUD",
+"ETH"
+],
+"blue": [
+"GUA",
+"SYR",
+"BIH"
+]
+},
+{
+"id": "t2-111",
+"type": "ranking",
+"number": 111,
+"name": "Ranking Match 111",
+"field": 3,
+"time": "2026-10-08T17:13:00.900+09:00",
+"red": [
+"BOT",
+"GRN",
+"GBR"
+],
+"blue": [
+"FIJ",
+"HAI",
+"VIE"
+]
+},
+{
+"id": "t2-110",
+"type": "ranking",
+"number": 110,
+"name": "Ranking Match 110",
+"field": 4,
+"time": "2026-10-08T17:13:00.900+09:00",
+"red": [
+"ERI",
+"LAT",
+"AFG"
+],
+"blue": [
+"VEN",
+"SVK",
+"MGL"
+]
+},
+{
+"id": "t2-112",
+"type": "ranking",
+"number": 112,
+"name": "Ranking Match 112",
+"field": 2,
+"time": "2026-10-08T17:21:00.900+09:00",
+"red": [
+"FIN",
+"CUB",
+"ANG"
+],
+"blue": [
+"MNE",
+"GBS",
+"RUS"
+]
+},
+{
+"id": "t2-114",
+"type": "ranking",
+"number": 114,
+"name": "Ranking Match 114",
+"field": 3,
+"time": "2026-10-08T17:21:00.900+09:00",
+"red": [
+"LBA",
+"DMA",
+"JPN"
+],
+"blue": [
+"CAY",
+"HON",
+"JAM"
+]
+},
+{
+"id": "t2-113",
+"type": "ranking",
+"number": 113,
+"name": "Ranking Match 113",
+"field": 5,
+"time": "2026-10-08T17:21:00.900+09:00",
+"red": [
+"BHU",
+"KOS",
+"MDA"
+],
+"blue": [
+"SRB",
+"GAM",
+"BEN"
+]
+},
+{
+"id": "t2-115",
+"type": "ranking",
+"number": 115,
+"name": "Ranking Match 115",
+"field": 1,
+"time": "2026-10-08T17:29:00.900+09:00",
+"red": [
+"BLR",
+"PAN",
+"KGZ"
+],
+"blue": [
+"FRA",
+"ESA",
+"COD"
+]
+},
+{
+"id": "t2-117",
+"type": "ranking",
+"number": 117,
+"name": "Ranking Match 117",
+"field": 3,
+"time": "2026-10-08T17:29:00.900+09:00",
+"red": [
+"NED",
+"TPE",
+"NIG"
+],
+"blue": [
+"LBR",
+"GEQ",
+"THA"
+]
+},
+{
+"id": "t2-116",
+"type": "ranking",
+"number": 116,
+"name": "Ranking Match 116",
+"field": 4,
+"time": "2026-10-08T17:29:00.900+09:00",
+"red": [
+"MYA",
+"CIV",
+"CPV"
+],
+"blue": [
+"TTO",
+"HPE",
+"AUS"
+]
+},
+{
+"id": "t2-118",
+"type": "ranking",
+"number": 118,
+"name": "Ranking Match 118",
+"field": 2,
+"time": "2026-10-08T17:37:00.900+09:00",
+"red": [
+"CMR",
+"LES",
+"BUR"
+],
+"blue": [
+"LCA",
+"ARU",
+"GEO"
+]
+},
+{
+"id": "t2-120",
+"type": "ranking",
+"number": 120,
+"name": "Ranking Match 120",
+"field": 3,
+"time": "2026-10-08T17:37:00.900+09:00",
+"red": [
+"UGA",
+"VIN",
+"TUR"
+],
+"blue": [
+"PUR",
+"BAR",
+"MHL"
+]
+},
+{
+"id": "t2-119",
+"type": "ranking",
+"number": 119,
+"name": "Ranking Match 119",
+"field": 5,
+"time": "2026-10-08T17:37:00.900+09:00",
+"red": [
+"LTU",
+"CGO",
+"ZAM"
+],
+"blue": [
+"VAN",
+"KEN",
+"MAD"
+]
+},
+{
+"id": "t2-121",
+"type": "ranking",
+"number": 121,
+"name": "Ranking Match 121",
+"field": 1,
+"time": "2026-10-09T09:15:00.900+09:00",
+"red": [
+"COK",
+"MLI",
+"POL"
+],
+"blue": [
+"COL",
+"QAT",
+"DJI"
+]
+},
+{
+"id": "t2-123",
+"type": "ranking",
+"number": 123,
+"name": "Ranking Match 123",
+"field": 3,
+"time": "2026-10-09T09:15:00.900+09:00",
+"red": [
+"ECU",
+"GAB",
+"NGR"
+],
+"blue": [
+"COM",
+"TUN",
+"CAM"
+]
+},
+{
+"id": "t2-122",
+"type": "ranking",
+"number": 122,
+"name": "Ranking Match 122",
+"field": 4,
+"time": "2026-10-09T09:15:00.900+09:00",
+"red": [
+"BEL",
+"TKM",
+"ALB"
+],
+"blue": [
+"CRC",
+"NAM",
+"PAK"
+]
+},
+{
+"id": "t2-124",
+"type": "ranking",
+"number": 124,
+"name": "Ranking Match 124",
+"field": 2,
+"time": "2026-10-09T09:23:00.900+09:00",
+"red": [
+"ZIM",
+"MKD",
+"CRO"
+],
+"blue": [
+"TOG",
+"LBN",
+"CAN"
+]
+},
+{
+"id": "t2-126",
+"type": "ranking",
+"number": 126,
+"name": "Ranking Match 126",
+"field": 3,
+"time": "2026-10-09T09:23:00.900+09:00",
+"red": [
+"MLT",
+"GUI",
+"RSA"
+],
+"blue": [
+"CHA",
+"BUL",
+"PER"
+]
+},
+{
+"id": "t2-125",
+"type": "ranking",
+"number": 125,
+"name": "Ranking Match 125",
+"field": 5,
+"time": "2026-10-09T09:23:00.900+09:00",
+"red": [
+"MAR",
+"LUX",
+"IND"
+],
+"blue": [
+"SRI",
+"GUY",
+"AZE"
+]
+},
+{
+"id": "t2-127",
+"type": "ranking",
+"number": 127,
+"name": "Ranking Match 127",
+"field": 1,
+"time": "2026-10-09T09:31:00.900+09:00",
+"red": [
+"IRL",
+"FSM",
+"MDV"
+],
+"blue": [
+"BRU",
+"USA",
+"BOT"
+]
+},
+{
+"id": "t2-129",
+"type": "ranking",
+"number": 129,
+"name": "Ranking Match 129",
+"field": 3,
+"time": "2026-10-09T09:31:00.900+09:00",
+"red": [
+"GBS",
+"AFG",
+"GUA"
+],
+"blue": [
+"SWZ",
+"GBR",
+"ALG"
+]
+},
+{
+"id": "t2-128",
+"type": "ranking",
+"number": 128,
+"name": "Ranking Match 128",
+"field": 4,
+"time": "2026-10-09T09:31:00.900+09:00",
+"red": [
+"IRI",
+"SEY",
+"FIJ"
+],
+"blue": [
+"MAW",
+"NEP",
+"OMA"
+]
+},
+{
+"id": "t2-130",
+"type": "ranking",
+"number": 130,
+"name": "Ranking Match 130",
+"field": 2,
+"time": "2026-10-09T09:39:00.900+09:00",
+"red": [
+"HON",
+"TJK",
+"URU"
+],
+"blue": [
+"ANG",
+"MTN",
+"YEM"
+]
+},
+{
+"id": "t2-132",
+"type": "ranking",
+"number": 132,
+"name": "Ranking Match 132",
+"field": 3,
+"time": "2026-10-09T09:39:00.900+09:00",
+"red": [
+"SLE",
+"SOM",
+"SLO"
+],
+"blue": [
+"TAN",
+"MOZ",
+"MNE"
+]
+},
+{
+"id": "t2-131",
+"type": "ranking",
+"number": 131,
+"name": "Ranking Match 131",
+"field": 5,
+"time": "2026-10-09T09:39:00.900+09:00",
+"red": [
+"JPN",
+"RUS",
+"TGA"
+],
+"blue": [
+"KOR",
+"BIH",
+"POR"
+]
+},
+{
+"id": "t2-133",
+"type": "ranking",
+"number": 133,
+"name": "Ranking Match 133",
+"field": 1,
+"time": "2026-10-09T09:47:00.900+09:00",
+"red": [
+"LBR",
+"BAN",
+"MAS"
+],
+"blue": [
+"VIE",
+"SWE",
+"FIN"
+]
+},
+{
+"id": "t2-135",
+"type": "ranking",
+"number": 135,
+"name": "Ranking Match 135",
+"field": 3,
+"time": "2026-10-09T09:47:00.900+09:00",
+"red": [
+"CPV",
+"EGY",
+"STP"
+],
+"blue": [
+"BLR",
+"DEN",
+"SVK"
+]
+},
+{
+"id": "t2-134",
+"type": "ranking",
+"number": 134,
+"name": "Ranking Match 134",
+"field": 4,
+"time": "2026-10-09T09:47:00.900+09:00",
+"red": [
+"MGL",
+"PAN",
+"NIG"
+],
+"blue": [
+"BUR",
+"CZE",
+"ETH"
+]
+},
+{
+"id": "t2-136",
+"type": "ranking",
+"number": 136,
+"name": "Ranking Match 136",
+"field": 2,
+"time": "2026-10-09T09:55:00.900+09:00",
+"red": [
+"UAE",
+"CHN",
+"UGA"
+],
+"blue": [
+"LAO",
+"AUS",
+"ESA"
+]
+},
+{
+"id": "t2-138",
+"type": "ranking",
+"number": 138,
+"name": "Ranking Match 138",
+"field": 3,
+"time": "2026-10-09T09:55:00.900+09:00",
+"red": [
+"PUR",
+"VEN",
+"TPE"
+],
+"blue": [
+"ISR",
+"CUB",
+"CRC"
+]
+},
+{
+"id": "t2-137",
+"type": "ranking",
+"number": 137,
+"name": "Ranking Match 137",
+"field": 5,
+"time": "2026-10-09T09:55:00.900+09:00",
+"red": [
+"MHL",
+"PAR",
+"SOL"
+],
+"blue": [
+"UKR",
+"DJI",
+"MYA"
+]
+},
+{
+"id": "t2-139",
+"type": "ranking",
+"number": 139,
+"name": "Ranking Match 139",
+"field": 1,
+"time": "2026-10-09T10:03:00.900+09:00",
+"red": [
+"MLI",
+"LAT",
+"IVB"
+],
+"blue": [
+"ZAM",
+"ISV",
+"BEN"
+]
+},
+{
+"id": "t2-141",
+"type": "ranking",
+"number": 141,
+"name": "Ranking Match 141",
+"field": 3,
+"time": "2026-10-09T10:03:00.900+09:00",
+"red": [
+"PHI",
+"ARG",
+"LBA"
+],
+"blue": [
+"MRI",
+"CGO",
+"COD"
+]
+},
+{
+"id": "t2-140",
+"type": "ranking",
+"number": 140,
+"name": "Ranking Match 140",
+"field": 4,
+"time": "2026-10-09T10:03:00.900+09:00",
+"red": [
+"ERI",
+"KGZ",
+"HPE"
+],
+"blue": [
+"GHA",
+"AUT",
+"CAY"
+]
+},
+{
+"id": "t2-142",
+"type": "ranking",
+"number": 142,
+"name": "Ranking Match 142",
+"field": 2,
+"time": "2026-10-09T10:11:00.900+09:00",
+"red": [
+"KAZ",
+"BHU",
+"CMR"
+],
+"blue": [
+"NCA",
+"LTU",
+"TUN"
+]
+},
+{
+"id": "t2-144",
+"type": "ranking",
+"number": 144,
+"name": "Ranking Match 144",
+"field": 3,
+"time": "2026-10-09T10:11:00.900+09:00",
+"red": [
+"EST",
+"GRN",
+"ESP"
+],
+"blue": [
+"BIZ",
+"NGR",
+"LES"
+]
+},
+{
+"id": "t2-143",
+"type": "ranking",
+"number": 143,
+"name": "Ranking Match 143",
+"field": 5,
+"time": "2026-10-09T10:11:00.900+09:00",
+"red": [
+"ANT",
+"JOR",
+"MAD"
+],
+"blue": [
+"GER",
+"ARU",
+"SEN"
+]
+},
+{
+"id": "t2-145",
+"type": "ranking",
+"number": 145,
+"name": "Ranking Match 145",
+"field": 1,
+"time": "2026-10-09T10:19:00.900+09:00",
+"red": [
+"CAF",
+"INA",
+"TKM"
+],
+"blue": [
+"TTO",
+"ZIM",
+"BAR"
+]
+},
+{
+"id": "t2-147",
+"type": "ranking",
+"number": 147,
+"name": "Ranking Match 147",
+"field": 3,
+"time": "2026-10-09T10:19:00.900+09:00",
+"red": [
+"GUM",
+"ITA",
+"NAM"
+],
+"blue": [
+"FRA",
+"SRB",
+"KIR"
+]
+},
+{
+"id": "t2-146",
+"type": "ranking",
+"number": 146,
+"name": "Ranking Match 146",
+"field": 4,
+"time": "2026-10-09T10:19:00.900+09:00",
+"red": [
+"HAI",
+"GAM",
+"VIN"
+],
+"blue": [
+"BRA",
+"THA",
+"HUN"
+]
+},
+{
+"id": "t2-148",
+"type": "ranking",
+"number": 148,
+"name": "Ranking Match 148",
+"field": 2,
+"time": "2026-10-09T10:27:00.900+09:00",
+"red": [
+"DOM",
+"ASA",
+"SYR"
+],
+"blue": [
+"IRQ",
+"GAB",
+"MEX"
+]
+},
+{
+"id": "t2-150",
+"type": "ranking",
+"number": 150,
+"name": "Ranking Match 150",
+"field": 3,
+"time": "2026-10-09T10:27:00.900+09:00",
+"red": [
+"MDA",
+"ECU",
+"NOR"
+],
+"blue": [
+"DMA",
+"QAT",
+"RWA"
+]
+},
+{
+"id": "t2-149",
+"type": "ranking",
+"number": 149,
+"name": "Ranking Match 149",
+"field": 5,
+"time": "2026-10-09T10:27:00.900+09:00",
+"red": [
+"CHI",
+"CAM",
+"POL"
+],
+"blue": [
+"PAK",
+"LCA",
+"SKN"
+]
+},
+{
+"id": "t2-151",
+"type": "ranking",
+"number": 151,
+"name": "Ranking Match 151",
+"field": 1,
+"time": "2026-10-09T10:35:00.900+09:00",
+"red": [
+"COL",
+"COM",
+"SUD"
+],
+"blue": [
+"ROU",
+"TLS",
+"PNG"
+]
+},
+{
+"id": "t2-153",
+"type": "ranking",
+"number": 153,
+"name": "Ranking Match 153",
+"field": 3,
+"time": "2026-10-09T10:35:00.900+09:00",
+"red": [
+"TUR",
+"BEL",
+"COK"
+],
+"blue": [
+"KEN",
+"GEQ",
+"BOL"
+]
+},
+{
+"id": "t2-152",
+"type": "ranking",
+"number": 152,
+"name": "Ranking Match 152",
+"field": 4,
+"time": "2026-10-09T10:35:00.900+09:00",
+"red": [
+"NED",
+"GEO",
+"VAN"
+],
+"blue": [
+"HKG",
+"ALB",
+"JAM"
+]
+},
+{
+"id": "t2-154",
+"type": "ranking",
+"number": 154,
+"name": "Ranking Match 154",
+"field": 2,
+"time": "2026-10-09T10:43:00.900+09:00",
+"red": [
+"GRE",
+"TOG",
+"SSD"
+],
+"blue": [
+"KOS",
+"PLE",
+"CIV"
+]
+},
+{
+"id": "t2-156",
+"type": "ranking",
+"number": 156,
+"name": "Ranking Match 156",
+"field": 3,
+"time": "2026-10-09T10:43:00.900+09:00",
+"red": [
+"AZE",
+"BEN",
+"CAY"
+],
+"blue": [
+"LBN",
+"LBR",
+"IRL"
+]
+},
+{
+"id": "t2-155",
+"type": "ranking",
+"number": 155,
+"name": "Ranking Match 155",
+"field": 5,
+"time": "2026-10-09T10:43:00.900+09:00",
+"red": [
+"RUS",
+"ZAM",
+"DJI"
+],
+"blue": [
+"MTN",
+"CRO",
+"UZB"
+]
+},
+{
+"id": "t2-157",
+"type": "ranking",
+"number": 157,
+"name": "Ranking Match 157",
+"field": 1,
+"time": "2026-10-09T10:51:00.900+09:00",
+"red": [
+"GBS",
+"ESA",
+"EGY"
+],
+"blue": [
+"MAR",
+"ISR",
+"ISV"
+]
+},
+{
+"id": "t2-159",
+"type": "ranking",
+"number": 159,
+"name": "Ranking Match 159",
+"field": 3,
+"time": "2026-10-09T10:51:00.900+09:00",
+"red": [
+"MNE",
+"TGA",
+"ARU"
+],
+"blue": [
+"USA",
+"GBR",
+"CZE"
+]
+},
+{
+"id": "t2-158",
+"type": "ranking",
+"number": 158,
+"name": "Ranking Match 158",
+"field": 4,
+"time": "2026-10-09T10:51:00.900+09:00",
+"red": [
+"BIH",
+"KAZ",
+"SVK"
+],
+"blue": [
+"MOZ",
+"FIN",
+"UAE"
+]
+},
+{
+"id": "t2-160",
+"type": "ranking",
+"number": 160,
+"name": "Ranking Match 160",
+"field": 2,
+"time": "2026-10-09T11:10:00.900+09:00",
+"red": [
+"CRC",
+"PAN",
+"UGA"
+],
+"blue": [
+"IRI",
+"DEN",
+"PER"
+]
+},
+{
+"id": "t2-162",
+"type": "ranking",
+"number": 162,
+"name": "Ranking Match 162",
+"field": 3,
+"time": "2026-10-09T11:10:00.900+09:00",
+"red": [
+"THA",
+"IVB",
+"SWZ"
+],
+"blue": [
+"TKM",
+"MGL",
+"SLO"
+]
+},
+{
+"id": "t2-161",
+"type": "ranking",
+"number": 161,
+"name": "Ranking Match 161",
+"field": 5,
+"time": "2026-10-09T11:10:00.900+09:00",
+"red": [
+"CPV",
+"BAN",
+"JOR"
+],
+"blue": [
+"SOL",
+"IND",
+"BUL"
+]
+},
+{
+"id": "t2-163",
+"type": "ranking",
+"number": 163,
+"name": "Ranking Match 163",
+"field": 1,
+"time": "2026-10-09T11:18:00.900+09:00",
+"red": [
+"TJK",
+"LTU",
+"FRA"
+],
+"blue": [
+"MAS",
+"BUR",
+"VIN"
+]
+},
+{
+"id": "t2-165",
+"type": "ranking",
+"number": 165,
+"name": "Ranking Match 165",
+"field": 3,
+"time": "2026-10-09T11:18:00.900+09:00",
+"red": [
+"KGZ",
+"ANG",
+"TUN"
+],
+"blue": [
+"CAF",
+"OMA",
+"JPN"
+]
+},
+{
+"id": "t2-164",
+"type": "ranking",
+"number": 164,
+"name": "Ranking Match 164",
+"field": 4,
+"time": "2026-10-09T11:18:00.900+09:00",
+"red": [
+"FSM",
+"CAN",
+"GER"
+],
+"blue": [
+"MEX",
+"SOM",
+"ESP"
+]
+},
+{
+"id": "t2-166",
+"type": "ranking",
+"number": 166,
+"name": "Ranking Match 166",
+"field": 2,
+"time": "2026-10-09T11:26:00.900+09:00",
+"red": [
+"PAK",
+"SYR",
+"NEP"
+],
+"blue": [
+"GAM",
+"NGR",
+"TPE"
+]
+},
+{
+"id": "t2-168",
+"type": "ranking",
+"number": 168,
+"name": "Ranking Match 168",
+"field": 3,
+"time": "2026-10-09T11:26:00.900+09:00",
+"red": [
+"AUT",
+"ZIM",
+"HKG"
+],
+"blue": [
+"MAW",
+"LES",
+"NIG"
+]
+},
+{
+"id": "t2-167",
+"type": "ranking",
+"number": 167,
+"name": "Ranking Match 167",
+"field": 5,
+"time": "2026-10-09T11:26:00.900+09:00",
+"red": [
+"RSA",
+"RWA",
+"SRB"
+],
+"blue": [
+"VIE",
+"HUN",
+"CHI"
+]
+},
+{
+"id": "t2-169",
+"type": "ranking",
+"number": 169,
+"name": "Ranking Match 169",
+"field": 1,
+"time": "2026-10-09T11:34:00.900+09:00",
+"red": [
+"MDV",
+"MLI",
+"BAR"
+],
+"blue": [
+"HPE",
+"ROU",
+"GUI"
+]
+},
+{
+"id": "t2-171",
+"type": "ranking",
+"number": 171,
+"name": "Ranking Match 171",
+"field": 3,
+"time": "2026-10-09T11:34:00.900+09:00",
+"red": [
+"NED",
+"ARG",
+"EST"
+],
+"blue": [
+"UZB",
+"TAN",
+"MYA"
+]
+},
+{
+"id": "t2-170",
+"type": "ranking",
+"number": 170,
+"name": "Ranking Match 170",
+"field": 4,
+"time": "2026-10-09T11:34:00.900+09:00",
+"red": [
+"NCA",
+"SWE",
+"JAM"
+],
+"blue": [
+"KEN",
+"GRE",
+"DOM"
+]
+},
+{
+"id": "t2-172",
+"type": "ranking",
+"number": 172,
+"name": "Ranking Match 172",
+"field": 2,
+"time": "2026-10-09T11:42:00.900+09:00",
+"red": [
+"BHU",
+"HON",
+"QAT"
+],
+"blue": [
+"ANT",
+"TOG",
+"PAR"
+]
+},
+{
+"id": "t2-174",
+"type": "ranking",
+"number": 174,
+"name": "Ranking Match 174",
+"field": 3,
+"time": "2026-10-09T11:42:00.900+09:00",
+"red": [
+"NAM",
+"IRQ",
+"LCA"
+],
+"blue": [
+"BOL",
+"ALG",
+"SRI"
+]
+},
+{
+"id": "t2-173",
+"type": "ranking",
+"number": 173,
+"name": "Ranking Match 173",
+"field": 5,
+"time": "2026-10-09T11:42:00.900+09:00",
+"red": [
+"SEY",
+"BOT",
+"GAB"
+],
+"blue": [
+"BEL",
+"CIV",
+"GUM"
+]
+},
+{
+"id": "t2-175",
+"type": "ranking",
+"number": 175,
+"name": "Ranking Match 175",
+"field": 1,
+"time": "2026-10-09T11:50:00.900+09:00",
+"red": [
+"BRU",
+"SUD",
+"CHN"
+],
+"blue": [
+"HAI",
+"SKN",
+"DMA"
+]
+},
+{
+"id": "t2-177",
+"type": "ranking",
+"number": 177,
+"name": "Ranking Match 177",
+"field": 3,
+"time": "2026-10-09T11:50:00.900+09:00",
+"red": [
+"AUS",
+"KOR",
+"UKR"
+],
+"blue": [
+"SEN",
+"KOS",
+"POL"
+]
+},
+{
+"id": "t2-176",
+"type": "ranking",
+"number": 176,
+"name": "Ranking Match 176",
+"field": 4,
+"time": "2026-10-09T11:50:00.900+09:00",
+"red": [
+"COL",
+"PLE",
+"GEQ"
+],
+"blue": [
+"ECU",
+"ITA",
+"SLE"
+]
+},
+{
+"id": "t2-178",
+"type": "ranking",
+"number": 178,
+"name": "Ranking Match 178",
+"field": 2,
+"time": "2026-10-09T11:58:00.900+09:00",
+"red": [
+"GEO",
+"LAT",
+"LUX"
+],
+"blue": [
+"LBA",
+"CUB",
+"TUR"
+]
+},
+{
+"id": "t2-180",
+"type": "ranking",
+"number": 180,
+"name": "Ranking Match 180",
+"field": 3,
+"time": "2026-10-09T11:58:00.900+09:00",
+"red": [
+"BRA",
+"BIZ",
+"NOR"
+],
+"blue": [
+"MLT",
+"BLR",
+"COK"
+]
+},
+{
+"id": "t2-179",
+"type": "ranking",
+"number": 179,
+"name": "Ranking Match 179",
+"field": 5,
+"time": "2026-10-09T11:58:00.900+09:00",
+"red": [
+"MAD",
+"TLS",
+"TTO"
+],
+"blue": [
+"ERI",
+"LAO",
+"MKD"
+]
+},
+{
+"id": "t2-181",
+"type": "ranking",
+"number": 181,
+"name": "Ranking Match 181",
+"field": 1,
+"time": "2026-10-09T12:06:00.900+09:00",
+"red": [
+"MHL",
+"GUA",
+"CGO"
+],
+"blue": [
+"ASA",
+"MDA",
+"VEN"
+]
+},
+{
+"id": "t2-183",
+"type": "ranking",
+"number": 183,
+"name": "Ranking Match 183",
+"field": 3,
+"time": "2026-10-09T12:06:00.900+09:00",
+"red": [
+"COM",
+"GRN",
+"PHI"
+],
+"blue": [
+"KIR",
+"YEM",
+"VAN"
+]
+},
+{
+"id": "t2-182",
+"type": "ranking",
+"number": 182,
+"name": "Ranking Match 182",
+"field": 4,
+"time": "2026-10-09T12:06:00.900+09:00",
+"red": [
+"ETH",
+"GUY",
+"PUR"
+],
+"blue": [
+"SSD",
+"ALB",
+"URU"
+]
+},
+{
+"id": "t2-184",
+"type": "ranking",
+"number": 184,
+"name": "Ranking Match 184",
+"field": 2,
+"time": "2026-10-09T12:14:00.900+09:00",
+"red": [
+"COD",
+"POR",
+"CAM"
+],
+"blue": [
+"STP",
+"INA",
+"FIJ"
+]
+},
+{
+"id": "t2-186",
+"type": "ranking",
+"number": 186,
+"name": "Ranking Match 186",
+"field": 3,
+"time": "2026-10-09T12:14:00.900+09:00",
+"red": [
+"MEX",
+"CHI",
+"UGA"
+],
+"blue": [
+"BAN",
+"ISR",
+"ANG"
+]
+},
+{
+"id": "t2-185",
+"type": "ranking",
+"number": 185,
+"name": "Ranking Match 185",
+"field": 5,
+"time": "2026-10-09T12:14:00.900+09:00",
+"red": [
+"GHA",
+"MRI",
+"CHA"
+],
+"blue": [
+"PNG",
+"AFG",
+"CMR"
+]
+},
+{
+"id": "t2-187",
+"type": "ranking",
+"number": 187,
+"name": "Ranking Match 187",
+"field": 1,
+"time": "2026-10-09T12:22:00.900+09:00",
+"red": [
+"SYR",
+"GUI",
+"NCA"
+],
+"blue": [
+"MYA",
+"JPN",
+"GBS"
+]
+},
+{
+"id": "t2-189",
+"type": "ranking",
+"number": 189,
+"name": "Ranking Match 189",
+"field": 3,
+"time": "2026-10-09T12:22:00.900+09:00",
+"red": [
+"IND",
+"VIE",
+"KAZ"
+],
+"blue": [
+"PAN",
+"GRE",
+"EGY"
+]
+},
+{
+"id": "t2-188",
+"type": "ranking",
+"number": 188,
+"name": "Ranking Match 188",
+"field": 4,
+"time": "2026-10-09T12:22:00.900+09:00",
+"red": [
+"GBR",
+"TJK",
+"IRI"
+],
+"blue": [
+"CAF",
+"LBR",
+"MDV"
+]
+},
+{
+"id": "t2-190",
+"type": "ranking",
+"number": 190,
+"name": "Ranking Match 190",
+"field": 2,
+"time": "2026-10-09T12:30:00.900+09:00",
+"red": [
+"PER",
+"RUS",
+"TAN"
+],
+"blue": [
+"HPE",
+"BOT",
+"AZE"
+]
+},
+{
+"id": "t2-192",
+"type": "ranking",
+"number": 192,
+"name": "Ranking Match 192",
+"field": 3,
+"time": "2026-10-09T12:30:00.900+09:00",
+"red": [
+"ARU",
+"ISV",
+"SKN"
+],
+"blue": [
+"NAM",
+"BHU",
+"FSM"
+]
+},
+{
+"id": "t2-191",
+"type": "ranking",
+"number": 191,
+"name": "Ranking Match 191",
+"field": 5,
+"time": "2026-10-09T12:30:00.900+09:00",
+"red": [
+"LCA",
+"CHN",
+"UZB"
+],
+"blue": [
+"CZE",
+"NGR",
+"SEY"
+]
+},
+{
+"id": "t2-193",
+"type": "ranking",
+"number": 193,
+"name": "Ranking Match 193",
+"field": 1,
+"time": "2026-10-09T12:38:00.900+09:00",
+"red": [
+"BUL",
+"OMA",
+"RWA"
+],
+"blue": [
+"SEN",
+"CAY",
+"UAE"
+]
+},
+{
+"id": "t2-195",
+"type": "ranking",
+"number": 195,
+"name": "Ranking Match 195",
+"field": 3,
+"time": "2026-10-09T12:38:00.900+09:00",
+"red": [
+"BEN",
+"MTN",
+"SRI"
+],
+"blue": [
+"TOG",
+"HKG",
+"SUD"
+]
+},
+{
+"id": "t2-194",
+"type": "ranking",
+"number": 194,
+"name": "Ranking Match 194",
+"field": 4,
+"time": "2026-10-09T12:38:00.900+09:00",
+"red": [
+"ECU",
+"ZAM",
+"PAR"
+],
+"blue": [
+"MAS",
+"GER",
+"ESA"
+]
+},
+{
+"id": "t2-196",
+"type": "ranking",
+"number": 196,
+"name": "Ranking Match 196",
+"field": 2,
+"time": "2026-10-09T12:46:00.900+09:00",
+"red": [
+"BRA",
+"KOR",
+"JAM"
+],
+"blue": [
+"BRU",
+"RSA",
+"GAB"
+]
+},
+{
+"id": "t2-198",
+"type": "ranking",
+"number": 198,
+"name": "Ranking Match 198",
+"field": 3,
+"time": "2026-10-09T12:46:00.900+09:00",
+"red": [
+"VIN",
+"PAK",
+"ASA"
+],
+"blue": [
+"SWZ",
+"ETH",
+"LAT"
+]
+},
+{
+"id": "t2-197",
+"type": "ranking",
+"number": 197,
+"name": "Ranking Match 197",
+"field": 5,
+"time": "2026-10-09T12:46:00.900+09:00",
+"red": [
+"PLE",
+"UKR",
+"FIN"
+],
+"blue": [
+"SRB",
+"ARG",
+"TPE"
+]
+},
+{
+"id": "t2-199",
+"type": "ranking",
+"number": 199,
+"name": "Ranking Match 199",
+"field": 1,
+"time": "2026-10-09T12:54:00.900+09:00",
+"red": [
+"CUB",
+"CAN",
+"MDA"
+],
+"blue": [
+"LAO",
+"MLI",
+"BIZ"
+]
+},
+{
+"id": "t2-201",
+"type": "ranking",
+"number": 201,
+"name": "Ranking Match 201",
+"field": 3,
+"time": "2026-10-09T12:54:00.900+09:00",
+"red": [
+"COD",
+"TUN",
+"ZIM"
+],
+"blue": [
+"SLO",
+"SOL",
+"DEN"
+]
+},
+{
+"id": "t2-200",
+"type": "ranking",
+"number": 200,
+"name": "Ranking Match 200",
+"field": 4,
+"time": "2026-10-09T12:54:00.900+09:00",
+"red": [
+"KOS",
+"DOM",
+"NED"
+],
+"blue": [
+"ITA",
+"BUR",
+"GRN"
+]
+},
+{
+"id": "t2-202",
+"type": "ranking",
+"number": 202,
+"name": "Ranking Match 202",
+"field": 2,
+"time": "2026-10-09T14:00:00.900+09:00",
+"red": [
+"VEN",
+"STP",
+"LES"
+],
+"blue": [
+"DJI",
+"MLT",
+"URU"
+]
+},
+{
+"id": "t2-204",
+"type": "ranking",
+"number": 204,
+"name": "Ranking Match 204",
+"field": 3,
+"time": "2026-10-09T14:00:00.900+09:00",
+"red": [
+"USA",
+"COM",
+"NEP"
+],
+"blue": [
+"CMR",
+"MAD",
+"PUR"
+]
+},
+{
+"id": "t2-203",
+"type": "ranking",
+"number": 203,
+"name": "Ranking Match 203",
+"field": 5,
+"time": "2026-10-09T14:00:00.900+09:00",
+"red": [
+"ESP",
+"SWE",
+"CRC"
+],
+"blue": [
+"MKD",
+"CPV",
+"MGL"
+]
+},
+{
+"id": "t2-205",
+"type": "ranking",
+"number": 205,
+"name": "Ranking Match 205",
+"field": 1,
+"time": "2026-10-09T14:08:00.900+09:00",
+"red": [
+"TGA",
+"COK",
+"GUM"
+],
+"blue": [
+"KGZ",
+"IRL",
+"JOR"
+]
+},
+{
+"id": "t2-207",
+"type": "ranking",
+"number": 207,
+"name": "Ranking Match 207",
+"field": 3,
+"time": "2026-10-09T14:08:00.900+09:00",
+"red": [
+"CHA",
+"POR",
+"QAT"
+],
+"blue": [
+"SOM",
+"ALG",
+"TUR"
+]
+},
+{
+"id": "t2-206",
+"type": "ranking",
+"number": 206,
+"name": "Ranking Match 206",
+"field": 4,
+"time": "2026-10-09T14:08:00.900+09:00",
+"red": [
+"BOL",
+"KIR",
+"ERI"
+],
+"blue": [
+"CAM",
+"TKM",
+"SSD"
+]
+},
+{
+"id": "t2-208",
+"type": "ranking",
+"number": 208,
+"name": "Ranking Match 208",
+"field": 2,
+"time": "2026-10-09T14:16:00.900+09:00",
+"red": [
+"LTU",
+"EST",
+"GUY"
+],
+"blue": [
+"GAM",
+"SLE",
+"LBA"
+]
+},
+{
+"id": "t2-210",
+"type": "ranking",
+"number": 210,
+"name": "Ranking Match 210",
+"field": 3,
+"time": "2026-10-09T14:16:00.900+09:00",
+"red": [
+"BLR",
+"INA",
+"GHA"
+],
+"blue": [
+"CIV",
+"COL",
+"MOZ"
+]
+},
+{
+"id": "t2-209",
+"type": "ranking",
+"number": 209,
+"name": "Ranking Match 209",
+"field": 5,
+"time": "2026-10-09T14:16:00.900+09:00",
+"red": [
+"THA",
+"GUA",
+"HON"
+],
+"blue": [
+"FIJ",
+"BAR",
+"PNG"
+]
+},
+{
+"id": "t2-211",
+"type": "ranking",
+"number": 211,
+"name": "Ranking Match 211",
+"field": 1,
+"time": "2026-10-09T14:24:00.900+09:00",
+"red": [
+"HUN",
+"MNE",
+"LBN"
+],
+"blue": [
+"VAN",
+"MHL",
+"MRI"
+]
+},
+{
+"id": "t2-213",
+"type": "ranking",
+"number": 213,
+"name": "Ranking Match 213",
+"field": 3,
+"time": "2026-10-09T14:24:00.900+09:00",
+"red": [
+"CRO",
+"KEN",
+"LUX"
+],
+"blue": [
+"ALB",
+"MAW",
+"ROU"
+]
+},
+{
+"id": "t2-212",
+"type": "ranking",
+"number": 212,
+"name": "Ranking Match 212",
+"field": 4,
+"time": "2026-10-09T14:24:00.900+09:00",
+"red": [
+"TLS",
+"NIG",
+"FRA"
+],
+"blue": [
+"PHI",
+"HAI",
+"SVK"
+]
+},
+{
+"id": "t2-214",
+"type": "ranking",
+"number": 214,
+"name": "Ranking Match 214",
+"field": 2,
+"time": "2026-10-09T14:32:00.900+09:00",
+"red": [
+"AFG",
+"DMA",
+"GEO"
+],
+"blue": [
+"IVB",
+"MAR",
+"BIH"
+]
+},
+{
+"id": "t2-216",
+"type": "ranking",
+"number": 216,
+"name": "Ranking Match 216",
+"field": 3,
+"time": "2026-10-09T14:32:00.900+09:00",
+"red": [
+"IRQ",
+"POL",
+"BEL"
+],
+"blue": [
+"AUT",
+"TTO",
+"VIN"
+]
+},
+{
+"id": "t2-215",
+"type": "ranking",
+"number": 215,
+"name": "Ranking Match 215",
+"field": 5,
+"time": "2026-10-09T14:32:00.900+09:00",
+"red": [
+"AUS",
+"CGO",
+"YEM"
+],
+"blue": [
+"GEQ",
+"NOR",
+"ANT"
+]
+},
+{
+"id": "t2-217",
+"type": "ranking",
+"number": 217,
+"name": "Ranking Match 217",
+"field": 1,
+"time": "2026-10-09T14:40:00.900+09:00",
+"red": [
+"SRB",
+"BIZ",
+"MAS"
+],
+"blue": [
+"BOT",
+"CHN",
+"GBS"
+]
+},
+{
+"id": "t2-219",
+"type": "ranking",
+"number": 219,
+"name": "Ranking Match 219",
+"field": 3,
+"time": "2026-10-09T14:40:00.900+09:00",
+"red": [
+"GUI",
+"SEN",
+"SLO"
+],
+"blue": [
+"FIN",
+"FSM",
+"ASA"
+]
+},
+{
+"id": "t2-218",
+"type": "ranking",
+"number": 218,
+"name": "Ranking Match 218",
+"field": 4,
+"time": "2026-10-09T14:40:00.900+09:00",
+"red": [
+"GAB",
+"BAN",
+"CAF"
+],
+"blue": [
+"MDA",
+"NCA",
+"CAY"
+]
+},
+{
+"id": "t2-220",
+"type": "ranking",
+"number": 220,
+"name": "Ranking Match 220",
+"field": 2,
+"time": "2026-10-09T14:48:00.900+09:00",
+"red": [
+"COM",
+"BRU",
+"TOG"
+],
+"blue": [
+"UAE",
+"ISR",
+"STP"
+]
+},
+{
+"id": "t2-222",
+"type": "ranking",
+"number": 222,
+"name": "Ranking Match 222",
+"field": 3,
+"time": "2026-10-09T14:48:00.900+09:00",
+"red": [
+"ZAM",
+"MEX",
+"JOR"
+],
+"blue": [
+"SWZ",
+"BOL",
+"IRI"
+]
+},
+{
+"id": "t2-221",
+"type": "ranking",
+"number": 221,
+"name": "Ranking Match 221",
+"field": 5,
+"time": "2026-10-09T14:48:00.900+09:00",
+"red": [
+"CPV",
+"CZE",
+"RSA"
+],
+"blue": [
+"BHU",
+"NEP",
+"DOM"
+]
+},
+{
+"id": "t2-223",
+"type": "ranking",
+"number": 223,
+"name": "Ranking Match 223",
+"field": 1,
+"time": "2026-10-09T14:56:00.900+09:00",
+"red": [
+"SWE",
+"BRA",
+"MDV"
+],
+"blue": [
+"POR",
+"EGY",
+"BUR"
+]
+},
+{
+"id": "t2-225",
+"type": "ranking",
+"number": 225,
+"name": "Ranking Match 225",
+"field": 3,
+"time": "2026-10-09T14:56:00.900+09:00",
+"red": [
+"BEN",
+"KOR",
+"CUB"
+],
+"blue": [
+"TUN",
+"MLT",
+"GUY"
+]
+},
+{
+"id": "t2-224",
+"type": "ranking",
+"number": 224,
+"name": "Ranking Match 224",
+"field": 4,
+"time": "2026-10-09T14:56:00.900+09:00",
+"red": [
+"SEY",
+"DJI",
+"GRE"
+],
+"blue": [
+"PER",
+"JPN",
+"ECU"
+]
+},
+{
+"id": "t2-226",
+"type": "ranking",
+"number": 226,
+"name": "Ranking Match 226",
+"field": 2,
+"time": "2026-10-09T15:04:00.900+09:00",
+"red": [
+"ZIM",
+"SKN",
+"TPE"
+],
+"blue": [
+"SRI",
+"TUR",
+"MLI"
+]
+},
+{
+"id": "t2-228",
+"type": "ranking",
+"number": 228,
+"name": "Ranking Match 228",
+"field": 3,
+"time": "2026-10-09T15:04:00.900+09:00",
+"red": [
+"HKG",
+"SSD",
+"LBN"
+],
+"blue": [
+"SVK",
+"PAN",
+"NAM"
+]
+},
+{
+"id": "t2-227",
+"type": "ranking",
+"number": 227,
+"name": "Ranking Match 227",
+"field": 5,
+"time": "2026-10-09T15:04:00.900+09:00",
+"red": [
+"GRN",
+"DEN",
+"MYA"
+],
+"blue": [
+"LCA",
+"SUD",
+"TJK"
+]
+},
+{
+"id": "t2-229",
+"type": "ranking",
+"number": 229,
+"name": "Ranking Match 229",
+"field": 1,
+"time": "2026-10-09T15:12:00.900+09:00",
+"red": [
+"HPE",
+"PLE",
+"KEN"
+],
+"blue": [
+"TKM",
+"SOL",
+"TGA"
+]
+},
+{
+"id": "t2-231",
+"type": "ranking",
+"number": 231,
+"name": "Ranking Match 231",
+"field": 3,
+"time": "2026-10-09T15:12:00.900+09:00",
+"red": [
+"ESP",
+"VIE",
+"BIH"
+],
+"blue": [
+"OMA",
+"COD",
+"VAN"
+]
+},
+{
+"id": "t2-230",
+"type": "ranking",
+"number": 230,
+"name": "Ranking Match 230",
+"field": 4,
+"time": "2026-10-09T15:12:00.900+09:00",
+"red": [
+"ALB",
+"RUS",
+"MGL"
+],
+"blue": [
+"ARU",
+"UGA",
+"SYR"
+]
+},
+{
+"id": "t2-232",
+"type": "ranking",
+"number": 232,
+"name": "Ranking Match 232",
+"field": 2,
+"time": "2026-10-09T15:30:00.900+09:00",
+"red": [
+"JAM",
+"KGZ",
+"CAN"
+],
+"blue": [
+"LUX",
+"POL",
+"SLE"
+]
+},
+{
+"id": "t2-234",
+"type": "ranking",
+"number": 234,
+"name": "Ranking Match 234",
+"field": 3,
+"time": "2026-10-09T15:30:00.900+09:00",
+"red": [
+"LBR",
+"PHI",
+"VEN"
+],
+"blue": [
+"ITA",
+"CMR",
+"CRO"
+]
+},
+{
+"id": "t2-233",
+"type": "ranking",
+"number": 233,
+"name": "Ranking Match 233",
+"field": 5,
+"time": "2026-10-09T15:30:00.900+09:00",
+"red": [
+"AUT",
+"RWA",
+"CGO"
+],
+"blue": [
+"INA",
+"ETH",
+"CRC"
+]
+},
+{
+"id": "t2-235",
+"type": "ranking",
+"number": 235,
+"name": "Ranking Match 235",
+"field": 1,
+"time": "2026-10-09T15:38:00.900+09:00",
+"red": [
+"THA",
+"ALG",
+"GEO"
+],
+"blue": [
+"ERI",
+"URU",
+"FRA"
+]
+},
+{
+"id": "t2-237",
+"type": "ranking",
+"number": 237,
+"name": "Ranking Match 237",
+"field": 3,
+"time": "2026-10-09T15:38:00.900+09:00",
+"red": [
+"MNE",
+"CIV",
+"ARG"
+],
+"blue": [
+"MKD",
+"PNG",
+"NGR"
+]
+},
+{
+"id": "t2-236",
+"type": "ranking",
+"number": 236,
+"name": "Ranking Match 236",
+"field": 4,
+"time": "2026-10-09T15:38:00.900+09:00",
+"red": [
+"PUR",
+"NED",
+"KAZ"
+],
+"blue": [
+"GAM",
+"HON",
+"CAM"
+]
+},
+{
+"id": "t2-238",
+"type": "ranking",
+"number": 238,
+"name": "Ranking Match 238",
+"field": 2,
+"time": "2026-10-09T15:46:00.900+09:00",
+"red": [
+"ANG",
+"BUL",
+"MAW"
+],
+"blue": [
+"MRI",
+"ANT",
+"MAR"
+]
+},
+{
+"id": "t2-240",
+"type": "ranking",
+"number": 240,
+"name": "Ranking Match 240",
+"field": 3,
+"time": "2026-10-09T15:46:00.900+09:00",
+"red": [
+"NIG",
+"FIJ",
+"GER"
+],
+"blue": [
+"CHA",
+"NOR",
+"HUN"
+]
+},
+{
+"id": "t2-239",
+"type": "ranking",
+"number": 239,
+"name": "Ranking Match 239",
+"field": 5,
+"time": "2026-10-09T15:46:00.900+09:00",
+"red": [
+"DMA",
+"CHI",
+"IRQ"
+],
+"blue": [
+"UKR",
+"BAR",
+"TLS"
+]
+},
+{
+"id": "t2-241",
+"type": "ranking",
+"number": 241,
+"name": "Ranking Match 241",
+"field": 1,
+"time": "2026-10-09T15:54:00.900+09:00",
+"red": [
+"ESA",
+"LBA",
+"USA"
+],
+"blue": [
+"KOS",
+"AFG",
+"AZE"
+]
+},
+{
+"id": "t2-243",
+"type": "ranking",
+"number": 243,
+"name": "Ranking Match 243",
+"field": 3,
+"time": "2026-10-09T15:54:00.900+09:00",
+"red": [
+"MAD",
+"COL",
+"PAK"
+],
+"blue": [
+"YEM",
+"GUM",
+"PAR"
+]
+},
+{
+"id": "t2-242",
+"type": "ranking",
+"number": 242,
+"name": "Ranking Match 242",
+"field": 4,
+"time": "2026-10-09T15:54:00.900+09:00",
+"red": [
+"IVB",
+"GUA",
+"BEL"
+],
+"blue": [
+"LTU",
+"LES",
+"MOZ"
+]
+},
+{
+"id": "t2-244",
+"type": "ranking",
+"number": 244,
+"name": "Ranking Match 244",
+"field": 2,
+"time": "2026-10-09T16:02:00.900+09:00",
+"red": [
+"MHL",
+"EST",
+"BLR"
+],
+"blue": [
+"ISV",
+"GEQ",
+"HAI"
+]
+},
+{
+"id": "t2-246",
+"type": "ranking",
+"number": 246,
+"name": "Ranking Match 246",
+"field": 3,
+"time": "2026-10-09T16:02:00.900+09:00",
+"red": [
+"ROU",
+"SOM",
+"AUS"
+],
+"blue": [
+"UZB",
+"IND",
+"LAT"
+]
+},
+{
+"id": "t2-245",
+"type": "ranking",
+"number": 245,
+"name": "Ranking Match 245",
+"field": 5,
+"time": "2026-10-09T16:02:00.900+09:00",
+"red": [
+"LAO",
+"IRL",
+"KIR"
+],
+"blue": [
+"QAT",
+"TAN",
+"GHA"
+]
+},
+{
+"id": "t2-247",
+"type": "ranking",
+"number": 247,
+"name": "Ranking Match 247",
+"field": 1,
+"time": "2026-10-09T16:10:00.900+09:00",
+"red": [
+"SEY",
+"TTO",
+"COK"
+],
+"blue": [
+"CAY",
+"GBR",
+"MTN"
+]
+},
+{
+"id": "t2-249",
+"type": "ranking",
+"number": 249,
+"name": "Ranking Match 249",
+"field": 3,
+"time": "2026-10-09T16:10:00.900+09:00",
+"red": [
+"CGO",
+"CAF",
+"PAN"
+],
+"blue": [
+"BOT",
+"CPV",
+"TOG"
+]
+},
+{
+"id": "t2-248",
+"type": "ranking",
+"number": 248,
+"name": "Ranking Match 248",
+"field": 4,
+"time": "2026-10-09T16:10:00.900+09:00",
+"red": [
+"VAN",
+"TKM",
+"FSM"
+],
+"blue": [
+"DOM",
+"GUY",
+"BAN"
+]
+},
+{
+"id": "t2-250",
+"type": "ranking",
+"number": 250,
+"name": "Ranking Match 250",
+"field": 2,
+"time": "2026-10-09T16:18:00.900+09:00",
+"red": [
+"ITA",
+"PER",
+"CZE"
+],
+"blue": [
+"GBS",
+"TJK",
+"MDA"
+]
+},
+{
+"id": "t2-252",
+"type": "ranking",
+"number": 252,
+"name": "Ranking Match 252",
+"field": 3,
+"time": "2026-10-09T16:18:00.900+09:00",
+"red": [
+"JOR",
+"SVK",
+"BRU"
+],
+"blue": [
+"GUI",
+"POL",
+"CUB"
+]
+},
+{
+"id": "t2-251",
+"type": "ranking",
+"number": 251,
+"name": "Ranking Match 251",
+"field": 5,
+"time": "2026-10-09T16:18:00.900+09:00",
+"red": [
+"THA",
+"SRB",
+"SOL"
+],
+"blue": [
+"JAM",
+"ASA",
+"BOL"
+]
+},
+{
+"id": "t2-253",
+"type": "ranking",
+"number": 253,
+"name": "Ranking Match 253",
+"field": 1,
+"time": "2026-10-09T16:26:00.900+09:00",
+"red": [
+"GRE",
+"PNG",
+"KOR"
+],
+"blue": [
+"SLO",
+"URU",
+"GAM"
+]
+},
+{
+"id": "t2-255",
+"type": "ranking",
+"number": 255,
+"name": "Ranking Match 255",
+"field": 3,
+"time": "2026-10-09T16:26:00.900+09:00",
+"red": [
+"PLE",
+"PUR",
+"MNE"
+],
+"blue": [
+"ALG",
+"CHN",
+"MLI"
+]
+},
+{
+"id": "t2-254",
+"type": "ranking",
+"number": 254,
+"name": "Ranking Match 254",
+"field": 4,
+"time": "2026-10-09T16:26:00.900+09:00",
+"red": [
+"BUL",
+"BIH",
+"SKN"
+],
+"blue": [
+"BEN",
+"BUR",
+"STP"
+]
+},
+{
+"id": "t2-256",
+"type": "ranking",
+"number": 256,
+"name": "Ranking Match 256",
+"field": 2,
+"time": "2026-10-09T16:34:00.900+09:00",
+"red": [
+"DMA",
+"MRI",
+"TGA"
+],
+"blue": [
+"SEN",
+"MLT",
+"AUT"
+]
+},
+{
+"id": "t2-258",
+"type": "ranking",
+"number": 258,
+"name": "Ranking Match 258",
+"field": 3,
+"time": "2026-10-09T16:34:00.900+09:00",
+"red": [
+"LES",
+"RWA",
+"LBN"
+],
+"blue": [
+"DEN",
+"ALB",
+"KOS"
+]
+},
+{
+"id": "t2-257",
+"type": "ranking",
+"number": 257,
+"name": "Ranking Match 257",
+"field": 5,
+"time": "2026-10-09T16:34:00.900+09:00",
+"red": [
+"OMA",
+"NCA",
+"ESA"
+],
+"blue": [
+"MDV",
+"COM",
+"UKR"
+]
+},
+{
+"id": "t2-259",
+"type": "ranking",
+"number": 259,
+"name": "Ranking Match 259",
+"field": 1,
+"time": "2026-10-09T16:42:00.900+09:00",
+"red": [
+"ANT",
+"AZE",
+"CHA"
+],
+"blue": [
+"CHI",
+"MOZ",
+"SUD"
+]
+},
+{
+"id": "t2-261",
+"type": "ranking",
+"number": 261,
+"name": "Ranking Match 261",
+"field": 3,
+"time": "2026-10-09T16:42:00.900+09:00",
+"red": [
+"HPE",
+"MGL",
+"COL"
+],
+"blue": [
+"RSA",
+"HAI",
+"SSD"
+]
+},
+{
+"id": "t2-260",
+"type": "ranking",
+"number": 260,
+"name": "Ranking Match 260",
+"field": 4,
+"time": "2026-10-09T16:42:00.900+09:00",
+"red": [
+"INA",
+"ECU",
+"KEN"
+],
+"blue": [
+"USA",
+"SWZ",
+"RUS"
+]
+},
+{
+"id": "t2-262",
+"type": "ranking",
+"number": 262,
+"name": "Ranking Match 262",
+"field": 2,
+"time": "2026-10-09T16:50:00.900+09:00",
+"red": [
+"ROU",
+"PAR",
+"GEQ"
+],
+"blue": [
+"GAB",
+"IVB",
+"ERI"
+]
+},
+{
+"id": "t2-264",
+"type": "ranking",
+"number": 264,
+"name": "Ranking Match 264",
+"field": 3,
+"time": "2026-10-09T16:50:00.900+09:00",
+"red": [
+"TLS",
+"SYR",
+"LBA"
+],
+"blue": [
+"VEN",
+"ESP",
+"EGY"
+]
+},
+{
+"id": "t2-263",
+"type": "ranking",
+"number": 263,
+"name": "Ranking Match 263",
+"field": 5,
+"time": "2026-10-09T16:50:00.900+09:00",
+"red": [
+"NAM",
+"IRI",
+"VIE"
+],
+"blue": [
+"TTO",
+"EST",
+"SOM"
+]
+},
+{
+"id": "t2-265",
+"type": "ranking",
+"number": 265,
+"name": "Ranking Match 265",
+"field": 1,
+"time": "2026-10-09T16:58:00.900+09:00",
+"red": [
+"PHI",
+"PAK",
+"FIJ"
+],
+"blue": [
+"AFG",
+"ZAM",
+"KGZ"
+]
+},
+{
+"id": "t2-267",
+"type": "ranking",
+"number": 267,
+"name": "Ranking Match 267",
+"field": 3,
+"time": "2026-10-09T16:58:00.900+09:00",
+"red": [
+"MEX",
+"BEL",
+"BIZ"
+],
+"blue": [
+"SWE",
+"ZIM",
+"GHA"
+]
+},
+{
+"id": "t2-266",
+"type": "ranking",
+"number": 266,
+"name": "Ranking Match 266",
+"field": 4,
+"time": "2026-10-09T16:58:00.900+09:00",
+"red": [
+"MYA",
+"BLR",
+"ISR"
+],
+"blue": [
+"HON",
+"CMR",
+"LAO"
+]
+},
+{
+"id": "t2-268",
+"type": "ranking",
+"number": 268,
+"name": "Ranking Match 268",
+"field": 2,
+"time": "2026-10-10T09:15:00.900+09:00",
+"red": [
+"CRC",
+"SLE",
+"NED"
+],
+"blue": [
+"TUR",
+"ISV",
+"YEM"
+]
+},
+{
+"id": "t2-270",
+"type": "ranking",
+"number": 270,
+"name": "Ranking Match 270",
+"field": 3,
+"time": "2026-10-10T09:15:00.900+09:00",
+"red": [
+"NIG",
+"UZB",
+"SRI"
+],
+"blue": [
+"MHL",
+"CAN",
+"GRN"
+]
+},
+{
+"id": "t2-269",
+"type": "ranking",
+"number": 269,
+"name": "Ranking Match 269",
+"field": 5,
+"time": "2026-10-10T09:15:00.900+09:00",
+"red": [
+"TAN",
+"LBR",
+"LTU"
+],
+"blue": [
+"IND",
+"NOR",
+"GEO"
+]
+},
+{
+"id": "t2-271",
+"type": "ranking",
+"number": 271,
+"name": "Ranking Match 271",
+"field": 1,
+"time": "2026-10-10T09:23:00.900+09:00",
+"red": [
+"CAM",
+"MAR",
+"MKD"
+],
+"blue": [
+"GUM",
+"UGA",
+"JPN"
+]
+},
+{
+"id": "t2-273",
+"type": "ranking",
+"number": 273,
+"name": "Ranking Match 273",
+"field": 3,
+"time": "2026-10-10T09:23:00.900+09:00",
+"red": [
+"MTN",
+"NGR",
+"COD"
+],
+"blue": [
+"QAT",
+"KAZ",
+"VIN"
+]
+},
+{
+"id": "t2-272",
+"type": "ranking",
+"number": 272,
+"name": "Ranking Match 272",
+"field": 4,
+"time": "2026-10-10T09:23:00.900+09:00",
+"red": [
+"GER",
+"CIV",
+"LUX"
+],
+"blue": [
+"COK",
+"NEP",
+"LCA"
+]
+},
+{
+"id": "t2-274",
+"type": "ranking",
+"number": 274,
+"name": "Ranking Match 274",
+"field": 2,
+"time": "2026-10-10T09:31:00.900+09:00",
+"red": [
+"TUN",
+"MAD",
+"LAT"
+],
+"blue": [
+"ARG",
+"IRQ",
+"HUN"
+]
+},
+{
+"id": "t2-276",
+"type": "ranking",
+"number": 276,
+"name": "Ranking Match 276",
+"field": 3,
+"time": "2026-10-10T09:31:00.900+09:00",
+"red": [
+"BAR",
+"AUS",
+"BRA"
+],
+"blue": [
+"FIN",
+"KIR",
+"MAW"
+]
+},
+{
+"id": "t2-275",
+"type": "ranking",
+"number": 275,
+"name": "Ranking Match 275",
+"field": 5,
+"time": "2026-10-10T09:31:00.900+09:00",
+"red": [
+"POR",
+"DJI",
+"ETH"
+],
+"blue": [
+"GBR",
+"MAS",
+"BHU"
+]
+},
+{
+"id": "t2-277",
+"type": "ranking",
+"number": 277,
+"name": "Ranking Match 277",
+"field": 1,
+"time": "2026-10-10T09:39:00.900+09:00",
+"red": [
+"GUA",
+"UAE",
+"ARU"
+],
+"blue": [
+"FRA",
+"IRL",
+"HKG"
+]
+},
+{
+"id": "t2-279",
+"type": "ranking",
+"number": 279,
+"name": "Ranking Match 279",
+"field": 3,
+"time": "2026-10-10T09:39:00.900+09:00",
+"red": [
+"LES",
+"SLO",
+"IRI"
+],
+"blue": [
+"PLE",
+"ERI",
+"CPV"
+]
+},
+{
+"id": "t2-278",
+"type": "ranking",
+"number": 278,
+"name": "Ranking Match 278",
+"field": 4,
+"time": "2026-10-10T09:39:00.900+09:00",
+"red": [
+"ANG",
+"TPE",
+"DEN"
+],
+"blue": [
+"CRO",
+"BUR",
+"COM"
+]
+},
+{
+"id": "t2-280",
+"type": "ranking",
+"number": 280,
+"name": "Ranking Match 280",
+"field": 2,
+"time": "2026-10-10T09:47:00.900+09:00",
+"red": [
+"SEN",
+"KEN",
+"PAN"
+],
+"blue": [
+"TJK",
+"CHA",
+"CHN"
+]
+},
+{
+"id": "t2-282",
+"type": "ranking",
+"number": 282,
+"name": "Ranking Match 282",
+"field": 3,
+"time": "2026-10-10T09:47:00.900+09:00",
+"red": [
+"ANT",
+"SEY",
+"BIH"
+],
+"blue": [
+"RWA",
+"PNG",
+"BOL"
+]
+},
+{
+"id": "t2-281",
+"type": "ranking",
+"number": 281,
+"name": "Ranking Match 281",
+"field": 5,
+"time": "2026-10-10T09:47:00.900+09:00",
+"red": [
+"OMA",
+"BEN",
+"HPE"
+],
+"blue": [
+"GRE",
+"USA",
+"DMA"
+]
+},
+{
+"id": "t2-283",
+"type": "ranking",
+"number": 283,
+"name": "Ranking Match 283",
+"field": 1,
+"time": "2026-10-10T09:55:00.900+09:00",
+"red": [
+"ESA",
+"GAM",
+"ALG"
+],
+"blue": [
+"CUB",
+"MYA",
+"INA"
+]
+},
+{
+"id": "t2-285",
+"type": "ranking",
+"number": 285,
+"name": "Ranking Match 285",
+"field": 3,
+"time": "2026-10-10T09:55:00.900+09:00",
+"red": [
+"MOZ",
+"KOS",
+"SWE"
+],
+"blue": [
+"GUY",
+"MRI",
+"ASA"
+]
+},
+{
+"id": "t2-284",
+"type": "ranking",
+"number": 284,
+"name": "Ranking Match 284",
+"field": 4,
+"time": "2026-10-10T09:55:00.900+09:00",
+"red": [
+"ECU",
+"NCA",
+"PHI"
+],
+"blue": [
+"SKN",
+"CRC",
+"SRB"
+]
+},
+{
+"id": "t2-286",
+"type": "ranking",
+"number": 286,
+"name": "Ranking Match 286",
+"field": 2,
+"time": "2026-10-10T10:03:00.900+09:00",
+"red": [
+"SWZ",
+"FIJ",
+"GAB"
+],
+"blue": [
+"ALB",
+"ESP",
+"TTO"
+]
+},
+{
+"id": "t2-288",
+"type": "ranking",
+"number": 288,
+"name": "Ranking Match 288",
+"field": 3,
+"time": "2026-10-10T10:03:00.900+09:00",
+"red": [
+"SLE",
+"BRU",
+"BAN"
+],
+"blue": [
+"RUS",
+"BLR",
+"LBN"
+]
+},
+{
+"id": "t2-287",
+"type": "ranking",
+"number": 287,
+"name": "Ranking Match 287",
+"field": 5,
+"time": "2026-10-10T10:03:00.900+09:00",
+"red": [
+"VIE",
+"MNE",
+"ISR"
+],
+"blue": [
+"SUD",
+"MGL",
+"KOR"
+]
+},
+{
+"id": "t2-289",
+"type": "ranking",
+"number": 289,
+"name": "Ranking Match 289",
+"field": 1,
+"time": "2026-10-10T10:11:00.900+09:00",
+"red": [
+"CAY",
+"MAR",
+"CMR"
+],
+"blue": [
+"TOG",
+"TLS",
+"TKM"
+]
+},
+{
+"id": "t2-291",
+"type": "ranking",
+"number": 291,
+"name": "Ranking Match 291",
+"field": 3,
+"time": "2026-10-10T10:11:00.900+09:00",
+"red": [
+"VAN",
+"UKR",
+"PAK"
+],
+"blue": [
+"VEN",
+"ROU",
+"QAT"
+]
+},
+{
+"id": "t2-290",
+"type": "ranking",
+"number": 290,
+"name": "Ranking Match 290",
+"field": 4,
+"time": "2026-10-10T10:11:00.900+09:00",
+"red": [
+"GUM",
+"MLI",
+"HAI"
+],
+"blue": [
+"NGR",
+"LTU",
+"GER"
+]
+},
+{
+"id": "t2-292",
+"type": "ranking",
+"number": 292,
+"name": "Ranking Match 292",
+"field": 2,
+"time": "2026-10-10T10:19:00.900+09:00",
+"red": [
+"FIN",
+"PAR",
+"ZIM"
+],
+"blue": [
+"JPN",
+"SSD",
+"LUX"
+]
+},
+{
+"id": "t2-294",
+"type": "ranking",
+"number": 294,
+"name": "Ranking Match 294",
+"field": 3,
+"time": "2026-10-10T10:19:00.900+09:00",
+"red": [
+"HUN",
+"TAN",
+"BUL"
+],
+"blue": [
+"SVK",
+"SRI",
+"GUA"
+]
+},
+{
+"id": "t2-293",
+"type": "ranking",
+"number": 293,
+"name": "Ranking Match 293",
+"field": 5,
+"time": "2026-10-10T10:19:00.900+09:00",
+"red": [
+"ARG",
+"STP",
+"NAM"
+],
+"blue": [
+"KGZ",
+"BRA",
+"KAZ"
+]
+},
+{
+"id": "t2-295",
+"type": "ranking",
+"number": 295,
+"name": "Ranking Match 295",
+"field": 1,
+"time": "2026-10-10T10:27:00.900+09:00",
+"red": [
+"ISV",
+"PUR",
+"UZB"
+],
+"blue": [
+"SYR",
+"POL",
+"ANG"
+]
+},
+{
+"id": "t2-297",
+"type": "ranking",
+"number": 297,
+"name": "Ranking Match 297",
+"field": 3,
+"time": "2026-10-10T10:27:00.900+09:00",
+"red": [
+"MAW",
+"LCA",
+"IRL"
+],
+"blue": [
+"CGO",
+"TUR",
+"DJI"
+]
+},
+{
+"id": "t2-296",
+"type": "ranking",
+"number": 296,
+"name": "Ranking Match 296",
+"field": 4,
+"time": "2026-10-10T10:27:00.900+09:00",
+"red": [
+"ETH",
+"YEM",
+"DOM"
+],
+"blue": [
+"HKG",
+"CAF",
+"CAM"
+]
+},
+{
+"id": "t2-298",
+"type": "ranking",
+"number": 298,
+"name": "Ranking Match 298",
+"field": 2,
+"time": "2026-10-10T10:35:00.900+09:00",
+"red": [
+"RSA",
+"BAR",
+"LAO"
+],
+"blue": [
+"POR",
+"TPE",
+"BOT"
+]
+},
+{
+"id": "t2-300",
+"type": "ranking",
+"number": 300,
+"name": "Ranking Match 300",
+"field": 3,
+"time": "2026-10-10T10:35:00.900+09:00",
+"red": [
+"GEQ",
+"JOR",
+"MLT"
+],
+"blue": [
+"FSM",
+"MTN",
+"IRQ"
+]
+},
+{
+"id": "t2-299",
+"type": "ranking",
+"number": 299,
+"name": "Ranking Match 299",
+"field": 5,
+"time": "2026-10-10T10:35:00.900+09:00",
+"red": [
+"SOM",
+"MDV",
+"HON"
+],
+"blue": [
+"COK",
+"MHL",
+"PER"
+]
+},
+{
+"id": "t2-301",
+"type": "ranking",
+"number": 301,
+"name": "Ranking Match 301",
+"field": 1,
+"time": "2026-10-10T10:43:00.900+09:00",
+"red": [
+"JAM",
+"AUT",
+"LAT"
+],
+"blue": [
+"CHI",
+"CZE",
+"BIZ"
+]
+},
+{
+"id": "t2-303",
+"type": "ranking",
+"number": 303,
+"name": "Ranking Match 303",
+"field": 3,
+"time": "2026-10-10T10:43:00.900+09:00",
+"red": [
+"NEP",
+"CAN",
+"LBR"
+],
+"blue": [
+"GHA",
+"UGA",
+"IVB"
+]
+},
+{
+"id": "t2-302",
+"type": "ranking",
+"number": 302,
+"name": "Ranking Match 302",
+"field": 4,
+"time": "2026-10-10T10:43:00.900+09:00",
+"red": [
+"KIR",
+"LBA",
+"GBR"
+],
+"blue": [
+"VIN",
+"NIG",
+"ZAM"
+]
+},
+{
+"id": "t2-304",
+"type": "ranking",
+"number": 304,
+"name": "Ranking Match 304",
+"field": 2,
+"time": "2026-10-10T10:51:00.900+09:00",
+"red": [
+"NOR",
+"GRN",
+"GBS"
+],
+"blue": [
+"MEX",
+"TGA",
+"THA"
+]
+},
+{
+"id": "t2-306",
+"type": "ranking",
+"number": 306,
+"name": "Ranking Match 306",
+"field": 3,
+"time": "2026-10-10T10:51:00.900+09:00",
+"red": [
+"EST",
+"IND",
+"TUN"
+],
+"blue": [
+"MDA",
+"BEL",
+"MKD"
+]
+},
+{
+"id": "t2-305",
+"type": "ranking",
+"number": 305,
+"name": "Ranking Match 305",
+"field": 5,
+"time": "2026-10-10T10:51:00.900+09:00",
+"red": [
+"COD",
+"ITA",
+"UAE"
+],
+"blue": [
+"AFG",
+"EGY",
+"MAD"
+]
+},
+{
+"id": "t2-307",
+"type": "ranking",
+"number": 307,
+"name": "Ranking Match 307",
+"field": 1,
+"time": "2026-10-10T10:59:00.900+09:00",
+"red": [
+"CRO",
+"FRA",
+"AUS"
+],
+"blue": [
+"SOL",
+"BHU",
+"GUI"
+]
+},
+{
+"id": "t2-309",
+"type": "ranking",
+"number": 309,
+"name": "Ranking Match 309",
+"field": 3,
+"time": "2026-10-10T10:59:00.900+09:00",
+"red": [
+"GEO",
+"CRC",
+"OMA"
+],
+"blue": [
+"CIV",
+"ROU",
+"BAN"
+]
+},
+{
+"id": "t2-308",
+"type": "ranking",
+"number": 308,
+"name": "Ranking Match 308",
+"field": 4,
+"time": "2026-10-10T10:59:00.900+09:00",
+"red": [
+"URU",
+"ARU",
+"MAS"
+],
+"blue": [
+"AZE",
+"NED",
+"COL"
+]
+},
+{
+"id": "t2-310",
+"type": "ranking",
+"number": 310,
+"name": "Ranking Match 310",
+"field": 2,
+"time": "2026-10-10T11:07:00.900+09:00",
+"red": [
+"GUY",
+"SWZ",
+"ANT"
+],
+"blue": [
+"LBN",
+"HPE",
+"CMR"
+]
+},
+{
+"id": "t2-312",
+"type": "ranking",
+"number": 312,
+"name": "Ranking Match 312",
+"field": 3,
+"time": "2026-10-10T11:07:00.900+09:00",
+"red": [
+"SSD",
+"KAZ",
+"SEY"
+],
+"blue": [
+"UKR",
+"SLE",
+"CUB"
+]
+},
+{
+"id": "t2-311",
+"type": "ranking",
+"number": 311,
+"name": "Ranking Match 311",
+"field": 5,
+"time": "2026-10-10T11:07:00.900+09:00",
+"red": [
+"RWA",
+"GUA",
+"MGL"
+],
+"blue": [
+"PAR",
+"USA",
+"PLE"
+]
+},
+{
+"id": "t2-313",
+"type": "ranking",
+"number": 313,
+"name": "Ranking Match 313",
+"field": 1,
+"time": "2026-10-10T11:15:00.900+09:00",
+"red": [
+"KOS",
+"TTO",
+"PAK"
+],
+"blue": [
+"BIH",
+"ISR",
+"SRI"
+]
+},
+{
+"id": "t2-315",
+"type": "ranking",
+"number": 315,
+"name": "Ranking Match 315",
+"field": 3,
+"time": "2026-10-10T11:15:00.900+09:00",
+"red": [
+"POL",
+"MOZ",
+"BOL"
+],
+"blue": [
+"HON",
+"GER",
+"BRA"
+]
+},
+{
+"id": "t2-314",
+"type": "ranking",
+"number": 314,
+"name": "Ranking Match 314",
+"field": 4,
+"time": "2026-10-10T11:15:00.900+09:00",
+"red": [
+"SUD",
+"CAM",
+"NAM"
+],
+"blue": [
+"DJI",
+"VAN",
+"BOT"
+]
+},
+{
+"id": "t2-316",
+"type": "ranking",
+"number": 316,
+"name": "Ranking Match 316",
+"field": 2,
+"time": "2026-10-10T11:23:00.900+09:00",
+"red": [
+"MYA",
+"YEM",
+"HAI"
+],
+"blue": [
+"LUX",
+"SLO",
+"VEN"
+]
+},
+{
+"id": "t2-318",
+"type": "ranking",
+"number": 318,
+"name": "Ranking Match 318",
+"field": 3,
+"time": "2026-10-10T11:23:00.900+09:00",
+"red": [
+"MDV",
+"LAO",
+"ALB"
+],
+"blue": [
+"SVK",
+"ZIM",
+"LBA"
+]
+},
+{
+"id": "t2-317",
+"type": "ranking",
+"number": 317,
+"name": "Ranking Match 317",
+"field": 5,
+"time": "2026-10-10T11:23:00.900+09:00",
+"red": [
+"IRL",
+"PER",
+"SEN"
+],
+"blue": [
+"ESP",
+"DOM",
+"ANG"
+]
+},
+{
+"id": "t2-319",
+"type": "ranking",
+"number": 319,
+"name": "Ranking Match 319",
+"field": 1,
+"time": "2026-10-10T11:31:00.900+09:00",
+"red": [
+"UGA",
+"SRB",
+"COM"
+],
+"blue": [
+"FSM",
+"CZE",
+"KOR"
+]
+},
+{
+"id": "t2-321",
+"type": "ranking",
+"number": 321,
+"name": "Ranking Match 321",
+"field": 3,
+"time": "2026-10-10T11:31:00.900+09:00",
+"red": [
+"BIZ",
+"BEN",
+"LTU"
+],
+"blue": [
+"TUR",
+"NIG",
+"NEP"
+]
+},
+{
+"id": "t2-320",
+"type": "ranking",
+"number": 320,
+"name": "Ranking Match 320",
+"field": 4,
+"time": "2026-10-10T11:31:00.900+09:00",
+"red": [
+"ZAM",
+"MNE",
+"PAN"
+],
+"blue": [
+"SWE",
+"TLS",
+"THA"
+]
+},
+{
+"id": "t2-322",
+"type": "ranking",
+"number": 322,
+"name": "Ranking Match 322",
+"field": 2,
+"time": "2026-10-10T11:39:00.900+09:00",
+"red": [
+"BUR",
+"ERI",
+"ARG"
+],
+"blue": [
+"RUS",
+"MHL",
+"MEX"
+]
+},
+{
+"id": "t2-324",
+"type": "ranking",
+"number": 324,
+"name": "Ranking Match 324",
+"field": 3,
+"time": "2026-10-10T11:39:00.900+09:00",
+"red": [
+"KIR",
+"SOM",
+"PNG"
+],
+"blue": [
+"JPN",
+"PUR",
+"GAB"
+]
+},
+{
+"id": "t2-323",
+"type": "ranking",
+"number": 323,
+"name": "Ranking Match 323",
+"field": 5,
+"time": "2026-10-10T11:39:00.900+09:00",
+"red": [
+"SKN",
+"QAT",
+"MRI"
+],
+"blue": [
+"IND",
+"HKG",
+"GAM"
+]
+},
+{
+"id": "t2-325",
+"type": "ranking",
+"number": 325,
+"name": "Ranking Match 325",
+"field": 1,
+"time": "2026-10-10T11:47:00.900+09:00",
+"red": [
+"LES",
+"MAD",
+"MAR"
+],
+"blue": [
+"GBR",
+"NOR",
+"BAR"
+]
+},
+{
+"id": "t2-327",
+"type": "ranking",
+"number": 327,
+"name": "Ranking Match 327",
+"field": 3,
+"time": "2026-10-10T11:47:00.900+09:00",
+"red": [
+"UZB",
+"VIE",
+"MLT"
+],
+"blue": [
+"CGO",
+"FRA",
+"BRU"
+]
+},
+{
+"id": "t2-326",
+"type": "ranking",
+"number": 326,
+"name": "Ranking Match 326",
+"field": 4,
+"time": "2026-10-10T11:47:00.900+09:00",
+"red": [
+"AFG",
+"CAY",
+"AUS"
+],
+"blue": [
+"IRQ",
+"NED",
+"INA"
+]
+},
+{
+"id": "t2-328",
+"type": "ranking",
+"number": 328,
+"name": "Ranking Match 328",
+"field": 2,
+"time": "2026-10-10T11:55:00.900+09:00",
+"red": [
+"TUN",
+"MAW",
+"MLI"
+],
+"blue": [
+"URU",
+"ASA",
+"ITA"
+]
+},
+{
+"id": "t2-330",
+"type": "ranking",
+"number": 330,
+"name": "Ranking Match 330",
+"field": 3,
+"time": "2026-10-10T11:55:00.900+09:00",
+"red": [
+"JAM",
+"BHU",
+"FIN"
+],
+"blue": [
+"MKD",
+"TGA",
+"GEQ"
+]
+},
+{
+"id": "t2-329",
+"type": "ranking",
+"number": 329,
+"name": "Ranking Match 329",
+"field": 5,
+"time": "2026-10-10T11:55:00.900+09:00",
+"red": [
+"IRI",
+"MTN",
+"ALG"
+],
+"blue": [
+"CIV",
+"KEN",
+"SYR"
+]
+},
+{
+"id": "t2-331",
+"type": "ranking",
+"number": 331,
+"name": "Ranking Match 331",
+"field": 1,
+"time": "2026-10-10T12:03:00.900+09:00",
+"red": [
+"MDA",
+"GHA",
+"FIJ"
+],
+"blue": [
+"COK",
+"AZE",
+"EGY"
+]
+},
+{
+"id": "t2-333",
+"type": "ranking",
+"number": 333,
+"name": "Ranking Match 333",
+"field": 3,
+"time": "2026-10-10T12:03:00.900+09:00",
+"red": [
+"KGZ",
+"ETH",
+"GRE"
+],
+"blue": [
+"CHI",
+"CRO",
+"BEL"
+]
+},
+{
+"id": "t2-332",
+"type": "ranking",
+"number": 332,
+"name": "Ranking Match 332",
+"field": 4,
+"time": "2026-10-10T12:03:00.900+09:00",
+"red": [
+"NCA",
+"TOG",
+"BUL"
+],
+"blue": [
+"EST",
+"LAT",
+"LCA"
+]
+},
+{
+"id": "t2-334",
+"type": "ranking",
+"number": 334,
+"name": "Ranking Match 334",
+"field": 2,
+"time": "2026-10-10T12:11:00.900+09:00",
+"red": [
+"NGR",
+"TKM",
+"DMA"
+],
+"blue": [
+"ESA",
+"COL",
+"LBR"
+]
+},
+{
+"id": "t2-336",
+"type": "ranking",
+"number": 336,
+"name": "Ranking Match 336",
+"field": 3,
+"time": "2026-10-10T12:11:00.900+09:00",
+"red": [
+"ARU",
+"GUM",
+"POR"
+],
+"blue": [
+"TJK",
+"CPV",
+"AUT"
+]
+},
+{
+"id": "t2-335",
+"type": "ranking",
+"number": 335,
+"name": "Ranking Match 335",
+"field": 5,
+"time": "2026-10-10T12:11:00.900+09:00",
+"red": [
+"GRN",
+"CHA",
+"IVB"
+],
+"blue": [
+"JOR",
+"MAS",
+"COD"
+]
+},
+{
+"id": "t2-337",
+"type": "ranking",
+"number": 337,
+"name": "Ranking Match 337",
+"field": 1,
+"time": "2026-10-10T12:19:00.900+09:00",
+"red": [
+"UAE",
+"SOL",
+"CAF"
+],
+"blue": [
+"CAN",
+"TPE",
+"BLR"
+]
+},
+{
+"id": "t2-339",
+"type": "ranking",
+"number": 339,
+"name": "Ranking Match 339",
+"field": 3,
+"time": "2026-10-10T12:19:00.900+09:00",
+"red": [
+"CHN",
+"GUI",
+"DEN"
+],
+"blue": [
+"GEO",
+"PHI",
+"ISV"
+]
+},
+{
+"id": "t2-338",
+"type": "ranking",
+"number": 338,
+"name": "Ranking Match 338",
+"field": 4,
+"time": "2026-10-10T12:19:00.900+09:00",
+"red": [
+"TAN",
+"RSA",
+"GBS"
+],
+"blue": [
+"VIN",
+"ECU",
+"STP"
+]
+},
+{
+"id": "t2-340",
+"type": "ranking",
+"number": 340,
+"name": "Ranking Match 340",
+"field": 2,
+"time": "2026-10-10T12:27:00.900+09:00",
+"red": [
+"HUN",
+"PNG",
+"ALB"
+],
+"blue": [
+"DJI",
+"UKR",
+"ERI"
+]
+}
+]
+};

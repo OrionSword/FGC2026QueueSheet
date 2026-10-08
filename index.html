@@ -121,8 +121,10 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 }
 .red .team { background: var(--red-bg); border-left-color: var(--red); }
 .blue .team { background: var(--blue-bg); border-left-color: var(--blue); }
-.flag { width: 36px; height: 24px; flex: none; object-fit: cover; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.25); background: var(--surface2); }
-.flag.ph { display: grid; place-items: center; font-size: 9px; font-weight: 800; color: var(--muted); object-fit: initial; }
+/* Official flags are drawn on 5:3 canvases; never crop them. */
+.flag { width: 40px; height: 24px; flex: none; object-fit: contain; object-position: left center; }
+img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
+.flag.ph { background: var(--surface2); border-radius: 2px; display: grid; place-items: center; font-size: 9px; font-weight: 800; color: var(--muted); object-fit: initial; }
 .tname { font-weight: 600; font-size: 14px; overflow-wrap: anywhere; min-width: 0; }
 .mk { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; display: none; place-items: center; font-size: 12px; font-weight: 900; color: #fff; }
 .team.m-full { border-color: var(--ok); background: var(--ok-bg); }
@@ -192,6 +194,7 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .stepper { display: flex; align-items: center; gap: 8px; }
 .stepper .val { min-width: 4.5em; text-align: center; font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .trow { display: grid; grid-template-columns: 1fr; gap: 4px; margin-bottom: 8px; }
+.trow .who .flag { width: 50px; height: 30px; }
 .trow .who { display: flex; align-items: center; gap: 8px; font-weight: 700; }
 .trow .btns .btn { flex: 1; padding: 8px 6px; font-size: 13px; }
 .legend { display: grid; gap: 6px; }
@@ -209,7 +212,7 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .search .results { overflow: auto; padding: 8px 8px 40px; }
 .sres { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; margin-bottom: 10px; }
 .sres .who { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; }
-.sres .who .flag { width: 54px; height: 36px; }
+.sres .who .flag { width: 60px; height: 36px; }
 .sres .next { margin: 8px 0; padding: 10px; border-radius: 10px; background: var(--surface2); font-size: 16px; }
 .sres .next b { font-size: 18px; }
 .sres .dir { font-size: 20px; font-weight: 900; }
@@ -325,7 +328,8 @@ const hm = t => fTime.format(t);
 const fmtDelta = d => d == null ? "" : d === 0 ? "±0" : (d > 0 ? "+" : "−") + Math.abs(d);
 const deltaCls = d => d == null ? "" : d > 0 ? "late" : d < 0 ? "early" : "zero";
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const teamName = c => (TEAMS[c] && TEAMS[c].name) || c;
+// Country name exactly as published by FIRST Global (minus the generic "Team " prefix).
+const teamName = c => (TEAMS[c] && (TEAMS[c].country || TEAMS[c].name)) || c;
 function flagHtml(c, cls = "flag") {
   const t = TEAMS[c];
   if (t && t.flag) return `<img class="${cls}" src="${esc(t.flag)}" alt="" loading="lazy" decoding="async">`;
@@ -633,7 +637,7 @@ function importBackup() {
 
 /* ---------- Search ---------- */
 const norm = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-const TEAM_INDEX = Object.entries(TEAMS).map(([c, t]) => ({ c, n: norm(t.name || c), cn: norm(c) }));
+const TEAM_INDEX = Object.entries(TEAMS).map(([c, t]) => ({ c, n: norm(t.country || t.name || c), cn: norm(c) }));
 function openSearch() {
   overlayRoot.innerHTML = `<div class="search"><div class="bar">
       <input type="search" id="q" placeholder="Search country…" autocomplete="off" autocapitalize="words" enterkeyhint="search">
