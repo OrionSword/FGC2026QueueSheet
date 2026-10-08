@@ -20,8 +20,8 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 
 * **Unit switcher** (top): `F1·2`, `F3`, `F4·5`, `All`. The pair units and All have a sub-switch for single fields.
 * **Tap a team** to cycle its mark: none → ✓ full team with robot → R representative only → ? not heard from / unknown → none.
-* **Start ▶** crosses the match out and records the start delta from the phone clock, in whole minutes (+ = late, − = early). Clock minutes are compared, so pressing Start any time during the scheduled minute (e.g. 4:41:00–4:41:59 for a 4:41 match) records **On time**. If earlier matches in the view are still open, a toast offers to cross them out too.
-* A delta of 0 is shown as **On time** (blue). A match with no delta recorded shows just *Played*, and its option sheet shows "—" / *Not recorded*. The sheet has −5/−1/+1/+5, **On time**, **Started now** and **Clear delta** buttons.
+* **Mark done ✓** crosses the match out. Start-time tracking is **off by default**, for queuers far upstream who don't need it. Turn on **Menu → Track start times** to change the button to **Start ▶**, which crosses the match out and records the start delta from the phone clock, in whole minutes (+ = late, − = early). Clock minutes are compared, so pressing Start any time during the scheduled minute (e.g. 4:41:00–4:41:59 for a 4:41 match) records **On time**. If earlier matches in the view are still open, a toast offers to cross them out too.
+* With tracking on, a delta of 0 is shown as **On time** (blue). A match with no delta recorded shows just *Played*, and its option sheet shows "—" / *Not recorded*. The sheet has −5/−1/+1/+5, **On time**, **Started now** and **Clear delta** buttons.
 * **Catching up** (for a volunteer starting mid-day): tap the match number of the first match you are responsible for. Under *Catching up*, mark every open match above it as played, either in the current view or on all fields. Matches reopened for a replay are skipped, and the toast offers *Undo*.
 * **Tap the match number** (or long-press a match) for every option: status (Not started / Queuing / Played), delta stepper, and explicit per-team marks. A match is shown as *Queuing* automatically once any team is marked present.
 * **Breaks** are found automatically from gaps in the schedule: per day, any gap between match slots at least 6 minutes longer than the normal cycle. A gap of 40+ extra minutes is lunch (bold yellow banner); shorter ones (~15 min) get a dashed bar. Both show the last match before the break and when play resumes.
@@ -36,7 +36,7 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
   * never puts a team in two matches in the same slot, avoids back-to-back slots for a team, and shows a **Break** banner where it cannot be avoided. Then it keeps the number of slots low and the walking short (fields 1–5 are in a line), alternating the two fields of a pair.
   * lists teams with more than one replay in the summary, outlines them in purple with *1/2*, *2/2*…, and tells them where to go next: *Stay at F2 Red*, *Stay on F2, switch to Blue*, or *Go to F4 Blue (2 fields toward F5)*.
   * *Played ✓* marks a replay done; played replays never move again. *✎ Edit order* moves a replay to an earlier/later slot or another field (swapping with whatever is there). After hand edits, newly added replays are slotted in without moving the others, and *↻ Re-optimize* re-plans everything not yet played.
-* **Menu**: filter by match type, hide played matches, keep screen awake, legend, export/import a backup JSON, reset.
+* **Menu**: filter by match type, hide played matches, track start times, keep screen awake, legend, export/import a backup JSON, reset.
 
 Marks and replays are saved to `localStorage` on every tap (keyed by `event.id` in `data.js`). They survive refreshes, navigation and restarts. The app also asks Chrome for persistent storage.
 
@@ -83,7 +83,7 @@ node tools/smoke_test.mjs            # needs the playwright package + Chromium
 It serves the folder locally and checks, in a phone-sized headless Chromium:
 * every match renders, site-played matches show as played, and break markers and flags appear;
 * team marks persist across a reload;
-* the on-time rule at the minute boundaries;
+* start-time tracking off by default (Mark done), and the on-time rule at the minute boundaries;
 * catch-up and Undo;
 * replays: flagging, adding by number, no clashes, side fields only, breaks for back-to-back teams, hand edits and persistence;
 * offline loading.

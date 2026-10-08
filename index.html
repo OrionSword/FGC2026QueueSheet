@@ -360,7 +360,7 @@ function normReplays(r) {
 
 /* ---------- Persistence ---------- */
 const KEY = "fgcq:" + D.event.id;
-const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false };
+const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false, timing: false };
 let S = { v: 1, m: {}, ui: { ...DEFAULT_UI }, r: normReplays() };
 try {
   const raw = localStorage.getItem(KEY);
@@ -675,11 +675,11 @@ function teamHtml(m, c) {
 function matchHtml(m) {
   const st = statusOf(m), x = peek(m.id);
   const chip = st === "done"
-    ? `<button class="chip st-done" data-act="sheet" data-m="${esc(m.id)}">Played${x.d != null ? ` · <span class="delta ${deltaCls(x.d)}">${fmtDelta(x.d)}</span>` : ""}</button>`
+    ? `<button class="chip st-done" data-act="sheet" data-m="${esc(m.id)}">Played${S.ui.timing && x.d != null ? ` · <span class="delta ${deltaCls(x.d)}">${fmtDelta(x.d)}</span>` : ""}</button>`
     : st === "queue"
       ? `<button class="chip st-queue" data-act="sheet" data-m="${esc(m.id)}">Queuing</button>`
       : "";
-  const start = st === "done" ? "" : `<button class="startbtn" data-act="start" data-m="${esc(m.id)}">Start ▶</button>`;
+  const start = st === "done" ? "" : `<button class="startbtn" data-act="start" data-m="${esc(m.id)}">${S.ui.timing ? "Start ▶" : "Mark done ✓"}</button>`;
   const rp = replayEntry(m.id);
   const rpChip = !rp ? "" : `<button class="chip rp" data-act="replay">↻ ${S.r.done[m.id] ? "Replayed" : rp.f ? `Replay · S${rp.s + 1} F${rp.f}` : "Replay"}</button>`;
   return `<div class="match st-${st}" id="m-${esc(m.id)}" data-m="${esc(m.id)}">
@@ -779,7 +779,7 @@ function runningDelta(ms = viewMatches()) {
   return null;
 }
 function updateStatusLine() {
-  const ms = viewMatches(), n = nextMatch(ms), d = runningDelta(ms);
+  const ms = viewMatches(), n = nextMatch(ms), d = S.ui.timing ? runningDelta(ms) : null;
   let s = `<span class="clock">${hm(Date.now())}</span>`;
   if (n) {
     s += ` · Next <b>${esc(n.label || n.number)}</b> F${n.field} <b>${hm(n.t)}</b>`;
@@ -822,13 +822,14 @@ function startMatch(id) {
   const d = clockDelta(m);
   x.s = "done";
   // Only auto-record the delta when it is plausible (i.e. we're marking it live, not catching up).
-  if (Math.abs(d) <= 90) x.d = d; else delete x.d;
+  // With start-time tracking off, a match is just crossed out and any recorded delta is left alone.
+  if (S.ui.timing) { if (Math.abs(d) <= 90) x.d = d; else delete x.d; }
   save(); rerenderMatch(id);
   const earlier = openBefore(m, false);
   const label = `${TYPE_LABEL[m.type] || ""} ${m.label || m.number}`;
   const actions = [["Undo", undo], ["Edit", () => openMatchSheet(id)]];
   if (earlier.length) actions.push([`Cross out ${earlier.length} earlier`, () => markEarlierDone(m)]);
-  toast(`${label} started${x.d != null ? ` ${fmtDeltaMin(x.d)}` : ""}`, actions, earlier.length ? 9000 : 5000);
+  toast(S.ui.timing ? `${label} started${x.d != null ? ` ${fmtDeltaMin(x.d)}` : ""}` : `${label} marked done`, actions, earlier.length ? 9000 : 5000);
 }
 // Still-open matches listed above `m`, either in the current view or across all fields.
 // Matches the volunteer reopened for a replay are left alone.
@@ -903,12 +904,12 @@ function openMatchSheet(id) {
       <div class="btns">${sbtn("idle", "Not started")}${sbtn("queue", "Queuing")}${sbtn("done", "Played ✕")}</div>
       ${rpHtml()}
       ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose “Not started” or “Queuing” to reopen it for a replay.</p>` : ""}
-      <h3>Start time vs schedule (minutes)</h3>
+      ${S.ui.timing ? `<h3>Start time vs schedule (minutes)</h3>
       <div class="stepper"><button class="btn" data-a="d" data-v="-5">−5</button><button class="btn" data-a="d" data-v="-1">−1</button>
         <span class="val delta ${x.d == null ? "none" : deltaCls(x.d)}">${x.d == null ? "—" : fmtDelta(x.d)}</span>
         <button class="btn" data-a="d" data-v="1">+1</button><button class="btn" data-a="d" data-v="5">+5</button></div>
       <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDeltaMin(clockDelta(m))})</button>` : ""}<button class="btn" data-a="dzero">On time</button><button class="btn" data-a="dclear">Clear delta</button></div>
-      <p class="note">${x.d == null ? "<b>Not recorded.</b> " : ""}Positive = started late, negative = started early. Setting a delta marks the match played.</p>
+      <p class="note">${x.d == null ? "<b>Not recorded.</b> " : ""}Positive = started late, negative = started early. Setting a delta marks the match played.</p>` : ""}
       ${bulkHtml()}
       <h3 style="color:var(--red)">Red alliance</h3>${m.red.map(trow).join("")}
       <h3 style="color:var(--blue)">Blue alliance</h3>${m.blue.map(trow).join("")}
@@ -956,10 +957,11 @@ function openMenu() {
     <div class="btns">${tb("all", "All")}${tb("practice", "Practice")}${tb("ranking", "Ranking")}${tb("playoff", "Playoff")}</div>
     <h3>Display</h3>
     <label class="toggle">Hide played (crossed-out) matches <input type="checkbox" data-a="hide" ${S.ui.hideDone ? "checked" : ""}></label>
+    <label class="toggle"><span>Track start times<br><span class="note">Start ▶ records how many minutes late/early each match started</span></span> <input type="checkbox" data-a="timing" ${S.ui.timing ? "checked" : ""}></label>
     <label class="toggle">24-hour clock <input type="checkbox" data-a="h24" ${S.ui.h24 ? "checked" : ""}></label>
     ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
     <h3>How to mark</h3>
-    <p class="note">Tap a team to cycle its mark. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. “Start ▶” crosses the match out and records how many minutes late/early it started.</p>
+    <p class="note">Tap a team to cycle its mark. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. ${S.ui.timing ? "“Start ▶” crosses the match out and records how many minutes late/early it started." : "“Mark done ✓” crosses the match out."}</p>
     <p class="note"><b>Replays</b> (↻ at the top): flag a match from its sheet or add it by number in the planner. The planner orders them on the side fields so no team plays two at once, adds breaks for back-to-back teams and says where each team goes next.</p>
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
     <h3>Saved on this phone</h3>
@@ -972,6 +974,7 @@ function openMenu() {
       case "type": S.ui.type = b.dataset.k; save(); closeOverlay(); render(true); break;
       case "hide": S.ui.hideDone = b.checked; save(); render(false); break;
       case "wake": S.ui.wake = b.checked; save(); applyWake(); break;
+      case "timing": S.ui.timing = b.checked; save(); render(false); break;
       case "h24": S.ui.h24 = b.checked; save(); setClock(); render(false); break;
       case "export": exportBackup(); break;
       case "import": importBackup(); break;
