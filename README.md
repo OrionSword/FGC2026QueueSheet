@@ -2,6 +2,8 @@
 
 A digital replacement for the paper queuing schedule at the FIRST Global Challenge 2026, for queuing volunteers. It runs as a single static web page in Chrome on Android phones, foldables and tablets. Everything is saved on the device, and it never syncs to the cloud.
 
+**Live app:** https://orionsword.github.io/FGC2026QueueSheet/ (GitHub Pages, deployed from `main`).
+
 ## Files
 
 | File | Purpose |
@@ -11,15 +13,19 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 | `flags/*.png` | Official FIRST Global flags, rendered from the site's SVGs. |
 | `sw.js`, `manifest.webmanifest`, `icon.svg` | Offline support and "Add to Home screen". |
 | `tools/fetch_fgc_data.py`, `tools/rasterize_flags.mjs` | Rebuild `data.js` and `flags/` from the results site. |
+| `tools/smoke_test.mjs` | End-to-end check in headless Chromium (see *Testing*). |
+| `CLAUDE.md` | Notes and ground rules for AI-assisted changes. |
 
 ## Using it
 
 * **Unit switcher** (top): `F1·2`, `F3`, `F4·5`, `All`. The pair units and All have a sub-switch for single fields.
 * **Tap a team** to cycle its mark: none → ✓ full team with robot → R representative only → ? not heard from / unknown → none.
-* **Start ▶** crosses the match out and records the start delta from the phone clock (+ = late, − = early). If earlier matches in the view are still open, a toast offers to cross them out too, so you can join mid-event.
+* **Start ▶** crosses the match out and records the start delta from the phone clock, in whole minutes (+ = late, − = early). Clock minutes are compared, so pressing Start any time during the scheduled minute (e.g. 4:41:00–4:41:59 for a 4:41 match) records **On time**. If earlier matches in the view are still open, a toast offers to cross them out too.
+* A delta of 0 is shown as **On time** (blue). A match with no delta recorded shows just *Played*, and its option sheet shows "—" / *Not recorded*. The sheet has −5/−1/+1/+5, **On time**, **Started now** and **Clear delta** buttons.
 * **Catching up** (for a volunteer starting mid-day): tap the match number of the first match you are responsible for. Under *Catching up*, mark every open match above it as played, either in the current view or on all fields. Matches reopened for a replay are skipped, and the toast offers *Undo*.
 * **Tap the match number** (or long-press a match) for every option: status (Not started / Queuing / Played), delta stepper, and explicit per-team marks. A match is shown as *Queuing* automatically once any team is marked present.
-* **Breaks** are found automatically from gaps in the schedule. Lunch gets a bold yellow banner; shorter breaks (~15 min) get a dashed bar. Both show the last match before the break and when play resumes.
+* **Breaks** are found automatically from gaps in the schedule: per day, any gap between match slots at least 6 minutes longer than the normal cycle. A gap of 40+ extra minutes is lunch (bold yellow banner); shorter ones (~15 min) get a dashed bar. Both show the last match before the break and when play resumes.
+* **Field colours** match the event: F1 orange, F2 pink, F3 purple, F4 light blue, F5 green.
 * Times are always in event-local time, **12-hour (AM/PM) by default**; the menu has a 24-hour option.
 * The **header** shows event-local time, the next match in the current view, and how far ahead or behind the unit is running.
 * **Jump to next** scrolls to the first open match after the last played one, or to the current time if nothing is marked yet.
@@ -36,8 +42,8 @@ Opening `index.html` directly from the phone's storage also works, but offline c
 
 ### GitHub Pages, step by step
 
-1. Merge this branch into `main` (or pick this branch directly in step 2).
-2. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**. Pick the branch and the `/ (root)` folder, then **Save**.
+1. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
+2. Pick `main` and the `/ (root)` folder, then **Save**.
 3. After a minute or two the site is live at `https://<owner>.github.io/<repo>/`. The URL is shown at the top of the Pages settings.
 4. On each phone, open that URL in Chrome and choose **⋮ → Add to Home screen → Install**. Every file, flags included, is cached on that first visit, so it then works with no signal.
 5. To publish updates, push to the same branch. Pages redeploys automatically, and phones get the new version the next time they open the app while online.
@@ -60,4 +66,19 @@ python3 tools/fetch_fgc_data.py      # writes data.js, caches official SVGs in t
 node tools/rasterize_flags.mjs       # needs the playwright package + Chromium
 ```
 
-Then commit and push. Match IDs and the event ID stay the same, so marks already on phones are kept. Phones pick up the new data the next time they open the page online.
+`rasterize_flags.mjs` renders whatever SVGs `fetch_fgc_data.py` cached, so run them in that order. Then run the smoke test, commit and push. Match IDs and the event ID stay the same, so marks already on phones are kept. Phones pick up the new data the next time they open the page online (the first open after an update may still show the old version).
+
+## Testing
+
+```sh
+node tools/smoke_test.mjs            # needs the playwright package + Chromium
+```
+
+It serves the folder locally and checks, in a phone-sized headless Chromium:
+* every match renders, site-played matches show as played, and break markers and flags appear;
+* team marks persist across a reload;
+* the on-time rule at the minute boundaries;
+* catch-up and Undo;
+* offline loading.
+
+Expectations come from `data.js`, so it keeps passing after a data refresh. It exits non-zero on any failure.
