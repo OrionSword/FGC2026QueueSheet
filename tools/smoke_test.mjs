@@ -93,6 +93,61 @@ try {
     check(await p.locator(".match.st-done").count() === played, "Undo restores the previous state");
     await ctx.close();
   }
+  // 6. Replays: flag from the match sheet, add by number, plan on the side fields with no team
+  //    in two matches at once, and a break wherever a team has to play back-to-back.
+  {
+    const teamsOf = m => [...m.red, ...m.blue];
+    const counts = {};
+    D.matches.forEach(m => teamsOf(m).forEach(c => { counts[c] = (counts[c] || 0) + 1; }));
+    const X = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+    const xs = D.matches.filter(m => teamsOf(m).includes(X)).slice(0, 3);
+    const rest = D.matches.filter(m => !teamsOf(m).includes(X));
+    const extra = [3, 1, 5].map(f => rest.find(m => m.field === f));
+    const want = [...xs, ...extra];
+    const { ctx, p } = await page(null);
+    await p.locator('[data-unit="all"]').tap();
+    await row(p, xs[0].number).locator(".mid").tap();
+    await p.locator('.sheet [data-a="rpon"]').tap();
+    await p.locator('.sheet [data-a="close"]').tap();
+    check(await row(p, xs[0].number).locator(".chip.rp").count() === 1, "match flagged from its sheet shows a replay chip");
+    await p.locator("#rpBtn").tap();
+    await p.fill("#rpNum", String(xs[1].number)); await p.press("#rpNum", "Enter");
+    await p.fill("#rpNum", [xs[2], ...extra].map(m => m.number).join(", "));
+    await p.locator('.rpl [data-a="add"]').tap();
+    const readPlan = () => p.locator(".rmatch").evaluateAll(es => es.map(e => ({
+      id: e.dataset.m, s: +e.dataset.slot, f: +e.dataset.f, t: [...e.querySelectorAll(".rteam")].map(t => t.dataset.t) })));
+    const plan = await readPlan();
+    check(plan.length === want.length && want.every(m => plan.some(q => q.id === m.id)), `all ${want.length} replays planned`);
+    check(plan.every(q => [1, 2, 4, 5].includes(q.f)), "replays only on side fields (never F3)");
+    const slots = [...new Set(plan.map(q => q.s))];
+    check(slots.every(s => {
+      const qs = plan.filter(q => q.s === s), ts = qs.flatMap(q => q.t);
+      return new Set(ts).size === ts.length && new Set(qs.map(q => q.f <= 2)).size === qs.length;
+    }), "no team in two matches at once, one match per pair per slot");
+    const xSlots = plan.filter(q => q.t.includes(X)).map(q => q.s).sort((a, b) => a - b);
+    let breaksOk = true;
+    for (let i = 1; i < xSlots.length; i++)
+      if (xSlots[i] - xSlots[i - 1] === 1 && !(await p.locator(`.rpl .brk[data-before="${xSlots[i]}"]`).count())) breaksOk = false;
+    check(breaksOk, "a break is shown before every back-to-back replay");
+    check(await p.locator(`.rteam.dup[data-t="${X}"] .go`).count() === 3 && await p.locator(`.rp-path[data-t="${X}"]`).count() === 1,
+      "team with several replays gets where-to-go-next instructions");
+    // Hand edit, then re-optimize.
+    await p.locator('.rpl [data-a="edit"]').tap();
+    const first = plan.find(q => q.s === 0);
+    await p.locator(`.rmatch[data-m="${first.id}"] [data-a="down"]`).tap();
+    check((await readPlan()).find(q => q.id === first.id).s === 1 && await p.locator(".rp-sum", { hasText: "Edited by hand" }).count() === 1, "hand edit moves a replay");
+    await p.locator('.rpl [data-a="opt"]').tap();
+    const again = await readPlan();
+    check(JSON.stringify(again) === JSON.stringify(plan), "re-optimize restores the same plan");
+    // Mark one played; everything persists across a reload.
+    await p.locator(`.rmatch[data-m="${first.id}"] [data-a="done"]`).tap();
+    await p.reload(); await p.waitForSelector(".match");
+    await p.locator('[data-unit="all"]').tap();
+    check(await p.locator(".chip.rp", { hasText: "Replayed" }).count() === 1 && await p.locator(".chip.rp").count() === want.length, "replay flags and played state persist");
+    await p.locator("#rpBtn").tap();
+    check(JSON.stringify(await readPlan()) === JSON.stringify(plan), "replay plan persists across reload");
+    await ctx.close();
+  }
   // 5. Works offline after the first visit (service worker cache).
   {
     const { ctx, p } = await page(null);

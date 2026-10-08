@@ -9,10 +9,11 @@ Static offline web app (no build step) replacing paper queuing sheets at the FIR
 - Flags must never be cropped (`object-fit: contain`). The official artwork is drawn on 5:3 canvases (Nepal is narrower).
 - Times always display in the event time zone (`event.tz`, Asia/Seoul), never the phone's.
 - Site-played matches (`played: true`) default to *Played*; a volunteer's own status (`S.m[id].s`) always wins, which is how replays are reopened.
+- Replays live in `S.r` (`ids`, `plan: [{id, s, f}]`, `done`, `mode`, `manual`), keyed by the same match ids. Replays never go on Field 3. A plan is an order of slots (one match per side pair per slot), never clock times. Played replays (`done`) must never move when re-planning.
 - Start delta = scheduled minute vs clock minute (`clockDelta`), so any second within the scheduled minute is "On time". `d === 0` (on time) and `d == null` (not recorded) must stay visually distinct.
 
 ## Layout of index.html
-All CSS and JS are inline. Main sections: persistence (`S`, `save`, `statusOf`), formatting (`fTime`, `hm`/`hmH`, `fmtDelta`, `clockDelta`), breaks (`BREAKS`), view selection, rendering (`render`, `matchHtml`, `breakHtml`), actions (`startMatch`, `openBefore`/`markEarlierDone`), overlays (match sheet, menu, search), service worker registration.
+All CSS and JS are inline. Main sections: persistence (`S`, `save`, `statusOf`), formatting (`fTime`, `hm`/`hmH`, `fmtDelta`, `clockDelta`), breaks (`BREAKS`), view selection, replay planning (`replayFields`, `scorePlan`/`planCoster` with weights `RW`, `optimizeReplays`, `syncReplays`), rendering (`render`, `matchHtml`, `breakHtml`), actions (`startMatch`, `openBefore`/`markEarlierDone`), overlays (match sheet, menu, replay planner `openReplays`/`drawReplays`, search), service worker registration.
 
 ## Before pushing
 - `node tools/smoke_test.mjs` must pass (needs the `playwright` package + Chromium).
