@@ -504,18 +504,26 @@ function startMatch(id) {
   // Only auto-record the delta when it is plausible (i.e. we're marking it live, not catching up).
   if (Math.abs(d) <= 90) x.d = d; else delete x.d;
   save(); rerenderMatch(id);
-  const earlier = viewMatches().filter(o => o.t < m.t && statusOf(o) !== "done");
+  const earlier = openBefore(m, false);
   const label = `${TYPE_LABEL[m.type] || ""} ${m.label || m.number}`;
   const actions = [["Undo", undo], ["Edit", () => openMatchSheet(id)]];
   if (earlier.length) actions.push([`Cross out ${earlier.length} earlier`, () => markEarlierDone(m)]);
   toast(`${label} started${x.d != null ? ` ${fmtDelta(x.d)} min` : ""}`, actions, earlier.length ? 9000 : 5000);
 }
-function markEarlierDone(m) {
+// Still-open matches listed above `m`, either in the current view or across all fields.
+// Matches the volunteer reopened for a replay are left alone.
+function openBefore(m, allFields) {
+  const pool = allFields ? MATCHES : viewMatches();
+  const i = pool.indexOf(m);
+  const before = i >= 0 ? pool.slice(0, i) : pool.filter(o => o.t < m.t);
+  return before.filter(o => statusOf(o) !== "done" && !(o.played && peek(o.id).s));
+}
+function markEarlierDone(m, allFields = false) {
   snapshot();
-  const earlier = viewMatches().filter(o => o.t < m.t && statusOf(o) !== "done");
+  const earlier = openBefore(m, allFields);
   earlier.forEach(o => { mk(o.id).s = "done"; });
   save(); render(false); flash(m.id);
-  toast(`Crossed out ${earlier.length} earlier matches`, [["Undo", undo]]);
+  toast(`Marked ${earlier.length} earlier match${earlier.length === 1 ? "" : "es"} played`, [["Undo", undo]], 8000);
 }
 
 /* ---------- Overlays ---------- */
@@ -538,6 +546,17 @@ const closeBtn = `<button class="btn close" data-a="close" aria-label="Close">�
 
 function openMatchSheet(id) {
   const m = BY_ID.get(id);
+  const bulkHtml = () => {
+    const inView = openBefore(m, false).length, all = openBefore(m, true).length;
+    const viewName = UNITS[S.ui.unit].label + (S.ui.field ? ` (Field ${S.ui.field} only)` : "") + (S.ui.type !== "all" ? `, ${TYPE_LABEL[S.ui.type]}` : "");
+    if (!all) return "";
+    return `<h3>Catching up</h3>
+      <p class="note">Mark every open match listed above this one as played. Matches reopened for a replay are left open.</p>
+      <div class="btns">
+        ${inView ? `<button class="btn" data-a="bulk" data-all="0">Mark ${inView} earlier played · ${esc(viewName)}</button>` : ""}
+        ${all !== inView ? `<button class="btn" data-a="bulk" data-all="1">Mark ${all} earlier played · all fields</button>` : ""}
+      </div>`;
+  };
   const draw = () => {
     const x = peek(id), st = statusOf(m);
     const sbtn = (s, l) => `<button class="btn ${st === s ? "on" : ""}" data-a="status" data-s="${s}">${l}</button>`;
@@ -558,11 +577,13 @@ function openMatchSheet(id) {
         <button class="btn" data-a="d" data-v="1">+1</button><button class="btn" data-a="d" data-v="5">+5</button></div>
       <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDelta(Math.round((Date.now() - m.t) / 60e3))})</button>` : ""}<button class="btn" data-a="dclear">Clear delta</button></div>
       <p class="note">Positive = started late, negative = started early. Setting a delta marks the match played.</p>
+      ${bulkHtml()}
       <h3 style="color:var(--red)">Red alliance</h3>${m.red.map(trow).join("")}
       <h3 style="color:var(--blue)">Blue alliance</h3>${m.blue.map(trow).join("")}
       <div class="btns" style="margin-top:14px"><button class="btn danger" data-a="clearall">Clear all marks for this match</button></div>`;
   };
   openSheet(draw(), b => {
+    if (b.dataset.a === "bulk") { closeOverlay(); markEarlierDone(m, b.dataset.all === "1"); return; }
     snapshot();
     const x = mk(id);
     switch (b.dataset.a) {
@@ -597,7 +618,7 @@ function openMenu() {
     <label class="toggle">Hide played (crossed-out) matches <input type="checkbox" data-a="hide" ${S.ui.hideDone ? "checked" : ""}></label>
     ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
     <h3>How to mark</h3>
-    <p class="note">Tap a team to cycle its mark. Tap the match number (or long-press a team) for all match options. “Start ▶” crosses the match out and records how many minutes late/early it started.</p>
+    <p class="note">Tap a team to cycle its mark. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. “Start ▶” crosses the match out and records how many minutes late/early it started.</p>
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
     <h3>Saved on this phone</h3>
     <p class="note">${counts.done} matches played · ${counts.marks} team marks. Saved automatically on every tap.</p>
