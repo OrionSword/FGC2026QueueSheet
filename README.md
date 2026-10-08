@@ -48,7 +48,7 @@ Everything comes from https://results.first.global/, which is the authority for 
 * The schedule and team list are read from the JSON the site embeds in its home page (`__NEXT_DATA__`). Red is stations 11–13 and blue is 21–23, the same rule the site uses.
 * Names are shown exactly as published, minus the generic leading "Team " (e.g. "Team Côte d'Ivoire" → "Côte d'Ivoire"). Special teams such as "Team Hope (Refugees)" keep their full name.
 * Flags are the site's own SVGs (`/static/flags/4x3/<code>.svg`). Some are over 1 MB, 45 MB in total, so they are rendered once in Chromium to small PNGs (~0.8 MB total) at their original proportions.
-* Scores and played state are **not** imported, so every phone starts with a clean sheet.
+* The site's **played** flag is imported. Those matches show as *Played* but stay in the list so they can be looked up. To reopen one for a replay, tap its match number and choose *Not started* or *Queuing*. A volunteer's own status always overrides the site's. Scores and team marks are not imported.
 
 To refresh (e.g. when playoff matches are published):
 

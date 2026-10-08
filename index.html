@@ -138,8 +138,9 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 
 /* Played / crossed-out */
 .match.st-done { background: var(--surface2); }
-.match.st-done .team, .match.st-done .mid, .match.st-done .time { opacity: .5; }
-.match.st-done .tname, .match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
+/* Played matches stay readable (for replays / look-ups): dimmed, number and time struck, names not. */
+.match.st-done .team, .match.st-done .mid, .match.st-done .time { opacity: .68; }
+.match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
 .match.st-done::after {
   content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--done); opacity: .45; pointer-events: none; transform: rotate(-1.2deg);
 }
@@ -312,7 +313,8 @@ const peek = id => S.m[id] || { t: {} };
 function prune(id) { const x = S.m[id]; if (x && !x.s && x.d == null && !Object.keys(x.t || {}).length) delete S.m[id]; }
 function statusOf(m) {
   const x = peek(m.id);
-  if (x.s === "done" || x.s === "queue" || x.s === "idle") return x.s;
+  if (x.s === "done" || x.s === "queue" || x.s === "idle") return x.s;  // the volunteer's mark always wins
+  if (m.played) return "done";  // already played according to results.first.global
   return Object.values(x.t || {}).some(v => v === "full" || v === "rep") ? "queue" : "idle";
 }
 
@@ -549,6 +551,7 @@ function openMatchSheet(id) {
       <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${hm(m.t)}</span><span class="note">${fDay.format(m.t)}</span></div>
       <h3>Status</h3>
       <div class="btns">${sbtn("idle", "Not started")}${sbtn("queue", "Queuing")}${sbtn("done", "Played ✕")}</div>
+      ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose “Not started” or “Queuing” to reopen it for a replay.</p>` : ""}
       <h3>Start time vs schedule (minutes)</h3>
       <div class="stepper"><button class="btn" data-a="d" data-v="-5">−5</button><button class="btn" data-a="d" data-v="-1">−1</button>
         <span class="val delta ${deltaCls(x.d)}">${x.d == null ? "—" : fmtDelta(x.d)}</span>
@@ -563,7 +566,11 @@ function openMatchSheet(id) {
     snapshot();
     const x = mk(id);
     switch (b.dataset.a) {
-      case "status": if (b.dataset.s === "idle" && !Object.keys(x.t).length) delete x.s; else x.s = b.dataset.s; if (x.s !== "done") delete x.d; break;
+      case "status":
+        // "Not started" on a match the results site lists as played must be stored explicitly (e.g. a replay).
+        if (b.dataset.s === "idle" && !Object.keys(x.t).length && !m.played) delete x.s; else x.s = b.dataset.s;
+        if (x.s !== "done") delete x.d;
+        break;
       case "d": x.d = (x.d || 0) + Number(b.dataset.v); x.s = "done"; break;
       case "dnow": x.d = Math.round((Date.now() - m.t) / 60e3); x.s = "done"; break;
       case "dclear": delete x.d; break;
@@ -578,7 +585,8 @@ function openMatchSheet(id) {
 
 function openMenu() {
   const counts = { done: 0, marks: 0 };
-  Object.values(S.m).forEach(x => { if (x.s === "done") counts.done++; counts.marks += Object.keys(x.t || {}).length; });
+  MATCHES.forEach(m => { if (statusOf(m) === "done") counts.done++; });
+  Object.values(S.m).forEach(x => { counts.marks += Object.keys(x.t || {}).length; });
   const tb = (k, l) => `<button class="btn ${S.ui.type === k ? "on" : ""}" data-a="type" data-k="${k}">${l}</button>`;
   const legendTeam = (k, l) => `<div class="red"><div class="team ${k ? "m-" + k : ""}"><span class="flag ph"></span><span class="tname">${l}</span><span class="mk">${k ? MARK_INFO[k].glyph : ""}</span></div></div>`;
   openSheet(`${closeBtn}<h2>Queue sheet</h2>

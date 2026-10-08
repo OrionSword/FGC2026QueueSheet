@@ -8,7 +8,8 @@ The results site is a Next.js app; the schedule and team list are embedded in th
 home page as __NEXT_DATA__ JSON. Flags are the site's own SVGs from
 /static/flags/4x3/<code>.svg, cached in tools/.flag-cache/ and then rendered to
 small PNGs in flags/ by tools/rasterize_flags.mjs (some official SVGs are >1 MB).
-Played/score state is deliberately NOT imported so the queue sheet starts clean.
+Only the site's "played" flag is imported (shown as already played; volunteers can
+reopen a match for a replay). Scores and team marks are not imported.
 """
 import json
 import os
@@ -88,6 +89,8 @@ def main():
             "red": [p["country"] for p in ps if p["station"] < 20],
             "blue": [p["country"] for p in ps if p["station"] > 20],
         })
+        if mt.get("played"):
+            matches[-1]["played"] = True
     matches.sort(key=lambda x: (x["time"], x["field"]))
 
     event_key = data["matches"][0]["eventKey"] if data["matches"] else "FGC"
