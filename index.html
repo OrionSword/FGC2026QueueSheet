@@ -16,7 +16,8 @@
   --ok: #1b7f3b; --ok-bg: #d6f5df; --rep: #9a5b00; --rep-bg: #ffe9b8;
   --unk: #b0006d; --unk-bg: #ffd6ee; --queue: #b35c00; --queue-bg: #fff1dc;
   --done: #4a5260; --late: #b3261e; --early: #1b7f3b;
-  --u12: #6a3fb5; --u3: #c45500; --u45: #0d7a74;
+  /* Field colours used at the event: 1 orange, 2 pink, 3 purple, 4 light blue, 5 green. */
+  --f1: #f57c00; --f2: #ec4899; --f3: #7b2cbf; --f4: #4fc3f7; --f5: #2e9e44;
   --accent: #1e5bc6;
 }
 @media (prefers-color-scheme: dark) {
@@ -27,7 +28,7 @@
     --ok: #5fd68a; --ok-bg: #173a24; --rep: #ffc04d; --rep-bg: #3d2f12;
     --unk: #ff6ec7; --unk-bg: #48163a; --queue: #ffb057; --queue-bg: #3a2a12;
     --done: #8a93a3; --late: #ff7b72; --early: #5fd68a;
-    --u12: #a888ff; --u3: #ff9a4d; --u45: #3fd0c6; --accent: #7aa7ff;
+    --accent: #7aa7ff;
   }
 }
 * { box-sizing: border-box; }
@@ -55,9 +56,10 @@ header {
   padding: 9px 4px; font-weight: 700; font-size: 15px; white-space: nowrap; min-width: 0;
 }
 .seg button.on { background: #fff; color: #111; }
-.seg button.on[data-unit="12"] { box-shadow: inset 0 -4px 0 var(--u12); }
-.seg button.on[data-unit="3"] { box-shadow: inset 0 -4px 0 var(--u3); }
-.seg button.on[data-unit="45"] { box-shadow: inset 0 -4px 0 var(--u45); }
+.seg button.on[data-unit] { background-repeat: no-repeat; background-position: bottom; background-size: 100% 5px; }
+.seg button.on[data-unit="12"] { background-image: linear-gradient(90deg, var(--f1) 50%, var(--f2) 50%); }
+.seg button.on[data-unit="3"] { background-image: linear-gradient(var(--f3), var(--f3)); }
+.seg button.on[data-unit="45"] { background-image: linear-gradient(90deg, var(--f4) 50%, var(--f5) 50%); }
 .iconbtn {
   border: 0; background: rgba(255,255,255,.1); color: var(--head-text); border-radius: 10px;
   width: 42px; height: 42px; display: grid; place-items: center; flex: none;
@@ -99,9 +101,10 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .mtype { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
 .mnum { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .mtype.t-practice { color: var(--muted); } .mtype.t-playoff { color: var(--unk); }
-.fld { font-weight: 800; font-size: 14px; color: #fff; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
-.fld.u12 { background: var(--u12); } .fld.u3 { background: var(--u3); } .fld.u45 { background: var(--u45); }
-@media (prefers-color-scheme: dark) { .fld { color: #111; } }
+.fld { font-weight: 800; font-size: 14px; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
+.fld.f1 { background: var(--f1); color: #111; } .fld.f2 { background: var(--f2); color: #111; }
+.fld.f3 { background: var(--f3); color: #fff; } .fld.f4 { background: var(--f4); color: #111; }
+.fld.f5 { background: var(--f5); color: #fff; }
 .time { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .meta .spacer { flex: 1; }
 .meta .row { display: flex; gap: 8px; align-items: center; }
@@ -137,13 +140,11 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 @media (prefers-color-scheme: dark) { .mk { color: #111; } }
 
 /* Played / crossed-out */
-.match.st-done { background: var(--surface2); }
-/* Played matches stay readable (for replays / look-ups): dimmed, number and time struck, names not. */
-.match.st-done .team, .match.st-done .mid, .match.st-done .time { opacity: .68; }
+/* Played matches: clearly inactive at a glance (grey, desaturated, faded) but still readable for look-ups. */
+.match.st-done { background: var(--surface2); border-color: var(--line); box-shadow: none; }
+.match.st-done .team { background: transparent; border-color: transparent; border-left-color: var(--line); }
+.match.st-done .team, .match.st-done .mid, .match.st-done .time, .match.st-done .fld { opacity: .45; filter: grayscale(1); }
 .match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
-.match.st-done::after {
-  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--done); opacity: .45; pointer-events: none; transform: rotate(-1.2deg);
-}
 
 /* Medium: meta column on the left, alliances stacked */
 @media (min-width: 560px) {
@@ -272,10 +273,10 @@ if (!D) { document.body.innerHTML = '<p style="padding:20px">data.js is missing 
 const TZ = D.event.tz || "UTC";
 const TEAMS = D.teams || {};
 const UNITS = {
-  "12": { label: "Fields 1 & 2", short: "F1·2", fields: [1, 2], cls: "u12" },
-  "3":  { label: "Field 3 (center)", short: "F3", fields: [3], cls: "u3" },
-  "45": { label: "Fields 4 & 5", short: "F4·5", fields: [4, 5], cls: "u45" },
-  "all": { label: "All fields", short: "All", fields: [1, 2, 3, 4, 5], cls: "" },
+  "12": { label: "Fields 1 & 2", short: "F1·2", fields: [1, 2] },
+  "3":  { label: "Field 3 (center)", short: "F3", fields: [3] },
+  "45": { label: "Fields 4 & 5", short: "F4·5", fields: [4, 5] },
+  "all": { label: "All fields", short: "All", fields: [1, 2, 3, 4, 5] },
 };
 const TYPE_LABEL = { practice: "Practice", ranking: "Ranking", playoff: "Playoff" };
 const unitOf = f => f <= 2 ? "12" : f === 3 ? "3" : "45";
@@ -337,7 +338,7 @@ function flagHtml(c, cls = "flag") {
   if (t && t.flag) return `<img class="${cls}" src="${esc(t.flag)}" alt="" loading="lazy" decoding="async">`;
   return `<span class="${cls} ph">${esc(c).slice(0, 4)}</span>`;
 }
-const fieldBadge = m => `<span class="fld ${UNITS[m.unit].cls}">F${m.field}</span>`;
+const fieldBadge = m => `<span class="fld f${m.field}">F${m.field}</span>`;
 
 /* ---------- View selection ---------- */
 function viewMatches() {
@@ -703,7 +704,7 @@ function openSearch() {
       const nx = upcoming[0];
       const here = nx && UNITS[S.ui.unit].fields.includes(nx.field);
       const nextHtml = nx
-        ? `<div class="next"><div class="dir" style="color:var(--${nx.unit === "3" ? "u3" : "u" + nx.unit})">${here ? "✓ " : "→ "}${UNITS[nx.unit].label}</div>
+        ? `<div class="next"><div class="dir">${here ? "✓ " : "→ "}${UNITS[nx.unit].fields.map(f => `<span class="fld f${f}">F${f}</span>`).join(" ")} ${UNITS[nx.unit].label}</div>
             Next: <b>${TYPE_LABEL[nx.type]} ${esc(nx.label || nx.number)}</b> on <b>Field ${nx.field}</b> at <b>${hm(nx.t)}</b>,
             <span class="${nx.red.includes(c) ? "al-red" : "al-blue"}" style="color:var(--${nx.red.includes(c) ? "red" : "blue"});font-weight:800">${nx.red.includes(c) ? "Red" : "Blue"}</span>
             ${fDayKey.format(nx.t) !== fDayKey.format(now) ? `<span class="note">(${fDay.format(nx.t)})</span>` : ""}</div>`
