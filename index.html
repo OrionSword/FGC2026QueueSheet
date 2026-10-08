@@ -16,7 +16,9 @@
   --ok: #1b7f3b; --ok-bg: #d6f5df; --rep: #9a5b00; --rep-bg: #ffe9b8;
   --unk: #b0006d; --unk-bg: #ffd6ee; --queue: #b35c00; --queue-bg: #fff1dc;
   --done: #4a5260; --late: #b3261e; --early: #1b7f3b;
-  --u12: #6a3fb5; --u3: #c45500; --u45: #0d7a74;
+  /* Field colours used at the event: 1 orange, 2 pink, 3 purple, 4 light blue, 5 green. */
+  --brk: #00838f; --brk-bg: #e0f7fa;
+  --f1: #f57c00; --f2: #ec4899; --f3: #7b2cbf; --f4: #4fc3f7; --f5: #2e9e44;
   --accent: #1e5bc6;
 }
 @media (prefers-color-scheme: dark) {
@@ -27,7 +29,7 @@
     --ok: #5fd68a; --ok-bg: #173a24; --rep: #ffc04d; --rep-bg: #3d2f12;
     --unk: #ff6ec7; --unk-bg: #48163a; --queue: #ffb057; --queue-bg: #3a2a12;
     --done: #8a93a3; --late: #ff7b72; --early: #5fd68a;
-    --u12: #a888ff; --u3: #ff9a4d; --u45: #3fd0c6; --accent: #7aa7ff;
+    --accent: #7aa7ff; --brk: #4dd0e1; --brk-bg: #0f2f33;
   }
 }
 * { box-sizing: border-box; }
@@ -55,9 +57,10 @@ header {
   padding: 9px 4px; font-weight: 700; font-size: 15px; white-space: nowrap; min-width: 0;
 }
 .seg button.on { background: #fff; color: #111; }
-.seg button.on[data-unit="12"] { box-shadow: inset 0 -4px 0 var(--u12); }
-.seg button.on[data-unit="3"] { box-shadow: inset 0 -4px 0 var(--u3); }
-.seg button.on[data-unit="45"] { box-shadow: inset 0 -4px 0 var(--u45); }
+.seg button.on[data-unit] { background-repeat: no-repeat; background-position: bottom; background-size: 100% 5px; }
+.seg button.on[data-unit="12"] { background-image: linear-gradient(90deg, var(--f1) 50%, var(--f2) 50%); }
+.seg button.on[data-unit="3"] { background-image: linear-gradient(var(--f3), var(--f3)); }
+.seg button.on[data-unit="45"] { background-image: linear-gradient(90deg, var(--f4) 50%, var(--f5) 50%); }
 .iconbtn {
   border: 0; background: rgba(255,255,255,.1); color: var(--head-text); border-radius: 10px;
   width: 42px; height: 42px; display: grid; place-items: center; flex: none;
@@ -81,6 +84,17 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
   font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
   padding: 10px 4px 6px; border-bottom: 1px solid var(--line);
 }
+.time .ampm { display: inline-block; font-size: .62em; font-weight: 700; margin-left: 2px; } /* inline-block: no strike-through on AM/PM */
+/* Breaks detected from gaps in the schedule. Lunch: loud banner. Short break: still obvious, a step quieter. */
+.brk { display: flex; align-items: center; gap: 10px; border-radius: 10px; margin: 10px 0; padding: 12px 14px; }
+.brk .ico { font-size: 26px; line-height: 1; }
+.brk .lbl { font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+.brk .sub { font-size: 13px; font-weight: 600; }
+.brk.lunch { background: repeating-linear-gradient(135deg, #ffcf33 0 14px, #ffc107 14px 28px); color: #111; border: 3px solid #111; }
+.brk.lunch .lbl { font-size: 22px; }
+.brk.short { background: var(--brk-bg); color: var(--text); border: 2px dashed var(--brk); padding: 8px 12px; }
+.brk.short .ico { font-size: 20px; }
+.brk.short .lbl { font-size: 16px; color: var(--brk); }
 .nowline { display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 12px; font-weight: 700; margin: 4px 0; }
 .nowline::before, .nowline::after { content: ""; flex: 1; height: 2px; background: var(--accent); }
 .empty { text-align: center; color: var(--muted); padding: 40px 10px; }
@@ -99,9 +113,10 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .mtype { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
 .mnum { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .mtype.t-practice { color: var(--muted); } .mtype.t-playoff { color: var(--unk); }
-.fld { font-weight: 800; font-size: 14px; color: #fff; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
-.fld.u12 { background: var(--u12); } .fld.u3 { background: var(--u3); } .fld.u45 { background: var(--u45); }
-@media (prefers-color-scheme: dark) { .fld { color: #111; } }
+.fld { font-weight: 800; font-size: 14px; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
+.fld.f1 { background: var(--f1); color: #111; } .fld.f2 { background: var(--f2); color: #111; }
+.fld.f3 { background: var(--f3); color: #fff; } .fld.f4 { background: var(--f4); color: #111; }
+.fld.f5 { background: var(--f5); color: #fff; }
 .time { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .meta .spacer { flex: 1; }
 .meta .row { display: flex; gap: 8px; align-items: center; }
@@ -137,13 +152,11 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 @media (prefers-color-scheme: dark) { .mk { color: #111; } }
 
 /* Played / crossed-out */
-.match.st-done { background: var(--surface2); }
-/* Played matches stay readable (for replays / look-ups): dimmed, number and time struck, names not. */
-.match.st-done .team, .match.st-done .mid, .match.st-done .time { opacity: .68; }
+/* Played matches: clearly inactive at a glance (grey, desaturated, faded) but still readable for look-ups. */
+.match.st-done { background: var(--surface2); border-color: var(--line); box-shadow: none; }
+.match.st-done .team { background: transparent; border-color: transparent; border-left-color: var(--line); }
+.match.st-done .team, .match.st-done .mid, .match.st-done .time, .match.st-done .fld { opacity: .45; filter: grayscale(1); }
 .match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
-.match.st-done::after {
-  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--done); opacity: .45; pointer-events: none; transform: rotate(-1.2deg);
-}
 
 /* Medium: meta column on the left, alliances stacked */
 @media (min-width: 560px) {
@@ -218,7 +231,7 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .sres .next b { font-size: 18px; }
 .sres .dir { font-size: 20px; font-weight: 900; }
 .slist { display: grid; gap: 3px; }
-.sitem { display: grid; grid-template-columns: 5.2em 3.2em 4em 1fr; align-items: center; gap: 6px; padding: 6px; border-radius: 8px; background: var(--surface2); border: 0; text-align: left; font-size: 14px; }
+.sitem { display: grid; grid-template-columns: 5.2em 3.2em 5em 1fr; align-items: center; gap: 6px; padding: 6px; border-radius: 8px; background: var(--surface2); border: 0; text-align: left; font-size: 14px; }
 .sitem.past { opacity: .5; }
 .sitem .al-red { color: var(--red); font-weight: 800; } .sitem .al-blue { color: var(--blue); font-weight: 800; }
 
@@ -272,10 +285,10 @@ if (!D) { document.body.innerHTML = '<p style="padding:20px">data.js is missing 
 const TZ = D.event.tz || "UTC";
 const TEAMS = D.teams || {};
 const UNITS = {
-  "12": { label: "Fields 1 & 2", short: "F1·2", fields: [1, 2], cls: "u12" },
-  "3":  { label: "Field 3 (center)", short: "F3", fields: [3], cls: "u3" },
-  "45": { label: "Fields 4 & 5", short: "F4·5", fields: [4, 5], cls: "u45" },
-  "all": { label: "All fields", short: "All", fields: [1, 2, 3, 4, 5], cls: "" },
+  "12": { label: "Fields 1 & 2", short: "F1·2", fields: [1, 2] },
+  "3":  { label: "Field 3 (center)", short: "F3", fields: [3] },
+  "45": { label: "Fields 4 & 5", short: "F4·5", fields: [4, 5] },
+  "all": { label: "All fields", short: "All", fields: [1, 2, 3, 4, 5] },
 };
 const TYPE_LABEL = { practice: "Practice", ranking: "Ranking", playoff: "Playoff" };
 const unitOf = f => f <= 2 ? "12" : f === 3 ? "3" : "45";
@@ -293,7 +306,7 @@ const BY_ID = new Map(MATCHES.map(m => [m.id, m]));
 
 /* ---------- Persistence ---------- */
 const KEY = "fgcq:" + D.event.id;
-const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false };
+const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false };
 let S = { v: 1, m: {}, ui: { ...DEFAULT_UI } };
 try {
   const raw = localStorage.getItem(KEY);
@@ -323,10 +336,15 @@ function snapshot() { undoSnap = JSON.stringify(S.m); }
 function undo() { if (undoSnap) { S.m = JSON.parse(undoSnap); undoSnap = null; save(); render(false); toast("Undone"); } }
 
 /* ---------- Formatting ---------- */
-const fTime = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, hour: "2-digit", minute: "2-digit", hour12: false });
+// Times are always shown in the event's local time zone; 12-hour (AM/PM) by default.
+let fTime;
+const setClock = () => { fTime = new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hourCycle: S.ui.h24 ? "h23" : "h12" }); };
+setClock();
 const fDay = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, weekday: "long", day: "numeric", month: "long" });
 const fDayKey = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
 const hm = t => fTime.format(t);
+// Same, with a smaller AM/PM for the big time displays.
+const hmH = t => fTime.formatToParts(t).map(p => p.type === "dayPeriod" ? `<small class="ampm">${p.value}</small>` : p.type === "literal" && p.value.trim() === "" ? "" : esc(p.value)).join("");
 const fmtDelta = d => d == null ? "" : d === 0 ? "±0" : (d > 0 ? "+" : "−") + Math.abs(d);
 const deltaCls = d => d == null ? "" : d > 0 ? "late" : d < 0 ? "early" : "zero";
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -337,7 +355,31 @@ function flagHtml(c, cls = "flag") {
   if (t && t.flag) return `<img class="${cls}" src="${esc(t.flag)}" alt="" loading="lazy" decoding="async">`;
   return `<span class="${cls} ph">${esc(c).slice(0, 4)}</span>`;
 }
-const fieldBadge = m => `<span class="fld ${UNITS[m.unit].cls}">F${m.field}</span>`;
+const fieldBadge = m => `<span class="fld f${m.field}">F${m.field}</span>`;
+
+/* ---------- Breaks ---------- */
+// Found from the schedule itself: per day, gaps between event-wide match slots that are much
+// longer than the normal cycle. About an hour or more = lunch; anything shorter = short break.
+const BREAKS = (() => {
+  const byDay = new Map();
+  for (const m of MATCHES) {
+    const k = fDayKey.format(m.t);
+    if (!byDay.has(k)) byDay.set(k, new Set());
+    byDay.get(k).add(m.t);
+  }
+  const out = [];
+  for (const set of byDay.values()) {
+    const ts = [...set].sort((a, b) => a - b);
+    const gaps = ts.slice(1).map((t, i) => t - ts[i]);
+    if (!gaps.length) continue;
+    const cycle = [...gaps].sort((a, b) => a - b)[Math.floor(gaps.length / 2)];
+    gaps.forEach((g, i) => {
+      // from = last match start before the break, to = first match start after it.
+      if (g >= cycle + 6 * 60e3) out.push({ from: ts[i], to: ts[i + 1], lunch: g - cycle >= 40 * 60e3 });
+    });
+  }
+  return out;
+})();
 
 /* ---------- View selection ---------- */
 function viewMatches() {
@@ -366,7 +408,7 @@ function matchHtml(m) {
   const start = st === "done" ? "" : `<button class="startbtn" data-act="start" data-m="${esc(m.id)}">Start ▶</button>`;
   return `<div class="match st-${st}" id="m-${esc(m.id)}" data-m="${esc(m.id)}">
     <div class="meta">
-      <div class="row"><button class="mid" data-act="sheet" data-m="${esc(m.id)}"><span class="mtype t-${m.type}">${TYPE_LABEL[m.type] || esc(m.type)}</span><span class="mnum">${esc(m.label || m.number)}</span></button>${fieldBadge(m)}<span class="time">${hm(m.t)}</span></div>
+      <div class="row"><button class="mid" data-act="sheet" data-m="${esc(m.id)}"><span class="mtype t-${m.type}">${TYPE_LABEL[m.type] || esc(m.type)}</span><span class="mnum">${esc(m.label || m.number)}</span></button>${fieldBadge(m)}<span class="time">${hmH(m.t)}</span></div>
       <span class="spacer"></span>
       <div class="row">${chip}${start}</div>
     </div>
@@ -386,8 +428,10 @@ function render(scroll) {
   if (u.fields.length > 1 && S.ui.unit === "all") sub.innerHTML = [0, ...u.fields].map(f => `<button data-field="${f}" class="${S.ui.field === f ? "on" : ""}">${f || "All"}</button>`).join("");
 
   const ms = viewMatches();
-  let html = "", lastDay = "", lastType = "";
+  let html = "", lastDay = "", lastType = "", prevT = null;
   for (const m of ms) {
+    for (const b of BREAKS) if (prevT != null && prevT <= b.from && b.to <= m.t) html += breakHtml(b);
+    prevT = m.t;
     if (S.ui.hideDone && statusOf(m) === "done") continue;
     const dk = fDayKey.format(m.t);
     if (dk !== lastDay || m.type !== lastType) {
@@ -401,6 +445,12 @@ function render(scroll) {
   placeNowLine();
   updateStatusLine();
   if (scroll) jumpToNext(false);
+}
+
+function breakHtml(b) {
+  return b.lunch
+    ? `<div class="brk lunch" role="separator"><span class="ico">🍴</span><div><div class="lbl">Lunch break</div><div class="sub">Last match ${hm(b.from)} · resumes <b>${hm(b.to)}</b></div></div></div>`
+    : `<div class="brk short" role="separator"><span class="ico">☕</span><div><div class="lbl">Break</div><div class="sub">Last match ${hm(b.from)} · resumes <b>${hm(b.to)}</b></div></div></div>`;
 }
 
 function rerenderMatch(id) {
@@ -469,7 +519,7 @@ function jumpToNext(smooth = true) {
   if (!el) return;
   // Show one previous match for context.
   const prev = el.previousElementSibling;
-  const target = prev && prev.classList.contains("match") ? prev : el;
+  const target = prev && (prev.classList.contains("match") || prev.classList.contains("brk")) ? prev : el;
   target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
 }
 
@@ -567,7 +617,7 @@ function openMatchSheet(id) {
         <div class="btns">${b("", "—")}${b("full", "✓ Full")}${b("rep", "R Rep")}${b("unk", "? Unknown")}</div></div>`;
     };
     return `${closeBtn}<h2>${TYPE_LABEL[m.type] || ""} ${esc(m.label || m.number)}</h2>
-      <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${hm(m.t)}</span><span class="note">${fDay.format(m.t)}</span></div>
+      <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${hmH(m.t)}</span><span class="note">${fDay.format(m.t)}</span></div>
       <h3>Status</h3>
       <div class="btns">${sbtn("idle", "Not started")}${sbtn("queue", "Queuing")}${sbtn("done", "Played ✕")}</div>
       ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose “Not started” or “Queuing” to reopen it for a replay.</p>` : ""}
@@ -616,6 +666,7 @@ function openMenu() {
     <div class="btns">${tb("all", "All")}${tb("practice", "Practice")}${tb("ranking", "Ranking")}${tb("playoff", "Playoff")}</div>
     <h3>Display</h3>
     <label class="toggle">Hide played (crossed-out) matches <input type="checkbox" data-a="hide" ${S.ui.hideDone ? "checked" : ""}></label>
+    <label class="toggle">24-hour clock <input type="checkbox" data-a="h24" ${S.ui.h24 ? "checked" : ""}></label>
     ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
     <h3>How to mark</h3>
     <p class="note">Tap a team to cycle its mark. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. “Start ▶” crosses the match out and records how many minutes late/early it started.</p>
@@ -630,6 +681,7 @@ function openMenu() {
       case "type": S.ui.type = b.dataset.k; save(); closeOverlay(); render(true); break;
       case "hide": S.ui.hideDone = b.checked; save(); render(false); break;
       case "wake": S.ui.wake = b.checked; save(); applyWake(); break;
+      case "h24": S.ui.h24 = b.checked; save(); setClock(); render(false); break;
       case "export": exportBackup(); break;
       case "import": importBackup(); break;
       case "reset":
@@ -703,7 +755,7 @@ function openSearch() {
       const nx = upcoming[0];
       const here = nx && UNITS[S.ui.unit].fields.includes(nx.field);
       const nextHtml = nx
-        ? `<div class="next"><div class="dir" style="color:var(--${nx.unit === "3" ? "u3" : "u" + nx.unit})">${here ? "✓ " : "→ "}${UNITS[nx.unit].label}</div>
+        ? `<div class="next"><div class="dir">${here ? "✓ " : "→ "}${UNITS[nx.unit].fields.map(f => `<span class="fld f${f}">F${f}</span>`).join(" ")} ${UNITS[nx.unit].label}</div>
             Next: <b>${TYPE_LABEL[nx.type]} ${esc(nx.label || nx.number)}</b> on <b>Field ${nx.field}</b> at <b>${hm(nx.t)}</b>,
             <span class="${nx.red.includes(c) ? "al-red" : "al-blue"}" style="color:var(--${nx.red.includes(c) ? "red" : "blue"});font-weight:800">${nx.red.includes(c) ? "Red" : "Blue"}</span>
             ${fDayKey.format(nx.t) !== fDayKey.format(now) ? `<span class="note">(${fDay.format(nx.t)})</span>` : ""}</div>`

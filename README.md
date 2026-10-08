@@ -19,6 +19,8 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 * **Start ▶** crosses the match out and records the start delta from the phone clock (+ = late, − = early). If earlier matches in the view are still open, a toast offers to cross them out too, so you can join mid-event.
 * **Catching up** (for a volunteer starting mid-day): tap the match number of the first match you are responsible for. Under *Catching up*, mark every open match above it as played, either in the current view or on all fields. Matches reopened for a replay are skipped, and the toast offers *Undo*.
 * **Tap the match number** (or long-press a match) for every option: status (Not started / Queuing / Played), delta stepper, and explicit per-team marks. A match is shown as *Queuing* automatically once any team is marked present.
+* **Breaks** are found automatically from gaps in the schedule. Lunch gets a bold yellow banner; shorter breaks (~15 min) get a dashed bar. Both show the last match before the break and when play resumes.
+* Times are always in event-local time, **12-hour (AM/PM) by default**; the menu has a 24-hour option.
 * The **header** shows event-local time, the next match in the current view, and how far ahead or behind the unit is running.
 * **Jump to next** scrolls to the first open match after the last played one, or to the current time if nothing is marked yet.
 * **Search** (magnifier) finds a team by country name, ignoring accents. It shows which unit and field the team must go to next, plus all their matches. Tap one to jump to it.
