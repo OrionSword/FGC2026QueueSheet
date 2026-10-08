@@ -75,7 +75,6 @@ header {
 .status-line { flex: 1; font-size: 13px; min-width: 0; text-align: right; opacity: .95; }
 .status-line b { font-variant-numeric: tabular-nums; }
 .clock { font-variant-numeric: tabular-nums; font-weight: 700; }
-.demo-banner { background: #ffd400; color: #111; font-weight: 700; font-size: 12px; text-align: center; padding: 3px 6px; }
 
 /* ---------- List ---------- */
 main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-area-inset-left)); max-width: 1500px; margin: 0 auto; }
@@ -254,7 +253,6 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 </style>
 </head>
 <body>
-<div id="demoBanner" class="demo-banner hidden">DEMO DATA — placeholder teams, not the official schedule</div>
 <header>
   <div class="hrow">
     <div class="seg" id="unitSeg">
@@ -289,10 +287,10 @@ if (!D) { document.body.innerHTML = '<p style="padding:20px">data.js is missing 
 const TZ = D.event.tz || "UTC";
 const TEAMS = D.teams || {};
 const UNITS = {
-  "12": { label: "Fields 1 & 2", short: "F1·2", fields: [1, 2] },
-  "3":  { label: "Field 3 (center)", short: "F3", fields: [3] },
-  "45": { label: "Fields 4 & 5", short: "F4·5", fields: [4, 5] },
-  "all": { label: "All fields", short: "All", fields: [1, 2, 3, 4, 5] },
+  "12": { label: "Fields 1 & 2", fields: [1, 2] },
+  "3":  { label: "Field 3 (center)", fields: [3] },
+  "45": { label: "Fields 4 & 5", fields: [4, 5] },
+  "all": { label: "All fields", fields: [1, 2, 3, 4, 5] },
 };
 const TYPE_LABEL = { practice: "Practice", ranking: "Ranking", playoff: "Playoff" };
 const unitOf = f => f <= 2 ? "12" : f === 3 ? "3" : "45";
@@ -472,7 +470,7 @@ function rerenderMatch(id) {
 }
 
 function fixStickyOffset() {
-  const h = document.querySelector("header").getBoundingClientRect().height + (document.getElementById("demoBanner").offsetHeight || 0);
+  const h = document.querySelector("header").getBoundingClientRect().height;
   document.querySelectorAll(".dayhead").forEach(d => d.style.top = Math.round(document.querySelector("header").offsetHeight) + "px");
   document.documentElement.style.setProperty("--hdr", h + "px");
   document.querySelectorAll(".match").forEach(e => e.style.scrollMarginTop = (h + 40) + "px");
@@ -546,13 +544,6 @@ function cycleTeam(id, c) {
   const cur = x.t[c] || null;
   const nxt = MARK_CYCLE[(MARK_CYCLE.indexOf(cur) + 1) % MARK_CYCLE.length];
   if (nxt) x.t[c] = nxt; else delete x.t[c];
-  prune(id); save(); rerenderMatch(id);
-}
-function setStatus(id, s) {
-  snapshot();
-  const x = mk(id);
-  if (s) x.s = s; else delete x.s;
-  if (s !== "done") delete x.d;
   prune(id); save(); rerenderMatch(id);
 }
 function startMatch(id) {
@@ -838,7 +829,6 @@ window.addEventListener("resize", () => fixStickyOffset());
 setInterval(() => { updateStatusLine(); placeNowLine(); }, 20e3);
 
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-if (D.event.demo) document.getElementById("demoBanner").classList.remove("hidden");
 render(true);
 applyWake();
 
