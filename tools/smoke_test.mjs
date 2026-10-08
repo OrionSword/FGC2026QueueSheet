@@ -44,6 +44,11 @@ async function page(isoNow, { frozen = true, viewport = { width: 400, height: 86
   await p.waitForSelector(".match");
   return { ctx, p };
 }
+async function enableTiming(p) {
+  await p.locator("#menuBtn").tap();
+  await p.locator('.sheet [data-a="timing"]').check();
+  await p.locator('.sheet [data-a="close"]').tap();
+}
 const row = (p, n) => p.locator(".match", { has: p.locator(".mnum", { hasText: new RegExp(`^${n}$`) }) });
 
 try {
@@ -69,11 +74,28 @@ try {
     check(cls[0].includes("m-full") && cls[1].includes("m-rep"), "team marks persist across reload");
     await ctx.close();
   }
-  // 3. Start delta: any second within the scheduled minute is on time.
+  // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
+  //     sheet has no delta controls. The menu switch turns it on.
+  {
+    const { ctx, p } = await page(null);
+    await p.locator('[data-unit="all"]').tap();
+    const r = row(p, open[0].number);
+    check((await r.locator(".startbtn").innerText()).includes("Mark done"), "default button reads “Mark done”");
+    await r.locator(".mid").tap();
+    check(await p.locator('.sheet [data-a="dzero"]').count() === 0, "no delta controls in the match sheet by default");
+    await p.locator('.sheet [data-a="close"]').tap();
+    await r.locator(".startbtn").tap();
+    check((await row(p, open[0].number).locator(".chip").innerText()).trim() === "Played", "Mark done crosses out without a delta");
+    await enableTiming(p);
+    check((await row(p, open[1].number).locator(".startbtn").innerText()).includes("Start"), "menu switch turns start-time tracking on");
+    await ctx.close();
+  }
+  // 3b. Start delta: any second within the scheduled minute is on time.
   const m = open[0], sched = new Date(Date.parse(m.time));
   sched.setUTCSeconds(0, 0);
   for (const [offsetS, want] of [[0, "On time"], [59, "On time"], [60, "+1"], [-1, "−1"]]) {
     const { ctx, p } = await page(new Date(sched.getTime() + offsetS * 1000).toISOString());
+    await enableTiming(p);
     await p.locator('[data-unit="all"]').tap();
     await row(p, m.number).locator(".startbtn").tap();
     const chip = (await row(p, m.number).locator(".chip").innerText()).replace(/\s+/g, " ");
