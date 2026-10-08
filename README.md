@@ -30,9 +30,15 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 * The **header** shows event-local time, the next match in the current view, and how far ahead or behind the unit is running.
 * **Jump to next** scrolls to the first open match after the last played one, or to the current time if nothing is marked yet.
 * **Search** (magnifier) finds a team by country name, ignoring accents. It shows which unit and field the team must go to next, plus all their matches. Tap one to jump to it.
+* **Replays** (↻ button at the top; the badge counts replays still to play). Flag a match from its sheet (*↻ Flag for replay*) or type match numbers into the planner (`112`, or several at once: `112 140, 151`). Flagged matches get a purple *↻ Replay · S2 F4* chip in the list, and team search shows a team's pending replays. The planner:
+  * plans the order only, no clock times. A **slot** is one match on each side pair (F1·2, F4·5) at the same time. **Field 3 never plays replays.**
+  * **Fields**: *Auto* (default) keeps each pair's replays on that pair while no pair has more than two (F3's go to either pair), otherwise spreads them over both pairs. *Own pair*, *Both pairs*, *F1·2 only* and *F4·5 only* force a choice.
+  * never puts a team in two matches in the same slot, avoids back-to-back slots for a team, and shows a **Break** banner where it cannot be avoided. Then it keeps the number of slots low and the walking short (fields 1–5 are in a line), alternating the two fields of a pair.
+  * lists teams with more than one replay in the summary, outlines them in purple with *1/2*, *2/2*…, and tells them where to go next: *Stay at F2 Red*, *Stay on F2, switch to Blue*, or *Go to F4 Blue (2 fields toward F5)*.
+  * *Played ✓* marks a replay done; played replays never move again. *✎ Edit order* moves a replay to an earlier/later slot or another field (swapping with whatever is there). After hand edits, newly added replays are slotted in without moving the others, and *↻ Re-optimize* re-plans everything not yet played.
 * **Menu**: filter by match type, hide played matches, keep screen awake, legend, export/import a backup JSON, reset.
 
-Marks are saved to `localStorage` on every tap (keyed by `event.id` in `data.js`). They survive refreshes, navigation and restarts. The app also asks Chrome for persistent storage.
+Marks and replays are saved to `localStorage` on every tap (keyed by `event.id` in `data.js`). They survive refreshes, navigation and restarts. The app also asks Chrome for persistent storage.
 
 ## Deploying to phones
 
@@ -79,6 +85,7 @@ It serves the folder locally and checks, in a phone-sized headless Chromium:
 * team marks persist across a reload;
 * the on-time rule at the minute boundaries;
 * catch-up and Undo;
+* replays: flagging, adding by number, no clashes, side fields only, breaks for back-to-back teams, hand edits and persistence;
 * offline loading.
 
 Expectations come from `data.js`, so it keeps passing after a data refresh. It exits non-zero on any failure.
