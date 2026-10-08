@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b2330">
+<meta name="mobile-web-app-capable" content="yes">
+<title>FGC Queue Sheet</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #f4f5f7; --surface: #ffffff; --surface2: #eceef2; --text: #14181f; --muted: #5b6474;
+  --line: #d5d9e0; --head: #1b2330; --head-text: #ffffff;
+  --red: #c62828; --red-bg: #fdecec; --blue: #1e5bc6; --blue-bg: #e9f0fd;
+  --ok: #1b7f3b; --ok-bg: #d6f5df; --rep: #9a5b00; --rep-bg: #ffe9b8;
+  --unk: #b0006d; --unk-bg: #ffd6ee; --queue: #b35c00; --queue-bg: #fff1dc;
+  --done: #4a5260; --late: #b3261e; --early: #1b7f3b;
+  --u12: #6a3fb5; --u3: #c45500; --u45: #0d7a74;
+  --accent: #1e5bc6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1218; --surface: #181d26; --surface2: #222935; --text: #eef1f6; --muted: #9aa4b5;
+    --line: #2d3542; --head: #0b0e13; --head-text: #eef1f6;
+    --red: #ff6b6b; --red-bg: #3a1c20; --blue: #7aa7ff; --blue-bg: #1a2640;
+    --ok: #5fd68a; --ok-bg: #173a24; --rep: #ffc04d; --rep-bg: #3d2f12;
+    --unk: #ff6ec7; --unk-bg: #48163a; --queue: #ffb057; --queue-bg: #3a2a12;
+    --done: #8a93a3; --late: #ff7b72; --early: #5fd68a;
+    --u12: #a888ff; --u3: #ff9a4d; --u45: #3fd0c6; --accent: #7aa7ff;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg); color: var(--text);
+  font: 15px/1.25 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: contain;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+.hidden { display: none !important; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky; top: 0; z-index: 20; background: var(--head); color: var(--head-text);
+  padding: 6px max(8px, env(safe-area-inset-right)) 6px max(8px, env(safe-area-inset-left));
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+.hrow { display: flex; align-items: center; gap: 6px; }
+.hrow + .hrow { margin-top: 6px; }
+.seg { display: flex; flex: 1; background: rgba(255,255,255,.1); border-radius: 10px; padding: 3px; gap: 3px; min-width: 0; }
+.seg button {
+  flex: 1; border: 0; background: transparent; color: var(--head-text); border-radius: 8px;
+  padding: 9px 4px; font-weight: 700; font-size: 15px; white-space: nowrap; min-width: 0;
+}
+.seg button.on { background: #fff; color: #111; }
+.seg button.on[data-unit="12"] { box-shadow: inset 0 -4px 0 var(--u12); }
+.seg button.on[data-unit="3"] { box-shadow: inset 0 -4px 0 var(--u3); }
+.seg button.on[data-unit="45"] { box-shadow: inset 0 -4px 0 var(--u45); }
+.iconbtn {
+  border: 0; background: rgba(255,255,255,.1); color: var(--head-text); border-radius: 10px;
+  width: 42px; height: 42px; display: grid; place-items: center; flex: none;
+}
+.iconbtn svg { width: 22px; height: 22px; }
+.sub { display: flex; gap: 4px; }
+.sub button {
+  border: 1px solid rgba(255,255,255,.3); background: transparent; color: var(--head-text);
+  border-radius: 999px; padding: 4px 12px; font-weight: 600; font-size: 13px;
+}
+.sub button.on { background: rgba(255,255,255,.9); color: #111; border-color: transparent; }
+.status-line { flex: 1; font-size: 13px; min-width: 0; text-align: right; opacity: .95; }
+.status-line b { font-variant-numeric: tabular-nums; }
+.clock { font-variant-numeric: tabular-nums; font-weight: 700; }
+.demo-banner { background: #ffd400; color: #111; font-weight: 700; font-size: 12px; text-align: center; padding: 3px 6px; }
+
+/* ---------- List ---------- */
+main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-area-inset-left)); max-width: 1500px; margin: 0 auto; }
+.dayhead {
+  position: sticky; z-index: 5; background: var(--bg); color: var(--muted);
+  font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .04em;
+  padding: 10px 4px 6px; border-bottom: 1px solid var(--line);
+}
+.nowline { display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 12px; font-weight: 700; margin: 4px 0; }
+.nowline::before, .nowline::after { content: ""; flex: 1; height: 2px; background: var(--accent); }
+.empty { text-align: center; color: var(--muted); padding: 40px 10px; }
+
+.match {
+  position: relative; background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  margin: 6px 0; overflow: hidden; display: grid; gap: 4px; padding: 4px;
+  grid-template-columns: 1fr 1fr; grid-template-areas: "meta meta" "red blue";
+  scroll-margin-top: 140px;
+}
+.match.st-queue { border-color: var(--queue); box-shadow: 0 0 0 2px var(--queue) inset; }
+.match.flash { animation: flash 1.6s ease-out 1; }
+@keyframes flash { 0%, 40% { box-shadow: 0 0 0 4px var(--accent); } 100% { box-shadow: none; } }
+.meta { grid-area: meta; display: flex; align-items: center; gap: 6px; padding: 2px 4px; min-width: 0; flex-wrap: wrap; }
+.mid { display: flex; flex-direction: column; line-height: 1; min-width: 3.2em; background: none; border: 0; padding: 2px 0; text-align: left; }
+.mtype { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.mnum { font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.mtype.t-practice { color: var(--muted); } .mtype.t-playoff { color: var(--unk); }
+.fld { font-weight: 800; font-size: 14px; color: #fff; border-radius: 6px; padding: 3px 7px; white-space: nowrap; }
+.fld.u12 { background: var(--u12); } .fld.u3 { background: var(--u3); } .fld.u45 { background: var(--u45); }
+@media (prefers-color-scheme: dark) { .fld { color: #111; } }
+.time { font-size: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.meta .spacer { flex: 1; }
+.meta .row { display: flex; gap: 8px; align-items: center; }
+.chip { border: 1.5px solid var(--line); background: var(--surface2); border-radius: 999px; padding: 5px 10px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.chip.st-queue { background: var(--queue-bg); border-color: var(--queue); color: var(--queue); }
+.chip.st-done { background: var(--surface2); color: var(--done); }
+.delta { font-weight: 800; font-variant-numeric: tabular-nums; }
+.delta.late { color: var(--late); } .delta.early { color: var(--early); } .delta.zero { color: var(--muted); }
+.startbtn { border: 0; background: var(--head); color: #fff; border-radius: 8px; padding: 7px 12px; font-weight: 800; font-size: 14px; white-space: nowrap; }
+@media (prefers-color-scheme: dark) { .startbtn { background: #e8ecf3; color: #111; } }
+
+.alliance { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.alliance.red { grid-area: red; } .alliance.blue { grid-area: blue; }
+.team {
+  position: relative; display: flex; align-items: center; gap: 6px; min-height: 44px; min-width: 0;
+  border: 2px solid transparent; border-left: 5px solid; border-radius: 7px; padding: 3px 26px 3px 5px; text-align: left;
+}
+.red .team { background: var(--red-bg); border-left-color: var(--red); }
+.blue .team { background: var(--blue-bg); border-left-color: var(--blue); }
+/* Official flags are drawn on 5:3 canvases; never crop them. */
+.flag { width: 40px; height: 24px; flex: none; object-fit: contain; object-position: left center; }
+img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
+.flag.ph { background: var(--surface2); border-radius: 2px; display: grid; place-items: center; font-size: 9px; font-weight: 800; color: var(--muted); object-fit: initial; }
+.tname { font-weight: 600; font-size: 14px; overflow-wrap: anywhere; min-width: 0; }
+.mk { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; display: none; place-items: center; font-size: 12px; font-weight: 900; color: #fff; }
+.team.m-full { border-color: var(--ok); background: var(--ok-bg); }
+.team.m-full .mk { display: grid; background: var(--ok); }
+.team.m-rep { border-color: var(--rep); border-style: dashed; background: var(--rep-bg); border-left-style: solid; }
+.team.m-rep .mk { display: grid; background: var(--rep); }
+.team.m-unk { border-color: var(--unk); background: repeating-linear-gradient(135deg, var(--unk-bg) 0 8px, transparent 8px 14px), var(--unk-bg); }
+.team.m-unk .mk { display: grid; background: var(--unk); }
+.team.m-unk .tname { font-weight: 800; }
+@media (prefers-color-scheme: dark) { .mk { color: #111; } }
+
+/* Played / crossed-out */
+.match.st-done { background: var(--surface2); }
+/* Played matches stay readable (for replays / look-ups): dimmed, number and time struck, names not. */
+.match.st-done .team, .match.st-done .mid, .match.st-done .time { opacity: .68; }
+.match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
+.match.st-done::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: var(--done); opacity: .45; pointer-events: none; transform: rotate(-1.2deg);
+}
+
+/* Medium: meta column on the left, alliances stacked */
+@media (min-width: 560px) {
+  .match { grid-template-columns: 8.2rem 1fr 1fr; grid-template-areas: "meta red blue"; }
+  .meta { flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px; flex-wrap: nowrap; }
+  .meta .spacer { display: none; }
+  .meta .row { gap: 6px; flex-wrap: wrap; }
+}
+/* Wide: one row per match */
+@media (min-width: 800px) {
+  .match { grid-template-columns: 7.6rem 1fr 1fr; }
+  .alliance { flex-direction: row; }
+  .alliance .team { flex: 1 1 0; flex-direction: column; align-items: flex-start; padding: 4px 22px 4px 6px; }
+  .tname { font-size: 13px; }
+}
+@media (min-width: 1150px) {
+  .alliance .team { flex-direction: row; align-items: center; }
+  .tname { font-size: 14px; }
+}
+
+/* Short screens (landscape phones): compact header */
+@media (max-height: 520px) {
+  header { padding-top: 4px; padding-bottom: 4px; }
+  .hrow + .hrow { margin-top: 3px; }
+  .seg button { padding: 5px 4px; }
+  .iconbtn { width: 36px; height: 34px; }
+  .sub button { padding: 2px 10px; }
+  .dayhead { padding: 4px 4px 3px; }
+  .team { min-height: 38px; }
+  .fab { padding: 9px 14px; }
+}
+
+/* ---------- Sheets / overlays ---------- */
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 40; }
+.sheet {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 41; background: var(--surface); color: var(--text);
+  border-radius: 16px 16px 0 0; max-height: 88vh; overflow: auto; padding: 14px 14px calc(18px + env(safe-area-inset-bottom));
+  max-width: 640px; margin: 0 auto; box-shadow: 0 -6px 20px rgba(0,0,0,.3);
+}
+.sheet h2 { margin: 0 0 4px; font-size: 20px; }
+.sheet h3 { margin: 16px 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.sheet .close { position: sticky; top: 0; float: right; }
+.btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn { border: 1.5px solid var(--line); background: var(--surface2); border-radius: 10px; padding: 10px 14px; font-weight: 700; min-height: 44px; }
+.btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary { background: var(--head); color: #fff; border-color: var(--head); }
+.btn.danger { color: var(--late); border-color: var(--late); }
+@media (prefers-color-scheme: dark) { .btn.on { color: #111; } .btn.primary { background: #e8ecf3; color: #111; } }
+.stepper { display: flex; align-items: center; gap: 8px; }
+.stepper .val { min-width: 4.5em; text-align: center; font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.trow { display: grid; grid-template-columns: 1fr; gap: 4px; margin-bottom: 8px; }
+.trow .who .flag { width: 50px; height: 30px; }
+.trow .who { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.trow .btns .btn { flex: 1; padding: 8px 6px; font-size: 13px; }
+.legend { display: grid; gap: 6px; }
+.legend .team { pointer-events: none; }
+.toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; font-weight: 600; }
+.toggle input { width: 22px; height: 22px; }
+.note { color: var(--muted); font-size: 13px; }
+
+/* Search */
+.search {
+  position: fixed; inset: 0; z-index: 45; background: var(--bg); display: flex; flex-direction: column;
+}
+.search .bar { display: flex; gap: 6px; padding: 8px; background: var(--head); }
+.search input { flex: 1; font-size: 18px; padding: 10px 12px; border-radius: 10px; border: 0; min-width: 0; }
+.search .results { overflow: auto; padding: 8px 8px 40px; }
+.sres { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px; margin-bottom: 10px; }
+.sres .who { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 800; }
+.sres .who .flag { width: 60px; height: 36px; }
+.sres .next { margin: 8px 0; padding: 10px; border-radius: 10px; background: var(--surface2); font-size: 16px; }
+.sres .next b { font-size: 18px; }
+.sres .dir { font-size: 20px; font-weight: 900; }
+.slist { display: grid; gap: 3px; }
+.sitem { display: grid; grid-template-columns: 5.2em 3.2em 4em 1fr; align-items: center; gap: 6px; padding: 6px; border-radius: 8px; background: var(--surface2); border: 0; text-align: left; font-size: 14px; }
+.sitem.past { opacity: .5; }
+.sitem .al-red { color: var(--red); font-weight: 800; } .sitem .al-blue { color: var(--blue); font-weight: 800; }
+
+/* Toast */
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60;
+  background: #222; color: #fff; border-radius: 12px; padding: 10px 12px; display: flex; gap: 10px; align-items: center;
+  flex-wrap: wrap; max-width: calc(100vw - 20px); box-shadow: 0 4px 16px rgba(0,0,0,.4); font-weight: 600;
+}
+.toast button { border: 0; background: rgba(255,255,255,.15); color: #ffd36b; border-radius: 8px; padding: 8px 10px; font-weight: 800; }
+.fab {
+  position: fixed; right: max(14px, env(safe-area-inset-right)); bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 30;
+  border: 0; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 800; padding: 13px 18px; box-shadow: 0 4px 12px rgba(0,0,0,.35);
+}
+@media (prefers-color-scheme: dark) { .fab { color: #111; } }
+</style>
+</head>
+<body>
+<div id="demoBanner" class="demo-banner hidden">DEMO DATA — placeholder teams, not the official schedule</div>
+<header>
+  <div class="hrow">
+    <div class="seg" id="unitSeg">
+      <button data-unit="12">F1·2</button>
+      <button data-unit="3">F3</button>
+      <button data-unit="45">F4·5</button>
+      <button data-unit="all">All</button>
+    </div>
+    <button class="iconbtn" id="searchBtn" aria-label="Search team">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg>
+    </button>
+    <button class="iconbtn" id="menuBtn" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div class="hrow">
+    <div class="sub" id="fieldSub"></div>
+    <div class="status-line" id="statusLine"></div>
+  </div>
+</header>
+<main id="list"></main>
+<button class="fab" id="nowBtn">Jump to next ⤓</button>
+<div id="overlayRoot"></div>
+<div id="toastRoot"></div>
+
+<script src="data.js"></script>
+<script>
+"use strict";
+(function () {
+const D = window.FGC_DATA;
+if (!D) { document.body.innerHTML = '<p style="padding:20px">data.js is missing or failed to load.</p>'; return; }
+const TZ = D.event.tz || "UTC";
+const TEAMS = D.teams || {};
+const UNITS = {
+  "12": { label: "Fields 1 & 2", short: "F1·2", fields: [1, 2], cls: "u12" },
+  "3":  { label: "Field 3 (center)", short: "F3", fields: [3], cls: "u3" },
+  "45": { label: "Fields 4 & 5", short: "F4·5", fields: [4, 5], cls: "u45" },
+  "all": { label: "All fields", short: "All", fields: [1, 2, 3, 4, 5], cls: "" },
+};
+const TYPE_LABEL = { practice: "Practice", ranking: "Ranking", playoff: "Playoff" };
+const unitOf = f => f <= 2 ? "12" : f === 3 ? "3" : "45";
+const MARK_CYCLE = [null, "full", "rep", "unk"];
+const MARK_INFO = {
+  full: { glyph: "✓", label: "Full team + robot" },
+  rep: { glyph: "R", label: "Rep only (no robot)" },
+  unk: { glyph: "?", label: "Not heard from / unknown" },
+};
+
+const MATCHES = D.matches.map(m => ({
+  ...m, id: m.id || `${m.type}-${m.number}-F${m.field}`, t: Date.parse(m.time), unit: unitOf(m.field),
+})).sort((a, b) => a.t - b.t || a.field - b.field);
+const BY_ID = new Map(MATCHES.map(m => [m.id, m]));
+
+/* ---------- Persistence ---------- */
+const KEY = "fgcq:" + D.event.id;
+const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false };
+let S = { v: 1, m: {}, ui: { ...DEFAULT_UI } };
+try {
+  const raw = localStorage.getItem(KEY);
+  if (raw) { const p = JSON.parse(raw); if (p && p.m) S = { v: 1, m: p.m, ui: { ...DEFAULT_UI, ...(p.ui || {}) } }; }
+} catch (e) { console.error(e); }
+let saveFailed = false;
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(S)); saveFailed = false; }
+  catch (e) { if (!saveFailed) toast("⚠ Could not save to this device!"); saveFailed = true; }
+}
+if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+// Another tab of the same page changed the data: pick it up.
+window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { try { S.m = JSON.parse(e.newValue).m || {}; render(false); } catch (_) {} } });
+
+const mk = id => S.m[id] || (S.m[id] = { t: {} });
+const peek = id => S.m[id] || { t: {} };
+function prune(id) { const x = S.m[id]; if (x && !x.s && x.d == null && !Object.keys(x.t || {}).length) delete S.m[id]; }
+function statusOf(m) {
+  const x = peek(m.id);
+  if (x.s === "done" || x.s === "queue" || x.s === "idle") return x.s;  // the volunteer's mark always wins
+  if (m.played) return "done";  // already played according to results.first.global
+  return Object.values(x.t || {}).some(v => v === "full" || v === "rep") ? "queue" : "idle";
+}
+
+let undoSnap = null;
+function snapshot() { undoSnap = JSON.stringify(S.m); }
+function undo() { if (undoSnap) { S.m = JSON.parse(undoSnap); undoSnap = null; save(); render(false); toast("Undone"); } }
+
+/* ---------- Formatting ---------- */
+const fTime = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, hour: "2-digit", minute: "2-digit", hour12: false });
+const fDay = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, weekday: "long", day: "numeric", month: "long" });
+const fDayKey = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
+const hm = t => fTime.format(t);
+const fmtDelta = d => d == null ? "" : d === 0 ? "±0" : (d > 0 ? "+" : "−") + Math.abs(d);
+const deltaCls = d => d == null ? "" : d > 0 ? "late" : d < 0 ? "early" : "zero";
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+// Country name exactly as published by FIRST Global (minus the generic "Team " prefix).
+const teamName = c => (TEAMS[c] && (TEAMS[c].country || TEAMS[c].name)) || c;
+function flagHtml(c, cls = "flag") {
+  const t = TEAMS[c];
+  if (t && t.flag) return `<img class="${cls}" src="${esc(t.flag)}" alt="" loading="lazy" decoding="async">`;
+  return `<span class="${cls} ph">${esc(c).slice(0, 4)}</span>`;
+}
+const fieldBadge = m => `<span class="fld ${UNITS[m.unit].cls}">F${m.field}</span>`;
+
+/* ---------- View selection ---------- */
+function viewMatches() {
+  const u = UNITS[S.ui.unit] || UNITS["12"];
+  return MATCHES.filter(m => u.fields.includes(m.field)
+    && (!S.ui.field || m.field === S.ui.field)
+    && (S.ui.type === "all" || m.type === S.ui.type));
+}
+
+/* ---------- Rendering ---------- */
+const listEl = document.getElementById("list");
+
+function teamHtml(m, c) {
+  const v = peek(m.id).t[c];
+  const info = v && MARK_INFO[v];
+  return `<button class="team${v ? " m-" + v : ""}" data-act="team" data-m="${esc(m.id)}" data-t="${esc(c)}"
+     aria-label="${esc(teamName(c))}${info ? ", " + info.label : ""}">${flagHtml(c)}<span class="tname">${esc(teamName(c))}</span><span class="mk">${info ? info.glyph : ""}</span></button>`;
+}
+function matchHtml(m) {
+  const st = statusOf(m), x = peek(m.id);
+  const chip = st === "done"
+    ? `<button class="chip st-done" data-act="sheet" data-m="${esc(m.id)}">Played${x.d != null ? ` <span class="delta ${deltaCls(x.d)}">${fmtDelta(x.d)}</span>` : ""}</button>`
+    : st === "queue"
+      ? `<button class="chip st-queue" data-act="sheet" data-m="${esc(m.id)}">Queuing</button>`
+      : "";
+  const start = st === "done" ? "" : `<button class="startbtn" data-act="start" data-m="${esc(m.id)}">Start ▶</button>`;
+  return `<div class="match st-${st}" id="m-${esc(m.id)}" data-m="${esc(m.id)}">
+    <div class="meta">
+      <div class="row"><button class="mid" data-act="sheet" data-m="${esc(m.id)}"><span class="mtype t-${m.type}">${TYPE_LABEL[m.type] || esc(m.type)}</span><span class="mnum">${esc(m.label || m.number)}</span></button>${fieldBadge(m)}<span class="time">${hm(m.t)}</span></div>
+      <span class="spacer"></span>
+      <div class="row">${chip}${start}</div>
+    </div>
+    <div class="alliance red">${m.red.map(c => teamHtml(m, c)).join("")}</div>
+    <div class="alliance blue">${m.blue.map(c => teamHtml(m, c)).join("")}</div>
+  </div>`;
+}
+
+function render(scroll) {
+  // Header controls
+  document.querySelectorAll("#unitSeg button").forEach(b => b.classList.toggle("on", b.dataset.unit === S.ui.unit));
+  const u = UNITS[S.ui.unit];
+  const sub = document.getElementById("fieldSub");
+  sub.innerHTML = u.fields.length > 1
+    ? [0, ...u.fields].map(f => `<button data-field="${f}" class="${S.ui.field === f ? "on" : ""}">${f ? "F" + f : "Both"}</button>`).join("")
+    : "";
+  if (u.fields.length > 1 && S.ui.unit === "all") sub.innerHTML = [0, ...u.fields].map(f => `<button data-field="${f}" class="${S.ui.field === f ? "on" : ""}">${f || "All"}</button>`).join("");
+
+  const ms = viewMatches();
+  let html = "", lastDay = "", lastType = "";
+  for (const m of ms) {
+    if (S.ui.hideDone && statusOf(m) === "done") continue;
+    const dk = fDayKey.format(m.t);
+    if (dk !== lastDay || m.type !== lastType) {
+      html += `<div class="dayhead">${fDay.format(m.t)} · ${TYPE_LABEL[m.type] || esc(m.type)}</div>`;
+      lastDay = dk; lastType = m.type;
+    }
+    html += matchHtml(m);
+  }
+  listEl.innerHTML = html || `<div class="empty">No matches in this view.</div>`;
+  fixStickyOffset();
+  placeNowLine();
+  updateStatusLine();
+  if (scroll) jumpToNext(false);
+}
+
+function rerenderMatch(id) {
+  const el = document.getElementById("m-" + id);
+  const m = BY_ID.get(id);
+  if (!el || !m) return render(false);
+  if (S.ui.hideDone && statusOf(m) === "done") { el.remove(); }
+  else { const tmp = document.createElement("div"); tmp.innerHTML = matchHtml(m); el.replaceWith(tmp.firstElementChild); }
+  updateStatusLine();
+}
+
+function fixStickyOffset() {
+  const h = document.querySelector("header").getBoundingClientRect().height + (document.getElementById("demoBanner").offsetHeight || 0);
+  document.querySelectorAll(".dayhead").forEach(d => d.style.top = Math.round(document.querySelector("header").offsetHeight) + "px");
+  document.documentElement.style.setProperty("--hdr", h + "px");
+  document.querySelectorAll(".match").forEach(e => e.style.scrollMarginTop = (h + 40) + "px");
+}
+
+function placeNowLine() {
+  document.querySelectorAll(".nowline").forEach(e => e.remove());
+  const now = Date.now();
+  const els = listEl.querySelectorAll(".match");
+  if (!els.length) return;
+  const first = BY_ID.get(els[0].dataset.m), last = BY_ID.get(els[els.length - 1].dataset.m);
+  if (now < first.t - 3600e3 || now > last.t + 3600e3) return;
+  for (const el of els) {
+    if (BY_ID.get(el.dataset.m).t > now) {
+      const n = document.createElement("div"); n.className = "nowline"; n.textContent = "NOW " + hm(now);
+      (el.previousElementSibling && el.previousElementSibling.classList.contains("dayhead") ? el.previousElementSibling : el).before(n);
+      return;
+    }
+  }
+}
+
+// The anchor match: first not-played match after the last played one in this view;
+// if nothing is marked yet, the first match that is not clearly in the past.
+function nextMatch(ms = viewMatches()) {
+  const now = Date.now();
+  let lastDone = -1;
+  ms.forEach((m, i) => { if (statusOf(m) === "done") lastDone = i; });
+  const afterDone = lastDone >= 0 ? ms.slice(lastDone + 1).find(m => statusOf(m) !== "done") : null;
+  // Ignore a "last played" mark that is hours stale (e.g. yesterday's practice), fall back to the clock.
+  if (afterDone && afterDone.t > now - 3 * 3600e3) return afterDone;
+  return ms.find(m => m.t >= now - 10 * 60e3 && statusOf(m) !== "done") || (lastDone >= 0 ? afterDone : ms[0]) || null;
+}
+// Latest recorded start delta in this view (how far ahead/behind the unit is running).
+function runningDelta(ms = viewMatches()) {
+  for (let i = ms.length - 1; i >= 0; i--) { const x = peek(ms[i].id); if (x.s === "done" && x.d != null) return x.d; }
+  return null;
+}
+function updateStatusLine() {
+  const ms = viewMatches(), n = nextMatch(ms), d = runningDelta(ms);
+  let s = `<span class="clock">${hm(Date.now())}</span>`;
+  if (n) {
+    s += ` · Next <b>${esc(n.label || n.number)}</b> F${n.field} <b>${hm(n.t)}</b>`;
+    if (d) s += ` → ~<b>${hm(n.t + d * 60e3)}</b>`;
+  }
+  if (d != null) s += ` · <span class="delta ${deltaCls(d)}">${fmtDelta(d)} min</span>`;
+  document.getElementById("statusLine").innerHTML = s;
+}
+
+function jumpToNext(smooth = true) {
+  const n = nextMatch();
+  if (!n) { window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" }); return; }
+  let el = document.getElementById("m-" + n.id);
+  if (!el) return;
+  // Show one previous match for context.
+  const prev = el.previousElementSibling;
+  const target = prev && prev.classList.contains("match") ? prev : el;
+  target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+}
+
+function flash(id) {
+  const el = document.getElementById("m-" + id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+  el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+}
+
+/* ---------- Actions ---------- */
+function cycleTeam(id, c) {
+  snapshot();
+  const x = mk(id);
+  const cur = x.t[c] || null;
+  const nxt = MARK_CYCLE[(MARK_CYCLE.indexOf(cur) + 1) % MARK_CYCLE.length];
+  if (nxt) x.t[c] = nxt; else delete x.t[c];
+  prune(id); save(); rerenderMatch(id);
+}
+function setStatus(id, s) {
+  snapshot();
+  const x = mk(id);
+  if (s) x.s = s; else delete x.s;
+  if (s !== "done") delete x.d;
+  prune(id); save(); rerenderMatch(id);
+}
+function startMatch(id) {
+  snapshot();
+  const m = BY_ID.get(id), x = mk(id);
+  const d = Math.round((Date.now() - m.t) / 60e3);
+  x.s = "done";
+  // Only auto-record the delta when it is plausible (i.e. we're marking it live, not catching up).
+  if (Math.abs(d) <= 90) x.d = d; else delete x.d;
+  save(); rerenderMatch(id);
+  const earlier = openBefore(m, false);
+  const label = `${TYPE_LABEL[m.type] || ""} ${m.label || m.number}`;
+  const actions = [["Undo", undo], ["Edit", () => openMatchSheet(id)]];
+  if (earlier.length) actions.push([`Cross out ${earlier.length} earlier`, () => markEarlierDone(m)]);
+  toast(`${label} started${x.d != null ? ` ${fmtDelta(x.d)} min` : ""}`, actions, earlier.length ? 9000 : 5000);
+}
+// Still-open matches listed above `m`, either in the current view or across all fields.
+// Matches the volunteer reopened for a replay are left alone.
+function openBefore(m, allFields) {
+  const pool = allFields ? MATCHES : viewMatches();
+  const i = pool.indexOf(m);
+  const before = i >= 0 ? pool.slice(0, i) : pool.filter(o => o.t < m.t);
+  return before.filter(o => statusOf(o) !== "done" && !(o.played && peek(o.id).s));
+}
+function markEarlierDone(m, allFields = false) {
+  snapshot();
+  const earlier = openBefore(m, allFields);
+  earlier.forEach(o => { mk(o.id).s = "done"; });
+  save(); render(false); flash(m.id);
+  toast(`Marked ${earlier.length} earlier match${earlier.length === 1 ? "" : "es"} played`, [["Undo", undo]], 8000);
+}
+
+/* ---------- Overlays ---------- */
+const overlayRoot = document.getElementById("overlayRoot");
+function closeOverlay() { overlayRoot.innerHTML = ""; document.body.style.overflow = ""; }
+function openSheet(html, onClick) {
+  overlayRoot.innerHTML = `<div class="scrim"></div><div class="sheet" role="dialog">${html}</div>`;
+  document.body.style.overflow = "hidden";
+  overlayRoot.querySelector(".scrim").onclick = closeOverlay;
+  overlayRoot.querySelector(".sheet").addEventListener("click", e => {
+    const b = e.target.closest("[data-a]");
+    if (!b) return;
+    if (b.dataset.a === "close") return closeOverlay();
+    onClick(b, e);
+  });
+  history.pushState({ overlay: 1 }, "");
+}
+window.addEventListener("popstate", () => { if (overlayRoot.innerHTML) closeOverlay(); });
+const closeBtn = `<button class="btn close" data-a="close" aria-label="Close">✕</button>`;
+
+function openMatchSheet(id) {
+  const m = BY_ID.get(id);
+  const bulkHtml = () => {
+    const inView = openBefore(m, false).length, all = openBefore(m, true).length;
+    const viewName = UNITS[S.ui.unit].label + (S.ui.field ? ` (Field ${S.ui.field} only)` : "") + (S.ui.type !== "all" ? `, ${TYPE_LABEL[S.ui.type]}` : "");
+    if (!all) return "";
+    return `<h3>Catching up</h3>
+      <p class="note">Mark every open match listed above this one as played. Matches reopened for a replay are left open.</p>
+      <div class="btns">
+        ${inView ? `<button class="btn" data-a="bulk" data-all="0">Mark ${inView} earlier played · ${esc(viewName)}</button>` : ""}
+        ${all !== inView ? `<button class="btn" data-a="bulk" data-all="1">Mark ${all} earlier played · all fields</button>` : ""}
+      </div>`;
+  };
+  const draw = () => {
+    const x = peek(id), st = statusOf(m);
+    const sbtn = (s, l) => `<button class="btn ${st === s ? "on" : ""}" data-a="status" data-s="${s}">${l}</button>`;
+    const trow = c => {
+      const v = x.t[c] || "";
+      const b = (k, l) => `<button class="btn ${v === k ? "on" : ""}" data-a="mark" data-t="${esc(c)}" data-k="${k}">${l}</button>`;
+      return `<div class="trow"><div class="who">${flagHtml(c)}<span>${esc(teamName(c))}</span></div>
+        <div class="btns">${b("", "—")}${b("full", "✓ Full")}${b("rep", "R Rep")}${b("unk", "? Unknown")}</div></div>`;
+    };
+    return `${closeBtn}<h2>${TYPE_LABEL[m.type] || ""} ${esc(m.label || m.number)}</h2>
+      <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${hm(m.t)}</span><span class="note">${fDay.format(m.t)}</span></div>
+      <h3>Status</h3>
+      <div class="btns">${sbtn("idle", "Not started")}${sbtn("queue", "Queuing")}${sbtn("done", "Played ✕")}</div>
+      ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose “Not started” or “Queuing” to reopen it for a replay.</p>` : ""}
+      <h3>Start time vs schedule (minutes)</h3>
+      <div class="stepper"><button class="btn" data-a="d" data-v="-5">−5</button><button class="btn" data-a="d" data-v="-1">−1</button>
+        <span class="val delta ${deltaCls(x.d)}">${x.d == null ? "—" : fmtDelta(x.d)}</span>
+        <button class="btn" data-a="d" data-v="1">+1</button><button class="btn" data-a="d" data-v="5">+5</button></div>
+      <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDelta(Math.round((Date.now() - m.t) / 60e3))})</button>` : ""}<button class="btn" data-a="dclear">Clear delta</button></div>
+      <p class="note">Positive = started late, negative = started early. Setting a delta marks the match played.</p>
+      ${bulkHtml()}
+      <h3 style="color:var(--red)">Red alliance</h3>${m.red.map(trow).join("")}
+      <h3 style="color:var(--blue)">Blue alliance</h3>${m.blue.map(trow).join("")}
+      <div class="btns" style="margin-top:14px"><button class="btn danger" data-a="clearall">Clear all marks for this match</button></div>`;
+  };
+  openSheet(draw(), b => {
+    if (b.dataset.a === "bulk") { closeOverlay(); markEarlierDone(m, b.dataset.all === "1"); return; }
+    snapshot();
+    const x = mk(id);
+    switch (b.dataset.a) {
+      case "status":
+        // "Not started" on a match the results site lists as played must be stored explicitly (e.g. a replay).
+        if (b.dataset.s === "idle" && !Object.keys(x.t).length && !m.played) delete x.s; else x.s = b.dataset.s;
+        if (x.s !== "done") delete x.d;
+        break;
+      case "d": x.d = (x.d || 0) + Number(b.dataset.v); x.s = "done"; break;
+      case "dnow": x.d = Math.round((Date.now() - m.t) / 60e3); x.s = "done"; break;
+      case "dclear": delete x.d; break;
+      case "mark": if (b.dataset.k) x.t[b.dataset.t] = b.dataset.k; else delete x.t[b.dataset.t]; break;
+      case "clearall": if (!confirm("Clear all marks for this match?")) return; delete S.m[id]; break;
+    }
+    prune(id); save(); rerenderMatch(id);
+    const sheet = overlayRoot.querySelector(".sheet"), top = sheet.scrollTop;
+    sheet.innerHTML = draw(); sheet.scrollTop = top;
+  });
+}
+
+function openMenu() {
+  const counts = { done: 0, marks: 0 };
+  MATCHES.forEach(m => { if (statusOf(m) === "done") counts.done++; });
+  Object.values(S.m).forEach(x => { counts.marks += Object.keys(x.t || {}).length; });
+  const tb = (k, l) => `<button class="btn ${S.ui.type === k ? "on" : ""}" data-a="type" data-k="${k}">${l}</button>`;
+  const legendTeam = (k, l) => `<div class="red"><div class="team ${k ? "m-" + k : ""}"><span class="flag ph"></span><span class="tname">${l}</span><span class="mk">${k ? MARK_INFO[k].glyph : ""}</span></div></div>`;
+  openSheet(`${closeBtn}<h2>Queue sheet</h2>
+    <p class="note">${esc(D.event.name || "")}<br>Times shown in event local time (${esc(TZ)}).</p>
+    <h3>Match types</h3>
+    <div class="btns">${tb("all", "All")}${tb("practice", "Practice")}${tb("ranking", "Ranking")}${tb("playoff", "Playoff")}</div>
+    <h3>Display</h3>
+    <label class="toggle">Hide played (crossed-out) matches <input type="checkbox" data-a="hide" ${S.ui.hideDone ? "checked" : ""}></label>
+    ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
+    <h3>How to mark</h3>
+    <p class="note">Tap a team to cycle its mark. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. “Start ▶” crosses the match out and records how many minutes late/early it started.</p>
+    <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
+    <h3>Saved on this phone</h3>
+    <p class="note">${counts.done} matches played · ${counts.marks} team marks. Saved automatically on every tap.</p>
+    <div class="btns"><button class="btn" data-a="export">Export backup</button><button class="btn" data-a="import">Import backup</button><button class="btn danger" data-a="reset">Reset all marks</button></div>
+    <h3>Data</h3>
+    <p class="note">${MATCHES.length} matches, ${Object.keys(TEAMS).length} teams.<br>Source: ${esc(D.event.source || "")}</p>`,
+  b => {
+    switch (b.dataset.a) {
+      case "type": S.ui.type = b.dataset.k; save(); closeOverlay(); render(true); break;
+      case "hide": S.ui.hideDone = b.checked; save(); render(false); break;
+      case "wake": S.ui.wake = b.checked; save(); applyWake(); break;
+      case "export": exportBackup(); break;
+      case "import": importBackup(); break;
+      case "reset":
+        if (confirm("Erase ALL marks on this phone? This cannot be undone (except by importing a backup).")) {
+          snapshot(); S.m = {}; save(); closeOverlay(); render(true); toast("All marks reset", [["Undo", undo]]);
+        }
+        break;
+    }
+  });
+}
+
+function exportBackup() {
+  const blob = new Blob([JSON.stringify({ event: D.event.id, exported: new Date().toISOString(), m: S.m }, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `queue-sheet-${D.event.id}-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "")}.json`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+function importBackup() {
+  const inp = document.createElement("input");
+  inp.type = "file"; inp.accept = "application/json,.json";
+  inp.onchange = () => {
+    const f = inp.files[0]; if (!f) return;
+    f.text().then(txt => {
+      const p = JSON.parse(txt);
+      if (!p || typeof p.m !== "object") throw new Error("not a backup file");
+      if (p.event !== D.event.id && !confirm(`Backup is for "${p.event}", not "${D.event.id}". Import anyway?`)) return;
+      snapshot(); S.m = p.m; save(); closeOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
+    }).catch(e => alert("Could not import: " + e.message));
+  };
+  inp.click();
+}
+
+/* ---------- Search ---------- */
+const norm = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const TEAM_INDEX = Object.entries(TEAMS).map(([c, t]) => ({ c, n: norm(t.country || t.name || c), cn: norm(c) }));
+function openSearch() {
+  overlayRoot.innerHTML = `<div class="search"><div class="bar">
+      <input type="search" id="q" placeholder="Search country…" autocomplete="off" autocapitalize="words" enterkeyhint="search">
+      <button class="iconbtn" data-a="close" aria-label="Close">✕</button></div><div class="results" id="sr"></div></div>`;
+  document.body.style.overflow = "hidden";
+  history.pushState({ overlay: 1 }, "");
+  const q = document.getElementById("q"), sr = document.getElementById("sr");
+  overlayRoot.querySelector(".search").addEventListener("click", e => {
+    const b = e.target.closest("[data-a]"); if (!b) return;
+    if (b.dataset.a === "close") return history.back();
+    if (b.dataset.a === "go") {
+      const m = BY_ID.get(b.dataset.m);
+      history.back();
+      const u = UNITS[S.ui.unit];
+      if (!u.fields.includes(m.field) || (S.ui.field && S.ui.field !== m.field) || (S.ui.type !== "all" && S.ui.type !== m.type)) {
+        S.ui.unit = m.unit; S.ui.field = 0; S.ui.type = "all";
+      }
+      if (S.ui.hideDone && statusOf(m) === "done") S.ui.hideDone = false;
+      save(); render(false); setTimeout(() => flash(m.id), 50);
+    }
+  });
+  const run = () => {
+    const nq = norm(q.value);
+    if (!nq) { sr.innerHTML = `<p class="note" style="padding:10px">Type part of a country name.</p>`; return; }
+    const words = nq.split(" ");
+    const hits = TEAM_INDEX.filter(t => words.every(w => t.n.split(" ").some(tw => tw.startsWith(w)) || t.cn.startsWith(w)))
+      .concat(TEAM_INDEX.filter(t => t.n.includes(nq)))
+      .filter((t, i, a) => a.findIndex(o => o.c === t.c) === i).slice(0, 10);
+    if (!hits.length) { sr.innerHTML = `<p class="note" style="padding:10px">No team found.</p>`; return; }
+    const now = Date.now();
+    sr.innerHTML = hits.map(({ c }) => {
+      const ms = MATCHES.filter(m => m.red.includes(c) || m.blue.includes(c));
+      const upcoming = ms.filter(m => statusOf(m) !== "done" && m.t > now - 20 * 60e3);
+      const nx = upcoming[0];
+      const here = nx && UNITS[S.ui.unit].fields.includes(nx.field);
+      const nextHtml = nx
+        ? `<div class="next"><div class="dir" style="color:var(--${nx.unit === "3" ? "u3" : "u" + nx.unit})">${here ? "✓ " : "→ "}${UNITS[nx.unit].label}</div>
+            Next: <b>${TYPE_LABEL[nx.type]} ${esc(nx.label || nx.number)}</b> on <b>Field ${nx.field}</b> at <b>${hm(nx.t)}</b>,
+            <span class="${nx.red.includes(c) ? "al-red" : "al-blue"}" style="color:var(--${nx.red.includes(c) ? "red" : "blue"});font-weight:800">${nx.red.includes(c) ? "Red" : "Blue"}</span>
+            ${fDayKey.format(nx.t) !== fDayKey.format(now) ? `<span class="note">(${fDay.format(nx.t)})</span>` : ""}</div>`
+        : `<div class="next">No upcoming matches.</div>`;
+      const items = ms.map(m => {
+        const al = m.red.includes(c) ? "red" : "blue";
+        const v = peek(m.id).t[c];
+        return `<button class="sitem ${statusOf(m) === "done" || m.t < now - 30 * 60e3 ? "past" : ""}" data-a="go" data-m="${esc(m.id)}">
+          <span>${TYPE_LABEL[m.type].slice(0, 4)} <b>${esc(m.label || m.number)}</b></span>${fieldBadge(m)}<span>${hm(m.t)}</span>
+          <span><span class="al-${al}">${al === "red" ? "Red" : "Blue"}</span> ${v ? MARK_INFO[v].glyph + " " + MARK_INFO[v].label : ""} <span class="note">${fDay.format(m.t).split(" ")[0]}</span></span></button>`;
+      }).join("");
+      return `<div class="sres"><div class="who">${flagHtml(c)}<span>${esc(teamName(c))}</span></div>${nextHtml}<div class="slist">${items}</div></div>`;
+    }).join("");
+  };
+  q.addEventListener("input", run);
+  run();
+  setTimeout(() => q.focus(), 30);
+}
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg, actions = [], ms = 5000) {
+  const root = document.getElementById("toastRoot");
+  root.innerHTML = `<div class="toast"><span>${esc(msg)}</span>${actions.map((a, i) => `<button data-i="${i}">${esc(a[0])}</button>`).join("")}</div>`;
+  root.querySelectorAll("button").forEach(b => b.onclick = () => { root.innerHTML = ""; actions[b.dataset.i][1](); });
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => root.innerHTML = "", ms);
+}
+
+/* ---------- Wake lock ---------- */
+let wakeLock = null;
+async function applyWake() {
+  try {
+    if (S.ui.wake && !wakeLock && "wakeLock" in navigator && document.visibilityState === "visible") {
+      wakeLock = await navigator.wakeLock.request("screen");
+      wakeLock.addEventListener("release", () => { wakeLock = null; });
+    } else if (!S.ui.wake && wakeLock) { await wakeLock.release(); wakeLock = null; }
+  } catch (e) { /* not allowed (e.g. file://) */ }
+}
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { applyWake(); updateStatusLine(); placeNowLine(); } });
+
+/* ---------- Events ---------- */
+document.getElementById("unitSeg").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (S.ui.unit !== b.dataset.unit) { S.ui.unit = b.dataset.unit; S.ui.field = 0; save(); render(true); }
+  else jumpToNext();
+});
+document.getElementById("fieldSub").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  S.ui.field = Number(b.dataset.field); save(); render(true);
+});
+document.getElementById("searchBtn").onclick = openSearch;
+document.getElementById("menuBtn").onclick = openMenu;
+document.getElementById("nowBtn").onclick = () => jumpToNext(true);
+
+listEl.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const id = b.dataset.m;
+  if (b.dataset.act === "team") cycleTeam(id, b.dataset.t);
+  else if (b.dataset.act === "sheet") openMatchSheet(id);
+  else if (b.dataset.act === "start") startMatch(id);
+});
+// Long-press (contextmenu on Android) on a match opens its full option sheet.
+listEl.addEventListener("contextmenu", e => {
+  const el = e.target.closest(".match"); if (!el) return;
+  e.preventDefault(); openMatchSheet(el.dataset.m);
+});
+
+window.addEventListener("resize", () => fixStickyOffset());
+setInterval(() => { updateStatusLine(); placeNowLine(); }, 20e3);
+
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (D.event.demo) document.getElementById("demoBanner").classList.remove("hidden");
+render(true);
+applyWake();
+
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  navigator.serviceWorker.register("sw.js").catch(() => {});
+}
+})();
+</script>
+</body>
+</html>
