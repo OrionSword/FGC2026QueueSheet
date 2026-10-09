@@ -176,6 +176,11 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .flag.ph { background: var(--surface2); border-radius: 2px; display: grid; place-items: center; font-size: 9px; font-weight: 800; color: var(--muted); object-fit: initial; }
 .tname { font-weight: 600; font-size: 14px; overflow-wrap: anywhere; min-width: 0; }
 .mk { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; border-radius: 50%; display: none; place-items: center; font-size: 12px; font-weight: 900; color: #fff; }
+/* First visit to a unit (filled dot) or to the other field of a pair (ring), in the field's colour. Deliberately tiny. */
+.fv { position: absolute; top: 2px; right: 2px; width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(90deg, var(--fc) 50%, var(--fc2, var(--fc)) 50%); box-shadow: 0 0 0 1.5px var(--surface); pointer-events: none; }
+.fv.field { background: var(--surface); border: 2px solid var(--fc); }
+.fv-key { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: linear-gradient(90deg, var(--fc) 50%, var(--fc2, var(--fc)) 50%); vertical-align: middle; }
+.fv-key.ring { background: transparent; border: 2px solid var(--fc); }
 .team.m-full { border-color: var(--ok); background: var(--ok-bg); }
 .team.m-full .mk { display: grid; background: var(--ok); }
 .team.m-rep { border-color: var(--rep); border-style: dashed; background: var(--rep-bg); border-left-style: solid; }
@@ -401,6 +406,18 @@ const MATCHES = D.matches.map(m => ({
   ...m, id: m.id || `${m.type}-${m.number}-F${m.field}`, t: Date.parse(m.time), unit: unitOf(m.field),
 })).sort((a, b) => a.t - b.t || a.field - b.field);
 const BY_ID = new Map(MATCHES.map(m => [m.id, m]));
+// A team's first visit to a unit (F1·2, F3, F4·5) or to a field, across all match types in time
+// order: FIRST_VISIT.get(match id)[team code] = "unit" (new area) or "field" (other field of a pair
+// it has already played on). Shown as a tiny dot on the team tile.
+const FIRST_VISIT = (() => {
+  const seen = new Set(), out = new Map();
+  for (const m of MATCHES) for (const c of [...m.red, ...m.blue]) {
+    const k = seen.has(c + "@" + m.unit) ? (seen.has(c + "#" + m.field) ? null : "field") : "unit";
+    seen.add(c + "@" + m.unit); seen.add(c + "#" + m.field);
+    if (k) { if (!out.has(m.id)) out.set(m.id, {}); out.get(m.id)[c] = k; }
+  }
+  return out;
+})();
 
 // Replays are stored next to the marks as S.r: flagged match ids, the planned order
 // (plan: [{id, s: slot, f: field}]), which replays are done, and the field mode.
@@ -753,11 +770,19 @@ function viewMatches() {
 /* ---------- Rendering ---------- */
 const listEl = document.getElementById("list");
 
+// First visit to a pair: the dot is split between the pair's two field colours, lower field on the
+// left, so a pair's dot always looks the same. Otherwise (Field 3, or a ring) the match's own field.
+function fvStyle(m, fv) {
+  const fs = UNITS[m.unit].fields;
+  return fv === "unit" && fs.length === 2 ? `--fc:var(--f${fs[0]});--fc2:var(--f${fs[1]})` : `--fc:var(--f${m.field})`;
+}
 function teamHtml(m, c) {
   const v = peek(m.id).t[c];
   const info = v && MARK_INFO[v];
+  const fv = (FIRST_VISIT.get(m.id) || {})[c];
+  const fvText = fv && `first time ${fv === "unit" && m.unit !== "3" ? `at ${UNITS[m.unit].label}` : `on Field ${m.field}`}`;
   return `<button class="team${v ? " m-" + v : ""}" data-act="team" data-m="${esc(m.id)}" data-t="${esc(c)}"
-     aria-label="${esc(teamName(c))}${info ? ", " + info.label : ""}">${flagHtml(c)}<span class="tname">${esc(teamName(c))}</span><span class="mk">${info ? info.glyph : ""}</span></button>`;
+     aria-label="${esc(teamName(c))}${info ? ", " + info.label : ""}${fv ? ", " + fvText : ""}">${flagHtml(c)}<span class="tname">${esc(teamName(c))}</span><span class="mk">${info ? info.glyph : ""}</span>${fv ? `<span class="fv ${fv}" style="${fvStyle(m, fv)}" title="${esc(fvText[0].toUpperCase() + fvText.slice(1))}"></span>` : ""}</button>`;
 }
 // mini: a copy shown inside an overlay (team page / search); no id, so the list's ids stay unique.
 function matchHtml(m, mini) {
@@ -1102,6 +1127,7 @@ function openMenu() {
     <p class="note">Tap a team to cycle its mark. Tap a match's badge to move it from Scheduled to In queue, On deck and On field; marking the first team moves it to In queue. Long-press a team for its team page (every match it plays, with partners and opponents; also from search and from team names in a match's options). Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. ${S.ui.timing ? "“Start ▶” crosses the match out and records how many minutes late/early it started." : "“Mark done ✓” crosses the match out."}</p>
     <p class="note"><b>Replays</b> (↻ at the top): flag a match from its sheet or add it by number in the planner. The planner orders them on the side fields so no team plays two at once, adds breaks for back-to-back teams and says where each team goes next.</p>
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
+    <p class="note"><span class="fv-key" style="--fc:var(--f4);--fc2:var(--f5)"></span> A tiny dot in a team's top-right corner marks its first match on that pair of fields, split in the pair's two colours (solid purple for Field 3). <span class="fv-key ring" style="--fc:var(--f5)"></span> A ring marks its first match on the other field of a pair it has already played on.</p>
     <h3>Saved on this phone</h3>
     <p class="note">${counts.done} matches played · ${counts.marks} team marks${Object.keys(S.n).length ? ` · ${Object.keys(S.n).length} team notes` : ""}. Saved automatically on every tap.</p>
     <div class="btns"><button class="btn" data-a="export">Export backup</button><button class="btn" data-a="import">Import backup</button><button class="btn danger" data-a="reset">Reset all marks, replays and notes</button></div>
