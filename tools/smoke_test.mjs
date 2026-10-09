@@ -74,7 +74,7 @@ try {
     check(cls[0].includes("m-full") && cls[1].includes("m-rep"), "team marks persist across reload");
     // Marked teams keep their alliance colour (left stripe), and the menu can put Blue on the left.
     const stripe = await row(p, open[0].number).locator(".alliance.red .team.m-full").first().evaluate(e => getComputedStyle(e).borderLeftColor);
-    const red = await row(p, open[0].number).locator(".alliance.red").evaluate(e => getComputedStyle(e).backgroundColor);
+    const red = await row(p, open[0].number).locator(".alliance.red").evaluate(e => getComputedStyle(e).borderTopColor);
     check(stripe === red, "marked team keeps the red alliance stripe");
     const leftOf = async () => { const r = row(p, open[0].number);
       return (await r.locator(".alliance.red").boundingBox()).x < (await r.locator(".alliance.blue").boundingBox()).x ? "red" : "blue"; };

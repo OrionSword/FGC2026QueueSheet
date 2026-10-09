@@ -137,11 +137,10 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .alliance { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .alliance.red { grid-area: red; } .alliance.blue { grid-area: blue; }
 /* Alliance frame + label: the alliance colour stays visible whatever the teams are marked. */
-.match .alliance { position: relative; padding: 15px 3px 3px; border-radius: 9px; }
-.match .alliance.red { background: var(--red); } .match .alliance.blue { background: var(--blue); }
-.match .alliance::before { position: absolute; top: 0; left: 4px; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; line-height: 15px; padding-left: 4px; color: #fff; }
+.match .alliance { --al: var(--red); position: relative; padding: 16px 2px 2px; border: 2px solid var(--al); border-radius: 9px; }
+.match .alliance.blue { --al: var(--blue); }
+.match .alliance::before { position: absolute; top: 0; left: 0; right: 0; height: 14px; background: var(--al); font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; line-height: 14px; padding-left: 6px; color: #fff; }
 .match .alliance.red::before { content: "Red"; } .match .alliance.blue::before { content: "Blue"; }
-.match .team { background-clip: padding-box; }
 /* Physical orientation: blue alliance on the left (menu setting). */
 .al-swap .match { grid-template-areas: "meta meta" "blue red"; }
 .team {
@@ -171,7 +170,7 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 /* Played matches: clearly inactive at a glance (grey, desaturated, faded) but still readable for look-ups. */
 .match.st-done { background: var(--surface2); border-color: var(--line); box-shadow: none; }
 .match.st-done .team.team { background: transparent; border-color: transparent; border-left-color: var(--line); }
-.match.st-done .alliance { background: var(--line); }
+.match.st-done .alliance { --al: var(--line); }
 .match.st-done .alliance::before { color: var(--muted); }
 .match.st-done .team, .match.st-done .mid, .match.st-done .time, .match.st-done .fld { opacity: .45; filter: grayscale(1); }
 .match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
