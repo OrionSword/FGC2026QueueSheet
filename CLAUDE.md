@@ -6,6 +6,7 @@ Static offline web app (no build step) replacing paper queuing sheets at the FIR
 - **Country names and flags come only from https://results.first.global/.** Never type, shorten, "fix" or substitute a name or flag by hand; regenerate with `tools/fetch_fgc_data.py` + `tools/rasterize_flags.mjs`. The only transformation applied is stripping the generic leading "Team " from country teams. Special teams (Team Hope, etc.) keep their full name.
 - **`data.js` and `flags/` are generated.** Do not hand-edit them.
 - **Keep IDs stable.** Volunteer marks live in `localStorage` under `fgcq:<event.id>` and are keyed by match id (`<tournamentKey>-<id>` from the site). Changing either silently wipes every phone's sheet.
+- The alliance colour must stay visible whatever a team is marked (`.alliance` outline + label bar, team left stripe). `S.ui.swap` puts Blue on the left via the `al-swap` body class (grid areas), never by reordering data.
 - Flags must never be cropped (`object-fit: contain`). The official artwork is drawn on 5:3 canvases (Nepal is narrower).
 - Times always display in the event time zone (`event.tz`, Asia/Seoul), never the phone's.
 - Site-played matches (`played: true`) default to *Played*; a volunteer's own status (`S.m[id].s`) always wins, which is how replays are reopened.

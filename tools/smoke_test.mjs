@@ -72,6 +72,16 @@ try {
     await p.reload(); await p.waitForSelector(".match");
     const cls = await row(p, open[0].number).locator(".team").evaluateAll(es => es.slice(0, 2).map(e => e.className));
     check(cls[0].includes("m-full") && cls[1].includes("m-rep"), "team marks persist across reload");
+    // Marked teams keep their alliance colour (left stripe), and the menu can put Blue on the left.
+    const stripe = await row(p, open[0].number).locator(".alliance.red .team.m-full").first().evaluate(e => getComputedStyle(e).borderLeftColor);
+    const red = await row(p, open[0].number).locator(".alliance.red").evaluate(e => getComputedStyle(e).borderTopColor);
+    check(stripe === red, "marked team keeps the red alliance stripe");
+    const leftOf = async () => { const r = row(p, open[0].number);
+      return (await r.locator(".alliance.red").boundingBox()).x < (await r.locator(".alliance.blue").boundingBox()).x ? "red" : "blue"; };
+    const before = await leftOf();
+    await p.locator("#menuBtn").tap(); await p.locator('.sheet [data-a="swap"][data-v="1"]').tap(); await p.locator('.sheet [data-a="close"]').tap();
+    await p.reload(); await p.waitForSelector(".match");
+    check(before === "red" && await leftOf() === "blue", "alliance side setting puts Blue on the left and persists");
     await ctx.close();
   }
   // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
