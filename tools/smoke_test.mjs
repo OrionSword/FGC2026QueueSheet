@@ -178,6 +178,11 @@ try {
     check(await p.evaluate(() => !document.body.classList.contains("lp") && !String(getSelection())), "selection works again once the finger lifts; nothing selected");
     check(await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class") === before, "long-press does not change the team's mark");
     check(await p.locator('.tpage [data-a="back"]').count() === 0, "team page from the list has no Back button");
+    // Pronunciation under the name, stressed syllables in bold (pronounce.js covers every team).
+    const P = (() => { const sb = { self: {} }; vm.runInNewContext(readFileSync(join(root, "pronounce.js"), "utf8"), sb); return sb.self.FGC_PRONOUNCE; })();
+    check(Object.keys(D.teams).every(k => P[k] && P[k].say), "every team has a pronunciation");
+    check((await p.locator(".tpage .ttl .pron").innerText()).includes(P[c].say) && await p.locator(".tpage .ttl .pron b").count() >= 1,
+      "team page shows how to say the name, stress in bold");
     await p.goBack(); await p.waitForTimeout(100);
     check(await p.locator(".tpage").count() === 0, "phone Back closes the team page");
     // Long-press elsewhere on a match: its sheet. Tap a team name there: that team's page, then Back.

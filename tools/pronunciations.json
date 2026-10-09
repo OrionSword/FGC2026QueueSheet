@@ -1,0 +1,525 @@
+{
+ "Afghanistan": {
+  "say": "af-GAN-ih-stan"
+ },
+ "Albania": {
+  "say": "al-BAY-nee-uh"
+ },
+ "Algeria": {
+  "say": "al-JEER-ee-uh"
+ },
+ "Angola": {
+  "say": "ang-GOH-luh"
+ },
+ "Antigua and Barbuda": {
+  "say": "an-TEE-guh and bar-BOO-duh",
+  "tip": "U is silent in Antigua"
+ },
+ "Argentina": {
+  "say": "ar-jen-TEE-nuh"
+ },
+ "Australia": {
+  "say": "aw-STRAYL-yuh"
+ },
+ "Austria": {
+  "say": "AW-stree-uh"
+ },
+ "Azerbaijan": {
+  "say": "ah-zer-by-JAHN"
+ },
+ "Bangladesh": {
+  "say": "bang-gluh-DESH"
+ },
+ "Barbados": {
+  "say": "bar-BAY-dohs"
+ },
+ "Belgium": {
+  "say": "BEL-jum"
+ },
+ "Belize": {
+  "say": "beh-LEEZ"
+ },
+ "Benin": {
+  "say": "beh-NEEN"
+ },
+ "Bhutan": {
+  "say": "boo-TAHN"
+ },
+ "Bolivia": {
+  "say": "boh-LIV-ee-uh"
+ },
+ "Bosnia and Herzegovina": {
+  "say": "BOZ-nee-uh and hert-suh-goh-VEE-nuh"
+ },
+ "Botswana": {
+  "say": "baht-SWAH-nuh"
+ },
+ "Brazil": {
+  "say": "bruh-ZIL"
+ },
+ "Brunei Darussalam": {
+  "say": "broo-NYE dah-roo-suh-LAHM"
+ },
+ "Bulgaria": {
+  "say": "bul-GAIR-ee-uh"
+ },
+ "Burkina Faso": {
+  "say": "bur-KEE-nuh FAH-soh"
+ },
+ "Cabo Verde": {
+  "say": "KAH-boh VAIR-day"
+ },
+ "Cambodia": {
+  "say": "kam-BOH-dee-uh"
+ },
+ "Cameroon": {
+  "say": "kam-uh-ROON"
+ },
+ "Canada": {
+  "say": "KAN-uh-duh"
+ },
+ "Cayman Islands": {
+  "say": "KAY-mun EYE-lundz"
+ },
+ "Central African Republic": {
+  "say": "SEN-trul AF-rih-kun ree-PUB-lik"
+ },
+ "Chad": {
+  "say": "CHAD"
+ },
+ "Chile": {
+  "say": "CHIL-ee"
+ },
+ "Chinese Taipei": {
+  "say": "chy-NEEZ ty-PAY"
+ },
+ "Colombia": {
+  "say": "kuh-LUM-bee-uh"
+ },
+ "Comoros": {
+  "say": "KAH-muh-rohs"
+ },
+ "Congo": {
+  "say": "KONG-goh"
+ },
+ "Cook Islands": {
+  "say": "KOOK EYE-lundz"
+ },
+ "Costa Rica": {
+  "say": "KOH-stuh REE-kuh"
+ },
+ "Côte d'Ivoire": {
+  "say": "KOHT deev-WAHR"
+ },
+ "Croatia": {
+  "say": "kroh-AY-shuh"
+ },
+ "Cuba": {
+  "say": "KYOO-buh"
+ },
+ "Czechia": {
+  "say": "CHEK-ee-uh"
+ },
+ "Democratic Republic of the Congo": {
+  "say": "dem-uh-KRAT-ik ree-PUB-lik uhv the KONG-goh"
+ },
+ "Denmark": {
+  "say": "DEN-mark"
+ },
+ "Djibouti": {
+  "say": "jih-BOO-tee"
+ },
+ "Dominica": {
+  "say": "dom-ih-NEE-kuh"
+ },
+ "Dominican Republic": {
+  "say": "duh-MIN-ih-kun ree-PUB-lik"
+ },
+ "Ecuador": {
+  "say": "EK-wuh-dor"
+ },
+ "Egypt": {
+  "say": "EE-jipt"
+ },
+ "El Salvador": {
+  "say": "el SAL-vuh-dor"
+ },
+ "Equatorial Guinea": {
+  "say": "ek-wuh-TOR-ee-ul GIN-ee"
+ },
+ "Eritrea": {
+  "say": "air-ih-TRAY-uh"
+ },
+ "Estonia": {
+  "say": "eh-STOH-nee-uh"
+ },
+ "Eswatini": {
+  "say": "es-wah-TEE-nee"
+ },
+ "Ethiopia": {
+  "say": "ee-thee-OH-pee-uh"
+ },
+ "Fiji": {
+  "say": "FEE-jee"
+ },
+ "Finland": {
+  "say": "FIN-lund"
+ },
+ "France": {
+  "say": "FRANS"
+ },
+ "Gabon": {
+  "say": "gah-BOHN"
+ },
+ "Gambia": {
+  "say": "GAM-bee-uh"
+ },
+ "Georgia": {
+  "say": "JOR-juh"
+ },
+ "Germany": {
+  "say": "JER-muh-nee"
+ },
+ "Ghana": {
+  "say": "GAH-nuh"
+ },
+ "Great Britain": {
+  "say": "GRAYT BRIT-un"
+ },
+ "Greece": {
+  "say": "GREES"
+ },
+ "Grenada": {
+  "say": "greh-NAY-duh"
+ },
+ "Guatemala": {
+  "say": "gwah-tuh-MAH-luh"
+ },
+ "Guinea": {
+  "say": "GIN-ee"
+ },
+ "Guinea-Bissau": {
+  "say": "GIN-ee bih-SOW",
+  "tip": "SOW rhymes with cow"
+ },
+ "Guyana": {
+  "say": "gy-AH-nuh"
+ },
+ "Haiti": {
+  "say": "HAY-tee"
+ },
+ "Honduras": {
+  "say": "hon-DOOR-us"
+ },
+ "Hong Kong, China": {
+  "say": "HONG KONG, CHY-nuh"
+ },
+ "Team Hope (Refugees)": {
+  "say": "HOHP (ref-yoo-JEEZ)"
+ },
+ "Hungary": {
+  "say": "HUNG-guh-ree"
+ },
+ "India": {
+  "say": "IN-dee-uh"
+ },
+ "Indonesia": {
+  "say": "in-duh-NEE-zhuh"
+ },
+ "Iraq": {
+  "say": "ih-RAHK"
+ },
+ "Ireland": {
+  "say": "IRE-lund"
+ },
+ "Islamic Republic of Iran": {
+  "say": "iz-LAHM-ik ree-PUB-lik uhv ih-RAHN"
+ },
+ "Israel": {
+  "say": "IZ-ray-ul"
+ },
+ "Italy": {
+  "say": "IT-uh-lee"
+ },
+ "Jamaica": {
+  "say": "juh-MAY-kuh"
+ },
+ "Japan": {
+  "say": "juh-PAN"
+ },
+ "Jordan": {
+  "say": "JOR-dun"
+ },
+ "Kazakhstan": {
+  "say": "KAH-zahk-stahn"
+ },
+ "Kenya": {
+  "say": "KEN-yuh"
+ },
+ "Kiribati": {
+  "say": "KEER-ih-bahss"
+ },
+ "Kosovo": {
+  "say": "KOH-suh-voh"
+ },
+ "Kyrgyzstan": {
+  "say": "KEER-gih-stahn"
+ },
+ "Lao People's Democratic Republic": {
+  "say": "LOW PEE-pulz dem-uh-KRAT-ik ree-PUB-lik",
+  "tip": "LOW rhymes with cow"
+ },
+ "Latvia": {
+  "say": "LAT-vee-uh"
+ },
+ "Lebanon": {
+  "say": "LEB-uh-non"
+ },
+ "Lesotho": {
+  "say": "leh-SOO-too"
+ },
+ "Liberia": {
+  "say": "ly-BEER-ee-uh"
+ },
+ "Libya": {
+  "say": "LIB-ee-uh"
+ },
+ "Lithuania": {
+  "say": "lith-oo-AY-nee-uh"
+ },
+ "Luxembourg": {
+  "say": "LUK-sum-burg"
+ },
+ "Madagascar": {
+  "say": "mad-uh-GAS-kar"
+ },
+ "Malawi": {
+  "say": "muh-LAH-wee"
+ },
+ "Malaysia": {
+  "say": "muh-LAY-zhuh"
+ },
+ "Maldives": {
+  "say": "MAWL-deevz"
+ },
+ "Mali": {
+  "say": "MAH-lee"
+ },
+ "Malta": {
+  "say": "MAWL-tuh"
+ },
+ "Mauritania": {
+  "say": "mor-ih-TAY-nee-uh"
+ },
+ "Mauritius": {
+  "say": "muh-RISH-us"
+ },
+ "Mexico": {
+  "say": "MEK-sih-koh"
+ },
+ "Mongolia": {
+  "say": "mon-GOH-lee-uh"
+ },
+ "Montenegro": {
+  "say": "mon-tuh-NAY-groh"
+ },
+ "Morocco": {
+  "say": "muh-ROK-oh"
+ },
+ "Mozambique": {
+  "say": "moh-zam-BEEK"
+ },
+ "Myanmar": {
+  "say": "MEE-ahn-mar"
+ },
+ "Namibia": {
+  "say": "nuh-MIB-ee-uh"
+ },
+ "Nepal": {
+  "say": "nuh-PAWL"
+ },
+ "Netherlands": {
+  "say": "NETH-er-lundz"
+ },
+ "Nicaragua": {
+  "say": "nik-uh-RAH-gwuh"
+ },
+ "Niger": {
+  "say": "nee-ZHAIR"
+ },
+ "Nigeria": {
+  "say": "ny-JEER-ee-uh"
+ },
+ "North Macedonia": {
+  "say": "north mas-uh-DOH-nee-uh"
+ },
+ "Norway": {
+  "say": "NOR-way"
+ },
+ "Oman": {
+  "say": "oh-MAHN"
+ },
+ "Pakistan": {
+  "say": "PAK-ih-stahn"
+ },
+ "Palestine": {
+  "say": "PAL-eh-styne"
+ },
+ "Panama": {
+  "say": "PAN-uh-mah"
+ },
+ "Papua New Guinea": {
+  "say": "PAH-poo-uh noo GIN-ee"
+ },
+ "Paraguay": {
+  "say": "PAR-uh-gway"
+ },
+ "People's Republic of China": {
+  "say": "PEE-pulz ree-PUB-lik uhv CHY-nuh"
+ },
+ "Peru": {
+  "say": "puh-ROO"
+ },
+ "Philippines": {
+  "say": "FIL-ih-peenz"
+ },
+ "Poland": {
+  "say": "POH-lund"
+ },
+ "Portugal": {
+  "say": "POR-chuh-gul"
+ },
+ "Qatar": {
+  "say": "KAH-tar"
+ },
+ "Republic of Korea": {
+  "say": "ree-PUB-lik uhv kuh-REE-uh"
+ },
+ "Republic of Moldova": {
+  "say": "ree-PUB-lik uhv mol-DOH-vuh"
+ },
+ "Romania": {
+  "say": "roh-MAY-nee-uh"
+ },
+ "Rwanda": {
+  "say": "roo-AHN-duh"
+ },
+ "Saint Kitts and Nevis": {
+  "say": "saynt KITS and NEE-vis"
+ },
+ "Saint Lucia": {
+  "say": "saynt LOO-shuh"
+ },
+ "Saint Vincent and the Grenadines": {
+  "say": "saynt VIN-sent and the GREN-uh-deenz"
+ },
+ "São Tomé and Príncipe": {
+  "say": "SOW toh-MAY and PRIN-sih-pay",
+  "tip": "SOW rhymes with cow"
+ },
+ "Senegal": {
+  "say": "sen-ih-GAWL"
+ },
+ "Serbia": {
+  "say": "SER-bee-uh"
+ },
+ "Seychelles": {
+  "say": "say-SHELLS"
+ },
+ "Sierra Leone": {
+  "say": "see-AIR-uh lee-OHN"
+ },
+ "Slovakia": {
+  "say": "sloh-VAH-kee-uh"
+ },
+ "Slovenia": {
+  "say": "sloh-VEE-nee-uh"
+ },
+ "Solomon Islands": {
+  "say": "SOL-uh-mun EYE-lundz"
+ },
+ "Somalia": {
+  "say": "suh-MAHL-ee-uh"
+ },
+ "South Africa": {
+  "say": "sowth AF-rih-kuh"
+ },
+ "Spain": {
+  "say": "SPAYN"
+ },
+ "Sri Lanka": {
+  "say": "sree LAHNG-kuh"
+ },
+ "Sudan": {
+  "say": "soo-DAN"
+ },
+ "Sweden": {
+  "say": "SWEE-dun"
+ },
+ "Syrian Arab Republic": {
+  "say": "SEER-ee-un AIR-ub ree-PUB-lik"
+ },
+ "Tajikistan": {
+  "say": "tah-JIK-ih-stahn"
+ },
+ "Thailand": {
+  "say": "TY-land"
+ },
+ "Timor-Leste": {
+  "say": "TEE-mor LESH-tay"
+ },
+ "Togo": {
+  "say": "TOH-goh"
+ },
+ "Trinidad and Tobago": {
+  "say": "TRIN-ih-dad and tuh-BAY-goh"
+ },
+ "Tunisia": {
+  "say": "too-NEE-zhuh"
+ },
+ "Türkiye": {
+  "say": "TOOR-kee-yay"
+ },
+ "Turkmenistan": {
+  "say": "turk-MEN-ih-stahn"
+ },
+ "Uganda": {
+  "say": "yoo-GAHN-duh"
+ },
+ "Ukraine": {
+  "say": "yoo-KRAYN"
+ },
+ "United Arab Emirates": {
+  "say": "yoo-NY-tid AIR-ub EM-ih-ruts"
+ },
+ "United Republic of Tanzania": {
+  "say": "yoo-NY-tid ree-PUB-lik uhv tan-zuh-NEE-uh"
+ },
+ "United States of America": {
+  "say": "yoo-NY-tid STAYTS uhv uh-MAIR-ih-kuh"
+ },
+ "Uruguay": {
+  "say": "YOOR-uh-gway"
+ },
+ "Uzbekistan": {
+  "say": "ooz-BEK-ih-stahn"
+ },
+ "Vanuatu": {
+  "say": "vah-noo-AH-too"
+ },
+ "Venezuela": {
+  "say": "ven-eh-ZWAY-luh"
+ },
+ "Vietnam": {
+  "say": "vee-et-NAHM"
+ },
+ "Yemen": {
+  "say": "YEM-en"
+ },
+ "Zambia": {
+  "say": "ZAM-bee-uh"
+ },
+ "Zimbabwe": {
+  "say": "zim-BAHB-way"
+ }
+}
