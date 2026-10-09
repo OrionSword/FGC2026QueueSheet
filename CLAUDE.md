@@ -14,7 +14,9 @@ Static offline web app (no build step) replacing paper queuing sheets at the FIR
 - Start delta = scheduled minute vs clock minute (`clockDelta`), so any second within the scheduled minute is "On time". `d === 0` (on time) and `d == null` (not recorded) must stay visually distinct. Start-time tracking is opt-in (`S.ui.timing`, default off): when off, the button reads “Mark done ✓”, no delta is recorded or shown, and the sheet has no delta controls.
 
 ## Layout of index.html
-All CSS and JS are inline. Main sections: persistence (`S`, `save`, `statusOf`), formatting (`fTime`, `hm`/`hmH`, `fmtDelta`, `clockDelta`), breaks (`BREAKS`), view selection, replay planning (`replayFields`, `scorePlan`/`planCoster` with weights `RW`, `optimizeReplays`, `syncReplays`), rendering (`render`, `matchHtml`, `breakHtml`), actions (`startMatch`, `openBefore`/`markEarlierDone`), overlays (match sheet, menu, replay planner `openReplays`/`drawReplays`, search), service worker registration.
+All CSS and JS are inline. Main sections: persistence (`S`, `save`, `statusOf`), formatting (`fTime`, `hm`/`hmH`, `fmtDelta`, `clockDelta`), breaks (`BREAKS`), view selection, replay planning (`replayFields`, `scorePlan`/`planCoster` with weights `RW`, `optimizeReplays`, `syncReplays`), rendering (`render`, `matchHtml`, `breakHtml`), actions (`startMatch`, `openBefore`/`markEarlierDone`), overlays (match sheet, menu, replay planner `openReplays`/`drawReplays`, team pages `openTeam`/`teamCardHtml` shared with search), long-press handling, service worker registration.
+
+Overlays opened on top of another (`openNested`) stack: every overlay calls `navOpened(snap)` once drawn, Back pops to the screen underneath, ✕ (`exitOverlay`/`closeOverlay`) closes them all. The overlay holds a single history entry at any depth. Copies of match cards inside overlays use `matchHtml(m, true)` (no `id`), so `#m-<id>` stays unique to the list. Long-press is timed from pointer events because iOS never fires `contextmenu`; the click that ends a long-press is swallowed.
 
 ## Before pushing
 - `node tools/smoke_test.mjs` must pass (needs the `playwright` package + Chromium).
