@@ -19,6 +19,12 @@ self.FGC_PRONOUNCE = {
 "ARG": {
 "say": "ar-jen-TEE-nuh"
 },
+"ARU": {
+"say": "uh-ROO-buh"
+},
+"ASA": {
+"say": "uh-MAIR-ih-kun suh-MOH-uh"
+},
 "AUS": {
 "say": "aw-STRAYL-yuh"
 },
@@ -48,6 +54,10 @@ self.FGC_PRONOUNCE = {
 },
 "BIZ": {
 "say": "beh-LEEZ"
+},
+"BLR": {
+"say": "bel-uh-ROOS",
+"tip": "ends in S, not Z"
 },
 "BOL": {
 "say": "boh-LIV-ee-uh"
@@ -92,7 +102,8 @@ self.FGC_PRONOUNCE = {
 "say": "PEE-pulz ree-PUB-lik uhv CHY-nuh"
 },
 "CIV": {
-"say": "KOHT deev-WAHR"
+"say": "KOHT deev-WAHR",
+"tip": "Do not say Ivory Coast"
 },
 "CMR": {
 "say": "kam-uh-ROON"
@@ -101,7 +112,8 @@ self.FGC_PRONOUNCE = {
 "say": "dem-uh-KRAT-ik ree-PUB-lik uhv the KONG-goh"
 },
 "COK": {
-"say": "KOOK EYE-lundz"
+"say": "COOK EYE-lundz",
+"tip": "like the word cook"
 },
 "COL": {
 "say": "kuh-LUM-bee-uh"
@@ -131,10 +143,12 @@ self.FGC_PRONOUNCE = {
 "say": "jih-BOO-tee"
 },
 "DMA": {
-"say": "dom-ih-NEE-kuh"
+"say": "dom-ih-NEE-kuh",
+"tip": "Not Dominican Republic (duh-MIN-ih-kun): stress on NEE"
 },
 "DOM": {
-"say": "duh-MIN-ih-kun ree-PUB-lik"
+"say": "duh-MIN-ih-kun ree-PUB-lik",
+"tip": "Not Dominica (dom-ih-NEE-kuh): stress on MIN"
 },
 "ECU": {
 "say": "EK-wuh-dor"
@@ -165,6 +179,9 @@ self.FGC_PRONOUNCE = {
 },
 "FRA": {
 "say": "FRANS"
+},
+"FSM": {
+"say": "FED-uh-ray-tid STAYTS uhv my-kruh-NEE-zhuh"
 },
 "GAB": {
 "say": "gah-BOHN"
@@ -203,6 +220,9 @@ self.FGC_PRONOUNCE = {
 "GUI": {
 "say": "GIN-ee"
 },
+"GUM": {
+"say": "GWAHM"
+},
 "GUY": {
 "say": "gy-AH-nuh"
 },
@@ -216,7 +236,8 @@ self.FGC_PRONOUNCE = {
 "say": "hon-DOOR-us"
 },
 "HPE": {
-"say": "HOHP (ref-yoo-JEEZ)"
+"say": "TEEM HOHP (ref-yoo-JEEZ)",
+"tip": "Say 'Team': it is part of the official name"
 },
 "HUN": {
 "say": "HUNG-guh-ree"
@@ -239,8 +260,14 @@ self.FGC_PRONOUNCE = {
 "ISR": {
 "say": "IZ-ray-ul"
 },
+"ISV": {
+"say": "YOO-ESS VUR-jin EYE-lundz"
+},
 "ITA": {
 "say": "IT-uh-lee"
+},
+"IVB": {
+"say": "BRIT-ish VUR-jin EYE-lundz"
 },
 "JAM": {
 "say": "juh-MAY-kuh"
@@ -252,7 +279,7 @@ self.FGC_PRONOUNCE = {
 "say": "juh-PAN"
 },
 "KAZ": {
-"say": "KAH-zahk-stahn"
+"say": "kah-zahk-STAHN"
 },
 "KEN": {
 "say": "KEN-yuh"
@@ -261,7 +288,8 @@ self.FGC_PRONOUNCE = {
 "say": "KEER-gih-stahn"
 },
 "KIR": {
-"say": "KEER-ih-bahss"
+"say": "KEER-ih-bahss",
+"tip": "The final 'ti' is said as S, never kir-ih-BAH-tee"
 },
 "KOR": {
 "say": "ree-PUB-lik uhv kuh-REE-uh"
@@ -289,7 +317,8 @@ self.FGC_PRONOUNCE = {
 "say": "saynt LOO-shuh"
 },
 "LES": {
-"say": "leh-SOO-too"
+"say": "leh-SOO-too",
+"tip": "The 'th' is a plain T; the final 'o' is said oo"
 },
 "LTU": {
 "say": "lith-oo-AY-nee-uh"
@@ -320,6 +349,9 @@ self.FGC_PRONOUNCE = {
 },
 "MGL": {
 "say": "mon-GOH-lee-uh"
+},
+"MHL": {
+"say": "MAR-shul EYE-lundz"
 },
 "MKD": {
 "say": "north mas-uh-DOH-nee-uh"
@@ -358,10 +390,12 @@ self.FGC_PRONOUNCE = {
 "say": "nuh-PAWL"
 },
 "NGR": {
-"say": "ny-JEER-ee-uh"
+"say": "ny-JEER-ee-uh",
+"tip": "Not Niger (nee-ZHAIR)"
 },
 "NIG": {
-"say": "nee-ZHAIR"
+"say": "nee-ZHAIR",
+"tip": "Not Nigeria (ny-JEER-ee-uh): say it the French way"
 },
 "NOR": {
 "say": "NOR-way"
@@ -396,6 +430,9 @@ self.FGC_PRONOUNCE = {
 "POR": {
 "say": "POR-chuh-gul"
 },
+"PUR": {
+"say": "PWAIR-toh REE-koh"
+},
 "QAT": {
 "say": "KAH-tar"
 },
@@ -404,6 +441,9 @@ self.FGC_PRONOUNCE = {
 },
 "RSA": {
 "say": "sowth AF-rih-kuh"
+},
+"RUS": {
+"say": "RUSH-un fed-uh-RAY-shun"
 },
 "RWA": {
 "say": "roo-AHN-duh"
@@ -435,6 +475,9 @@ self.FGC_PRONOUNCE = {
 "SRI": {
 "say": "sree LAHNG-kuh"
 },
+"SSD": {
+"say": "sowth soo-DAN"
+},
 "STP": {
 "say": "SOW toh-MAY and PRIN-sih-pay",
 "tip": "SOW rhymes with cow"
@@ -456,6 +499,10 @@ self.FGC_PRONOUNCE = {
 },
 "TAN": {
 "say": "yoo-NY-tid ree-PUB-lik uhv tan-zuh-NEE-uh"
+},
+"TGA": {
+"say": "TONG-uh",
+"tip": "NG as in song"
 },
 "THA": {
 "say": "TY-land"

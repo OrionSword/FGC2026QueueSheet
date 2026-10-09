@@ -8,6 +8,9 @@
  "Algeria": {
   "say": "al-JEER-ee-uh"
  },
+ "American Samoa": {
+  "say": "uh-MAIR-ih-kun suh-MOH-uh"
+ },
  "Angola": {
   "say": "ang-GOH-luh"
  },
@@ -17,6 +20,9 @@
  },
  "Argentina": {
   "say": "ar-jen-TEE-nuh"
+ },
+ "Aruba": {
+  "say": "uh-ROO-buh"
  },
  "Australia": {
   "say": "aw-STRAYL-yuh"
@@ -32,6 +38,10 @@
  },
  "Barbados": {
   "say": "bar-BAY-dohs"
+ },
+ "Belarus": {
+  "say": "bel-uh-ROOS",
+  "tip": "ends in S, not Z"
  },
  "Belgium": {
   "say": "BEL-jum"
@@ -56,6 +66,9 @@
  },
  "Brazil": {
   "say": "bruh-ZIL"
+ },
+ "British Virgin Islands": {
+  "say": "BRIT-ish VUR-jin EYE-lundz"
  },
  "Brunei Darussalam": {
   "say": "broo-NYE dah-roo-suh-LAHM"
@@ -103,13 +116,11 @@
   "say": "KONG-goh"
  },
  "Cook Islands": {
-  "say": "KOOK EYE-lundz"
+  "say": "COOK EYE-lundz",
+  "tip": "like the word cook"
  },
  "Costa Rica": {
   "say": "KOH-stuh REE-kuh"
- },
- "Côte d'Ivoire": {
-  "say": "KOHT deev-WAHR"
  },
  "Croatia": {
   "say": "kroh-AY-shuh"
@@ -119,6 +130,10 @@
  },
  "Czechia": {
   "say": "CHEK-ee-uh"
+ },
+ "Côte d'Ivoire": {
+  "say": "KOHT deev-WAHR",
+  "tip": "Do not say Ivory Coast"
  },
  "Democratic Republic of the Congo": {
   "say": "dem-uh-KRAT-ik ree-PUB-lik uhv the KONG-goh"
@@ -130,10 +145,12 @@
   "say": "jih-BOO-tee"
  },
  "Dominica": {
-  "say": "dom-ih-NEE-kuh"
+  "say": "dom-ih-NEE-kuh",
+  "tip": "Not Dominican Republic (duh-MIN-ih-kun): stress on NEE"
  },
  "Dominican Republic": {
-  "say": "duh-MIN-ih-kun ree-PUB-lik"
+  "say": "duh-MIN-ih-kun ree-PUB-lik",
+  "tip": "Not Dominica (dom-ih-NEE-kuh): stress on MIN"
  },
  "Ecuador": {
   "say": "EK-wuh-dor"
@@ -158,6 +175,9 @@
  },
  "Ethiopia": {
   "say": "ee-thee-OH-pee-uh"
+ },
+ "Federated States of Micronesia": {
+  "say": "FED-uh-ray-tid STAYTS uhv my-kruh-NEE-zhuh"
  },
  "Fiji": {
   "say": "FEE-jee"
@@ -192,6 +212,9 @@
  "Grenada": {
   "say": "greh-NAY-duh"
  },
+ "Guam": {
+  "say": "GWAHM"
+ },
  "Guatemala": {
   "say": "gwah-tuh-MAH-luh"
  },
@@ -213,9 +236,6 @@
  },
  "Hong Kong, China": {
   "say": "HONG KONG, CHY-nuh"
- },
- "Team Hope (Refugees)": {
-  "say": "HOHP (ref-yoo-JEEZ)"
  },
  "Hungary": {
   "say": "HUNG-guh-ree"
@@ -251,13 +271,14 @@
   "say": "JOR-dun"
  },
  "Kazakhstan": {
-  "say": "KAH-zahk-stahn"
+  "say": "kah-zahk-STAHN"
  },
  "Kenya": {
   "say": "KEN-yuh"
  },
  "Kiribati": {
-  "say": "KEER-ih-bahss"
+  "say": "KEER-ih-bahss",
+  "tip": "The final 'ti' is said as S, never kir-ih-BAH-tee"
  },
  "Kosovo": {
   "say": "KOH-suh-voh"
@@ -276,7 +297,8 @@
   "say": "LEB-uh-non"
  },
  "Lesotho": {
-  "say": "leh-SOO-too"
+  "say": "leh-SOO-too",
+  "tip": "The 'th' is a plain T; the final 'o' is said oo"
  },
  "Liberia": {
   "say": "ly-BEER-ee-uh"
@@ -307,6 +329,9 @@
  },
  "Malta": {
   "say": "MAWL-tuh"
+ },
+ "Marshall Islands": {
+  "say": "MAR-shul EYE-lundz"
  },
  "Mauritania": {
   "say": "mor-ih-TAY-nee-uh"
@@ -345,10 +370,12 @@
   "say": "nik-uh-RAH-gwuh"
  },
  "Niger": {
-  "say": "nee-ZHAIR"
+  "say": "nee-ZHAIR",
+  "tip": "Not Nigeria (ny-JEER-ee-uh): say it the French way"
  },
  "Nigeria": {
-  "say": "ny-JEER-ee-uh"
+  "say": "ny-JEER-ee-uh",
+  "tip": "Not Niger (nee-ZHAIR)"
  },
  "North Macedonia": {
   "say": "north mas-uh-DOH-nee-uh"
@@ -389,6 +416,9 @@
  "Portugal": {
   "say": "POR-chuh-gul"
  },
+ "Puerto Rico": {
+  "say": "PWAIR-toh REE-koh"
+ },
  "Qatar": {
   "say": "KAH-tar"
  },
@@ -401,6 +431,9 @@
  "Romania": {
   "say": "roh-MAY-nee-uh"
  },
+ "Russian Federation": {
+  "say": "RUSH-un fed-uh-RAY-shun"
+ },
  "Rwanda": {
   "say": "roo-AHN-duh"
  },
@@ -412,10 +445,6 @@
  },
  "Saint Vincent and the Grenadines": {
   "say": "saynt VIN-sent and the GREN-uh-deenz"
- },
- "São Tomé and Príncipe": {
-  "say": "SOW toh-MAY and PRIN-sih-pay",
-  "tip": "SOW rhymes with cow"
  },
  "Senegal": {
   "say": "sen-ih-GAWL"
@@ -444,6 +473,9 @@
  "South Africa": {
   "say": "sowth AF-rih-kuh"
  },
+ "South Sudan": {
+  "say": "sowth soo-DAN"
+ },
  "Spain": {
   "say": "SPAYN"
  },
@@ -459,8 +491,16 @@
  "Syrian Arab Republic": {
   "say": "SEER-ee-un AIR-ub ree-PUB-lik"
  },
+ "São Tomé and Príncipe": {
+  "say": "SOW toh-MAY and PRIN-sih-pay",
+  "tip": "SOW rhymes with cow"
+ },
  "Tajikistan": {
   "say": "tah-JIK-ih-stahn"
+ },
+ "Team Hope (Refugees)": {
+  "say": "TEEM HOHP (ref-yoo-JEEZ)",
+  "tip": "Say 'Team': it is part of the official name"
  },
  "Thailand": {
   "say": "TY-land"
@@ -471,17 +511,24 @@
  "Togo": {
   "say": "TOH-goh"
  },
+ "Tonga": {
+  "say": "TONG-uh",
+  "tip": "NG as in song"
+ },
  "Trinidad and Tobago": {
   "say": "TRIN-ih-dad and tuh-BAY-goh"
  },
  "Tunisia": {
   "say": "too-NEE-zhuh"
  },
+ "Turkmenistan": {
+  "say": "turk-MEN-ih-stahn"
+ },
  "Türkiye": {
   "say": "TOOR-kee-yay"
  },
- "Turkmenistan": {
-  "say": "turk-MEN-ih-stahn"
+ "U.S. Virgin Islands": {
+  "say": "YOO-ESS VUR-jin EYE-lundz"
  },
  "Uganda": {
   "say": "yoo-GAHN-duh"

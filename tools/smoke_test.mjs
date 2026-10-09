@@ -173,7 +173,7 @@ try {
     // Long-press a team in the list: its page opens and the team is not marked.
     const before = await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class");
     const held = await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
-    check(await p.locator(`.tpage .ttl`).innerText() === cName, "long-press on a team opens its team page");
+    check(await p.locator(".tpage .ttl .tnm > span").first().innerText() === cName, "long-press on a team opens its team page");
     check(held.blocked && held.userSelect === "none", "text under the finger cannot be selected while the long-press is held");
     check(await p.evaluate(() => !document.body.classList.contains("lp") && !String(getSelection())), "selection works again once the finger lifts; nothing selected");
     check(await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class") === before, "long-press does not change the team's mark");
@@ -189,10 +189,10 @@ try {
     await longPress(p, row(p, m.number).locator(".time"));
     check(await p.locator(".sheet h2").count() === 1, "long-press on a match opens its sheet");
     await p.locator(`.sheet [data-a="tpage"][data-t="${partner}"]`).tap();
-    check(await p.locator(".tpage .ttl").innerText() === (D.teams[partner].country || D.teams[partner].name), "team name in the match sheet opens its team page");
+    check(await p.locator(".tpage .ttl .tnm > span").first().innerText() === (D.teams[partner].country || D.teams[partner].name), "team name in the match sheet opens its team page");
     await p.locator(`.tpage details[data-k="${m.id}"] summary`).tap();
     await longPress(p, p.locator(`.tpage details[data-k="${m.id}"] .team[data-t="${c}"]`));
-    check(await p.locator(".tpage .ttl").innerText() === cName, "long-press on a partner inside a team page opens the partner's page");
+    check(await p.locator(".tpage .ttl .tnm > span").first().innerText() === cName, "long-press on a partner inside a team page opens the partner's page");
     await p.locator('.tpage [data-a="back"]').tap(); await p.waitForTimeout(100);
     check(await p.locator(`.tpage details[data-k="${m.id}"][open]`).count() === 1, "Back returns to the previous team page as it was");
     await p.goBack(); await p.waitForTimeout(100);
