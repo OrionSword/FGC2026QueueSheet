@@ -304,6 +304,12 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .trow .who { width: 100%; background: none; border: 0; padding: 2px 0; text-align: left; color: inherit; font-size: inherit; }
 .tpage .ttl { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; color: var(--head-text); font-size: 18px; font-weight: 800; }
 .tpage .ttl .flag { width: 46px; height: 28px; }
+.tpage .ttl .tnm { display: flex; flex-direction: column; min-width: 0; }
+/* Pronunciation: stressed syllables (CAPITALS in the respelling) in bold. */
+.pron { display: block; font-size: 14px; font-weight: 500; letter-spacing: .01em; color: var(--muted); }
+.pron b { font-weight: 900; color: var(--text); }
+.pron i { display: block; font-style: normal; font-size: 12px; }
+.tpage .ttl .pron { font-size: 15px; color: #c9d2e0; } .tpage .ttl .pron b { color: #fff; }
 .sheet .back { position: sticky; top: 0; float: left; margin-right: 8px; }
 /* Long-press must not select text or pop up the iOS callout. */
 .match, .team { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
@@ -438,6 +444,7 @@ body.lp, body.lp * { -webkit-touch-callout: none !important; -webkit-user-select
 <div id="toastRoot"></div>
 
 <script src="data.js"></script>
+<script src="pronounce.js"></script>
 <script>
 "use strict";
 (function () {
@@ -445,6 +452,9 @@ const D = window.FGC_DATA;
 if (!D) { document.body.innerHTML = '<p style="padding:20px">data.js is missing or failed to load.</p>'; return; }
 const TZ = D.event.tz || "UTC";
 const TEAMS = D.teams || {};
+// How to say each team's name (pronounce.js, by team code): an English respelling, stressed
+// syllables in CAPITALS, and an optional tip.
+const PRON = window.FGC_PRONOUNCE || {};
 const UNITS = {
   "12": { label: "Fields 1 & 2", fields: [1, 2] },
   "3":  { label: "Field 3 (center)", fields: [3] },
@@ -654,6 +664,12 @@ function flagHtml(c, cls = "flag") {
   const t = TEAMS[c];
   if (t && t.flag) return `<img class="${cls}" src="${esc(t.flag)}" alt="" loading="lazy" decoding="async">`;
   return `<span class="${cls} ph">${esc(c).slice(0, 4)}</span>`;
+}
+// "af-GAN-ih-stan" with the stressed (capitalised) syllables in bold; tip = also show the tip.
+function pronHtml(c, tip) {
+  const p = PRON[c]; if (!p || !p.say) return "";
+  const say = esc(p.say).replace(/\b([A-Z]{2,})\b/g, "<b>$1</b>");
+  return `<span class="pron" title="Pronunciation">🗣 ${say}${tip !== false && p.tip ? `<i>${esc(p.tip)}</i>` : ""}</span>`;
 }
 const fieldBadge = m => `<span class="fld f${m.field}">F${m.field}</span>`;
 
@@ -1212,7 +1228,7 @@ function openMatchSheet(id) {
     const trow = c => {
       const v = x.t[c] || "";
       const b = (k, l) => `<button class="btn ${v === k ? "on" : ""}" data-a="mark" data-t="${esc(c)}" data-k="${k}">${l}</button>`;
-      return `<div class="trow"><button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}${S.n[c] ? `<small class="tn">📝 ${esc(S.n[c])}</small>` : ""}</span><span class="go">›</span></button>
+      return `<div class="trow"><button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}${pronHtml(c)}${S.n[c] ? `<small class="tn">📝 ${esc(S.n[c])}</small>` : ""}</span><span class="go">›</span></button>
         <div class="btns">${b("", "—")}${b("full", "✓ Full")}${b("rep", "R Rep")}${b("unk", "? Unknown")}</div></div>`;
     };
     return `${sheetTop()}<h2>${esc(mLabel(m))}</h2>
@@ -1281,6 +1297,7 @@ function openMenu() {
     ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
     <h3>How to mark</h3>
     <p class="note">Tap a team to cycle its mark. Tap a match's badge to move it from Scheduled to In queue, On deck and On field; marking the first team moves it to In queue. Long-press a team for its team page (every match it plays, with partners and opponents; also from search and from team names in a match's options). Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. ${S.ui.timing ? "“Start ▶” crosses the match out and records how many minutes late/early it started." : "“Mark done ✓” crosses the match out."}</p>
+    <p class="note"><b>Pronunciation</b>: team pages, search and a match's options show how to say each team's name under it (🗣, stressed syllables in <b>BOLD CAPITALS</b>), with tips for names that are easy to mix up.</p>
     <p class="note"><b>Replays</b> (↻ at the top): flag a match from its sheet or add it by number in the planner. The planner orders them on the side fields so no team plays two at once, adds breaks for back-to-back teams and says where each team goes next.</p>
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
     <p class="note"><span class="fv-key" style="--fc:var(--f4);--fc2:var(--f5)"></span> A tiny dot in a team's top-right corner marks its first match on that pair of fields, split in the pair's two colours (solid purple for Field 3). <span class="fv-key ring" style="--fc:var(--f5)"></span> A ring marks its first match on the other field of a pair it has already played on.</p>
@@ -1836,7 +1853,7 @@ function teamCardHtml(c, page) {
         <span><span class="al-${al}">${al === "red" ? "Red" : "Blue"}</span> ${v ? MARK_INFO[v].glyph + " " + MARK_INFO[v].label : ""} <span class="note">${fWeekday.format(m.t)}</span></span><span class="chev" aria-hidden="true">›</span></summary>
       <div class="sbody">${matchHtml(m, true)}<div class="btns"><button class="btn" data-a="go" data-m="${esc(m.id)}">Show in schedule</button></div></div></details>`;
   }).join("");
-  return `<div class="sres" data-c="${esc(c)}">${page ? "" : `<button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}</span><span class="go">›</span></button>`}${nextHtml}${rps}
+  return `<div class="sres" data-c="${esc(c)}">${page ? "" : `<button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}${pronHtml(c, true)}</span><span class="go">›</span></button>`}${nextHtml}${rps}
     <label class="tnote"><span>Notes</span><textarea data-note="${esc(c)}" rows="2" placeholder="Notes for queuers about this team…" autocapitalize="sentences">${esc(S.n[c] || "")}</textarea></label>
     <div class="slist">${items}</div></div>`;
 }
@@ -1897,7 +1914,7 @@ function teamCardClick(b, redraw) {
 }
 function openTeam(c, st) {
   overlayRoot.innerHTML = `<div class="search tpage" role="dialog" aria-label="${esc(teamName(c))}"><div class="bar">${backBtn()}
-      <div class="ttl">${flagHtml(c)}<span>${esc(teamName(c))}</span></div>
+      <div class="ttl">${flagHtml(c)}<span class="tnm"><span>${esc(teamName(c))}</span>${pronHtml(c)}</span></div>
       <button class="iconbtn" data-a="close" aria-label="Close">✕</button></div><div class="results" id="tp"></div></div>`;
   document.body.style.overflow = "hidden";
   const box = document.getElementById("tp");

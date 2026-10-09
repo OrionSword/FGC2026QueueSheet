@@ -173,21 +173,26 @@ try {
     // Long-press a team in the list: its page opens and the team is not marked.
     const before = await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class");
     const held = await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
-    check(await p.locator(`.tpage .ttl`).innerText() === cName, "long-press on a team opens its team page");
+    check(await p.locator(".tpage .ttl .tnm > span").first().innerText() === cName, "long-press on a team opens its team page");
     check(held.blocked && held.userSelect === "none", "text under the finger cannot be selected while the long-press is held");
     check(await p.evaluate(() => !document.body.classList.contains("lp") && !String(getSelection())), "selection works again once the finger lifts; nothing selected");
     check(await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class") === before, "long-press does not change the team's mark");
     check(await p.locator('.tpage [data-a="back"]').count() === 0, "team page from the list has no Back button");
+    // Pronunciation under the name, stressed syllables in bold (pronounce.js covers every team).
+    const P = (() => { const sb = { self: {} }; vm.runInNewContext(readFileSync(join(root, "pronounce.js"), "utf8"), sb); return sb.self.FGC_PRONOUNCE; })();
+    check(Object.keys(D.teams).every(k => P[k] && P[k].say), "every team has a pronunciation");
+    check((await p.locator(".tpage .ttl .pron").innerText()).includes(P[c].say) && await p.locator(".tpage .ttl .pron b").count() >= 1,
+      "team page shows how to say the name, stress in bold");
     await p.goBack(); await p.waitForTimeout(100);
     check(await p.locator(".tpage").count() === 0, "phone Back closes the team page");
     // Long-press elsewhere on a match: its sheet. Tap a team name there: that team's page, then Back.
     await longPress(p, row(p, m.number).locator(".time"));
     check(await p.locator(".sheet h2").count() === 1, "long-press on a match opens its sheet");
     await p.locator(`.sheet [data-a="tpage"][data-t="${partner}"]`).tap();
-    check(await p.locator(".tpage .ttl").innerText() === (D.teams[partner].country || D.teams[partner].name), "team name in the match sheet opens its team page");
+    check(await p.locator(".tpage .ttl .tnm > span").first().innerText() === (D.teams[partner].country || D.teams[partner].name), "team name in the match sheet opens its team page");
     await p.locator(`.tpage details[data-k="${m.id}"] summary`).tap();
     await longPress(p, p.locator(`.tpage details[data-k="${m.id}"] .team[data-t="${c}"]`));
-    check(await p.locator(".tpage .ttl").innerText() === cName, "long-press on a partner inside a team page opens the partner's page");
+    check(await p.locator(".tpage .ttl .tnm > span").first().innerText() === cName, "long-press on a partner inside a team page opens the partner's page");
     await p.locator('.tpage [data-a="back"]').tap(); await p.waitForTimeout(100);
     check(await p.locator(`.tpage details[data-k="${m.id}"][open]`).count() === 1, "Back returns to the previous team page as it was");
     await p.goBack(); await p.waitForTimeout(100);

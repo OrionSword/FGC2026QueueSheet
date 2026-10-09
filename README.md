@@ -14,6 +14,7 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 | `sw.js`, `manifest.webmanifest`, `icon.svg`, `apple-touch-icon.png` | Offline support and "Add to Home screen" (the PNG is the iPhone home-screen icon). |
 | `tools/fetch_fgc_data.py`, `tools/rasterize_flags.mjs` | Rebuild `data.js` and `flags/` from the results site. |
 | `.github/workflows/refresh-data.yml` | Re-runs `fetch_fgc_data.py` on GitHub (by hand or on a timer) and commits `data.js` when the schedule changed. |
+| `pronounce.js`, `tools/pronunciations.json`, `tools/build_pronounce.py` | How to say each team's name. Edit the JSON (keyed by the team name as shown), then run the script to regenerate `pronounce.js` (keyed by team code). |
 | `tools/make_icons.mjs` | Rebuild `apple-touch-icon.png` from `icon.svg`. |
 | `tools/smoke_test.mjs` | End-to-end check in headless Chromium (see *Testing*). |
 | `CLAUDE.md` | Notes and ground rules for AI-assisted changes. |
@@ -35,6 +36,7 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 * The **header** shows event-local time, the next match in the current view, and how far ahead or behind the unit is running.
 * **Jump to next** scrolls to the first open match after the last played one, or to the current time if nothing is marked yet.
 * **Team pages.** **Long-press a team** in the list (or tap a team's name in a match's options) to open its page: which unit and field it must go to next, its pending replays, and every match it plays. Tap a match to expand the full match card, with both alliances and their marks; it works like the list (tap a team to mark it, tap the badge to change the stage, Mark done). Long-press a partner or opponent there to open their page; **‹** or the phone's Back returns to the previous screen and ✕ closes them all. **Show in schedule** jumps to the match in the main list. The page also has a **Notes** box for free-text notes about the team (contact person, robot issues, …); notes are saved on the phone as you type, show under the team's name in each match's options, and are included in backups. *Reset all marks, replays and notes* erases them too.
+* **Pronunciation.** Each team page, search result and match sheet shows how to say the team's name under it (🗣 *af-**GAN**-ih-stan*: stressed syllables in bold capitals; ay = day, ah = father, aw = law, ee = see, eye/y = fly, oh = go, oo = boot, ow = cow, zh = measure, g always hard), plus a tip for the trip-wires (Niger vs Nigeria, Dominica vs Dominican Republic, Kiribati, Lesotho, Côte d'Ivoire, Team Hope).
 * **Search** (magnifier) finds a team by country name, ignoring accents, and shows the same team page for each hit (tap the team name to open it full screen).
 * **Replays** (↻ button at the top; the badge counts replays still to play). Flag a match from its sheet (*↻ Flag for replay*) or type match numbers into the planner (`112`, or several at once: `112 140, 151`). Flagged matches get a purple *↻ Replay · S2 F4* chip in the list, and team pages show a team's pending replays. The planner:
   * plans the order only, no clock times. A **slot** is one match on each side pair (F1·2, F4·5) at the same time. **Field 3 never plays replays.**
@@ -107,6 +109,7 @@ It serves the folder locally and checks, in a phone-sized headless Chromium:
 * every match renders, site-played matches show as played, and break, lunch and end-of-day markers and flags appear;
 * team marks persist across a reload, and the alliance side setting works;
 * the stage badge (Scheduled → In queue → On deck → On field), its colours and persistence;
+* pronunciations: every team has one, and team pages show it with the stress in bold;
 * team pages: search cards, expanding matches, real touch long-presses (team page vs match sheet, no mark changed, no text selected), team names in the match sheet, Back/✕ navigation and history;
 * team notes: saving, showing in the match sheet, clearing, and Reset;
 * start-time tracking off by default (Mark done), and the on-time rule at the minute boundaries;
