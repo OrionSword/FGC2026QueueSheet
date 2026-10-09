@@ -109,6 +109,7 @@ It serves the folder locally and checks, in a phone-sized headless Chromium:
 * every match renders, site-played matches show as played, and break, lunch and end-of-day markers and flags appear;
 * team marks persist across a reload, and the alliance side setting works;
 * the stage badge (Scheduled → In queue → On deck → On field), its colours and persistence;
+* pronunciations: every team has one, and team pages show it with the stress in bold;
 * team pages: search cards, expanding matches, real touch long-presses (team page vs match sheet, no mark changed, no text selected), team names in the match sheet, Back/✕ navigation and history;
 * team notes: saving, showing in the match sheet, clearing, and Reset;
 * start-time tracking off by default (Mark done), and the on-time rule at the minute boundaries;
