@@ -25,6 +25,7 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 * **Catching up** (for a volunteer starting mid-day): tap the match number of the first match you are responsible for. Under *Catching up*, mark every open match above it as played, either in the current view or on all fields. Matches reopened for a replay are skipped, and the toast offers *Undo*.
 * **Tap the match number** (or long-press a match) for every option: status (Not started / Queuing / Played), delta stepper, and explicit per-team marks. A match is shown as *Queuing* automatically once any team is marked present.
 * **Breaks** are found automatically from gaps in the schedule: per day, any gap between match slots at least 6 minutes longer than the normal cycle. A gap of 40+ extra minutes is lunch (bold yellow banner); shorter ones (~15 min) get a dashed bar. Both show the last match before the break and when play resumes.
+* **Alliances**: each alliance sits in a red or blue frame labelled *RED* / *BLUE*, and every team keeps its alliance-coloured left stripe, so the alliance stays obvious even when every team is checked off. **Menu → Alliance on the left: Red / Blue** puts the alliances on the side matching how the field looks from where you stand (saved per phone; also used in the replay planner and the match sheet).
 * **Field colours** match the event: F1 orange, F2 pink, F3 purple, F4 light blue, F5 green.
 * Times are always in event-local time, **12-hour (AM/PM) by default**; the menu has a 24-hour option.
 * The **header** shows event-local time, the next match in the current view, and how far ahead or behind the unit is running.
@@ -36,7 +37,7 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
   * never puts a team in two matches in the same slot, avoids back-to-back slots for a team, and shows a **Break** banner where it cannot be avoided. Then it keeps the number of slots low and the walking short (fields 1–5 are in a line), alternating the two fields of a pair.
   * lists teams with more than one replay in the summary, outlines them in purple with *1/2*, *2/2*…, and tells them where to go next: *Stay at F2 Red*, *Stay on F2, switch to Blue*, or *Go to F4 Blue (2 fields toward F5)*.
   * *Played ✓* marks a replay done; played replays never move again. *✎ Edit order* moves a replay to an earlier/later slot or another field (swapping with whatever is there). After hand edits, newly added replays are slotted in without moving the others, and *↻ Re-optimize* re-plans everything not yet played.
-* **Menu**: filter by match type, hide played matches, track start times, keep screen awake, legend, export/import a backup JSON, reset.
+* **Menu**: filter by match type, hide played matches, alliance on the left, track start times, keep screen awake, legend, export/import a backup JSON, reset.
 
 Marks and replays are saved to `localStorage` on every tap (keyed by `event.id` in `data.js`). They survive refreshes, navigation and restarts. The app also asks Chrome for persistent storage.
 

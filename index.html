@@ -136,6 +136,14 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 
 .alliance { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .alliance.red { grid-area: red; } .alliance.blue { grid-area: blue; }
+/* Alliance frame + label: the alliance colour stays visible whatever the teams are marked. */
+.match .alliance { position: relative; padding: 15px 3px 3px; border-radius: 9px; }
+.match .alliance.red { background: var(--red); } .match .alliance.blue { background: var(--blue); }
+.match .alliance::before { position: absolute; top: 0; left: 4px; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; line-height: 15px; padding-left: 4px; color: #fff; }
+.match .alliance.red::before { content: "Red"; } .match .alliance.blue::before { content: "Blue"; }
+.match .team { background-clip: padding-box; }
+/* Physical orientation: blue alliance on the left (menu setting). */
+.al-swap .match { grid-template-areas: "meta meta" "blue red"; }
 .team {
   position: relative; display: flex; align-items: center; gap: 6px; min-height: 44px; min-width: 0;
   border: 2px solid transparent; border-left: 5px solid; border-radius: 7px; padding: 3px 26px 3px 5px; text-align: left;
@@ -155,18 +163,23 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .team.m-unk { border-color: var(--unk); background: repeating-linear-gradient(135deg, var(--unk-bg) 0 8px, transparent 8px 14px), var(--unk-bg); }
 .team.m-unk .mk { display: grid; background: var(--unk); }
 .team.m-unk .tname { font-weight: 800; }
-@media (prefers-color-scheme: dark) { .mk { color: #111; } }
+@media (prefers-color-scheme: dark) { .mk { color: #111; } .match .alliance::before { color: #111; } }
+/* The left stripe always shows the alliance, even on marked teams. */
+.red .team.team { border-left-color: var(--red); } .blue .team.team { border-left-color: var(--blue); }
 
 /* Played / crossed-out */
 /* Played matches: clearly inactive at a glance (grey, desaturated, faded) but still readable for look-ups. */
 .match.st-done { background: var(--surface2); border-color: var(--line); box-shadow: none; }
-.match.st-done .team { background: transparent; border-color: transparent; border-left-color: var(--line); }
+.match.st-done .team.team { background: transparent; border-color: transparent; border-left-color: var(--line); }
+.match.st-done .alliance { background: var(--line); }
+.match.st-done .alliance::before { color: var(--muted); }
 .match.st-done .team, .match.st-done .mid, .match.st-done .time, .match.st-done .fld { opacity: .45; filter: grayscale(1); }
 .match.st-done .mnum, .match.st-done .time { text-decoration: line-through; text-decoration-thickness: 2px; }
 
 /* Medium: meta column on the left, alliances stacked */
 @media (min-width: 560px) {
   .match { grid-template-columns: 8.2rem 1fr 1fr; grid-template-areas: "meta red blue"; }
+  .al-swap .match { grid-template-areas: "meta blue red"; }
   .meta { flex-direction: column; align-items: flex-start; justify-content: center; gap: 5px; flex-wrap: nowrap; }
   .meta .spacer { display: none; }
   .meta .row { gap: 6px; flex-wrap: wrap; }
@@ -210,6 +223,8 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn.primary { background: var(--head); color: #fff; border-color: var(--head); }
 .btn.danger { color: var(--late); border-color: var(--late); }
+.toggle .btns { flex-wrap: nowrap; flex: none; } .toggle .btns .btn { min-width: 64px; }
+.btn.sw-red.on { background: var(--red); border-color: var(--red); } .btn.sw-blue.on { background: var(--blue); border-color: var(--blue); }
 @media (prefers-color-scheme: dark) { .btn.on { color: #111; } .btn.primary { background: #e8ecf3; color: #111; } }
 .stepper { display: flex; align-items: center; gap: 8px; }
 .stepper .val { min-width: 4.5em; text-align: center; font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -261,7 +276,7 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .rmatch .edit { grid-column: 1 / -1; padding: 2px; }
 .rmatch .edit .btn { min-width: 42px; }
 .rteam .go { display: block; font-size: 12px; font-weight: 700; color: var(--rp); margin-top: 1px; }
-.rteam.dup { border-color: var(--rp); border-left-color: var(--rp); }
+.rteam.dup { border-color: var(--rp); }
 .rteam.dup .mk { display: grid; width: auto; min-width: 26px; padding: 0 4px; border-radius: 10px; background: var(--rp); font-size: 11px; }
 .rteam.clash { border-color: var(--late); border-style: solid; box-shadow: 0 0 0 2px var(--late) inset; }
 .rp-path { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin: 6px 0; }
@@ -360,7 +375,7 @@ function normReplays(r) {
 
 /* ---------- Persistence ---------- */
 const KEY = "fgcq:" + D.event.id;
-const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false, timing: false };
+const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false, timing: false, swap: false };
 let S = { v: 1, m: {}, ui: { ...DEFAULT_UI }, r: normReplays() };
 try {
   const raw = localStorage.getItem(KEY);
@@ -694,6 +709,7 @@ function matchHtml(m) {
 }
 
 function render(scroll) {
+  document.body.classList.toggle("al-swap", !!S.ui.swap);
   // Header controls
   document.querySelectorAll("#unitSeg button").forEach(b => b.classList.toggle("on", b.dataset.unit === S.ui.unit));
   const u = UNITS[S.ui.unit];
@@ -911,8 +927,7 @@ function openMatchSheet(id) {
       <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDeltaMin(clockDelta(m))})</button>` : ""}<button class="btn" data-a="dzero">On time</button><button class="btn" data-a="dclear">Clear delta</button></div>
       <p class="note">${x.d == null ? "<b>Not recorded.</b> " : ""}Positive = started late, negative = started early. Setting a delta marks the match played.</p>` : ""}
       ${bulkHtml()}
-      <h3 style="color:var(--red)">Red alliance</h3>${m.red.map(trow).join("")}
-      <h3 style="color:var(--blue)">Blue alliance</h3>${m.blue.map(trow).join("")}
+      ${(S.ui.swap ? ["blue", "red"] : ["red", "blue"]).map(al => `<h3 style="color:var(--${al})">${allianceName(al)} alliance</h3>${m[al].map(trow).join("")}`).join("")}
       <div class="btns" style="margin-top:14px"><button class="btn danger" data-a="clearall">Clear all marks for this match</button></div>`;
   };
   openSheet(draw(), b => {
@@ -957,6 +972,8 @@ function openMenu() {
     <div class="btns">${tb("all", "All")}${tb("practice", "Practice")}${tb("ranking", "Ranking")}${tb("playoff", "Playoff")}</div>
     <h3>Display</h3>
     <label class="toggle">Hide played (crossed-out) matches <input type="checkbox" data-a="hide" ${S.ui.hideDone ? "checked" : ""}></label>
+    <div class="toggle"><span>Alliance on the left<br><span class="note">Match how the field looks from where you stand</span></span>
+      <span class="btns"><button class="btn sw-red ${S.ui.swap ? "" : "on"}" data-a="swap" data-v="0">Red</button><button class="btn sw-blue ${S.ui.swap ? "on" : ""}" data-a="swap" data-v="1">Blue</button></span></div>
     <label class="toggle"><span>Track start times<br><span class="note">Start ▶ records how many minutes late/early each match started</span></span> <input type="checkbox" data-a="timing" ${S.ui.timing ? "checked" : ""}></label>
     <label class="toggle">24-hour clock <input type="checkbox" data-a="h24" ${S.ui.h24 ? "checked" : ""}></label>
     ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
@@ -974,6 +991,10 @@ function openMenu() {
       case "type": S.ui.type = b.dataset.k; save(); closeOverlay(); render(true); break;
       case "hide": S.ui.hideDone = b.checked; save(); render(false); break;
       case "wake": S.ui.wake = b.checked; save(); applyWake(); break;
+      case "swap":
+        S.ui.swap = b.dataset.v === "1"; save(); render(false);
+        overlayRoot.querySelectorAll('[data-a="swap"]').forEach(x => x.classList.toggle("on", x === b));
+        break;
       case "timing": S.ui.timing = b.checked; save(); render(false); break;
       case "h24": S.ui.h24 = b.checked; save(); setClock(); render(false); break;
       case "export": exportBackup(); break;
