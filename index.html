@@ -83,6 +83,11 @@ header {
 .status-line b { font-variant-numeric: tabular-nums; }
 .clock { font-variant-numeric: tabular-nums; font-weight: 700; }
 
+/* New schedule on the server (e.g. playoff matches just published): a bar under the header. */
+.updbar { display: flex; align-items: center; gap: 8px; margin-top: 6px; padding: 6px 6px 6px 10px; border-radius: 10px; background: #ffd36b; color: #111; font-weight: 700; font-size: 14px; }
+.updbar span { flex: 1; min-width: 0; }
+.updbar button { border: 0; border-radius: 8px; background: #111; color: #fff; font-weight: 800; padding: 8px 12px; white-space: nowrap; }
+
 /* ---------- List ---------- */
 main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-area-inset-left)); max-width: 1500px; margin: 0 auto; }
 .dayhead {
@@ -335,6 +340,58 @@ body.lp, body.lp * { -webkit-touch-callout: none !important; -webkit-user-select
 .rp-path .step { color: var(--rp); font-weight: 700; }
 .sres .next.rpn { background: var(--rp-bg); }
 
+/* Playoffs: tournament alliance on the label bar, who sits out, the alliances screen. */
+.match .alliance[data-al]::before { content: attr(data-al); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 4px; }
+.lu { display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; margin-top: 1px; }
+.lu.out { color: var(--muted); } .lu.new { color: var(--queue); } .lu.must, .lu.bad { color: var(--late); }
+/* Sitting out: faded and dashed, but the alliance stripe stays. */
+.team.out { opacity: .55; border-style: dashed; border-color: var(--muted); border-left-style: solid; }
+.team.out .flag { filter: grayscale(1); }
+.lineup { border: 1.5px dashed var(--al, var(--line)); background: transparent; color: var(--text); border-radius: 7px; padding: 6px 8px; font-size: 13px; font-weight: 700; text-align: left; min-height: 34px; }
+.lineup.set { border-style: solid; color: var(--muted); font-weight: 600; }
+.match.st-done .lineup { opacity: .6; }
+/* Wide layouts put a side's teams in a row: four teams go 2 × 2 until there is room for four
+   across; the line-up button always takes its own full-width row. */
+@media (min-width: 800px) {
+  .alliance.four { flex-wrap: wrap; align-content: flex-start; }
+  .alliance.four .team { flex: 1 1 calc(50% - 3px); }
+  .alliance .lineup { flex: 1 1 100%; min-height: 30px; padding: 4px 8px; }
+}
+@media (min-width: 1150px) { .alliance.four .team { flex: 1 1 0; flex-direction: column; align-items: flex-start; } }
+.time.est { font-style: italic; }
+.dh-btn { float: right; border: 0; background: none; color: var(--accent); font-weight: 800; font-size: 13px; padding: 0 2px; text-transform: none; letter-spacing: 0; }
+.po-wait { background: var(--surface); border: 2px dashed var(--line); border-radius: 12px; padding: 12px; margin: 14px 0; font-size: 14px; }
+.po-wait .btns { margin-top: 8px; }
+.po .ttl { flex: 1; color: var(--head-text); font-size: 18px; font-weight: 800; align-self: center; }
+.lu-card .who { justify-content: space-between; font-size: 17px; }
+.lu-tr { display: grid; grid-template-columns: 36px minmax(0, 1fr) repeat(var(--cols, 7), 2.1em) 2.4em; align-items: center; gap: 4px; padding: 3px 0; border-top: 1px solid var(--line); }
+.lu-tr .flag { width: 36px; height: 22px; }
+.lu-head { border-top: 0; } .lu-head .lu-name { grid-column: span 2; font-weight: 600; font-size: 12px; }
+.lu-name { min-width: 0; font-weight: 700; font-size: 13px; overflow-wrap: break-word; }
+.lu-n { text-align: center; font-weight: 800; font-size: 13px; }
+.lu-h { min-width: 0; border: 1.5px solid var(--line); background: var(--surface2); border-radius: 6px; padding: 3px 2px; font-size: 12px; font-weight: 800; }
+.lu-h.fin { border-color: var(--rp); color: var(--rp); } .lu-h.done { opacity: .6; }
+.lu-cell { display: inline-grid; place-items: center; min-width: 1.9em; height: 22px; border-radius: 5px; font-weight: 900; font-size: 13px; }
+.lu-in { background: var(--ok-bg); color: var(--ok); } .lu-out { background: var(--surface2); color: var(--muted); }
+.lu-unk { background: var(--unk-bg); color: var(--unk); } .lu-cell.later { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
+.lu-cell.lu-in.later { color: var(--ok); } .lu-cell.lu-out.later { color: var(--text); }
+.lu-row { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px 4px; border-radius: 8px; }
+.lu-row .flag { width: 46px; height: 28px; }
+.lu-row.on { background: var(--surface2); }
+.lu-row .lu-name { font-size: 15px; }
+.lu-rec { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.lu-rec .lu-cell { min-width: 1.6em; height: 18px; font-size: 11px; }
+.po-al { display: grid; grid-template-columns: 1.6em repeat(4, minmax(0, 1fr)); gap: 4px; margin: 4px 0; align-items: stretch; }
+.po-n { font-weight: 900; font-size: 18px; align-self: center; text-align: center; }
+.po-slot { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; border: 1.5px solid var(--line); background: var(--surface); border-radius: 8px; padding: 4px; font-size: 12px; font-weight: 700; min-height: 48px; text-align: left; min-width: 0; overflow: hidden; }
+.po-slot .flag { width: 30px; height: 18px; }
+.po-slot span { overflow-wrap: anywhere; }
+.po-slot.empty { border-style: dashed; color: var(--muted); justify-content: center; }
+.po-time { font: inherit; font-size: 16px; padding: 8px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); color: var(--text); min-height: 44px; }
+.po-top { margin: 4px 0; align-items: center; flex-wrap: nowrap; gap: 3px; } .po-top .btn { flex: 1; min-width: 0; padding: 8px 0; }
+.po-pick { display: flex; align-items: center; gap: 10px; width: 100%; font-size: 17px; font-weight: 700; }
+.po-pick .flag { width: 50px; height: 30px; }
+
 /* Toast */
 .toast {
   position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60;
@@ -373,6 +430,7 @@ body.lp, body.lp * { -webkit-touch-callout: none !important; -webkit-user-select
     <div class="sub" id="fieldSub"></div>
     <div class="status-line" id="statusLine"></div>
   </div>
+  <div class="updbar hidden" id="updBar" role="status"><span id="updText"></span><button id="updBtn">Load now</button></div>
 </header>
 <main id="list"></main>
 <button class="fab" id="nowBtn">Jump to next ⤓</button>
@@ -394,6 +452,8 @@ const UNITS = {
   "all": { label: "All fields", fields: [1, 2, 3, 4, 5] },
 };
 const TYPE_LABEL = { practice: "Practice", ranking: "Ranking", playoff: "Playoff" };
+// Playoff matches show their stage as published ("Round Robin", "Finals").
+const typeLabel = m => m.stage || TYPE_LABEL[m.type] || m.type;
 const unitOf = f => f <= 2 ? "12" : f === 3 ? "3" : "45";
 const MARK_CYCLE = [null, "full", "rep", "unk"];
 const MARK_INFO = {
@@ -402,8 +462,80 @@ const MARK_INFO = {
   unk: { glyph: "?", label: "Not heard from / unknown" },
 };
 
-const MATCHES = D.matches.map(m => ({
-  ...m, id: m.id || `${m.type}-${m.number}-F${m.field}`, t: Date.parse(m.time), unit: unitOf(m.field),
+/* ---------- Playoffs (2026 Game Manual §6.4–6.7) ---------- */
+// Eight four-team TOURNAMENT ALLIANCES, fixed for the rest of the event (Table 6-1: rank N,
+// N+8, 25−N + a random draw). Sixteen PLAYOFF MATCHES in a fixed order (Table 6-2), four per
+// alliance; the top three by total score play three FINAL MATCHES (Table 6-3). Only three of
+// the four teams play each match, and every team must play at least one PLAYOFF MATCH (T01).
+// The results site lists all four members of each side; who sits out is recorded here.
+const PO_TABLE = [[4, 7], [5, 6], [3, 8], [1, 2], [5, 4], [3, 6], [2, 7], [1, 8], [3, 4], [2, 5], [1, 6], [7, 8], [2, 3], [1, 4], [5, 8], [6, 7]];
+const FINAL_TABLE = [[1, 3], [3, 2], [2, 1]];  // by playoff rank: #1 v #3, #3 v #2, #2 v #1
+const isFinal = m => m.type === "playoff" && /final/i.test(m.stage || m.name || "");
+const OFFICIAL_RR = D.matches.some(m => m.type === "playoff" && !isFinal(m));
+const OFFICIAL_FINALS = D.matches.some(isFinal);
+// The phone's own playoff set-up (S.p), used until results.first.global publishes the matches:
+// alliances typed in (al: {n: [4 codes or null]}), the field, and the start times.
+function normPlayoff(p) {
+  p = p && typeof p === "object" ? p : {};
+  const al = {}, hhmm = (v, d) => /^\d\d:\d\d$/.test(v) ? v : d;
+  for (let n = 1; n <= 8; n++) {
+    const t = p.al && Array.isArray(p.al[n]) ? p.al[n] : [];
+    const row = [0, 1, 2, 3].map(i => TEAMS[t[i]] ? t[i] : null);
+    if (row.some(Boolean)) al[n] = row;
+  }
+  const top = Array.isArray(p.top) && p.top.length === 3 && new Set(p.top).size === 3 && p.top.every(n => n >= 1 && n <= 8) ? p.top.map(Number) : null;
+  return { al, field: [1, 2, 3, 4, 5].includes(p.field) ? p.field : 3, start: hhmm(p.start, "14:00"), fstart: hhmm(p.fstart, "16:00"), top };
+}
+const KEY = "fgcq:" + D.event.id;
+const PO0 = (() => { try { return normPlayoff((JSON.parse(localStorage.getItem(KEY)) || {}).p); } catch (e) { return normPlayoff(); } })();
+// Alliances: as published by the site, else as typed on this phone (an alliance counts once
+// its three ranked teams are in; the random-draw slot may still be empty).
+const ALLIANCES = (D.alliances || []).length
+  ? D.alliances.map(a => ({ n: a.n, name: a.name || `Alliance ${a.n}`, teams: a.teams.filter(c => TEAMS[c]), rounds: a.rounds || [], rank: a.rank || {} }))
+  : Object.entries(PO0.al).map(([n, t]) => ({ n: +n, name: `Alliance ${n}`, teams: t.filter(Boolean), local: true, rounds: [], rank: {} }))
+      .filter(a => a.teams.length >= 3 && PO0.al[a.n].slice(0, 3).every(Boolean));
+const ALLIANCE_N = new Map(ALLIANCES.map(a => [a.n, a]));
+const ALLIANCE_OF = new Map(ALLIANCES.flatMap(a => a.teams.map(c => [c, a])));
+// The top three for the finals: from the site once it lists the finalists, else typed in.
+const FINAL_TOP = (() => {
+  const f = ALLIANCES.filter(a => a.rounds.some(r => /final/i.test(r)));
+  if (f.length === 3 && f.every(a => a.rank.round_robin)) return f.sort((a, b) => a.rank.round_robin - b.rank.round_robin).map(a => a.n);
+  return PO0.top;
+})();
+// Matches built on the phone from Table 6-2 / 6-3, with the same ids the site uses (t3-N,
+// t4-N), so marks carry over when the official schedule arrives. Times are estimates.
+const LOCAL_PO = (() => {
+  if (!ALLIANCES.length) return [];
+  const last = D.matches.reduce((a, m) => Date.parse(m.time) > Date.parse(a.time) ? m : a, D.matches[0]);
+  const day = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" }).format(Date.parse(last.time));
+  const off = (last.time.match(/([+-]\d\d:\d\d|Z)$/) || ["Z"])[0];
+  const at = (hhmm, min) => new Date(Date.parse(`${day}T${hhmm}:00${off}`) + min * 60e3).toISOString();
+  const out = [];
+  const mk = (id, stage, n, time, a, b) => {
+    const A = ALLIANCE_N.get(a), B = ALLIANCE_N.get(b);
+    if (A && B) out.push({ id, type: "playoff", stage, number: n, name: `${stage} Match ${n}`, field: PO0.field, time, est: true, local: true, red: [...A.teams], blue: [...B.teams] });
+  };
+  // About 7 minutes apart in four blocks of four (as at past events); the real times come with the site's schedule.
+  if (!OFFICIAL_RR) PO_TABLE.forEach(([a, b], i) => mk(`t3-${i + 1}`, "Round Robin", i + 1, at(PO0.start, i * 7 + Math.floor(i / 4) * 15), a, b));
+  if (!OFFICIAL_FINALS && FINAL_TOP) FINAL_TABLE.forEach(([a, b], i) => mk(`t4-${i + 1}`, "Finals", i + 1, at(PO0.fstart, i * 10), FINAL_TOP[a - 1], FINAL_TOP[b - 1]));
+  return out;
+})();
+
+// If the site ever lists only the three teams that play a playoff match, the alliance's fourth
+// team is shown too, as sitting out (siteOut).
+function fullSides(m) {
+  if (m.type !== "playoff" || m.local) return {};
+  const o = {};
+  for (const al of ["red", "blue"]) {
+    const a = ALLIANCE_OF.get(m[al][0]);
+    if (a && a.teams.length === 4 && m[al].length === 3 && m[al].every(c => a.teams.includes(c))) {
+      o[al] = [...a.teams]; (o.siteOut = o.siteOut || {})[al] = a.teams.find(c => !m[al].includes(c));
+    }
+  }
+  return o;
+}
+const MATCHES = [...D.matches, ...LOCAL_PO].map(m => ({
+  ...m, ...fullSides(m), id: m.id || `${m.type}-${m.number}-F${m.field}`, t: Date.parse(m.time), unit: unitOf(m.field),
 })).sort((a, b) => a.t - b.t || a.field - b.field);
 const BY_ID = new Map(MATCHES.map(m => [m.id, m]));
 // A team's first visit to a unit (F1·2, F3, F4·5) or to a field, across all match types in time
@@ -435,27 +567,32 @@ function normReplays(r) {
 }
 
 /* ---------- Persistence ---------- */
-const KEY = "fgcq:" + D.event.id;
 const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false, timing: false, swap: false };
-// n: free-text notes per team code (team pages).
-let S = { v: 1, m: {}, ui: { ...DEFAULT_UI }, r: normReplays(), n: {} };
+// n: free-text notes per team code (team pages). p: playoff set-up typed on this phone (normPlayoff).
+// S.m[id].x: teams sitting out a playoff match (one per alliance).
+let S = { v: 1, m: {}, ui: { ...DEFAULT_UI }, r: normReplays(), n: {}, p: normPlayoff(PO0) };
 const normNotes = n => n && typeof n === "object" ? Object.fromEntries(Object.entries(n).filter(([, v]) => typeof v === "string" && v.trim())) : {};
 try {
   const raw = localStorage.getItem(KEY);
-  if (raw) { const p = JSON.parse(raw); if (p && p.m) S = { v: 1, m: p.m, ui: { ...DEFAULT_UI, ...(p.ui || {}) }, r: normReplays(p.r), n: normNotes(p.n) }; }
+  if (raw) { const p = JSON.parse(raw); if (p && p.m) S = { v: 1, m: p.m, ui: { ...DEFAULT_UI, ...(p.ui || {}) }, r: normReplays(p.r), n: normNotes(p.n), p: normPlayoff(PO0) }; }
 } catch (e) { console.error(e); }
 let saveFailed = false;
 function save() {
   try { localStorage.setItem(KEY, JSON.stringify(S)); saveFailed = false; }
   catch (e) { if (!saveFailed) toast("⚠ Could not save to this device!"); saveFailed = true; }
 }
+// Official playoff matches with other ids than the t3-N / t4-N this phone used: move the marks.
+for (const m of MATCHES) if (m.type === "playoff" && !m.local) {
+  const was = `${isFinal(m) ? "t4" : "t3"}-${m.number}`;
+  if (was !== m.id && S.m[was] && !S.m[m.id] && !BY_ID.has(was)) { S.m[m.id] = S.m[was]; delete S.m[was]; }
+}
 if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
 // Another tab of the same page changed the data: pick it up.
-window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { try { const p = JSON.parse(e.newValue); S.m = p.m || {}; S.r = normReplays(p.r); S.n = normNotes(p.n); render(false); } catch (_) {} } });
+window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { try { const p = JSON.parse(e.newValue); S.m = p.m || {}; S.r = normReplays(p.r); S.n = normNotes(p.n); S.p = normPlayoff(p.p); render(false); } catch (_) {} } });
 
 const mk = id => S.m[id] || (S.m[id] = { t: {} });
 const peek = id => S.m[id] || { t: {} };
-function prune(id) { const x = S.m[id]; if (x && !x.s && x.d == null && !Object.keys(x.t || {}).length) delete S.m[id]; }
+function prune(id) { const x = S.m[id]; if (x && x.x && !x.x.length) delete x.x; if (x && !x.s && x.d == null && !x.x && !Object.keys(x.t || {}).length) delete S.m[id]; }
 function statusOf(m) {
   const x = peek(m.id);
   if (x.s === "done" || x.s === "queue" || x.s === "idle") return x.s;  // the volunteer's mark always wins
@@ -482,11 +619,13 @@ function setStage(m, x, k) {
 }
 
 let undoSnap = null;
-function snapshot() { undoSnap = JSON.stringify({ m: S.m, r: S.r, n: S.n }); }
+function snapshot() { undoSnap = JSON.stringify({ m: S.m, r: S.r, n: S.n, p: S.p }); }
 function undo() {
   if (!undoSnap) return;
   const u = JSON.parse(undoSnap); undoSnap = null;
   S.m = u.m; S.r = normReplays(u.r); S.n = normNotes(u.n);
+  // A different playoff set-up means a different schedule: reload to rebuild it.
+  if (JSON.stringify(normPlayoff(u.p)) !== JSON.stringify(S.p)) { S.p = normPlayoff(u.p); save(); return location.reload(); }
   save(); if (document.querySelector(".rpl")) drawReplays(); render(false); toast("Undone");
 }
 
@@ -779,10 +918,11 @@ function fvStyle(m, fv) {
 function teamHtml(m, c) {
   const v = peek(m.id).t[c];
   const info = v && MARK_INFO[v];
+  const lu = lineupTag(m, c);
   const fv = (FIRST_VISIT.get(m.id) || {})[c];
   const fvText = fv && `first time ${fv === "unit" && m.unit !== "3" ? `at ${UNITS[m.unit].label}` : `on Field ${m.field}`}`;
-  return `<button class="team${v ? " m-" + v : ""}" data-act="team" data-m="${esc(m.id)}" data-t="${esc(c)}"
-     aria-label="${esc(teamName(c))}${info ? ", " + info.label : ""}${fv ? ", " + fvText : ""}">${flagHtml(c)}<span class="tname">${esc(teamName(c))}</span><span class="mk">${info ? info.glyph : ""}</span>${fv ? `<span class="fv ${fv}" style="${fvStyle(m, fv)}" title="${esc(fvText[0].toUpperCase() + fvText.slice(1))}"></span>` : ""}</button>`;
+  return `<button class="team${v ? " m-" + v : ""}${lu && (lu.cls === "out" || lu.cls === "bad") ? " out" : ""}" data-act="team" data-m="${esc(m.id)}" data-t="${esc(c)}"
+     aria-label="${esc(teamName(c))}${info ? ", " + info.label : ""}${lu ? ", " + lu.text : ""}${fv ? ", " + fvText : ""}">${flagHtml(c)}<span class="tname">${esc(teamName(c))}${lu ? `<small class="lu ${lu.cls}">${lu.text}</small>` : ""}</span><span class="mk">${info ? info.glyph : ""}</span>${fv ? `<span class="fv ${fv}" style="${fvStyle(m, fv)}" title="${esc(fvText[0].toUpperCase() + fvText.slice(1))}"></span>` : ""}</button>`;
 }
 // mini: a copy shown inside an overlay (team page / search); no id, so the list's ids stay unique.
 function matchHtml(m, mini) {
@@ -795,13 +935,20 @@ function matchHtml(m, mini) {
   const rpChip = !rp ? "" : `<button class="chip rp" data-act="replay">↻ ${S.r.done[m.id] ? "Replayed" : rp.f ? `Replay · S${rp.s + 1} F${rp.f}` : "Replay"}</button>`;
   return `<div class="match${mini ? " mini" : ""} st-${st}${st === "queue" ? " q-" + stageOf(m) : ""}"${mini ? "" : ` id="m-${esc(m.id)}"`} data-m="${esc(m.id)}">
     <div class="meta">
-      <div class="row"><button class="mid" data-act="sheet" data-m="${esc(m.id)}"><span class="mtype t-${m.type}">${TYPE_LABEL[m.type] || esc(m.type)}</span><span class="mnum">${esc(m.label || m.number)}</span></button>${fieldBadge(m)}<span class="time">${hmH(m.t)}</span></div>
+      <div class="row"><button class="mid" data-act="sheet" data-m="${esc(m.id)}"><span class="mtype t-${m.type}">${esc(typeLabel(m))}</span><span class="mnum">${esc(m.label || m.number)}</span></button>${fieldBadge(m)}<span class="time${m.est ? " est" : ""}"${m.est ? ' title="Estimated time"' : ""}>${m.est ? "~" : ""}${hmH(m.t)}</span></div>
       <span class="spacer"></span>
       <div class="row">${rpChip}${chip}${start}</div>
     </div>
-    <div class="alliance red">${m.red.map(c => teamHtml(m, c)).join("")}</div>
-    <div class="alliance blue">${m.blue.map(c => teamHtml(m, c)).join("")}</div>
+    ${SIDES.map(al => allianceHtml(m, al)).join("")}
   </div>`;
+}
+// One side of a match. A playoff side names its tournament alliance and, when it has four
+// teams, gets a button to record who sits out.
+function allianceHtml(m, al) {
+  const a = sideAlliance(m, al), o = a && m[al].length === 4 ? sittingOut(m, al) : undefined;
+  const btn = o === undefined || (statusOf(m) === "done" && o) || (m.siteOut && m.siteOut[al]) ? ""
+    : `<button class="lineup${o ? " set" : ""}" data-act="lineup" data-m="${esc(m.id)}">${o ? `Sits out: <b>${esc(shortName(o))}</b>` : "Who sits out? ›"}</button>`;
+  return `<div class="alliance ${al}${m[al].length > 3 ? " four" : ""}"${a ? ` data-al="${esc(allianceLabel(m, al))}"` : ""}>${m[al].map(c => teamHtml(m, c)).join("")}${btn}</div>`;
 }
 
 function render(scroll) {
@@ -825,12 +972,16 @@ function render(scroll) {
     // End of a competition day, unless every match of that day is hidden.
     if (shownDay && shownDay !== dk) html += endOfDayHtml(shownDay, m.t);
     shownDay = dk;
-    if (dk !== lastDay || m.type !== lastType) {
-      html += `<div class="dayhead">${fDay.format(m.t)} · ${TYPE_LABEL[m.type] || esc(m.type)}</div>`;
-      lastDay = dk; lastType = m.type;
+    if (dk !== lastDay || m.type + isFinal(m) !== lastType) {
+      html += `<div class="dayhead">${fDay.format(m.t)} · ${esc(m.type === "playoff" ? (isFinal(m) ? "Finals" : "Playoffs") : typeLabel(m))}${m.type === "playoff" ? ` <button class="dh-btn" data-act="po">🏆 Alliances ›</button>` : ""}</div>`;
+      lastDay = dk; lastType = m.type + isFinal(m);
     }
     html += matchHtml(m);
   }
+  // Before the playoffs are published: where they will come from.
+  if (!MATCHES.some(m => m.type === "playoff") && (S.ui.type === "all" || S.ui.type === "playoff"))
+    html += `<div class="po-wait"><b>🏆 Playoffs</b> are added here as soon as results.first.global publishes them (needs internet; the phone checks every few minutes).
+      <div class="btns"><button class="btn primary" data-act="update">⟳ Check now</button><button class="btn" data-act="po">Alliances…</button></div></div>`;
   listEl.innerHTML = html || `<div class="empty">No matches in this view.</div>`;
   updateReplayBadge();
   fixStickyOffset();
@@ -951,9 +1102,10 @@ function startMatch(id) {
   if (S.ui.timing) { if (Math.abs(d) <= 90) x.d = d; else delete x.d; }
   save(); rerenderMatch(id);
   const earlier = openBefore(m, false);
-  const label = `${TYPE_LABEL[m.type] || ""} ${m.label || m.number}`;
+  const label = mLabel(m);
   const actions = [["Undo", undo], ["Edit", () => openNested(() => openMatchSheet(id))]];
   if (earlier.length) actions.push([`Cross out ${earlier.length} earlier`, () => markEarlierDone(m)]);
+  if (SIDES.some(al => sideAlliance(m, al) && m[al].length === 4 && !sittingOut(m, al))) actions.splice(1, 0, ["Who sat out?", () => openNested(() => openLineup(id))]);
   toast(S.ui.timing ? `${label} started${x.d != null ? ` ${fmtDeltaMin(x.d)}` : ""}` : `${label} marked done`, actions, earlier.length ? 9000 : 5000);
 }
 // Still-open matches listed above `m`, either in the current view or across all fields.
@@ -1063,8 +1215,9 @@ function openMatchSheet(id) {
       return `<div class="trow"><button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}${S.n[c] ? `<small class="tn">📝 ${esc(S.n[c])}</small>` : ""}</span><span class="go">›</span></button>
         <div class="btns">${b("", "—")}${b("full", "✓ Full")}${b("rep", "R Rep")}${b("unk", "? Unknown")}</div></div>`;
     };
-    return `${sheetTop()}<h2>${TYPE_LABEL[m.type] || ""} ${esc(m.label || m.number)}</h2>
-      <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${hmH(m.t)}</span><span class="note">${fDay.format(m.t)}</span></div>
+    return `${sheetTop()}<h2>${esc(mLabel(m))}</h2>
+      <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${m.est ? "~" : ""}${hmH(m.t)}</span><span class="note">${fDay.format(m.t)}${m.est ? " · estimated time" : ""}</span></div>
+      ${SIDES.some(al => sideAlliance(m, al) && m[al].length === 4) ? `<div class="btns" style="margin-top:8px"><button class="btn primary" data-a="lineup">Who sits out? ${SIDES.map(al => sideAlliance(m, al) && m[al].length === 4 ? (sittingOut(m, al) ? "✓" : "?") : "").join(" ")}</button><button class="btn" data-a="po">🏆 Alliances</button></div>` : ""}
       <h3>Status</h3>
       <div class="btns">${[...STAGES, "done"].map(sbtn).join("")}</div>
       ${rpHtml()}
@@ -1076,11 +1229,13 @@ function openMatchSheet(id) {
       <div class="btns" style="margin-top:8px">${Math.abs(Date.now() - m.t) < 3 * 3600e3 ? `<button class="btn primary" data-a="dnow">Started now (${fmtDeltaMin(clockDelta(m))})</button>` : ""}<button class="btn" data-a="dzero">On time</button><button class="btn" data-a="dclear">Clear delta</button></div>
       <p class="note">${x.d == null ? "<b>Not recorded.</b> " : ""}Positive = started late, negative = started early. Setting a delta marks the match played.</p>` : ""}
       ${bulkHtml()}
-      ${(S.ui.swap ? ["blue", "red"] : ["red", "blue"]).map(al => `<h3 style="color:var(--${al})">${allianceName(al)} alliance</h3>${m[al].map(trow).join("")}`).join("")}
+      ${(S.ui.swap ? ["blue", "red"] : ["red", "blue"]).map(al => `<h3 style="color:var(--${al})">${sideAlliance(m, al) ? esc(allianceLabel(m, al)) : allianceName(al) + " alliance"}</h3>${m[al].map(trow).join("")}`).join("")}
       <div class="btns" style="margin-top:14px"><button class="btn danger" data-a="clearall">Clear all marks for this match</button></div>`;
   };
   openSheet(draw(), b => {
     if (b.dataset.a === "tpage") return openNested(() => openTeam(b.dataset.t));
+    if (b.dataset.a === "lineup") return openNested(() => openLineup(id));
+    if (b.dataset.a === "po") return openNested(openPlayoffs);
     if (b.dataset.a === "bulk") { exitOverlay(); markEarlierDone(m, b.dataset.all === "1"); return; }
     if (b.dataset.a === "rpopen") { swapOverlay(openReplays); return; }
     if (b.dataset.a === "rpon" || b.dataset.a === "rpoff") {
@@ -1114,6 +1269,7 @@ function openMenu() {
   const legendTeam = (k, l) => `<div class="red"><div class="team ${k ? "m-" + k : ""}"><span class="flag ph"></span><span class="tname">${l}</span><span class="mk">${k ? MARK_INFO[k].glyph : ""}</span></div></div>`;
   openSheet(`${sheetTop()}<h2>Queue sheet</h2>
     <p class="note">${esc(D.event.name || "")}<br>Times shown in event local time (${esc(TZ)}).</p>
+    <div class="btns"><button class="btn" data-a="po">🏆 Playoff alliances &amp; line-ups</button></div>
     <h3>Match types</h3>
     <div class="btns">${tb("all", "All")}${tb("practice", "Practice")}${tb("ranking", "Ranking")}${tb("playoff", "Playoff")}</div>
     <h3>Display</h3>
@@ -1132,7 +1288,9 @@ function openMenu() {
     <p class="note">${counts.done} matches played · ${counts.marks} team marks${Object.keys(S.n).length ? ` · ${Object.keys(S.n).length} team notes` : ""}. Saved automatically on every tap.</p>
     <div class="btns"><button class="btn" data-a="export">Export backup</button><button class="btn" data-a="import">Import backup</button><button class="btn danger" data-a="reset">Reset all marks, replays and notes</button></div>
     <h3>Data</h3>
-    <p class="note">${MATCHES.length} matches, ${Object.keys(TEAMS).length} teams.<br>Source: ${esc(D.event.source || "")}</p>`,
+    <p class="note">${MATCHES.length} matches${MATCHES.some(m => m.type === "playoff") ? ` (${MATCHES.filter(m => m.type === "playoff").length} playoff)` : ""}, ${Object.keys(TEAMS).length} teams${ALLIANCES.length ? `, ${ALLIANCES.length} playoff alliances` : ""}.<br>Source: ${esc(D.event.source || "")}${D.event.rev ? ` · rev ${esc(D.event.rev)}` : ""}</p>
+    <div class="btns"><button class="btn primary" data-a="update">⟳ Check for schedule update</button></div>
+    <p class="note">Playoff matches appear here once results.first.global publishes them (needs internet). The phone also checks by itself every few minutes. Your marks are kept.</p>`,
   b => {
     switch (b.dataset.a) {
       case "type": S.ui.type = b.dataset.k; save(); exitOverlay(); render(true); break;
@@ -1144,6 +1302,8 @@ function openMenu() {
         break;
       case "timing": S.ui.timing = b.checked; save(); render(false); break;
       case "h24": S.ui.h24 = b.checked; save(); setClock(); render(false); break;
+      case "update": checkUpdate(true); break;
+      case "po": swapOverlay(openPlayoffs); break;
       case "export": exportBackup(); break;
       case "import": importBackup(); break;
       case "reset":
@@ -1156,7 +1316,7 @@ function openMenu() {
 }
 
 function exportBackup() {
-  const blob = new Blob([JSON.stringify({ event: D.event.id, exported: new Date().toISOString(), m: S.m, r: S.r, n: S.n }, null, 1)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify({ event: D.event.id, exported: new Date().toISOString(), m: S.m, r: S.r, n: S.n, p: S.p }, null, 1)], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = `queue-sheet-${D.event.id}-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "")}.json`;
@@ -1172,14 +1332,16 @@ function importBackup() {
       const p = JSON.parse(txt);
       if (!p || typeof p.m !== "object") throw new Error("not a backup file");
       if (p.event !== D.event.id && !confirm(`Backup is for "${p.event}", not "${D.event.id}". Import anyway?`)) return;
-      snapshot(); S.m = p.m; if (p.r) S.r = normReplays(p.r); if (p.n) S.n = normNotes(p.n); save(); exitOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
+      snapshot(); S.m = p.m; if (p.r) S.r = normReplays(p.r); if (p.n) S.n = normNotes(p.n);
+      if (p.p && JSON.stringify(normPlayoff(p.p)) !== JSON.stringify(S.p)) { S.p = normPlayoff(p.p); save(); return location.reload(); }
+      save(); exitOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
     }).catch(e => alert("Could not import: " + e.message));
   };
   inp.click();
 }
 
 /* ---------- Replay planner ---------- */
-const mLabel = m => `${TYPE_LABEL[m.type] || ""} ${m.label || m.number}`.trim();
+const mLabel = m => `${typeLabel(m)} ${m.label || m.number}`.trim();
 const plannerOpen = () => !!document.querySelector(".rpl");
 function updateReplayBadge() {
   const n = S.r.ids.filter(id => !S.r.done[id]).length, b = document.getElementById("rpBadge");
@@ -1355,6 +1517,293 @@ function drawReplays() {
   box.scrollTop = top;
 }
 
+/* ---------- Playoff line-ups ---------- */
+const SIDES = ["red", "blue"];
+// The tournament alliance on one side of a playoff match, found from its teams.
+function sideAlliance(m, al) {
+  if (m.type !== "playoff") return null;
+  const a = ALLIANCE_OF.get(m[al][0]);
+  return a && m[al].every(c => a.teams.includes(c)) ? a : null;
+}
+// Who sits out on a side: the site's line-up if it lists only three, else the volunteer's record.
+function sittingOut(m, al) {
+  if (m.siteOut && m.siteOut[al]) return m.siteOut[al];
+  return (peek(m.id).x || []).find(c => m[al].includes(c)) || null;
+}
+// "out", "in", or "?" (not recorded). A side of three never has anyone sitting out.
+function lineupOf(m, c) {
+  const al = m.red.includes(c) ? "red" : "blue";
+  if (m[al].length < 4) return "in";
+  const o = sittingOut(m, al);
+  return !o ? "?" : o === c ? "out" : "in";
+}
+function setSitOut(id, al, c) {
+  snapshot();
+  const m = BY_ID.get(id), x = mk(id);
+  x.x = (x.x || []).filter(o => !m[al].includes(o));
+  if (c) x.x.push(c);
+  prune(id); save();
+}
+// An alliance's playoff (round robin) or final matches, in order.
+const allianceMatches = (a, finals) => MATCHES.filter(m => m.type === "playoff" && isFinal(m) === !!finals && SIDES.some(al => sideAlliance(m, al) === a));
+// T01 check before match m (a PLAYOFF MATCH, not a final): the alliance's teams not yet seen
+// playing in its earlier playoff matches, whether m is its last one, and how many earlier
+// line-ups are missing (then a team may have played without it being recorded).
+function t01Before(m, a) {
+  const ms = allianceMatches(a, false), i = ms.indexOf(m);
+  if (i < 0) return null;
+  const prior = ms.slice(0, i);
+  const unseen = a.teams.filter(c => !prior.some(p => lineupOf(p, c) === "in"));
+  return { unseen, last: i === ms.length - 1, missing: prior.filter(p => lineupOf(p, a.teams[0]) === "?").length, n: i };
+}
+// Per-team tag on an open playoff match: sits out, must play (alliance's last playoff match and
+// it has not played yet), or has not played yet.
+function lineupTag(m, c) {
+  if (m.type !== "playoff") return null;
+  const al = m.red.includes(c) ? "red" : "blue", a = sideAlliance(m, al);
+  if (!a) return null;
+  if (lineupOf(m, c) === "out") {
+    const t = !isFinal(m) && statusOf(m) !== "done" && t01Before(m, a);
+    return t && t.last && t.unseen.includes(c) ? { cls: "bad", text: "Sits out · has not played!" } : { cls: "out", text: "Sits out" };
+  }
+  if (isFinal(m) || statusOf(m) === "done") return null;
+  const t = t01Before(m, a);
+  if (!t || !t.unseen.includes(c) || (!t.n)) return null;
+  if (t.missing === t.n) return null;  // no line-up recorded for this alliance yet: nothing to go on
+  if (t.last) return { cls: "must", text: t.missing ? "Must play?" : "Must play" };
+  return t.missing ? null : { cls: "new", text: "Not played yet" };
+}
+const allianceLabel = (m, al) => { const a = sideAlliance(m, al); return a ? `${allianceName(al)} · ${a.name}` : ""; };
+const shortName = c => { const n = teamName(c); return n.length > 14 ? n.slice(0, 13) + "…" : n; };
+
+// Sheet: who sits out, for both sides of a playoff match, with each team's playoff record.
+function openLineup(id) {
+  const m = BY_ID.get(id);
+  const draw = () => {
+    const side = al => {
+      const a = sideAlliance(m, al), o = sittingOut(m, al), site = m.siteOut && m.siteOut[al];
+      if (!a || m[al].length < 4) return "";
+      const ms = allianceMatches(a, isFinal(m)), t = !isFinal(m) && t01Before(m, a);
+      const rec = c => ms.filter(p => p !== m).map(p => {
+        const l = lineupOf(p, c);
+        return `<span class="lu-cell lu-${l === "?" ? "unk" : l}${p.t > m.t ? " later" : ""}" title="${esc(mLabel(p))}">${l === "in" ? "✓" : l === "out" ? "–" : "?"}</span>`;
+      }).join("");
+      const row = c => {
+        const tag = lineupTag(m, c);
+        return `<div class="lu-row${o === c ? " on" : ""}">${flagHtml(c)}<span class="lu-name">${esc(teamName(c))}${tag ? `<small class="lu ${tag.cls}">${tag.text}</small>` : ""}
+            <small class="lu-rec">${ms.length > 1 ? `Other ${isFinal(m) ? "finals" : "playoff matches"}: ${rec(c)}` : ""}</small></span>
+          ${site ? "" : `<button class="btn ${o === c ? "on" : ""}" data-a="out" data-al="${al}" data-t="${esc(c)}">${o === c ? "Sits out ✓" : "Sits out"}</button>`}</div>`;
+      };
+      const warn = t && t.last && t.unseen.length && t.missing === t.n
+        ? `<p class="rp-msg">Last playoff match for ${esc(a.name)}, and no line-up was recorded for its earlier ones: check every team has played at least once (rule T01).</p>`
+        : t && t.last && t.unseen.length
+        ? `<p class="rp-msg${o && t.unseen.includes(o) ? " bad" : ""}">Last playoff match for ${esc(a.name)}: ${t.unseen.map(c => `<b>${esc(teamName(c))}</b>`).join(", ")} ${t.unseen.length > 1 ? "have" : "has"} not played yet${t.missing ? ` (or played in a match whose line-up was not recorded: ${t.missing})` : ""} and must play (rule T01).</p>` : "";
+      return `<h3 style="color:var(--${al})">${allianceLabel(m, al)}</h3>${warn}${a.teams.map(row).join("")}
+        ${site ? `<p class="note">Line-up as published on results.first.global.</p>` : `<div class="btns"><button class="btn ${o ? "" : "on"}" data-a="out" data-al="${al}" data-t="">Not decided</button></div>`}`;
+    };
+    return `${sheetTop()}<h2>Who sits out? · ${esc(mLabel(m))}</h2>
+      <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${m.est ? "~" : ""}${hmH(m.t)}</span></div>
+      <p class="note">Only three of an alliance's four teams play each match; the alliance decides which. Every team must play at least one playoff match (T01).
+        ✓ played · – sat out · ? not recorded.</p>
+      ${SIDES.map(side).join("")}
+      <div class="btns" style="margin-top:14px"><button class="btn" data-a="po">🏆 All alliances</button></div>`;
+  };
+  openSheet(draw(), b => {
+    if (b.dataset.a === "po") return openNested(openPlayoffs);
+    if (b.dataset.a !== "out") return;
+    setSitOut(id, b.dataset.al, b.dataset.t || null); render(false);
+    const sheet = overlayRoot.querySelector(".sheet"), top = sheet.scrollTop;
+    sheet.innerHTML = draw(); sheet.scrollTop = top;
+  }, () => () => openLineup(id));
+}
+
+/* ---------- Playoffs screen: alliances, line-up record, set-up ---------- */
+// Alliance text, one per line: "1: Kazakhstan (KAZ), Aruba (ARU), …" or just "1 KAZ ARU BOL JAM".
+// Teams can be given by code or by country name (as published).
+function allianceText(al) {
+  return Object.entries(al).map(([n, t]) => `${n}: ${t.map(c => c ? `${teamName(c)} (${c})` : "?").join(", ")}`).join("\n");
+}
+function parseAlliances(text) {
+  const al = {}, bad = [];
+  const find = tok => {
+    tok = tok.trim(); if (!tok || tok === "?") return null;
+    const code = (tok.match(/\(([A-Za-z]{3})\)/) || [])[1] || (/^[A-Za-z]{3}$/.test(tok) ? tok : null);
+    if (code && TEAMS[code.toUpperCase()]) return code.toUpperCase();
+    const q = norm(tok.replace(/\(.*?\)/g, ""));
+    const hit = TEAM_INDEX.filter(t => t.n === q);
+    const pre = hit.length ? hit : TEAM_INDEX.filter(t => t.n.startsWith(q));
+    const any = pre.length ? pre : TEAM_INDEX.filter(t => t.n.includes(q));
+    if (any.length === 1) return any[0].c;
+    bad.push(tok); return null;
+  };
+  let next = 1;
+  for (const line of String(text).split(/\n/)) {
+    const mt = line.trim().match(/^(?:alliance|a)?\s*#?\s*([1-8])\s*[:.)\-–]?\s+(.*)$/i);
+    const body = mt ? mt[2] : line.trim(), n = mt ? +mt[1] : next;
+    if (!body) continue;
+    const toks = /[,;\t]/.test(body) ? body.split(/[,;\t]/) : body.split(/\s+/);
+    const row = toks.map(find).filter((c, i, a) => c !== null || toks[i].trim() === "?").slice(0, 4);
+    while (row.length < 4) row.push(null);
+    al[n] = row; next = n + 1;
+  }
+  return { al, bad };
+}
+function playoffDirty() { return JSON.stringify(normPlayoff(S.p)) !== JSON.stringify(PO0); }
+function applyPlayoffs() {
+  S.p = normPlayoff(S.p); save();
+  try { sessionStorage.setItem("fgcq-reopen", "playoffs"); } catch (e) {}
+  location.reload();
+}
+
+let poMsg = null;
+function openPlayoffs() {
+  poMsg = null;
+  overlayRoot.innerHTML = `<div class="search rpl po" role="dialog" aria-label="Playoffs"><div class="bar">${backBtn()}
+      <div class="ttl">🏆 Playoffs</div>
+      <button class="iconbtn" data-a="close" aria-label="Close">✕</button></div><div class="results" id="po"></div></div>`;
+  document.body.style.overflow = "hidden";
+  const box = document.getElementById("po");
+  overlayRoot.querySelector(".po").addEventListener("click", e => {
+    const b = e.target.closest("[data-a],[data-act]"); if (!b) return;
+    poMsg = null;
+    const P = S.p;
+    switch (b.dataset.a || b.dataset.act) {
+      case "close": return exitOverlay();
+      case "back": return history.back();
+      case "lineup": return openNested(() => openLineup(b.dataset.m));
+      case "slot": return openNested(() => openTeamPicker(+b.dataset.n, +b.dataset.i));
+      case "field": P.field = +b.dataset.f; break;
+      case "paste": {
+        const r = parseAlliances(box.querySelector("#poText").value);
+        if (!Object.keys(r.al).length) { poMsg = ["Nothing to read. One alliance per line, e.g. “1: KAZ, ARU, BOL, JAM”.", true]; break; }
+        snapshot(); P.al = { ...P.al, ...r.al };
+        poMsg = [`Read ${Object.keys(r.al).length} alliance${Object.keys(r.al).length > 1 ? "s" : ""}.${r.bad.length ? ` Not recognised: ${r.bad.join(", ")}` : ""}`, !!r.bad.length];
+        break;
+      }
+      case "copy": {
+        const txt = allianceText(ALLIANCES.length && !ALLIANCES[0].local ? Object.fromEntries(ALLIANCES.map(a => [a.n, a.teams])) : P.al);
+        const done = () => { poMsg = ["Copied. Paste it to other queuers (they use “Read text” here).", false]; drawPlayoffs(); };
+        if (navigator.share && /Android|iPhone|iPad/.test(navigator.userAgent)) navigator.share({ text: txt }).catch(() => {});
+        else if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done, () => prompt("Copy this:", txt));
+        else prompt("Copy this:", txt);
+        return;
+      }
+      case "top": {
+        const i = +b.dataset.i, n = +b.dataset.n, top = [...(P.top || [null, null, null])];
+        const j = top.indexOf(n); if (j >= 0) top[j] = top[i];
+        top[i] = top[i] === n ? null : n; P.top = top;
+        break;
+      }
+      case "clear":
+        if (!confirm("Clear the alliances and finals typed on this phone?")) return;
+        snapshot(); S.p = normPlayoff({ field: P.field, start: P.start, fstart: P.fstart }); break;
+      case "apply": return applyPlayoffs();
+      case "update": return checkUpdate(true);
+      case "go": exitOverlay(); showInSchedule(BY_ID.get(b.dataset.m)); return;
+      default: return;
+    }
+    save(); drawPlayoffs();
+  });
+  box.addEventListener("change", e => {
+    const t = e.target;
+    if (t.dataset.a === "start" || t.dataset.a === "fstart") { S.p[t.dataset.a] = t.value; save(); drawPlayoffs(); }
+  });
+  drawPlayoffs();
+  navOpened(() => { const t = box.scrollTop; return () => { openPlayoffs(); document.getElementById("po").scrollTop = t; }; });
+}
+function drawPlayoffs() {
+  const box = document.getElementById("po"); if (!box) return;
+  const top = box.scrollTop, P = S.p, official = ALLIANCES.length && !ALLIANCES[0].local;
+  const rr = MATCHES.filter(m => m.type === "playoff" && !isFinal(m)), fin = MATCHES.filter(isFinal);
+  const src = OFFICIAL_RR ? "Playoff schedule from results.first.global."
+    : rr.length ? "<b>Schedule built on this phone</b> from the alliances (Table 6-2 of the game manual). Times are estimates (~). It is replaced by the official schedule as soon as results.first.global publishes it; marks are kept."
+    : "No playoff schedule yet.";
+  let html = poMsg ? `<div class="rp-msg${poMsg[1] ? " bad" : ""}">${esc(poMsg[0])}</div>` : "";
+  html += `<div class="rp-sum"><div class="big">${ALLIANCES.length ? `${ALLIANCES.length} alliance${ALLIANCES.length > 1 ? "s" : ""}` : "No alliances yet"} · ${rr.length} playoff + ${fin.length} final matches</div>
+    <div class="note">${official ? "Alliances from results.first.global." : ALLIANCES.length ? "Alliances typed on this phone." : ""} ${src}</div>
+    <div class="btns" style="margin-top:8px"><button class="btn primary" data-a="update">⟳ Check results.first.global</button></div></div>`;
+  if (playoffDirty()) html += `<div class="rp-msg"><b>Changes not applied yet.</b> <button class="btn primary" data-a="apply">Build schedule</button></div>`;
+
+  // Alliance cards: four teams and what each did in every playoff / final match.
+  for (const a of ALLIANCES) {
+    const ms = allianceMatches(a, false), fs = allianceMatches(a, true);
+    const cols = [...ms, ...fs];
+    const head = cols.map(m => `<button class="lu-h${isFinal(m) ? " fin" : ""}${statusOf(m) === "done" ? " done" : ""}" data-act="lineup" data-m="${esc(m.id)}" title="${esc(mLabel(m))}">${isFinal(m) ? "F" : ""}${esc(m.number)}</button>`).join("");
+    const rows = a.teams.map(c => `<div class="lu-tr">${flagHtml(c)}<span class="lu-name">${esc(teamName(c))}</span>${cols.map(m => {
+        const l = lineupOf(m, c);
+        return `<span class="lu-cell lu-${l === "?" ? "unk" : l}${statusOf(m) === "done" ? "" : " later"}">${l === "in" ? "✓" : l === "out" ? "–" : statusOf(m) === "done" ? "?" : "·"}</span>`;
+      }).join("")}<span class="lu-n">${ms.filter(m => lineupOf(m, c) === "in").length}</span></div>`).join("");
+    // T01: a team not yet seen playing, with one playoff match (or none) left that it could play in.
+    const missing = ms.filter(m => statusOf(m) === "done" && a.teams.length === 4 && lineupOf(m, a.teams[0]) === "?").length;
+    // Only checked when every played match has its line-up; otherwise just say what is missing.
+    const warn = missing ? `<p class="note">${missing} played match${missing > 1 ? "es have" : " has"} no line-up recorded: tap ${missing > 1 ? "their numbers" : "its number"} to add who sat out.</p>`
+      : a.teams.filter(c => !ms.some(m => lineupOf(m, c) === "in")).map(c => {
+        const can = ms.filter(m => statusOf(m) !== "done" && lineupOf(m, c) !== "out");
+        return can.length > 1 || !ms.length ? "" : `<p class="rp-msg bad">⚠ ${esc(teamName(c))} has not played yet ${can.length ? `and must play ${esc(mLabel(can[0]))}` : "and has no playoff match left to play"} (T01)</p>`;
+      }).join("");
+    const fi = FINAL_TOP ? FINAL_TOP.indexOf(a.n) : -1;
+    html += `<div class="rp-path lu-card" style="--cols:${cols.length}"><div class="who"><span>${esc(a.name)}</span>${fi >= 0 ? `<span class="chip rp">Finals · #${fi + 1}</span>` : ""}</div>
+      ${cols.length ? `<div class="lu-tr lu-head"><span class="lu-name note">Match →</span>${head}<span class="lu-n note" title="Playoff matches played">Pld</span></div>` : ""}${rows}${warn}</div>`;
+  }
+  if (ALLIANCES.length) html += `<p class="note">✓ played · – sat out · ? not recorded · · still to play. Tap a match number to record who sits out. Every team must play at least one playoff match (T01); finals are free.</p>`;
+
+  // Set-up on the phone: only while the site has not published the alliances / schedule.
+  if (!OFFICIAL_RR || !OFFICIAL_FINALS) {
+    html += `<h3>Set up on this phone</h3><p class="note">Use this if the alliances are announced before results.first.global shows them. ${official ? "" : "Alliance N = ranked #N, #N+8, #25−N and a random draw (Table 6-1)."} After changes, tap <b>Build schedule</b>.</p>`;
+    if (!official) {
+      const slotLbl = (n, i) => ["#" + n, "#" + (n + 8), "#" + (25 - n), "Draw"][i];
+      for (let n = 1; n <= 8; n++) {
+        const row = P.al[n] || [null, null, null, null];
+        html += `<div class="po-al"><span class="po-n">${n}</span>${row.map((c, i) => `<button class="po-slot${c ? "" : " empty"}" data-a="slot" data-n="${n}" data-i="${i}">${c ? `${flagHtml(c)}<span>${esc(shortName(c))}</span>` : `<span>${slotLbl(n, i)}</span>`}</button>`).join("")}</div>`;
+      }
+      html += `<label class="tnote"><span>Or paste text (one alliance per line)</span><textarea id="poText" rows="4" placeholder="1: KAZ, ARU, BOL, JAM&#10;2: …"></textarea></label>
+        <div class="btns"><button class="btn" data-a="paste">Read text</button><button class="btn" data-a="copy">Copy alliances as text</button><button class="btn danger" data-a="clear">Clear</button></div>`;
+    } else html += `<div class="btns"><button class="btn" data-a="copy">Copy alliances as text</button></div>`;
+    if (!OFFICIAL_RR) html += `<h3>Playoff field and start</h3><div class="btns">${[1, 2, 3, 4, 5].map(f => `<button class="btn ${P.field === f ? "on" : ""}" data-a="field" data-f="${f}">F${f}</button>`).join("")}
+        <input type="time" class="po-time" data-a="start" value="${esc(P.start)}" aria-label="First playoff match"></div>`;
+    if (!OFFICIAL_FINALS) {
+      const pick = ALLIANCES.map(a => a.n);
+      html += `<h3>Finals: top three after the playoffs</h3><p class="note">By total playoff score. Finals: #1 v #3, #3 v #2, #2 v #1 (Table 6-3).</p>
+        ${[0, 1, 2].map(i => `<div class="btns po-top"><span class="po-n">#${i + 1}</span>${pick.map(n => `<button class="btn ${(P.top || [])[i] === n ? "on" : ""}" data-a="top" data-i="${i}" data-n="${n}">A${n}</button>`).join("")}</div>`).join("")}
+        <div class="btns"><span class="note" style="align-self:center">Finals start</span><input type="time" class="po-time" data-a="fstart" value="${esc(P.fstart)}" aria-label="First final match"></div>`;
+    }
+    if (playoffDirty()) html += `<div class="btns" style="margin-top:12px"><button class="btn primary" data-a="apply">Build schedule</button></div>`;
+  }
+  box.innerHTML = html;
+  box.scrollTop = top;
+}
+// Pick a team for an alliance slot (search by country name or code).
+function openTeamPicker(n, i) {
+  overlayRoot.innerHTML = `<div class="search"><div class="bar">${backBtn()}
+      <input type="search" id="q" placeholder="Alliance ${n}: search country…" autocomplete="off" autocapitalize="words" enterkeyhint="search">
+      <button class="iconbtn" data-a="close" aria-label="Close">✕</button></div><div class="results" id="sr"></div></div>`;
+  document.body.style.overflow = "hidden";
+  const q = document.getElementById("q"), sr = document.getElementById("sr");
+  const used = new Map(Object.entries(S.p.al).flatMap(([k, t]) => t.map((c, j) => [c, [+k, j]])).filter(([c]) => c));
+  const run = () => {
+    const nq = norm(q.value), words = nq.split(" ");
+    const hits = !nq ? [] : TEAM_INDEX.filter(t => words.every(w => t.n.split(" ").some(tw => tw.startsWith(w)) || t.cn.startsWith(w))).slice(0, 12);
+    sr.innerHTML = (S.p.al[n] && S.p.al[n][i] ? `<div class="btns" style="margin-bottom:8px"><button class="btn danger" data-a="pick" data-t="">Empty this slot</button></div>` : "")
+      + (hits.length ? hits.map(({ c }) => `<button class="sres who po-pick" data-a="pick" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}${used.has(c) ? ` <small class="note">(in Alliance ${used.get(c)[0]})</small>` : ""}</span></button>`).join("")
+        : `<p class="note" style="padding:10px">${nq ? "No team found." : "Type part of a country name or its code."}</p>`);
+  };
+  q.addEventListener("input", run);
+  overlayRoot.querySelector(".search").addEventListener("click", e => {
+    const b = e.target.closest("[data-a]"); if (!b) return;
+    if (b.dataset.a === "close") return exitOverlay();
+    if (b.dataset.a === "back") return history.back();
+    if (b.dataset.a !== "pick") return;
+    snapshot();
+    const c = b.dataset.t || null, row = S.p.al[n] = S.p.al[n] || [null, null, null, null];
+    if (c && used.has(c)) { const [k, j] = used.get(c); S.p.al[k][j] = null; }  // a team is in one alliance only
+    row[i] = c; save();
+    history.back();
+  });
+  run();
+  navOpened(() => () => openTeamPicker(n, i));
+  setTimeout(() => q.focus(), 30);
+}
+
 /* ---------- Search ---------- */
 const norm = s => String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const TEAM_INDEX = Object.entries(TEAMS).map(([c, t]) => ({ c, n: norm(t.country || t.name || c), cn: norm(c) }));
@@ -1369,7 +1818,7 @@ function teamCardHtml(c, page) {
   const here = nx && UNITS[S.ui.unit].fields.includes(nx.field);
   const nextHtml = nx
     ? `<div class="next"><div class="dir">${here ? "✓ " : "→ "}${UNITS[nx.unit].fields.map(f => `<span class="fld f${f}">F${f}</span>`).join(" ")} ${UNITS[nx.unit].label}</div>
-        Next: <b>${TYPE_LABEL[nx.type]} ${esc(nx.label || nx.number)}</b> on <b>Field ${nx.field}</b> at <b>${hm(nx.t)}</b>,
+        Next: <b>${esc(mLabel(nx))}</b> on <b>Field ${nx.field}</b> at <b>${nx.est ? "~" : ""}${hm(nx.t)}</b>,
         <span class="${nx.red.includes(c) ? "al-red" : "al-blue"}" style="color:var(--${nx.red.includes(c) ? "red" : "blue"});font-weight:800">${nx.red.includes(c) ? "Red" : "Blue"}</span>
         ${fDayKey.format(nx.t) !== fDayKey.format(now) ? `<span class="note">(${fDay.format(nx.t)})</span>` : ""}</div>`
     : `<div class="next">No upcoming matches.</div>`;
@@ -1383,7 +1832,7 @@ function teamCardHtml(c, page) {
     const al = m.red.includes(c) ? "red" : "blue";
     const v = peek(m.id).t[c];
     return `<details class="sx" data-k="${esc(m.id)}"><summary class="sitem ${statusOf(m) === "done" || m.t < now - 30 * 60e3 ? "past" : ""}">
-        <span>${TYPE_LABEL[m.type].slice(0, 4)} <b>${esc(m.label || m.number)}</b></span>${fieldBadge(m)}<span>${hm(m.t)}</span>
+        <span>${esc(m.type === "playoff" ? (isFinal(m) ? "Fin" : "PO") : TYPE_LABEL[m.type].slice(0, 4))} <b>${esc(m.label || m.number)}</b></span>${fieldBadge(m)}<span>${hm(m.t)}</span>
         <span><span class="al-${al}">${al === "red" ? "Red" : "Blue"}</span> ${v ? MARK_INFO[v].glyph + " " + MARK_INFO[v].label : ""} <span class="note">${fWeekday.format(m.t)}</span></span><span class="chev" aria-hidden="true">›</span></summary>
       <div class="sbody">${matchHtml(m, true)}<div class="btns"><button class="btn" data-a="go" data-m="${esc(m.id)}">Show in schedule</button></div></div></details>`;
   }).join("");
@@ -1435,6 +1884,8 @@ function teamCardClick(b, redraw) {
     case "start": startMatch(id); redraw(); return true;
     case "sheet": openNested(() => openMatchSheet(id)); return true;
     case "replay": openNested(openReplays); return true;
+    case "lineup": openNested(() => openLineup(id)); return true;
+    case "po": openNested(openPlayoffs); return true;
   }
   switch (b.dataset.a) {
     case "go": showInSchedule(BY_ID.get(id)); return true;
@@ -1496,6 +1947,40 @@ function toast(msg, actions = [], ms = 5000) {
   toastTimer = setTimeout(() => root.innerHTML = "", ms);
 }
 
+/* ---------- Schedule updates ---------- */
+// The schedule is refreshed on the server from results.first.global (tools/fetch_fgc_data.py,
+// run by hand or by the GitHub workflow) as soon as playoff matches and alliances are published.
+// The phone checks for a newer data.js (event.rev differs) and offers to load it; marks are
+// kept because match ids never change. The service worker serves data.js?fresh=… from the
+// network and stores it, so a reload then shows the new schedule.
+let updRev = null, updBusy = false;
+async function checkUpdate(manual) {
+  if (!location.protocol.startsWith("http") || updBusy) return;
+  if (!manual && (document.visibilityState !== "visible" || navigator.onLine === false)) return;
+  updBusy = true;
+  try {
+    const r = await fetch(`data.js?fresh=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const txt = await r.text();
+    const rev = (txt.match(/"rev":\s*"([^"]+)"/) || [])[1];
+    const src = (txt.match(/"source":\s*"([^"]+)"/) || [])[1] || "";
+    if (rev && rev !== D.event.rev) {
+      updRev = rev;
+      const p = (txt.match(/"type":\s*"playoff"/g) || []).length, now = MATCHES.filter(m => m.type === "playoff").length;
+      document.getElementById("updText").textContent = p !== now
+        ? `New schedule: ${p} playoff match${p === 1 ? "" : "es"} (had ${now})` : "New schedule published";
+      document.getElementById("updBar").classList.remove("hidden");
+      fixStickyOffset();
+      if (manual) toast("New schedule found", [["Load now", () => location.reload()]], 9000);
+    } else if (manual) toast(`Schedule is up to date (${src.replace(/^results\.first\.global, /, "") || "no date"})`);
+  } catch (e) {
+    if (manual) toast("Could not check for updates (offline?)");
+  } finally { updBusy = false; }
+}
+document.getElementById("updBtn").onclick = () => location.reload();
+setInterval(() => checkUpdate(false), 3 * 60e3);
+window.addEventListener("online", () => checkUpdate(false));
+
 /* ---------- Wake lock ---------- */
 let wakeLock = null;
 async function applyWake() {
@@ -1506,7 +1991,7 @@ async function applyWake() {
     } else if (!S.ui.wake && wakeLock) { await wakeLock.release(); wakeLock = null; }
   } catch (e) { /* not allowed (e.g. file://) */ }
 }
-document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { applyWake(); updateStatusLine(); placeNowLine(); } });
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") { applyWake(); updateStatusLine(); placeNowLine(); checkUpdate(false); } });
 
 /* ---------- Events ---------- */
 document.getElementById("unitSeg").addEventListener("click", e => {
@@ -1531,6 +2016,9 @@ listEl.addEventListener("click", e => {
   else if (b.dataset.act === "stage") cycleStage(id);
   else if (b.dataset.act === "start") startMatch(id);
   else if (b.dataset.act === "replay") openReplays();
+  else if (b.dataset.act === "lineup") openLineup(id);
+  else if (b.dataset.act === "po") openPlayoffs();
+  else if (b.dataset.act === "update") checkUpdate(true);
 });
 // Long-press: on a team opens its team page, elsewhere on a match its option sheet. Works in the
 // list and in team pages. Timed from touch/pointer events because iOS never fires contextmenu;
@@ -1581,6 +2069,8 @@ applyWake();
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   navigator.serviceWorker.register("sw.js").catch(() => {});
 }
+setTimeout(() => checkUpdate(false), 4000);
+try { if (sessionStorage.getItem("fgcq-reopen") === "playoffs") { sessionStorage.removeItem("fgcq-reopen"); openPlayoffs(); } } catch (e) {}
 })();
 </script>
 </body>

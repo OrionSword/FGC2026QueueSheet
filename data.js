@@ -4,7 +4,8 @@ self.FGC_DATA = {
 "id": "FGC_2026-FGC-CMP",
 "name": "2026 FIRST Global Challenge",
 "tz": "Asia/Seoul",
-"source": "results.first.global, fetched 2026-10-08 07:41 UTC"
+"source": "results.first.global, fetched 2026-10-09 08:04 UTC",
+"rev": "b422c41f22"
 },
 "teams": {
 "AFG": {
@@ -2716,7 +2717,8 @@ self.FGC_DATA = {
 "DEN",
 "BRA",
 "SOM"
-]
+],
+"played": true
 },
 {
 "id": "t2-96",
@@ -2772,7 +2774,8 @@ self.FGC_DATA = {
 "TLS",
 "SEN",
 "SLE"
-]
+],
+"played": true
 },
 {
 "id": "t2-99",
@@ -2790,7 +2793,8 @@ self.FGC_DATA = {
 "ESP",
 "KIR",
 "MAR"
-]
+],
+"played": true
 },
 {
 "id": "t2-98",
@@ -2808,7 +2812,8 @@ self.FGC_DATA = {
 "ARG",
 "ANT",
 "SOL"
-]
+],
+"played": true
 },
 {
 "id": "t2-100",
@@ -2826,7 +2831,8 @@ self.FGC_DATA = {
 "PAR",
 "URU",
 "MOZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-102",
@@ -2844,7 +2850,8 @@ self.FGC_DATA = {
 "MLT",
 "GRE",
 "TJK"
-]
+],
+"played": true
 },
 {
 "id": "t2-101",
@@ -2862,7 +2869,8 @@ self.FGC_DATA = {
 "PHI",
 "CAF",
 "EST"
-]
+],
+"played": true
 },
 {
 "id": "t2-103",
@@ -2880,7 +2888,8 @@ self.FGC_DATA = {
 "BAN",
 "NEP",
 "RWA"
-]
+],
+"played": true
 },
 {
 "id": "t2-105",
@@ -2898,7 +2907,8 @@ self.FGC_DATA = {
 "KAZ",
 "FSM",
 "AUT"
-]
+],
+"played": true
 },
 {
 "id": "t2-104",
@@ -2916,7 +2926,8 @@ self.FGC_DATA = {
 "BUL",
 "GHA",
 "MTN"
-]
+],
+"played": true
 },
 {
 "id": "t2-106",
@@ -2934,7 +2945,8 @@ self.FGC_DATA = {
 "SKN",
 "IRL",
 "CAN"
-]
+],
+"played": true
 },
 {
 "id": "t2-108",
@@ -2952,7 +2964,8 @@ self.FGC_DATA = {
 "TAN",
 "UKR",
 "IVB"
-]
+],
+"played": true
 },
 {
 "id": "t2-107",
@@ -2970,7 +2983,8 @@ self.FGC_DATA = {
 "YEM",
 "SEY",
 "MDV"
-]
+],
+"played": true
 },
 {
 "id": "t2-109",
@@ -2988,7 +3002,8 @@ self.FGC_DATA = {
 "GUA",
 "SYR",
 "BIH"
-]
+],
+"played": true
 },
 {
 "id": "t2-111",
@@ -3006,7 +3021,8 @@ self.FGC_DATA = {
 "FIJ",
 "HAI",
 "VIE"
-]
+],
+"played": true
 },
 {
 "id": "t2-110",
@@ -3024,7 +3040,8 @@ self.FGC_DATA = {
 "VEN",
 "SVK",
 "MGL"
-]
+],
+"played": true
 },
 {
 "id": "t2-112",
@@ -3042,7 +3059,8 @@ self.FGC_DATA = {
 "MNE",
 "GBS",
 "RUS"
-]
+],
+"played": true
 },
 {
 "id": "t2-114",
@@ -3060,7 +3078,8 @@ self.FGC_DATA = {
 "CAY",
 "HON",
 "JAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-113",
@@ -3078,7 +3097,8 @@ self.FGC_DATA = {
 "SRB",
 "GAM",
 "BEN"
-]
+],
+"played": true
 },
 {
 "id": "t2-115",
@@ -3096,7 +3116,8 @@ self.FGC_DATA = {
 "FRA",
 "ESA",
 "COD"
-]
+],
+"played": true
 },
 {
 "id": "t2-117",
@@ -3114,7 +3135,8 @@ self.FGC_DATA = {
 "LBR",
 "GEQ",
 "THA"
-]
+],
+"played": true
 },
 {
 "id": "t2-116",
@@ -3132,7 +3154,8 @@ self.FGC_DATA = {
 "TTO",
 "HPE",
 "AUS"
-]
+],
+"played": true
 },
 {
 "id": "t2-118",
@@ -3150,7 +3173,8 @@ self.FGC_DATA = {
 "LCA",
 "ARU",
 "GEO"
-]
+],
+"played": true
 },
 {
 "id": "t2-120",
@@ -3168,7 +3192,8 @@ self.FGC_DATA = {
 "PUR",
 "BAR",
 "MHL"
-]
+],
+"played": true
 },
 {
 "id": "t2-119",
@@ -3186,7 +3211,8 @@ self.FGC_DATA = {
 "VAN",
 "KEN",
 "MAD"
-]
+],
+"played": true
 },
 {
 "id": "t2-121",
@@ -3204,7 +3230,8 @@ self.FGC_DATA = {
 "COL",
 "QAT",
 "DJI"
-]
+],
+"played": true
 },
 {
 "id": "t2-123",
@@ -3222,7 +3249,8 @@ self.FGC_DATA = {
 "COM",
 "TUN",
 "CAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-122",
@@ -3240,7 +3268,8 @@ self.FGC_DATA = {
 "CRC",
 "NAM",
 "PAK"
-]
+],
+"played": true
 },
 {
 "id": "t2-124",
@@ -3258,7 +3287,8 @@ self.FGC_DATA = {
 "TOG",
 "LBN",
 "CAN"
-]
+],
+"played": true
 },
 {
 "id": "t2-126",
@@ -3276,7 +3306,8 @@ self.FGC_DATA = {
 "CHA",
 "BUL",
 "PER"
-]
+],
+"played": true
 },
 {
 "id": "t2-125",
@@ -3294,7 +3325,8 @@ self.FGC_DATA = {
 "SRI",
 "GUY",
 "AZE"
-]
+],
+"played": true
 },
 {
 "id": "t2-127",
@@ -3312,7 +3344,8 @@ self.FGC_DATA = {
 "BRU",
 "USA",
 "BOT"
-]
+],
+"played": true
 },
 {
 "id": "t2-129",
@@ -3330,7 +3363,8 @@ self.FGC_DATA = {
 "SWZ",
 "GBR",
 "ALG"
-]
+],
+"played": true
 },
 {
 "id": "t2-128",
@@ -3348,7 +3382,8 @@ self.FGC_DATA = {
 "MAW",
 "NEP",
 "OMA"
-]
+],
+"played": true
 },
 {
 "id": "t2-130",
@@ -3366,7 +3401,8 @@ self.FGC_DATA = {
 "ANG",
 "MTN",
 "YEM"
-]
+],
+"played": true
 },
 {
 "id": "t2-132",
@@ -3384,7 +3420,8 @@ self.FGC_DATA = {
 "TAN",
 "MOZ",
 "MNE"
-]
+],
+"played": true
 },
 {
 "id": "t2-131",
@@ -3402,7 +3439,8 @@ self.FGC_DATA = {
 "KOR",
 "BIH",
 "POR"
-]
+],
+"played": true
 },
 {
 "id": "t2-133",
@@ -3420,7 +3458,8 @@ self.FGC_DATA = {
 "VIE",
 "SWE",
 "FIN"
-]
+],
+"played": true
 },
 {
 "id": "t2-135",
@@ -3438,7 +3477,8 @@ self.FGC_DATA = {
 "BLR",
 "DEN",
 "SVK"
-]
+],
+"played": true
 },
 {
 "id": "t2-134",
@@ -3456,7 +3496,8 @@ self.FGC_DATA = {
 "BUR",
 "CZE",
 "ETH"
-]
+],
+"played": true
 },
 {
 "id": "t2-136",
@@ -3474,7 +3515,8 @@ self.FGC_DATA = {
 "LAO",
 "AUS",
 "ESA"
-]
+],
+"played": true
 },
 {
 "id": "t2-138",
@@ -3492,7 +3534,8 @@ self.FGC_DATA = {
 "ISR",
 "CUB",
 "CRC"
-]
+],
+"played": true
 },
 {
 "id": "t2-137",
@@ -3510,7 +3553,8 @@ self.FGC_DATA = {
 "UKR",
 "DJI",
 "MYA"
-]
+],
+"played": true
 },
 {
 "id": "t2-139",
@@ -3528,7 +3572,8 @@ self.FGC_DATA = {
 "ZAM",
 "ISV",
 "BEN"
-]
+],
+"played": true
 },
 {
 "id": "t2-141",
@@ -3546,7 +3591,8 @@ self.FGC_DATA = {
 "MRI",
 "CGO",
 "COD"
-]
+],
+"played": true
 },
 {
 "id": "t2-140",
@@ -3564,7 +3610,8 @@ self.FGC_DATA = {
 "GHA",
 "AUT",
 "CAY"
-]
+],
+"played": true
 },
 {
 "id": "t2-142",
@@ -3582,7 +3629,8 @@ self.FGC_DATA = {
 "NCA",
 "LTU",
 "TUN"
-]
+],
+"played": true
 },
 {
 "id": "t2-144",
@@ -3600,7 +3648,8 @@ self.FGC_DATA = {
 "BIZ",
 "NGR",
 "LES"
-]
+],
+"played": true
 },
 {
 "id": "t2-143",
@@ -3618,7 +3667,8 @@ self.FGC_DATA = {
 "GER",
 "ARU",
 "SEN"
-]
+],
+"played": true
 },
 {
 "id": "t2-145",
@@ -3636,7 +3686,8 @@ self.FGC_DATA = {
 "TTO",
 "ZIM",
 "BAR"
-]
+],
+"played": true
 },
 {
 "id": "t2-147",
@@ -3654,7 +3705,8 @@ self.FGC_DATA = {
 "FRA",
 "SRB",
 "KIR"
-]
+],
+"played": true
 },
 {
 "id": "t2-146",
@@ -3672,7 +3724,8 @@ self.FGC_DATA = {
 "BRA",
 "THA",
 "HUN"
-]
+],
+"played": true
 },
 {
 "id": "t2-148",
@@ -3690,7 +3743,8 @@ self.FGC_DATA = {
 "IRQ",
 "GAB",
 "MEX"
-]
+],
+"played": true
 },
 {
 "id": "t2-150",
@@ -3708,7 +3762,8 @@ self.FGC_DATA = {
 "DMA",
 "QAT",
 "RWA"
-]
+],
+"played": true
 },
 {
 "id": "t2-149",
@@ -3726,7 +3781,8 @@ self.FGC_DATA = {
 "PAK",
 "LCA",
 "SKN"
-]
+],
+"played": true
 },
 {
 "id": "t2-151",
@@ -3744,7 +3800,8 @@ self.FGC_DATA = {
 "ROU",
 "TLS",
 "PNG"
-]
+],
+"played": true
 },
 {
 "id": "t2-153",
@@ -3762,7 +3819,8 @@ self.FGC_DATA = {
 "KEN",
 "GEQ",
 "BOL"
-]
+],
+"played": true
 },
 {
 "id": "t2-152",
@@ -3780,7 +3838,8 @@ self.FGC_DATA = {
 "HKG",
 "ALB",
 "JAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-154",
@@ -3798,7 +3857,8 @@ self.FGC_DATA = {
 "KOS",
 "PLE",
 "CIV"
-]
+],
+"played": true
 },
 {
 "id": "t2-156",
@@ -3816,7 +3876,8 @@ self.FGC_DATA = {
 "LBN",
 "LBR",
 "IRL"
-]
+],
+"played": true
 },
 {
 "id": "t2-155",
@@ -3834,7 +3895,8 @@ self.FGC_DATA = {
 "MTN",
 "CRO",
 "UZB"
-]
+],
+"played": true
 },
 {
 "id": "t2-157",
@@ -3852,7 +3914,8 @@ self.FGC_DATA = {
 "MAR",
 "ISR",
 "ISV"
-]
+],
+"played": true
 },
 {
 "id": "t2-159",
@@ -3870,7 +3933,8 @@ self.FGC_DATA = {
 "USA",
 "GBR",
 "CZE"
-]
+],
+"played": true
 },
 {
 "id": "t2-158",
@@ -3888,7 +3952,8 @@ self.FGC_DATA = {
 "MOZ",
 "FIN",
 "UAE"
-]
+],
+"played": true
 },
 {
 "id": "t2-160",
@@ -3906,7 +3971,8 @@ self.FGC_DATA = {
 "IRI",
 "DEN",
 "PER"
-]
+],
+"played": true
 },
 {
 "id": "t2-162",
@@ -3924,7 +3990,8 @@ self.FGC_DATA = {
 "TKM",
 "MGL",
 "SLO"
-]
+],
+"played": true
 },
 {
 "id": "t2-161",
@@ -3942,7 +4009,8 @@ self.FGC_DATA = {
 "SOL",
 "IND",
 "BUL"
-]
+],
+"played": true
 },
 {
 "id": "t2-163",
@@ -3960,7 +4028,8 @@ self.FGC_DATA = {
 "MAS",
 "BUR",
 "VIN"
-]
+],
+"played": true
 },
 {
 "id": "t2-165",
@@ -3978,7 +4047,8 @@ self.FGC_DATA = {
 "CAF",
 "OMA",
 "JPN"
-]
+],
+"played": true
 },
 {
 "id": "t2-164",
@@ -3996,7 +4066,8 @@ self.FGC_DATA = {
 "MEX",
 "SOM",
 "ESP"
-]
+],
+"played": true
 },
 {
 "id": "t2-166",
@@ -4014,7 +4085,8 @@ self.FGC_DATA = {
 "GAM",
 "NGR",
 "TPE"
-]
+],
+"played": true
 },
 {
 "id": "t2-168",
@@ -4032,7 +4104,8 @@ self.FGC_DATA = {
 "MAW",
 "LES",
 "NIG"
-]
+],
+"played": true
 },
 {
 "id": "t2-167",
@@ -4050,7 +4123,8 @@ self.FGC_DATA = {
 "VIE",
 "HUN",
 "CHI"
-]
+],
+"played": true
 },
 {
 "id": "t2-169",
@@ -4068,7 +4142,8 @@ self.FGC_DATA = {
 "HPE",
 "ROU",
 "GUI"
-]
+],
+"played": true
 },
 {
 "id": "t2-171",
@@ -4086,7 +4161,8 @@ self.FGC_DATA = {
 "UZB",
 "TAN",
 "MYA"
-]
+],
+"played": true
 },
 {
 "id": "t2-170",
@@ -4104,7 +4180,8 @@ self.FGC_DATA = {
 "KEN",
 "GRE",
 "DOM"
-]
+],
+"played": true
 },
 {
 "id": "t2-172",
@@ -4122,7 +4199,8 @@ self.FGC_DATA = {
 "ANT",
 "TOG",
 "PAR"
-]
+],
+"played": true
 },
 {
 "id": "t2-174",
@@ -4140,7 +4218,8 @@ self.FGC_DATA = {
 "BOL",
 "ALG",
 "SRI"
-]
+],
+"played": true
 },
 {
 "id": "t2-173",
@@ -4158,7 +4237,8 @@ self.FGC_DATA = {
 "BEL",
 "CIV",
 "GUM"
-]
+],
+"played": true
 },
 {
 "id": "t2-175",
@@ -4176,7 +4256,8 @@ self.FGC_DATA = {
 "HAI",
 "SKN",
 "DMA"
-]
+],
+"played": true
 },
 {
 "id": "t2-177",
@@ -4194,7 +4275,8 @@ self.FGC_DATA = {
 "SEN",
 "KOS",
 "POL"
-]
+],
+"played": true
 },
 {
 "id": "t2-176",
@@ -4212,7 +4294,8 @@ self.FGC_DATA = {
 "ECU",
 "ITA",
 "SLE"
-]
+],
+"played": true
 },
 {
 "id": "t2-178",
@@ -4230,7 +4313,8 @@ self.FGC_DATA = {
 "LBA",
 "CUB",
 "TUR"
-]
+],
+"played": true
 },
 {
 "id": "t2-180",
@@ -4248,7 +4332,8 @@ self.FGC_DATA = {
 "MLT",
 "BLR",
 "COK"
-]
+],
+"played": true
 },
 {
 "id": "t2-179",
@@ -4266,7 +4351,8 @@ self.FGC_DATA = {
 "ERI",
 "LAO",
 "MKD"
-]
+],
+"played": true
 },
 {
 "id": "t2-181",
@@ -4284,7 +4370,8 @@ self.FGC_DATA = {
 "ASA",
 "MDA",
 "VEN"
-]
+],
+"played": true
 },
 {
 "id": "t2-183",
@@ -4302,7 +4389,8 @@ self.FGC_DATA = {
 "KIR",
 "YEM",
 "VAN"
-]
+],
+"played": true
 },
 {
 "id": "t2-182",
@@ -4320,7 +4408,8 @@ self.FGC_DATA = {
 "SSD",
 "ALB",
 "URU"
-]
+],
+"played": true
 },
 {
 "id": "t2-184",
@@ -4338,7 +4427,8 @@ self.FGC_DATA = {
 "STP",
 "INA",
 "FIJ"
-]
+],
+"played": true
 },
 {
 "id": "t2-186",
@@ -4356,7 +4446,8 @@ self.FGC_DATA = {
 "BAN",
 "ISR",
 "ANG"
-]
+],
+"played": true
 },
 {
 "id": "t2-185",
@@ -4374,7 +4465,8 @@ self.FGC_DATA = {
 "PNG",
 "AFG",
 "CMR"
-]
+],
+"played": true
 },
 {
 "id": "t2-187",
@@ -4392,7 +4484,8 @@ self.FGC_DATA = {
 "MYA",
 "JPN",
 "GBS"
-]
+],
+"played": true
 },
 {
 "id": "t2-189",
@@ -4410,7 +4503,8 @@ self.FGC_DATA = {
 "PAN",
 "GRE",
 "EGY"
-]
+],
+"played": true
 },
 {
 "id": "t2-188",
@@ -4428,7 +4522,8 @@ self.FGC_DATA = {
 "CAF",
 "LBR",
 "MDV"
-]
+],
+"played": true
 },
 {
 "id": "t2-190",
@@ -4446,7 +4541,8 @@ self.FGC_DATA = {
 "HPE",
 "BOT",
 "AZE"
-]
+],
+"played": true
 },
 {
 "id": "t2-192",
@@ -4464,7 +4560,8 @@ self.FGC_DATA = {
 "NAM",
 "BHU",
 "FSM"
-]
+],
+"played": true
 },
 {
 "id": "t2-191",
@@ -4482,7 +4579,8 @@ self.FGC_DATA = {
 "CZE",
 "NGR",
 "SEY"
-]
+],
+"played": true
 },
 {
 "id": "t2-193",
@@ -4500,7 +4598,8 @@ self.FGC_DATA = {
 "SEN",
 "CAY",
 "UAE"
-]
+],
+"played": true
 },
 {
 "id": "t2-195",
@@ -4518,7 +4617,8 @@ self.FGC_DATA = {
 "TOG",
 "HKG",
 "SUD"
-]
+],
+"played": true
 },
 {
 "id": "t2-194",
@@ -4536,7 +4636,8 @@ self.FGC_DATA = {
 "MAS",
 "GER",
 "ESA"
-]
+],
+"played": true
 },
 {
 "id": "t2-196",
@@ -4554,7 +4655,8 @@ self.FGC_DATA = {
 "BRU",
 "RSA",
 "GAB"
-]
+],
+"played": true
 },
 {
 "id": "t2-198",
@@ -4572,7 +4674,8 @@ self.FGC_DATA = {
 "SWZ",
 "ETH",
 "LAT"
-]
+],
+"played": true
 },
 {
 "id": "t2-197",
@@ -4590,7 +4693,8 @@ self.FGC_DATA = {
 "SRB",
 "ARG",
 "TPE"
-]
+],
+"played": true
 },
 {
 "id": "t2-199",
@@ -4608,7 +4712,8 @@ self.FGC_DATA = {
 "LAO",
 "MLI",
 "BIZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-201",
@@ -4626,7 +4731,8 @@ self.FGC_DATA = {
 "SLO",
 "SOL",
 "DEN"
-]
+],
+"played": true
 },
 {
 "id": "t2-200",
@@ -4644,7 +4750,8 @@ self.FGC_DATA = {
 "ITA",
 "BUR",
 "GRN"
-]
+],
+"played": true
 },
 {
 "id": "t2-202",
@@ -4662,7 +4769,8 @@ self.FGC_DATA = {
 "DJI",
 "MLT",
 "URU"
-]
+],
+"played": true
 },
 {
 "id": "t2-204",
@@ -4680,7 +4788,8 @@ self.FGC_DATA = {
 "CMR",
 "MAD",
 "PUR"
-]
+],
+"played": true
 },
 {
 "id": "t2-203",
@@ -4698,7 +4807,8 @@ self.FGC_DATA = {
 "MKD",
 "CPV",
 "MGL"
-]
+],
+"played": true
 },
 {
 "id": "t2-205",
@@ -4716,7 +4826,8 @@ self.FGC_DATA = {
 "KGZ",
 "IRL",
 "JOR"
-]
+],
+"played": true
 },
 {
 "id": "t2-207",
@@ -4734,7 +4845,8 @@ self.FGC_DATA = {
 "SOM",
 "ALG",
 "TUR"
-]
+],
+"played": true
 },
 {
 "id": "t2-206",
@@ -4752,7 +4864,8 @@ self.FGC_DATA = {
 "CAM",
 "TKM",
 "SSD"
-]
+],
+"played": true
 },
 {
 "id": "t2-208",
@@ -4770,7 +4883,8 @@ self.FGC_DATA = {
 "GAM",
 "SLE",
 "LBA"
-]
+],
+"played": true
 },
 {
 "id": "t2-210",
@@ -4788,7 +4902,8 @@ self.FGC_DATA = {
 "CIV",
 "COL",
 "MOZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-209",
@@ -4806,7 +4921,8 @@ self.FGC_DATA = {
 "FIJ",
 "BAR",
 "PNG"
-]
+],
+"played": true
 },
 {
 "id": "t2-211",
@@ -4824,7 +4940,8 @@ self.FGC_DATA = {
 "VAN",
 "MHL",
 "MRI"
-]
+],
+"played": true
 },
 {
 "id": "t2-213",
@@ -4842,7 +4959,8 @@ self.FGC_DATA = {
 "ALB",
 "MAW",
 "ROU"
-]
+],
+"played": true
 },
 {
 "id": "t2-212",
@@ -4860,7 +4978,8 @@ self.FGC_DATA = {
 "PHI",
 "HAI",
 "SVK"
-]
+],
+"played": true
 },
 {
 "id": "t2-214",
@@ -4878,7 +4997,8 @@ self.FGC_DATA = {
 "IVB",
 "MAR",
 "BIH"
-]
+],
+"played": true
 },
 {
 "id": "t2-216",
@@ -4896,7 +5016,8 @@ self.FGC_DATA = {
 "AUT",
 "TTO",
 "VIN"
-]
+],
+"played": true
 },
 {
 "id": "t2-215",
@@ -4914,7 +5035,8 @@ self.FGC_DATA = {
 "GEQ",
 "NOR",
 "ANT"
-]
+],
+"played": true
 },
 {
 "id": "t2-217",
@@ -4932,7 +5054,8 @@ self.FGC_DATA = {
 "BOT",
 "CHN",
 "GBS"
-]
+],
+"played": true
 },
 {
 "id": "t2-219",
@@ -4950,7 +5073,8 @@ self.FGC_DATA = {
 "FIN",
 "FSM",
 "ASA"
-]
+],
+"played": true
 },
 {
 "id": "t2-218",
@@ -4968,7 +5092,8 @@ self.FGC_DATA = {
 "MDA",
 "NCA",
 "CAY"
-]
+],
+"played": true
 },
 {
 "id": "t2-220",
@@ -4986,7 +5111,8 @@ self.FGC_DATA = {
 "UAE",
 "ISR",
 "STP"
-]
+],
+"played": true
 },
 {
 "id": "t2-222",
@@ -5004,7 +5130,8 @@ self.FGC_DATA = {
 "SWZ",
 "BOL",
 "IRI"
-]
+],
+"played": true
 },
 {
 "id": "t2-221",
@@ -5022,7 +5149,8 @@ self.FGC_DATA = {
 "BHU",
 "NEP",
 "DOM"
-]
+],
+"played": true
 },
 {
 "id": "t2-223",
@@ -5040,7 +5168,8 @@ self.FGC_DATA = {
 "POR",
 "EGY",
 "BUR"
-]
+],
+"played": true
 },
 {
 "id": "t2-225",
@@ -5058,7 +5187,8 @@ self.FGC_DATA = {
 "TUN",
 "MLT",
 "GUY"
-]
+],
+"played": true
 },
 {
 "id": "t2-224",
@@ -5076,7 +5206,8 @@ self.FGC_DATA = {
 "PER",
 "JPN",
 "ECU"
-]
+],
+"played": true
 },
 {
 "id": "t2-226",
@@ -5094,7 +5225,8 @@ self.FGC_DATA = {
 "SRI",
 "TUR",
 "MLI"
-]
+],
+"played": true
 },
 {
 "id": "t2-228",
@@ -5112,7 +5244,8 @@ self.FGC_DATA = {
 "SVK",
 "PAN",
 "NAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-227",
@@ -5130,7 +5263,8 @@ self.FGC_DATA = {
 "LCA",
 "SUD",
 "TJK"
-]
+],
+"played": true
 },
 {
 "id": "t2-229",
@@ -5148,7 +5282,8 @@ self.FGC_DATA = {
 "TKM",
 "SOL",
 "TGA"
-]
+],
+"played": true
 },
 {
 "id": "t2-231",
@@ -5166,7 +5301,8 @@ self.FGC_DATA = {
 "OMA",
 "COD",
 "VAN"
-]
+],
+"played": true
 },
 {
 "id": "t2-230",
@@ -5184,7 +5320,8 @@ self.FGC_DATA = {
 "ARU",
 "UGA",
 "SYR"
-]
+],
+"played": true
 },
 {
 "id": "t2-232",
@@ -5202,7 +5339,8 @@ self.FGC_DATA = {
 "LUX",
 "POL",
 "SLE"
-]
+],
+"played": true
 },
 {
 "id": "t2-234",
@@ -5220,7 +5358,8 @@ self.FGC_DATA = {
 "ITA",
 "CMR",
 "CRO"
-]
+],
+"played": true
 },
 {
 "id": "t2-233",
@@ -5238,7 +5377,8 @@ self.FGC_DATA = {
 "INA",
 "ETH",
 "CRC"
-]
+],
+"played": true
 },
 {
 "id": "t2-235",
@@ -5256,7 +5396,8 @@ self.FGC_DATA = {
 "ERI",
 "URU",
 "FRA"
-]
+],
+"played": true
 },
 {
 "id": "t2-237",
@@ -5274,7 +5415,8 @@ self.FGC_DATA = {
 "MKD",
 "PNG",
 "NGR"
-]
+],
+"played": true
 },
 {
 "id": "t2-236",
@@ -5292,7 +5434,8 @@ self.FGC_DATA = {
 "GAM",
 "HON",
 "CAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-238",
@@ -5310,7 +5453,8 @@ self.FGC_DATA = {
 "MRI",
 "ANT",
 "MAR"
-]
+],
+"played": true
 },
 {
 "id": "t2-240",
@@ -5328,7 +5472,8 @@ self.FGC_DATA = {
 "CHA",
 "NOR",
 "HUN"
-]
+],
+"played": true
 },
 {
 "id": "t2-239",
@@ -5346,7 +5491,8 @@ self.FGC_DATA = {
 "UKR",
 "BAR",
 "TLS"
-]
+],
+"played": true
 },
 {
 "id": "t2-241",
@@ -5364,7 +5510,8 @@ self.FGC_DATA = {
 "KOS",
 "AFG",
 "AZE"
-]
+],
+"played": true
 },
 {
 "id": "t2-243",
@@ -5382,7 +5529,8 @@ self.FGC_DATA = {
 "YEM",
 "GUM",
 "PAR"
-]
+],
+"played": true
 },
 {
 "id": "t2-242",
@@ -5400,7 +5548,8 @@ self.FGC_DATA = {
 "LTU",
 "LES",
 "MOZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-244",
@@ -5418,7 +5567,8 @@ self.FGC_DATA = {
 "ISV",
 "GEQ",
 "HAI"
-]
+],
+"played": true
 },
 {
 "id": "t2-246",
@@ -5436,7 +5586,8 @@ self.FGC_DATA = {
 "UZB",
 "IND",
 "LAT"
-]
+],
+"played": true
 },
 {
 "id": "t2-245",
@@ -5454,7 +5605,8 @@ self.FGC_DATA = {
 "QAT",
 "TAN",
 "GHA"
-]
+],
+"played": true
 },
 {
 "id": "t2-247",
@@ -5472,7 +5624,8 @@ self.FGC_DATA = {
 "CAY",
 "GBR",
 "MTN"
-]
+],
+"played": true
 },
 {
 "id": "t2-249",
@@ -5490,7 +5643,8 @@ self.FGC_DATA = {
 "BOT",
 "CPV",
 "TOG"
-]
+],
+"played": true
 },
 {
 "id": "t2-248",
@@ -5508,7 +5662,8 @@ self.FGC_DATA = {
 "DOM",
 "GUY",
 "BAN"
-]
+],
+"played": true
 },
 {
 "id": "t2-250",
@@ -5526,7 +5681,8 @@ self.FGC_DATA = {
 "GBS",
 "TJK",
 "MDA"
-]
+],
+"played": true
 },
 {
 "id": "t2-252",
@@ -5544,7 +5700,8 @@ self.FGC_DATA = {
 "GUI",
 "POL",
 "CUB"
-]
+],
+"played": true
 },
 {
 "id": "t2-251",
@@ -5562,7 +5719,8 @@ self.FGC_DATA = {
 "JAM",
 "ASA",
 "BOL"
-]
+],
+"played": true
 },
 {
 "id": "t2-253",
@@ -5580,7 +5738,8 @@ self.FGC_DATA = {
 "SLO",
 "URU",
 "GAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-255",
@@ -5598,7 +5757,8 @@ self.FGC_DATA = {
 "ALG",
 "CHN",
 "MLI"
-]
+],
+"played": true
 },
 {
 "id": "t2-254",
@@ -5616,7 +5776,8 @@ self.FGC_DATA = {
 "BEN",
 "BUR",
 "STP"
-]
+],
+"played": true
 },
 {
 "id": "t2-256",
@@ -5634,7 +5795,8 @@ self.FGC_DATA = {
 "SEN",
 "MLT",
 "AUT"
-]
+],
+"played": true
 },
 {
 "id": "t2-258",
@@ -5652,7 +5814,8 @@ self.FGC_DATA = {
 "DEN",
 "ALB",
 "KOS"
-]
+],
+"played": true
 },
 {
 "id": "t2-257",
@@ -5670,7 +5833,8 @@ self.FGC_DATA = {
 "MDV",
 "COM",
 "UKR"
-]
+],
+"played": true
 },
 {
 "id": "t2-259",
@@ -5688,7 +5852,8 @@ self.FGC_DATA = {
 "CHI",
 "MOZ",
 "SUD"
-]
+],
+"played": true
 },
 {
 "id": "t2-261",
@@ -5706,7 +5871,8 @@ self.FGC_DATA = {
 "RSA",
 "HAI",
 "SSD"
-]
+],
+"played": true
 },
 {
 "id": "t2-260",
@@ -5724,7 +5890,8 @@ self.FGC_DATA = {
 "USA",
 "SWZ",
 "RUS"
-]
+],
+"played": true
 },
 {
 "id": "t2-262",
@@ -5742,7 +5909,8 @@ self.FGC_DATA = {
 "GAB",
 "IVB",
 "ERI"
-]
+],
+"played": true
 },
 {
 "id": "t2-264",
@@ -5760,7 +5928,8 @@ self.FGC_DATA = {
 "VEN",
 "ESP",
 "EGY"
-]
+],
+"played": true
 },
 {
 "id": "t2-263",
@@ -5778,7 +5947,8 @@ self.FGC_DATA = {
 "TTO",
 "EST",
 "SOM"
-]
+],
+"played": true
 },
 {
 "id": "t2-265",
@@ -5796,7 +5966,8 @@ self.FGC_DATA = {
 "AFG",
 "ZAM",
 "KGZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-267",
@@ -5814,7 +5985,8 @@ self.FGC_DATA = {
 "SWE",
 "ZIM",
 "GHA"
-]
+],
+"played": true
 },
 {
 "id": "t2-266",
@@ -5832,7 +6004,8 @@ self.FGC_DATA = {
 "HON",
 "CMR",
 "LAO"
-]
+],
+"played": true
 },
 {
 "id": "t2-268",
@@ -7148,5 +7321,6 @@ self.FGC_DATA = {
 "ERI"
 ]
 }
-]
+],
+"alliances": []
 };

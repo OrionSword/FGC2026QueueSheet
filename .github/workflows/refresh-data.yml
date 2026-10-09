@@ -1,0 +1,45 @@
+# Pulls the schedule (including playoff matches and alliances) from results.first.global and
+# commits data.js when it changed. GitHub Pages then redeploys, and phones offer the new
+# schedule within a few minutes (or at once with Menu → Check for schedule update).
+#
+# Run it by hand: GitHub → Actions → "Refresh schedule" → Run workflow (works from the GitHub
+# mobile app). The timer below is a safety net only: GitHub can delay scheduled runs.
+name: Refresh schedule
+on:
+  workflow_dispatch:
+  schedule:
+    # Every 5 minutes, 12:00–20:55 Korea time (03:00–11:55 UTC), 8–11 October.
+    - cron: "*/5 3-11 8-11 10 *"
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch from results.first.global
+        # Exit code 3 = a team without a rendered flag (cannot happen once the event started;
+        # render flags locally with tools/rasterize_flags.mjs). Fail rather than ship it.
+        run: python3 tools/fetch_fgc_data.py
+      - name: Commit if the schedule changed
+        id: commit
+        run: |
+          if git diff --quiet -- data.js; then echo "No change."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.js
+          git commit -m "Refresh schedule from results.first.global ($(grep -o '"rev": "[^"]*"' data.js | cut -d'"' -f4))"
+          git push
+          echo "pushed=1" >> "$GITHUB_OUTPUT"
+      - name: Ask GitHub Pages to rebuild
+        # Pushes made with GITHUB_TOKEN normally trigger the Pages build already; this is a backup.
+        if: steps.commit.outputs.pushed == '1'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
