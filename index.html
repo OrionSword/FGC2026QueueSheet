@@ -127,6 +127,16 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .chip { border: 1.5px solid var(--line); background: var(--surface2); border-radius: 999px; padding: 5px 10px; font-size: 13px; font-weight: 700; white-space: nowrap; }
 .chip.st-queue { background: var(--queue-bg); border-color: var(--queue); color: var(--queue); }
 /* Queue stage (tap the chip to advance): In queue → On deck → On field. */
+.chip.q-idle { background: transparent; border-color: var(--line); color: var(--muted); font-weight: 600; font-size: 12px; padding: 5px 8px; }
+/* Phone portrait: the stage badge and Mark done must fit beside the match number on one line. */
+@media (max-width: 559px) {
+  .meta .row { gap: 6px; }
+  .meta .row .chip { padding: 5px 8px; }
+  .meta .row .chip.q-idle { padding: 5px 6px; font-size: 11px; }
+  .meta .startbtn { padding: 7px 9px; }
+}
+.startbtn .sm { display: none; }
+@media (max-width: 419px) { .startbtn .lg { display: none; } .startbtn .sm { display: inline; } }
 .chip.q-deck { background: var(--deck-bg); border-color: var(--deck); color: var(--deck); }
 .chip.q-field { background: var(--onf); border-color: var(--onf); color: var(--onf-text); }
 .chip.st-done { background: var(--surface2); color: var(--done); }
@@ -404,10 +414,24 @@ function statusOf(m) {
   if (m.played) return "done";  // already played according to results.first.global
   return Object.values(x.t || {}).some(v => v === "full" || v === "rep") ? "queue" : "idle";
 }
-// Where a queuing match is: S.m[id].q ("deck" | "field"), absent = in queue. Independent of status.
-const STAGES = ["", "deck", "field"];
-const STAGE_LABEL = { "": "In queue", deck: "On deck", field: "On field" };
-const stageOf = id => STAGES.includes(peek(id).q) ? peek(id).q || "" : "";
+// Match stage shown on the badge: Scheduled (idle) → In queue → On deck → On field, then Played.
+// While queuing, S.m[id].q holds "deck" | "field" (absent = in queue). Mark done / Start are separate.
+const STAGES = ["idle", "queue", "deck", "field"];
+const STAGE_LABEL = { idle: "Scheduled", queue: "In queue", deck: "On deck", field: "On field", done: "Played" };
+function stageOf(m) {
+  const st = statusOf(m), q = peek(m.id).q;
+  return st === "queue" && (q === "deck" || q === "field") ? q : st;
+}
+// Sets a match's stage. Without an explicit status, a match is Scheduled until a team is marked
+// present and In queue after, so only store one when that rule would give the wrong answer.
+function setStage(m, x, k) {
+  const present = Object.values(x.t).some(v => v === "full" || v === "rep");
+  if (k === "done") x.s = "done";
+  else if (k === "idle" ? !present && !m.played : present && !m.played) delete x.s;
+  else x.s = k === "idle" ? "idle" : "queue";
+  if (k === "deck" || k === "field") x.q = k; else delete x.q;
+  if (x.s !== "done") delete x.d;
+}
 
 let undoSnap = null;
 function snapshot() { undoSnap = JSON.stringify({ m: S.m, r: S.r }); }
@@ -700,13 +724,11 @@ function matchHtml(m) {
   const st = statusOf(m), x = peek(m.id);
   const chip = st === "done"
     ? `<button class="chip st-done" data-act="sheet" data-m="${esc(m.id)}">Played${S.ui.timing && x.d != null ? ` · <span class="delta ${deltaCls(x.d)}">${fmtDelta(x.d)}</span>` : ""}</button>`
-    : st === "queue"
-      ? `<button class="chip st-queue${stageOf(m.id) ? " q-" + stageOf(m.id) : ""}" data-act="stage" data-m="${esc(m.id)}" aria-label="${STAGE_LABEL[stageOf(m.id)]}, tap to advance">${STAGE_LABEL[stageOf(m.id)]}</button>`
-      : "";
-  const start = st === "done" ? "" : `<button class="startbtn" data-act="start" data-m="${esc(m.id)}">${S.ui.timing ? "Start ▶" : "Mark done ✓"}</button>`;
+    : `<button class="chip st-queue q-${stageOf(m)}" data-act="stage" data-m="${esc(m.id)}" aria-label="${STAGE_LABEL[stageOf(m)]}, tap to advance">${STAGE_LABEL[stageOf(m)]}</button>`;
+  const start = st === "done" ? "" : `<button class="startbtn" data-act="start" data-m="${esc(m.id)}">${S.ui.timing ? "Start ▶" : `<span class="lg">Mark done</span><span class="sm">Done</span> ✓`}</button>`;
   const rp = replayEntry(m.id);
   const rpChip = !rp ? "" : `<button class="chip rp" data-act="replay">↻ ${S.r.done[m.id] ? "Replayed" : rp.f ? `Replay · S${rp.s + 1} F${rp.f}` : "Replay"}</button>`;
-  return `<div class="match st-${st}${st === "queue" && stageOf(m.id) ? " q-" + stageOf(m.id) : ""}" id="m-${esc(m.id)}" data-m="${esc(m.id)}">
+  return `<div class="match st-${st}${st === "queue" ? " q-" + stageOf(m) : ""}" id="m-${esc(m.id)}" data-m="${esc(m.id)}">
     <div class="meta">
       <div class="row"><button class="mid" data-act="sheet" data-m="${esc(m.id)}"><span class="mtype t-${m.type}">${TYPE_LABEL[m.type] || esc(m.type)}</span><span class="mnum">${esc(m.label || m.number)}</span></button>${fieldBadge(m)}<span class="time">${hmH(m.t)}</span></div>
       <span class="spacer"></span>
@@ -843,8 +865,8 @@ function cycleTeam(id, c) {
 }
 function cycleStage(id) {
   snapshot();
-  const x = mk(id), nxt = STAGES[(STAGES.indexOf(stageOf(id)) + 1) % STAGES.length];
-  if (nxt) x.q = nxt; else delete x.q;
+  const m = BY_ID.get(id);
+  setStage(m, mk(id), STAGES[(STAGES.indexOf(stageOf(m)) + 1) % STAGES.length]);
   prune(id); save(); rerenderMatch(id);
 }
 function startMatch(id) {
@@ -921,8 +943,8 @@ function openMatchSheet(id) {
       <div class="btns"><button class="btn" data-a="rpopen">↻ Replay planner</button><button class="btn danger" data-a="rpoff">Remove replay flag</button></div>`;
   };
   const draw = () => {
-    const x = peek(id), st = statusOf(m);
-    const sbtn = (s, l) => `<button class="btn ${st === s ? "on" : ""}" data-a="status" data-s="${s}">${l}</button>`;
+    const x = peek(id);
+    const sbtn = s => `<button class="btn ${stageOf(m) === s ? "on" : ""}" data-a="status" data-s="${s}">${STAGE_LABEL[s]}${s === "done" ? " ✕" : ""}</button>`;
     const trow = c => {
       const v = x.t[c] || "";
       const b = (k, l) => `<button class="btn ${v === k ? "on" : ""}" data-a="mark" data-t="${esc(c)}" data-k="${k}">${l}</button>`;
@@ -932,10 +954,9 @@ function openMatchSheet(id) {
     return `${closeBtn}<h2>${TYPE_LABEL[m.type] || ""} ${esc(m.label || m.number)}</h2>
       <div class="btns" style="align-items:center">${fieldBadge(m)}<span class="time">${hmH(m.t)}</span><span class="note">${fDay.format(m.t)}</span></div>
       <h3>Status</h3>
-      <div class="btns">${sbtn("idle", "Not started")}${sbtn("queue", "Queuing")}${sbtn("done", "Played ✕")}</div>
-      ${st === "queue" ? `<div class="btns" style="margin-top:8px">${STAGES.map(k => `<button class="btn ${stageOf(id) === k ? "on" : ""}" data-a="stage" data-k="${k}">${STAGE_LABEL[k]}</button>`).join("")}</div>` : ""}
+      <div class="btns">${[...STAGES, "done"].map(sbtn).join("")}</div>
       ${rpHtml()}
-      ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose “Not started” or “Queuing” to reopen it for a replay.</p>` : ""}
+      ${m.played ? `<p class="note">Listed as played on results.first.global${x.s && x.s !== "done" ? ", but reopened here (replay)" : ""}. Choose any other stage to reopen it for a replay.</p>` : ""}
       ${S.ui.timing ? `<h3>Start time vs schedule (minutes)</h3>
       <div class="stepper"><button class="btn" data-a="d" data-v="-5">−5</button><button class="btn" data-a="d" data-v="-1">−1</button>
         <span class="val delta ${x.d == null ? "none" : deltaCls(x.d)}">${x.d == null ? "—" : fmtDelta(x.d)}</span>
@@ -958,16 +979,11 @@ function openMatchSheet(id) {
     snapshot();
     const x = mk(id);
     switch (b.dataset.a) {
-      case "status":
-        // "Not started" on a match the results site lists as played must be stored explicitly (e.g. a replay).
-        if (b.dataset.s === "idle" && !Object.keys(x.t).length && !m.played) delete x.s; else x.s = b.dataset.s;
-        if (x.s !== "done") delete x.d;
-        break;
+      case "status": setStage(m, x, b.dataset.s); break;
       case "d": x.d = (x.d || 0) + Number(b.dataset.v); x.s = "done"; break;
       case "dnow": x.d = clockDelta(m); x.s = "done"; break;
       case "dzero": x.d = 0; x.s = "done"; break;
       case "dclear": delete x.d; break;
-      case "stage": if (b.dataset.k) x.q = b.dataset.k; else delete x.q; break;
       case "mark": if (b.dataset.k) x.t[b.dataset.t] = b.dataset.k; else delete x.t[b.dataset.t]; break;
       case "clearall": if (!confirm("Clear all marks for this match?")) return; delete S.m[id]; break;
     }
@@ -995,7 +1011,7 @@ function openMenu() {
     <label class="toggle">24-hour clock <input type="checkbox" data-a="h24" ${S.ui.h24 ? "checked" : ""}></label>
     ${"wakeLock" in navigator ? `<label class="toggle">Keep screen awake <input type="checkbox" data-a="wake" ${S.ui.wake ? "checked" : ""}></label>` : ""}
     <h3>How to mark</h3>
-    <p class="note">Tap a team to cycle its mark. Once a team is marked, tap the match's badge to move it from In queue to On deck to On field. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. ${S.ui.timing ? "“Start ▶” crosses the match out and records how many minutes late/early it started." : "“Mark done ✓” crosses the match out."}</p>
+    <p class="note">Tap a team to cycle its mark. Tap a match's badge to move it from Scheduled to In queue, On deck and On field; marking the first team moves it to In queue. Tap the match number (or long-press a match) for all match options, including <b>Catching up</b>: mark every match above it as played. ${S.ui.timing ? "“Start ▶” crosses the match out and records how many minutes late/early it started." : "“Mark done ✓” crosses the match out."}</p>
     <p class="note"><b>Replays</b> (↻ at the top): flag a match from its sheet or add it by number in the planner. The planner orders them on the side fields so no team plays two at once, adds breaks for back-to-back teams and says where each team goes next.</p>
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
     <h3>Saved on this phone</h3>

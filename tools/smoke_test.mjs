@@ -84,33 +84,42 @@ try {
     check(before === "red" && await leftOf() === "blue", "alliance side setting puts Blue on the left and persists");
     await ctx.close();
   }
-  // 2b. The queue badge appears once a team is marked and taps through In queue → On deck → On field,
-  //     separately from Mark done.
+  // 2b. Every open match has a stage badge: Scheduled until a team is marked, then In queue; tapping it
+  //     steps Scheduled → In queue → On deck → On field → Scheduled, separately from Mark done.
   {
     const { ctx, p } = await page(null);
     await p.locator('[data-unit="all"]').tap();
-    const r = () => row(p, open[2].number);
-    check(await r().locator(".chip.st-queue").count() === 0, "no queue badge before any team is marked");
+    const r = () => row(p, open[2].number), chip = () => r().locator(".chip.st-queue");
+    const badge = async () => (await chip().innerText()).trim();
+    const color = async () => chip().evaluate(e => getComputedStyle(e).backgroundColor + getComputedStyle(e).color);
+    check(await badge() === "Scheduled", "an unmarked match shows “Scheduled”");
+    const cs = [await color()];
     await r().locator(".team").first().tap();
-    const badge = async () => (await r().locator(".chip.st-queue").innerText()).trim();
-    check(await badge() === "In queue", "marking a team shows “In queue”");
-    const color = async () => r().locator(".chip.st-queue").evaluate(e => getComputedStyle(e).backgroundColor);
-    const c0 = await color();
-    await r().locator(".chip.st-queue").tap();
-    const c1 = await color();
+    check(await badge() === "In queue", "marking the first team switches to “In queue”");
+    cs.push(await color());
+    await chip().tap();
     check(await badge() === "On deck", "tapping the badge advances to “On deck”");
-    await r().locator(".chip.st-queue").tap();
-    const c2 = await color();
+    cs.push(await color());
+    await chip().tap();
     check(await badge() === "On field", "tapping again advances to “On field”");
-    check(new Set([c0, c1, c2]).size === 3, "each queue stage has its own colour");
+    cs.push(await color());
+    check(new Set(cs).size === 4, "each stage has its own colour");
     check(await p.locator(".sheet").count() === 0, "tapping the badge does not open the match sheet");
     await p.reload(); await p.waitForSelector(".match");
-    check(await badge() === "On field", "queue stage persists across reload");
-    check((await r().locator(".startbtn").innerText()).includes("Mark done"), "Mark done button unaffected by the stage");
-    await r().locator(".chip.st-queue").tap();
-    check(await badge() === "In queue", "a further tap wraps back to “In queue”");
+    check(await badge() === "On field", "stage persists across reload");
+    check((await r().locator(".startbtn").innerText()).includes("Done ✓"), "Mark done button unaffected by the stage");
+    await chip().tap();
+    check(await badge() === "Scheduled", "a further tap wraps back to “Scheduled”");
     await r().locator(".startbtn").tap();
     check((await r().locator(".chip").innerText()).trim() === "Played", "Mark done still crosses out a staged match");
+    // Without any team marks the badge can still be advanced.
+    const r2 = () => row(p, open[3].number), chip2 = () => r2().locator(".chip.st-queue");
+    await chip2().tap(); await chip2().tap();
+    check((await chip2().innerText()).trim() === "On deck", "an unmarked match can be advanced to “On deck”");
+    await r2().locator(".team").first().tap();
+    check((await chip2().innerText()).trim() === "On deck", "marking a team keeps a later stage");
+    await chip2().tap(); await chip2().tap();
+    check((await chip2().innerText()).trim() === "Scheduled", "a marked match can be set back to “Scheduled”");
     await ctx.close();
   }
   // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
@@ -119,7 +128,7 @@ try {
     const { ctx, p } = await page(null);
     await p.locator('[data-unit="all"]').tap();
     const r = row(p, open[0].number);
-    check((await r.locator(".startbtn").innerText()).includes("Mark done"), "default button reads “Mark done”");
+    check((await r.locator(".startbtn").innerText()).includes("Done ✓"), "default button reads “Done ✓” (short for Mark done on phones)");
     await r.locator(".mid").tap();
     check(await p.locator('.sheet [data-a="dzero"]').count() === 0, "no delta controls in the match sheet by default");
     await p.locator('.sheet [data-a="close"]').tap();
