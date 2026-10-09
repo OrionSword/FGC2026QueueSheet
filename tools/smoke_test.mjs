@@ -79,6 +79,12 @@ try {
     check(await p.locator(".brk.lunch").count() >= 1, "lunch break marker present");
     const days = new Set(D.matches.map(m => new Date(m.time).toLocaleDateString("en-CA", { timeZone: D.event.tz }))).size;
     check(days > 1 && await p.locator(".brk.eod").count() === days - 1, `an end-of-day divider between each of the ${days} days`);
+    // First-visit dots: one filled dot per team per unit (F1·2 / F3 / F4·5), one ring per extra field of a pair.
+    const unitOf = f => f <= 2 ? "12" : f === 3 ? "3" : "45";
+    const units = new Set(), fields = new Set();
+    D.matches.forEach(m => [...m.red, ...m.blue].forEach(c => { units.add(c + unitOf(m.field)); fields.add(c + "F" + m.field); }));
+    check(await p.locator("#list .fv.unit").count() === units.size && await p.locator("#list .fv.field").count() === fields.size - units.size,
+      `first-visit dots: ${units.size} first-at-pair, ${fields.size - units.size} first-at-other-field`);
     check(await p.locator(".team img.flag").count() > 0, "flags render");
     await ctx.close();
   }
