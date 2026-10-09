@@ -32,8 +32,10 @@ const check = (ok, msg) => { console.log(`${ok ? "PASS" : "FAIL"}  ${msg}`); if 
 
 const browser = await chromium.launch();
 const errors = [];
-async function page(isoNow, { frozen = true, viewport = { width: 400, height: 860 } } = {}) {
-  const ctx = await browser.newContext({ viewport, isMobile: true, hasTouch: true });
+async function page(isoNow, { frozen = true, viewport = { width: 400, height: 860 }, data = null, sw = true } = {}) {
+  // data: a replacement data.js (playoff scenarios); service workers are blocked so the route applies.
+  const ctx = await browser.newContext({ viewport, isMobile: true, hasTouch: true, serviceWorkers: sw && !data ? "allow" : "block" });
+  if (data) await ctx.route(/\/data\.js(\?|$)/, r => r.fulfill({ contentType: "text/javascript", body: typeof data === "function" ? data(r.request().url()) : data }));
   if (isoNow) await ctx.addInitScript(([t, frozen]) => {
     const T = Date.parse(t), real = Date.now.bind(Date), off = T - real();
     Date.now = frozen ? () => T : () => real() + off;
@@ -328,6 +330,107 @@ try {
     await p.locator("#rpBtn").tap();
     check(JSON.stringify(await readPlan()) === JSON.stringify(plan), "replay plan persists across reload");
     await ctx.close();
+  }
+  // 7. Playoffs (2026 manual §6.4–6.7). Eight four-team alliances; Table 6-2 fixes the 16 playoff
+  //    matches, Table 6-3 the 3 finals. Before the site publishes them, the phone builds them.
+  {
+    const PO = [[4, 7], [5, 6], [3, 8], [1, 2], [5, 4], [3, 6], [2, 7], [1, 8], [3, 4], [2, 5], [1, 6], [7, 8], [2, 3], [1, 4], [5, 8], [6, 7]];
+    const codes = Object.keys(D.teams).sort().slice(0, 32), AL = {};
+    for (let n = 1; n <= 8; n++) AL[n] = codes.slice((n - 1) * 4, n * 4);
+    const name = c => D.teams[c].country || D.teams[c].name;
+    const text = Object.entries(AL).map(([n, t]) => `${n}: ${n === "2" ? t.map(name).join(", ") : t.join(" ")}`).join("\n");
+    const { ctx, p } = await page(null);
+    check(await p.locator(".po-wait").count() === 1, "before the playoffs: a card says where they will come from");
+    await p.locator("#menuBtn").tap(); await p.locator('.sheet [data-a="po"]').tap();
+    await p.locator("#poText").fill(text); await p.locator('.po [data-a="paste"]').tap();
+    check(await p.locator(".po .po-slot:not(.empty)").count() === 32, "pasted alliances (codes or country names) fill all 32 slots");
+    await p.locator('.po [data-a="apply"]').first().tap();
+    await p.waitForSelector(".po .lu-card");
+    check(await p.locator(".po .lu-card").count() === 8, "Build schedule: the Playoffs screen reopens with 8 alliance cards");
+    await p.locator('.po [data-a="close"]').tap();
+    await p.locator('[data-unit="all"]').tap();
+    const rr = p.locator('#list .match[data-m^="t3-"]');
+    check(await rr.count() === 16, "16 playoff matches built on the phone (Table 6-2)");
+    const sides = await rr.evaluateAll(es => es.map(e => [...e.querySelectorAll(".alliance")].map(a => a.dataset.al)));
+    check(sides.every((s, i) => s[0] === `Red · Alliance ${PO[i][0]}` && s[1] === `Blue · Alliance ${PO[i][1]}`), "each match pairs the alliances of Table 6-2, labelled on the alliance bars");
+    check(await rr.first().locator(".team").count() === 8 && (await rr.first().locator(".time").innerText()).startsWith("~"), "four teams per side; estimated times shown with ~");
+    // Who sits out: Alliance 1 plays matches 4, 8, 11, 14. The same team sits out 4, 8 and 11: on
+    // match 14, the alliance's last playoff match, it must play.
+    const lineup = async (n, al, c) => {
+      await p.locator(`#m-t3-${n} .alliance.${al} .lineup`).tap();
+      await p.locator(`.sheet [data-a="out"][data-al="${al}"][data-t="${c}"]`).tap();
+      await p.locator('.sheet [data-a="close"]').tap();
+    };
+    const d = AL[1][3];
+    await lineup(4, "red", d); await lineup(8, "red", d);
+    check(await p.locator(`#m-t3-4 .team.out[data-t="${d}"]`).count() === 1 && (await p.locator("#m-t3-4 .alliance.red .lineup").innerText()).includes("Sits out"),
+      "the team sitting out is shown faded, and the side's button names it");
+    check(await p.locator(`#m-t3-11 .team[data-t="${d}"] .lu.new`).count() === 1, "a team that has not played yet is tagged on the alliance's next match");
+    await lineup(11, "red", d);
+    check(await p.locator(`#m-t3-14 .team[data-t="${d}"] .lu.must`).count() === 1 && await p.locator("#m-t3-14 .alliance.red .lu.must").count() === 1,
+      "on the alliance's last playoff match, the team that never played is flagged “Must play” (T01)");
+    await lineup(14, "red", d);
+    check(await p.locator(`#m-t3-14 .team[data-t="${d}"] .lu.bad`).count() === 1, "sitting it out there too is flagged as a T01 problem");
+    await p.reload(); await p.waitForSelector(".match");
+    check(await p.locator(`#m-t3-8 .team.out[data-t="${d}"]`).count() === 1, "line-ups persist across a reload");
+    // Alliances screen: the line-up grid, and the finals from the top three.
+    await p.locator('#list [data-act="po"]').first().tap();
+    const card = p.locator(".po .lu-card").first();
+    check((await card.locator(".lu-tr").nth(4).locator(".lu-cell").allInnerTexts()).join("") === "––––", "alliance card: the team's record across its playoff matches");
+    check(await card.locator(".rp-msg.bad").count() === 1, "alliance card warns that a team has not played and no playoff match is left for it");
+    for (const [i, n] of [[0, 3], [1, 1], [2, 6]]) await p.locator(`.po [data-a="top"][data-i="${i}"][data-n="${n}"]`).tap();
+    await p.locator('.po [data-a="apply"]').first().tap();
+    await p.waitForSelector(".po .lu-card");
+    await p.locator('.po [data-a="close"]').tap();
+    const fin = await p.locator('#list .match[data-m^="t4-"]').evaluateAll(es => es.map(e => [...e.querySelectorAll(".alliance")].map(a => a.dataset.al.replace(/^\w+ · Alliance /, "")).join("v")));
+    check(fin.join() === "3v6,6v1,1v3", "finals: #1 v #3, #3 v #2, #2 v #1 (Table 6-3)");
+    const store = await p.evaluate(() => localStorage.getItem(Object.keys(localStorage).find(k => k.startsWith("fgcq:"))));
+    await ctx.close();
+
+    // The official schedule arrives (same ids as the site uses): it replaces the phone's, marks stay.
+    // Match 4 is published with only the three teams that play: the fourth shows as sitting out.
+    const day = new Date(D.matches.at(-1).time).toLocaleDateString("en-CA", { timeZone: D.event.tz });
+    const off = D.matches.at(-1).time.match(/([+-]\d\d:\d\d|Z)$/)[0];
+    const off1 = AL[2][1];
+    const official = {
+      ...D, event: { ...D.event, rev: "official1" },
+      matches: [...D.matches, ...PO.map(([r, bl], i) => ({
+        id: `t3-${i + 1}`, type: "playoff", stage: "Round Robin", number: i + 1, name: `Round Robin Match ${i + 1}`, field: 2,
+        time: new Date(Date.parse(`${day}T14:30:00${off}`) + i * 6 * 60e3).toISOString(),
+        red: i === 3 ? AL[r] : AL[r], blue: i === 3 ? AL[bl].filter(c => c !== off1) : AL[bl] }))],
+      alliances: Object.entries(AL).map(([n, t]) => ({ n: +n, name: `Alliance ${n}`, teams: t, rounds: ["round_robin"] })),
+    };
+    const js = o => `self.FGC_DATA = ${JSON.stringify(o)};`;
+    {
+      const { ctx, p } = await page(null, { data: js(official) });
+      await p.evaluate(([k, s]) => localStorage.setItem(k, s), ["fgcq:" + D.event.id, store]);
+      await p.reload(); await p.waitForSelector(".match");
+      await p.locator('[data-unit="all"]').tap();
+      const r4 = p.locator("#m-t3-4");
+      check(await p.locator('#list .match[data-m^="t3-"]').count() === 16 && await r4.locator(".fld.f2").count() === 1 && !(await r4.locator(".time").innerText()).startsWith("~"),
+        "official playoff matches replace the phone's (official field and times)");
+      check(await p.locator(`#m-t3-8 .team.out[data-t="${d}"]`).count() === 1, "line-ups recorded before the official schedule are kept");
+      check(await r4.locator(`.alliance.blue .team.out[data-t="${off1}"]`).count() === 1 && await r4.locator(".alliance.blue .lineup").count() === 0,
+        "a side published with three teams shows the alliance's fourth as sitting out");
+      check(await p.locator('#list .match[data-m^="t4-"]').count() === 3, "finals typed on the phone stay until the site publishes its own");
+      await ctx.close();
+    }
+    // A newer schedule on the server: the phone offers to load it.
+    {
+      const newer = { ...official, event: { ...official.event, rev: "official2" } };
+      const { ctx, p } = await page(null, { data: url => js(url.includes("fresh=") ? newer : official) });
+      await p.locator("#menuBtn").tap(); await p.locator('.sheet [data-a="update"]').tap();
+      await p.waitForSelector("#updBar:not(.hidden)");
+      check(await p.locator("#updBar").isVisible(), "a newer data.js on the server shows the “New schedule” bar");
+      await ctx.close();
+    }
+    {
+      const { ctx, p } = await page(null, { data: js(official) });
+      await p.locator("#menuBtn").tap(); await p.locator('.sheet [data-a="update"]').tap();
+      await p.waitForSelector(".toast");
+      check((await p.locator(".toast").innerText()).includes("up to date") && await p.locator("#updBar").isHidden(), "same schedule: “up to date”, no bar");
+      await ctx.close();
+    }
   }
   // 5. Works offline after the first visit (service worker cache).
   {

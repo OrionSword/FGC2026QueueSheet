@@ -13,6 +13,7 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 | `flags/*.png` | Official FIRST Global flags, rendered from the site's SVGs. |
 | `sw.js`, `manifest.webmanifest`, `icon.svg`, `apple-touch-icon.png` | Offline support and "Add to Home screen" (the PNG is the iPhone home-screen icon). |
 | `tools/fetch_fgc_data.py`, `tools/rasterize_flags.mjs` | Rebuild `data.js` and `flags/` from the results site. |
+| `.github/workflows/refresh-data.yml` | Re-runs `fetch_fgc_data.py` on GitHub (by hand or on a timer) and commits `data.js` when the schedule changed. |
 | `tools/make_icons.mjs` | Rebuild `apple-touch-icon.png` from `icon.svg`. |
 | `tools/smoke_test.mjs` | End-to-end check in headless Chromium (see *Testing*). |
 | `CLAUDE.md` | Notes and ground rules for AI-assisted changes. |
@@ -41,6 +42,12 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
   * never puts a team in two matches in the same slot, avoids back-to-back slots for a team, and shows a **Break** banner where it cannot be avoided. Then it keeps the number of slots low and the walking short (fields 1–5 are in a line), alternating the two fields of a pair.
   * lists teams with more than one replay in the summary, outlines them in purple with *1/2*, *2/2*…, and tells them where to go next: *Stay at F2 Red*, *Stay on F2, switch to Blue*, or *Go to F4 Blue (2 fields toward F5)*.
   * *Played ✓* marks a replay done; played replays never move again. *✎ Edit order* moves a replay to an earlier/later slot or another field (swapping with whatever is there). After hand edits, newly added replays are slotted in without moving the others, and *↻ Re-optimize* re-plans everything not yet played.
+* **Playoffs** (2026 Game Manual §6.4–6.7). Eight four-team **tournament alliances**, fixed for the rest of the event (Table 6-1: alliance N = ranked #N, #N+8, #25−N plus a random draw). Sixteen **playoff matches** in a fixed order (Table 6-2), four per alliance, no elimination inside them. The top three alliances by total playoff score play three **finals** (Table 6-3: #1 v #3, #3 v #2, #2 v #1). Only three of an alliance's four teams play each match, and **every team must play at least one playoff match (T01)**; finals have no such rule.
+  * Playoff matches show their stage (*Round Robin*, *Finals*) and the alliance on each bar (*Red · Alliance 4*). Each side of four has a **Who sits out?** button: pick the team sitting out, and it shows faded with *Sits out*.
+  * Tags on open playoff matches: *Not played yet* (orange) on a team the alliance has not used yet, **Must play** (red) on the alliance's last playoff match, and *Sits out · has not played!* when the line-up would break T01. They only appear once line-ups are recorded (a *?* means some earlier line-up is missing).
+  * **🏆 Alliances** (menu, the Playoffs day header, or a playoff match's options): one card per alliance, with a ✓ / – / ? grid of who played each of its matches, how many each team played, and T01 warnings.
+  * **Getting the schedule in.** results.first.global publishes the alliances and all 16 matches (all four members of each alliance listed per side) once alliances are formed. `tools/fetch_fgc_data.py` imports them; run it, or the GitHub workflow below, and phones show a yellow **New schedule** bar (they check every 3 minutes while open and online, or at once with **Menu → Check for schedule update**). Tap **Load now**. Marks are kept.
+  * **If the site is late:** in 🏆 Alliances, fill the alliances on the phone (tap each slot and search, or paste text such as `1: KAZ, ARU, BOL, JAM`, one alliance per line, codes or country names), set the field and start time, and tap **Build schedule**. The app builds the 16 matches from Table 6-2 with the same match ids the site uses (`t3-1`…`t3-16`), with estimated times (shown *~2:00*). *Copy alliances as text* shares them with other queuers to paste. For the finals, pick the top three. When the official schedule arrives it replaces the phone's, and every mark and line-up is kept.
 * **Menu**: filter by match type, hide played matches, alliance on the left, track start times, keep screen awake, legend, export/import a backup JSON (marks, stages, replays and notes; not display settings), reset.
 
 Marks, stages, replays and notes are saved to `localStorage` on every tap (keyed by `event.id` in `data.js`). They survive refreshes, navigation and restarts. The app also asks the browser for persistent storage. They are per phone and never shared between phones (move them with a backup if needed).
@@ -75,11 +82,20 @@ Everything comes from https://results.first.global/, which is the authority for 
 To refresh (e.g. when playoff matches are published):
 
 ```sh
-python3 tools/fetch_fgc_data.py      # writes data.js, caches official SVGs in tools/.flag-cache/
-node tools/rasterize_flags.mjs       # needs the playwright package + Chromium
+python3 tools/fetch_fgc_data.py      # writes data.js if the schedule changed, caches official SVGs in tools/.flag-cache/
+node tools/rasterize_flags.mjs       # only when it reports flags not yet rendered (needs playwright + Chromium)
 ```
 
-`rasterize_flags.mjs` renders whatever SVGs `fetch_fgc_data.py` cached, so run them in that order. Then run the smoke test, commit and push. Match IDs and the event ID stay the same, so marks already on phones are kept. Phones pick up the new data the next time they open the page online (the first open after an update may still show the old version).
+`rasterize_flags.mjs` renders whatever SVGs `fetch_fgc_data.py` cached, so run them in that order. `data.js` carries a `rev` (a hash of teams, schedule and alliances, not of played flags), and is only rewritten when it changes; `--force` rewrites it anyway (to refresh played flags).
+
+Playoffs: every match that is not practice or ranking is a `playoff` match with a `stage` (*Round Robin*, *Finals*), and the alliances (`alliances_*` on the site: captain + three picks) are written to `alliances` with the rounds each is in and its playoff rank. The site does not publish which three teams played; volunteers record it.
+
+**Playoff day, fastest path.** The site has no CORS, so phones cannot read it directly; they read `data.js` from GitHub Pages instead.
+1. As soon as the alliances or matches show on results.first.global: GitHub → **Actions → Refresh schedule → Run workflow** (works from the GitHub mobile app). It fetches, commits `data.js` to `main` only if something changed, and Pages redeploys in about a minute. It also runs by itself every 5 minutes, 12:00–21:00 Korea time, 8–11 October, but GitHub may delay timed runs.
+2. Phones show the **New schedule** bar within 3 minutes (or straight away with *Check for schedule update*).
+3. If the site is slow, queuers can build the schedule on their phones from the announced alliances (see *Playoffs* above) and keep working; the official data replaces it later without losing marks.
+
+**Rehearsing** with a past event, whose playoffs used the same format (2022–2025 manuals match 2026 for Table 6-1/6-2/6-3 and T01): `python3 tools/fetch_fgc_data.py --source /history/2025 --out /tmp/data2025.js`, then serve that file as `data.js` (never commit it). Then run the smoke test, commit and push. Match IDs and the event ID stay the same, so marks already on phones are kept. Phones pick up the new data the next time they open the page online (the first open after an update may still show the old version).
 
 ## Testing
 
@@ -96,6 +112,7 @@ It serves the folder locally and checks, in a phone-sized headless Chromium:
 * start-time tracking off by default (Mark done), and the on-time rule at the minute boundaries;
 * catch-up and Undo;
 * replays: flagging, adding by number, no clashes, side fields only, breaks for back-to-back teams, hand edits and persistence;
+* playoffs: alliances pasted as text, the 16 matches built from Table 6-2 and finals from Table 6-3, who sits out, the T01 tags and warnings, an official schedule replacing the phone's (marks kept, a three-team side showing the fourth as sitting out), and the *New schedule* bar;
 * offline loading.
 
 Expectations come from `data.js`, so it keeps passing after a data refresh. It exits non-zero on any failure.
