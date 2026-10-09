@@ -59,6 +59,8 @@ try {
     check(await p.locator(".match").count() === D.matches.length, `All view shows all ${D.matches.length} matches`);
     check(await p.locator(".match.st-done").count() === played, `${played} matches imported as played`);
     check(await p.locator(".brk.lunch").count() >= 1, "lunch break marker present");
+    const days = new Set(D.matches.map(m => new Date(m.time).toLocaleDateString("en-CA", { timeZone: D.event.tz }))).size;
+    check(days > 1 && await p.locator(".brk.eod").count() === days - 1, `an end-of-day divider between each of the ${days} days`);
     check(await p.locator(".team img.flag").count() > 0, "flags render");
     await ctx.close();
   }

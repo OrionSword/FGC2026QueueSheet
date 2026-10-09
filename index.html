@@ -21,7 +21,7 @@
   --deck: #0e7490; --deck-bg: #d5f6fb; --onf: #1b7f3b; --onf-text: #ffffff;
   --done: #4a5260; --late: #b3261e; --early: #1b7f3b;
   /* Field colours used at the event: 1 orange, 2 pink, 3 purple, 4 light blue, 5 green. */
-  --brk: #00838f; --brk-bg: #e0f7fa;
+  --brk: #00838f; --brk-bg: #e0f7fa; --eod: #1b2330; --eod-line: #1b2330;
   --f1: #f57c00; --f2: #ec4899; --f3: #7b2cbf; --f4: #4fc3f7; --f5: #2e9e44;
   --accent: #1e5bc6; --rp: #6d28d9; --rp-bg: #efe7ff;
 }
@@ -34,7 +34,7 @@
     --unk: #ff6ec7; --unk-bg: #48163a; --queue: #ffb057; --queue-bg: #3a2a12;
     --deck: #5ee0f5; --deck-bg: #0e2f38; --onf: #5fd68a; --onf-text: #111;
     --done: #8a93a3; --late: #ff7b72; --early: #5fd68a;
-    --accent: #7aa7ff; --brk: #4dd0e1; --brk-bg: #0f2f33; --rp: #c4a5ff; --rp-bg: #2a1f45;
+    --accent: #7aa7ff; --brk: #4dd0e1; --brk-bg: #0f2f33; --eod: #2a3345; --eod-line: #5b6880; --rp: #c4a5ff; --rp-bg: #2a1f45;
   }
 }
 * { box-sizing: border-box; }
@@ -101,6 +101,8 @@ main { padding: 0 max(6px, env(safe-area-inset-right)) 96px max(6px, env(safe-ar
 .brk.short { background: var(--brk-bg); color: var(--text); border: 2px dashed var(--brk); padding: 8px 12px; }
 .brk.short .ico { font-size: 20px; }
 .brk.short .lbl { font-size: 16px; color: var(--brk); }
+.brk.eod { background: var(--eod); color: #eef1f6; border: 2px solid var(--eod-line); margin: 14px 0 10px; }
+.brk.eod .lbl { font-size: 20px; }
 .nowline { display: flex; align-items: center; gap: 6px; color: var(--accent); font-size: 12px; font-weight: 700; margin: 4px 0; }
 .nowline::before, .nowline::after { content: ""; flex: 1; height: 2px; background: var(--accent); }
 .empty { text-align: center; color: var(--muted); padding: 40px 10px; }
@@ -451,6 +453,7 @@ let fTime;
 const setClock = () => { fTime = new Intl.DateTimeFormat("en-US", { timeZone: TZ, hour: "numeric", minute: "2-digit", hourCycle: S.ui.h24 ? "h23" : "h12" }); };
 setClock();
 const fDay = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, weekday: "long", day: "numeric", month: "long" });
+const fWeekday = new Intl.DateTimeFormat("en-GB", { timeZone: TZ, weekday: "long" });
 const fDayKey = new Intl.DateTimeFormat("en-CA", { timeZone: TZ, year: "numeric", month: "2-digit", day: "2-digit" });
 const hm = t => fTime.format(t);
 // Same, with a smaller AM/PM for the big time displays.
@@ -495,6 +498,13 @@ const BREAKS = (() => {
   }
   return out;
 })();
+// First and last match start of each competition day (event-wide), for the end-of-day dividers.
+const DAYS = new Map();
+for (const m of MATCHES) {
+  const k = fDayKey.format(m.t), d = DAYS.get(k);
+  if (!d) DAYS.set(k, { first: m.t, last: m.t });
+  else { d.first = Math.min(d.first, m.t); d.last = Math.max(d.last, m.t); }
+}
 
 /* ---------- Replay planning ---------- */
 // Replays never use Field 3; they go to the side-field pairs. Each pair plays one match at a
@@ -754,12 +764,15 @@ function render(scroll) {
   if (u.fields.length > 1 && S.ui.unit === "all") sub.innerHTML = [0, ...u.fields].map(f => `<button data-field="${f}" class="${S.ui.field === f ? "on" : ""}">${f || "All"}</button>`).join("");
 
   const ms = viewMatches();
-  let html = "", lastDay = "", lastType = "", prevT = null;
+  let html = "", lastDay = "", lastType = "", prevT = null, shownDay = "";
   for (const m of ms) {
     for (const b of BREAKS) if (prevT != null && prevT <= b.from && b.to <= m.t) html += breakHtml(b);
     prevT = m.t;
     if (S.ui.hideDone && statusOf(m) === "done") continue;
     const dk = fDayKey.format(m.t);
+    // End of a competition day, unless every match of that day is hidden.
+    if (shownDay && shownDay !== dk) html += endOfDayHtml(shownDay, m.t);
+    shownDay = dk;
     if (dk !== lastDay || m.type !== lastType) {
       html += `<div class="dayhead">${fDay.format(m.t)} · ${TYPE_LABEL[m.type] || esc(m.type)}</div>`;
       lastDay = dk; lastType = m.type;
@@ -778,6 +791,10 @@ function breakHtml(b) {
   return b.lunch
     ? `<div class="brk lunch" role="separator"><span class="ico">🍴</span><div><div class="lbl">Lunch break</div><div class="sub">Last match ${hm(b.from)} · resumes <b>${hm(b.to)}</b></div></div></div>`
     : `<div class="brk short" role="separator"><span class="ico">☕</span><div><div class="lbl">Break</div><div class="sub">Last match ${hm(b.from)} · resumes <b>${hm(b.to)}</b></div></div></div>`;
+}
+
+function endOfDayHtml(dk, next) {
+  return `<div class="brk eod" role="separator"><span class="ico">🌙</span><div><div class="lbl">End of day</div><div class="sub">Last match ${hm(DAYS.get(dk).last)} · resumes ${fWeekday.format(next)} <b>${hm(DAYS.get(fDayKey.format(next)).first)}</b></div></div></div>`;
 }
 
 function rerenderMatch(id) {
