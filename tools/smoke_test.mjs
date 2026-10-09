@@ -188,6 +188,16 @@ try {
     await p.locator('.tpage [data-a="close"]').tap(); await p.waitForTimeout(100);
     check(await p.locator("#overlayRoot").innerHTML() === "", "✕ closes every stacked screen");
     check(await p.evaluate(() => history.state) === null, "✕ leaves no stray history entries (Back then leaves the app)");
+    // The match sheet too: ✕, tapping outside it, and going on to the replay planner.
+    const noEntry = async () => p.evaluate(() => history.state === null && !document.querySelector("#overlayRoot").innerHTML);
+    await row(p, m.number).locator(".mid").tap(); await p.locator('.sheet [data-a="close"]').tap(); await p.waitForTimeout(150);
+    check(await noEntry(), "match sheet ✕ drops its history entry");
+    await row(p, m.number).locator(".mid").tap(); await p.mouse.click(5, 5); await p.waitForTimeout(150);
+    check(await noEntry(), "tapping outside the match sheet drops its history entry");
+    await row(p, m.number).locator(".mid").tap(); await p.locator('.sheet [data-a="rpon"]').tap(); await p.locator('.sheet [data-a="rpopen"]').tap();
+    check(await p.locator(".rpl").count() === 1, "Replay planner opens from the match sheet");
+    await p.goBack(); await p.waitForTimeout(150);
+    check(await noEntry(), "one Back closes the planner opened from the match sheet");
     await ctx.close();
   }
   // 2d. Team notes: typed on the team page, saved, shown in search and the match sheet.
