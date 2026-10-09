@@ -84,6 +84,35 @@ try {
     check(before === "red" && await leftOf() === "blue", "alliance side setting puts Blue on the left and persists");
     await ctx.close();
   }
+  // 2b. The queue badge appears once a team is marked and taps through In queue → On deck → On field,
+  //     separately from Mark done.
+  {
+    const { ctx, p } = await page(null);
+    await p.locator('[data-unit="all"]').tap();
+    const r = () => row(p, open[2].number);
+    check(await r().locator(".chip.st-queue").count() === 0, "no queue badge before any team is marked");
+    await r().locator(".team").first().tap();
+    const badge = async () => (await r().locator(".chip.st-queue").innerText()).trim();
+    check(await badge() === "In queue", "marking a team shows “In queue”");
+    const color = async () => r().locator(".chip.st-queue").evaluate(e => getComputedStyle(e).backgroundColor);
+    const c0 = await color();
+    await r().locator(".chip.st-queue").tap();
+    const c1 = await color();
+    check(await badge() === "On deck", "tapping the badge advances to “On deck”");
+    await r().locator(".chip.st-queue").tap();
+    const c2 = await color();
+    check(await badge() === "On field", "tapping again advances to “On field”");
+    check(new Set([c0, c1, c2]).size === 3, "each queue stage has its own colour");
+    check(await p.locator(".sheet").count() === 0, "tapping the badge does not open the match sheet");
+    await p.reload(); await p.waitForSelector(".match");
+    check(await badge() === "On field", "queue stage persists across reload");
+    check((await r().locator(".startbtn").innerText()).includes("Mark done"), "Mark done button unaffected by the stage");
+    await r().locator(".chip.st-queue").tap();
+    check(await badge() === "In queue", "a further tap wraps back to “In queue”");
+    await r().locator(".startbtn").tap();
+    check((await r().locator(".chip").innerText()).trim() === "Played", "Mark done still crosses out a staged match");
+    await ctx.close();
+  }
   // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
   //     sheet has no delta controls. The menu switch turns it on.
   {
