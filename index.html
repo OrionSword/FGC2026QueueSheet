@@ -272,12 +272,11 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .sres .next b { font-size: 18px; }
 .sres .dir { font-size: 20px; font-weight: 900; }
 .slist { display: grid; gap: 3px; }
-.sitem { display: grid; align-items: center; gap: 6px; padding: 6px; border-radius: 8px; background: var(--surface2); border: 0; text-align: left; font-size: 14px; }
+.sitem { display: grid; grid-template-columns: 5.2em 3.2em 5em 1fr 1em; align-items: center; gap: 6px; padding: 6px; border-radius: 8px; background: var(--surface2); border: 0; text-align: left; font-size: 14px; }
 .sitem.past { opacity: .5; }
 /* Expandable matches on team cards */
 .sx > summary { list-style: none; cursor: pointer; }
 .sx > summary::-webkit-details-marker { display: none; }
-.sitem { grid-template-columns: 5.2em 3.2em 5em 1fr 1em; }
 .sitem .chev { font-size: 20px; font-weight: 900; color: var(--muted); transition: transform .15s; text-align: center; }
 .sx[open] > .sitem { opacity: 1; box-shadow: inset 0 0 0 2px var(--accent); border-radius: 8px 8px 0 0; }
 .sx[open] > .sitem .chev { transform: rotate(90deg); }
@@ -954,7 +953,7 @@ let listDirty = false;  // set by the replay planner; the list is redrawn once i
 // Screens opened on top of another overlay (team page from a match sheet, etc.) stack up:
 // Back (phone or ‹ button) returns to the one underneath, ✕ closes them all. The overlay keeps a
 // single history entry whatever the depth; Back re-adds it when it returns to a lower screen.
-let navStack = [], navCur = null, navQuiet = false;
+let navStack = [], navCur = null, navQuiet = false, navSkipPop = false;
 // Every overlay calls this once it is drawn. snap() returns a function that redraws it as it is now.
 function navOpened(snap) {
   navCur = snap || null;
@@ -966,7 +965,18 @@ function openNested(open) {
   navStack.push(navCur()); navQuiet = true;
   try { open(); } finally { navQuiet = false; }
 }
-function exitOverlay() { navStack = []; history.back(); }
+// ✕ and other ways out: close at once and drop the overlay's history entry, so the phone's Back
+// does not need an extra press afterwards.
+function exitOverlay() {
+  const pop = !!(history.state && history.state.overlay);
+  closeOverlay();
+  if (pop) { navSkipPop = true; history.back(); }
+}
+// Replace the open overlay with another, reusing its history entry.
+function swapOverlay(open) {
+  navStack = []; navQuiet = true;
+  try { open(); } finally { navQuiet = false; }
+}
 const backBtn = () => navStack.length ? `<button class="iconbtn back" data-a="back" aria-label="Back">‹</button>` : "";
 function closeOverlay() {
   if (noteTimer) { clearTimeout(noteTimer); noteTimer = null; save(); }
@@ -977,17 +987,18 @@ function closeOverlay() {
 function openSheet(html, onClick, snap) {
   overlayRoot.innerHTML = `<div class="scrim"></div><div class="sheet" role="dialog">${html}</div>`;
   document.body.style.overflow = "hidden";
-  overlayRoot.querySelector(".scrim").onclick = closeOverlay;
+  overlayRoot.querySelector(".scrim").onclick = exitOverlay;
   overlayRoot.querySelector(".sheet").addEventListener("click", e => {
     const b = e.target.closest("[data-a]");
     if (!b) return;
-    if (b.dataset.a === "close") return closeOverlay();
+    if (b.dataset.a === "close") return exitOverlay();
     if (b.dataset.a === "back") return history.back();
     onClick(b, e);
   });
   navOpened(snap);
 }
 window.addEventListener("popstate", () => {
+  if (navSkipPop) { navSkipPop = false; return; }  // the entry exitOverlay() just dropped
   if (!overlayRoot.innerHTML) return;
   if (!navStack.length) return closeOverlay();
   const reopen = navStack.pop();
@@ -1045,8 +1056,8 @@ function openMatchSheet(id) {
   };
   openSheet(draw(), b => {
     if (b.dataset.a === "tpage") return openNested(() => openTeam(b.dataset.t));
-    if (b.dataset.a === "bulk") { closeOverlay(); markEarlierDone(m, b.dataset.all === "1"); return; }
-    if (b.dataset.a === "rpopen") { closeOverlay(); openReplays(); return; }
+    if (b.dataset.a === "bulk") { exitOverlay(); markEarlierDone(m, b.dataset.all === "1"); return; }
+    if (b.dataset.a === "rpopen") { swapOverlay(openReplays); return; }
     if (b.dataset.a === "rpon" || b.dataset.a === "rpoff") {
       setReplay([id], b.dataset.a === "rpon");
       const sheet = overlayRoot.querySelector(".sheet"), top = sheet.scrollTop;
@@ -1093,12 +1104,12 @@ function openMenu() {
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
     <h3>Saved on this phone</h3>
     <p class="note">${counts.done} matches played · ${counts.marks} team marks${Object.keys(S.n).length ? ` · ${Object.keys(S.n).length} team notes` : ""}. Saved automatically on every tap.</p>
-    <div class="btns"><button class="btn" data-a="export">Export backup</button><button class="btn" data-a="import">Import backup</button><button class="btn danger" data-a="reset">Reset all marks and replays</button></div>
+    <div class="btns"><button class="btn" data-a="export">Export backup</button><button class="btn" data-a="import">Import backup</button><button class="btn danger" data-a="reset">Reset all marks, replays and notes</button></div>
     <h3>Data</h3>
     <p class="note">${MATCHES.length} matches, ${Object.keys(TEAMS).length} teams.<br>Source: ${esc(D.event.source || "")}</p>`,
   b => {
     switch (b.dataset.a) {
-      case "type": S.ui.type = b.dataset.k; save(); closeOverlay(); render(true); break;
+      case "type": S.ui.type = b.dataset.k; save(); exitOverlay(); render(true); break;
       case "hide": S.ui.hideDone = b.checked; save(); render(false); break;
       case "wake": S.ui.wake = b.checked; save(); applyWake(); break;
       case "swap":
@@ -1111,7 +1122,7 @@ function openMenu() {
       case "import": importBackup(); break;
       case "reset":
         if (confirm("Erase ALL marks, replay flags and team notes on this phone? This cannot be undone (except by importing a backup).")) {
-          snapshot(); S.m = {}; S.r = normReplays(); S.n = {}; save(); closeOverlay(); render(true); toast("All marks reset", [["Undo", undo]]);
+          snapshot(); S.m = {}; S.r = normReplays(); S.n = {}; save(); exitOverlay(); render(true); toast("All marks reset", [["Undo", undo]]);
         }
         break;
     }
@@ -1135,7 +1146,7 @@ function importBackup() {
       const p = JSON.parse(txt);
       if (!p || typeof p.m !== "object") throw new Error("not a backup file");
       if (p.event !== D.event.id && !confirm(`Backup is for "${p.event}", not "${D.event.id}". Import anyway?`)) return;
-      snapshot(); S.m = p.m; if (p.r) S.r = normReplays(p.r); if (p.n) S.n = normNotes(p.n); save(); closeOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
+      snapshot(); S.m = p.m; if (p.r) S.r = normReplays(p.r); if (p.n) S.n = normNotes(p.n); save(); exitOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
     }).catch(e => alert("Could not import: " + e.message));
   };
   inp.click();
