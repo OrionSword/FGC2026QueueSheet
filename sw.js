@@ -1,9 +1,9 @@
 // Offline cache: serve from cache immediately, refresh in the background.
 // Bump CACHE when shipping a new data.js so phones pick it up promptly.
 importScripts("data.js");
-const CACHE = "fgcq-v5";
+const CACHE = "fgcq-v6";
 const FLAGS = Object.values((self.FGC_DATA && self.FGC_DATA.teams) || {}).map(t => t.flag).filter(Boolean);
-const CORE = ["./", "index.html", "data.js", "manifest.webmanifest", "icon.svg", ...new Set(FLAGS)];
+const CORE = ["./", "index.html", "data.js", "manifest.webmanifest", "icon.svg", "apple-touch-icon.png", ...new Set(FLAGS)];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(CORE)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));

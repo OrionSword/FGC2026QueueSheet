@@ -11,8 +11,9 @@ A digital replacement for the paper queuing schedule at the FIRST Global Challen
 | `index.html` | The whole app (HTML, CSS, JS inline). |
 | `data.js` | Schedule and teams, generated from results.first.global. Do not edit by hand. |
 | `flags/*.png` | Official FIRST Global flags, rendered from the site's SVGs. |
-| `sw.js`, `manifest.webmanifest`, `icon.svg` | Offline support and "Add to Home screen". |
+| `sw.js`, `manifest.webmanifest`, `icon.svg`, `apple-touch-icon.png` | Offline support and "Add to Home screen" (the PNG is the iPhone home-screen icon). |
 | `tools/fetch_fgc_data.py`, `tools/rasterize_flags.mjs` | Rebuild `data.js` and `flags/` from the results site. |
+| `tools/make_icons.mjs` | Rebuild `apple-touch-icon.png` from `icon.svg`. |
 | `tools/smoke_test.mjs` | End-to-end check in headless Chromium (see *Testing*). |
 | `CLAUDE.md` | Notes and ground rules for AI-assisted changes. |
 
@@ -44,7 +45,7 @@ Marks and replays are saved to `localStorage` on every tap (keyed by `event.id` 
 
 ## Deploying to phones
 
-The best option is to serve the folder over HTTPS, e.g. GitHub Pages (Settings → Pages → deploy from this branch). Open it once in Chrome on each phone and use **⋮ → Add to Home screen**. The service worker then caches it so it works offline. "Keep screen awake" needs HTTPS.
+The best option is to serve the folder over HTTPS, e.g. GitHub Pages (Settings → Pages → deploy from this branch). Open it once in Chrome on each Android phone and use **⋮ → Add to Home screen**, or in Safari on each iPhone and use **Share → Add to Home Screen**. The service worker then caches it so it works offline. "Keep screen awake" needs HTTPS.
 
 Opening `index.html` directly from the phone's storage also works, but offline caching and wake lock are unavailable there.
 
@@ -53,7 +54,9 @@ Opening `index.html` directly from the phone's storage also works, but offline c
 1. On GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch**.
 2. Pick `main` and the `/ (root)` folder, then **Save**.
 3. After a minute or two the site is live at `https://<owner>.github.io/<repo>/`. The URL is shown at the top of the Pages settings.
-4. On each phone, open that URL in Chrome and choose **⋮ → Add to Home screen → Install**. Every file, flags included, is cached on that first visit, so it then works with no signal.
+4. On each phone, open that URL and install it. Every file, flags included, is cached on that first visit, so it then works with no signal.
+   * **Android:** in Chrome, **⋮ → Add to Home screen → Install**.
+   * **iPhone / iPad:** in Safari (or, on iOS 16.4+, Chrome or Edge), **Share → Add to Home Screen → Add**. On iOS the installed app keeps its own data, separate from Safari's, so install first and mark only in the installed app. (A Safari tab's marks can be moved with **Menu → Export backup** there and **Import backup** in the app; display settings are not included.)
 5. To publish updates, push to the same branch. Pages redeploys automatically, and phones get the new version the next time they open the app while online.
 
 Notes: Pages sites are public, although the URL is not advertised; the schedule is public anyway, and the volunteers' marks never leave the phone. Free accounts need a public repository for Pages. Private repositories need a paid plan.
