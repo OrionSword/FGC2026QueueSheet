@@ -284,6 +284,11 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .sbody { border: 2px solid var(--accent); border-top: 0; border-radius: 0 0 10px 10px; padding: 4px; margin-bottom: 6px; }
 .sbody .match { margin: 0 0 6px; }
 .sbody > .btns { justify-content: flex-end; }
+.tnote { display: grid; gap: 4px; margin: 8px 0; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.tnote textarea { font: 500 16px/1.35 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-transform: none; letter-spacing: 0; color: var(--text); background: var(--surface2);
+  border: 1.5px solid var(--line); border-radius: 10px; padding: 8px 10px; resize: vertical; min-height: 2.9em; width: 100%; }
+.tnote textarea:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+.trow .who .tn { display: block; font-weight: 500; font-size: 13px; color: var(--muted); white-space: pre-wrap; overflow-wrap: anywhere; }
 .team.me { outline: 3px solid var(--text); outline-offset: 1px; } /* the page's own team: not an alliance colour */
 .sres .who { width: 100%; background: none; border: 0; padding: 0; text-align: left; color: inherit; }
 .who .go, .trow .who .go { margin-left: auto; font-size: 22px; font-weight: 900; color: var(--muted); }
@@ -415,10 +420,12 @@ function normReplays(r) {
 /* ---------- Persistence ---------- */
 const KEY = "fgcq:" + D.event.id;
 const DEFAULT_UI = { unit: "12", field: 0, hideDone: false, type: "all", wake: false, h24: false, timing: false, swap: false };
-let S = { v: 1, m: {}, ui: { ...DEFAULT_UI }, r: normReplays() };
+// n: free-text notes per team code (team pages).
+let S = { v: 1, m: {}, ui: { ...DEFAULT_UI }, r: normReplays(), n: {} };
+const normNotes = n => n && typeof n === "object" ? Object.fromEntries(Object.entries(n).filter(([, v]) => typeof v === "string" && v.trim())) : {};
 try {
   const raw = localStorage.getItem(KEY);
-  if (raw) { const p = JSON.parse(raw); if (p && p.m) S = { v: 1, m: p.m, ui: { ...DEFAULT_UI, ...(p.ui || {}) }, r: normReplays(p.r) }; }
+  if (raw) { const p = JSON.parse(raw); if (p && p.m) S = { v: 1, m: p.m, ui: { ...DEFAULT_UI, ...(p.ui || {}) }, r: normReplays(p.r), n: normNotes(p.n) }; }
 } catch (e) { console.error(e); }
 let saveFailed = false;
 function save() {
@@ -427,7 +434,7 @@ function save() {
 }
 if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
 // Another tab of the same page changed the data: pick it up.
-window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { try { const p = JSON.parse(e.newValue); S.m = p.m || {}; S.r = normReplays(p.r); render(false); } catch (_) {} } });
+window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { try { const p = JSON.parse(e.newValue); S.m = p.m || {}; S.r = normReplays(p.r); S.n = normNotes(p.n); render(false); } catch (_) {} } });
 
 const mk = id => S.m[id] || (S.m[id] = { t: {} });
 const peek = id => S.m[id] || { t: {} };
@@ -458,11 +465,11 @@ function setStage(m, x, k) {
 }
 
 let undoSnap = null;
-function snapshot() { undoSnap = JSON.stringify({ m: S.m, r: S.r }); }
+function snapshot() { undoSnap = JSON.stringify({ m: S.m, r: S.r, n: S.n }); }
 function undo() {
   if (!undoSnap) return;
   const u = JSON.parse(undoSnap); undoSnap = null;
-  S.m = u.m; S.r = normReplays(u.r);
+  S.m = u.m; S.r = normReplays(u.r); S.n = normNotes(u.n);
   save(); if (document.querySelector(".rpl")) drawReplays(); render(false); toast("Undone");
 }
 
@@ -961,6 +968,7 @@ function openNested(open) {
 function exitOverlay() { navStack = []; history.back(); }
 const backBtn = () => navStack.length ? `<button class="iconbtn back" data-a="back" aria-label="Back">‹</button>` : "";
 function closeOverlay() {
+  if (noteTimer) { clearTimeout(noteTimer); noteTimer = null; save(); }
   navStack = []; navCur = null;
   overlayRoot.innerHTML = ""; document.body.style.overflow = "";
   if (listDirty) { listDirty = false; render(false); }
@@ -1015,7 +1023,7 @@ function openMatchSheet(id) {
     const trow = c => {
       const v = x.t[c] || "";
       const b = (k, l) => `<button class="btn ${v === k ? "on" : ""}" data-a="mark" data-t="${esc(c)}" data-k="${k}">${l}</button>`;
-      return `<div class="trow"><button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}</span><span class="go">›</span></button>
+      return `<div class="trow"><button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}${S.n[c] ? `<small class="tn">📝 ${esc(S.n[c])}</small>` : ""}</span><span class="go">›</span></button>
         <div class="btns">${b("", "—")}${b("full", "✓ Full")}${b("rep", "R Rep")}${b("unk", "? Unknown")}</div></div>`;
     };
     return `${sheetTop()}<h2>${TYPE_LABEL[m.type] || ""} ${esc(m.label || m.number)}</h2>
@@ -1083,7 +1091,7 @@ function openMenu() {
     <p class="note"><b>Replays</b> (↻ at the top): flag a match from its sheet or add it by number in the planner. The planner orders them on the side fields so no team plays two at once, adds breaks for back-to-back teams and says where each team goes next.</p>
     <div class="legend">${legendTeam("", "No mark yet")}${legendTeam("full", "✓ Full team with robot")}${legendTeam("rep", "R Representative only, no robot")}${legendTeam("unk", "? Not heard from / status unknown")}</div>
     <h3>Saved on this phone</h3>
-    <p class="note">${counts.done} matches played · ${counts.marks} team marks. Saved automatically on every tap.</p>
+    <p class="note">${counts.done} matches played · ${counts.marks} team marks${Object.keys(S.n).length ? ` · ${Object.keys(S.n).length} team notes` : ""}. Saved automatically on every tap.</p>
     <div class="btns"><button class="btn" data-a="export">Export backup</button><button class="btn" data-a="import">Import backup</button><button class="btn danger" data-a="reset">Reset all marks and replays</button></div>
     <h3>Data</h3>
     <p class="note">${MATCHES.length} matches, ${Object.keys(TEAMS).length} teams.<br>Source: ${esc(D.event.source || "")}</p>`,
@@ -1110,7 +1118,7 @@ function openMenu() {
 }
 
 function exportBackup() {
-  const blob = new Blob([JSON.stringify({ event: D.event.id, exported: new Date().toISOString(), m: S.m, r: S.r }, null, 1)], { type: "application/json" });
+  const blob = new Blob([JSON.stringify({ event: D.event.id, exported: new Date().toISOString(), m: S.m, r: S.r, n: S.n }, null, 1)], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);
   a.download = `queue-sheet-${D.event.id}-${new Date().toISOString().slice(0, 16).replace(/[:T]/g, "")}.json`;
@@ -1126,7 +1134,7 @@ function importBackup() {
       const p = JSON.parse(txt);
       if (!p || typeof p.m !== "object") throw new Error("not a backup file");
       if (p.event !== D.event.id && !confirm(`Backup is for "${p.event}", not "${D.event.id}". Import anyway?`)) return;
-      snapshot(); S.m = p.m; if (p.r) S.r = normReplays(p.r); save(); closeOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
+      snapshot(); S.m = p.m; if (p.r) S.r = normReplays(p.r); if (p.n) S.n = normNotes(p.n); save(); closeOverlay(); render(true); toast("Backup imported", [["Undo", undo]]);
     }).catch(e => alert("Could not import: " + e.message));
   };
   inp.click();
@@ -1341,7 +1349,9 @@ function teamCardHtml(c, page) {
         <span><span class="al-${al}">${al === "red" ? "Red" : "Blue"}</span> ${v ? MARK_INFO[v].glyph + " " + MARK_INFO[v].label : ""} <span class="note">${fWeekday.format(m.t)}</span></span><span class="chev" aria-hidden="true">›</span></summary>
       <div class="sbody">${matchHtml(m, true)}<div class="btns"><button class="btn" data-a="go" data-m="${esc(m.id)}">Show in schedule</button></div></div></details>`;
   }).join("");
-  return `<div class="sres" data-c="${esc(c)}">${page ? "" : `<button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}</span><span class="go">›</span></button>`}${nextHtml}${rps}<div class="slist">${items}</div></div>`;
+  return `<div class="sres" data-c="${esc(c)}">${page ? "" : `<button class="who" data-a="tpage" data-t="${esc(c)}">${flagHtml(c)}<span>${esc(teamName(c))}</span><span class="go">›</span></button>`}${nextHtml}${rps}
+    <label class="tnote"><span>Notes</span><textarea data-note="${esc(c)}" rows="2" placeholder="Notes for queuers about this team…" autocapitalize="sentences">${esc(S.n[c] || "")}</textarea></label>
+    <div class="slist">${items}</div></div>`;
 }
 // Outline the card's own team inside its expanded matches.
 function markOwnTeam(box) {
@@ -1349,8 +1359,22 @@ function markOwnTeam(box) {
 }
 // Which matches are expanded and how far the box is scrolled, to redraw it the same way.
 const boxState = box => ({ top: box.scrollTop, open: [...box.querySelectorAll("details[open]")].map(d => [d.closest(".sres").dataset.c, d.dataset.k]) });
+// Team notes: kept in S.n as they are typed, saved shortly after typing stops.
+const growNote = t => { t.style.height = "auto"; t.style.height = t.scrollHeight + 2 + "px"; };
+let noteTimer = null;
+function bindNotes(root) {
+  root.addEventListener("input", e => {
+    const t = e.target.closest("textarea[data-note]"); if (!t) return;
+    const c = t.dataset.note;
+    if (t.value.trim()) S.n[c] = t.value; else delete S.n[c];
+    growNote(t);
+    clearTimeout(noteTimer); noteTimer = setTimeout(() => { noteTimer = null; save(); }, 400);
+  });
+  root.addEventListener("focusout", e => { if (e.target.matches("textarea[data-note]") && noteTimer) { clearTimeout(noteTimer); noteTimer = null; save(); } });
+}
 function drawBox(box, html, st) {
   box.innerHTML = html; markOwnTeam(box);
+  box.querySelectorAll("textarea[data-note]").forEach(growNote);
   if (!st) return;
   for (const [c, k] of st.open) { const d = box.querySelector(`.sres[data-c="${CSS.escape(c)}"] details[data-k="${CSS.escape(k)}"]`); if (d) d.open = true; }
   box.scrollTop = st.top;
@@ -1390,6 +1414,7 @@ function openTeam(c, st) {
   const box = document.getElementById("tp");
   const draw = s => drawBox(box, teamCardHtml(c, true), s);
   draw(st);
+  bindNotes(box);
   overlayRoot.querySelector(".tpage").addEventListener("click", e => {
     const b = e.target.closest("[data-a],[data-act]"); if (b) teamCardClick(b, () => draw(boxState(box)));
   });
@@ -1403,6 +1428,7 @@ function openSearch(text = "", st) {
   document.body.style.overflow = "hidden";
   const q = document.getElementById("q"), sr = document.getElementById("sr");
   q.value = text;
+  bindNotes(sr);
   overlayRoot.querySelector(".search").addEventListener("click", e => {
     const b = e.target.closest("[data-a],[data-act]"); if (b) teamCardClick(b, () => run(boxState(sr)));
   });

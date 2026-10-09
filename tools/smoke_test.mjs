@@ -181,6 +181,26 @@ try {
     check(await p.evaluate(() => history.state) === null, "✕ leaves no stray history entries (Back then leaves the app)");
     await ctx.close();
   }
+  // 2d. Team notes: typed on the team page, saved, shown in search and the match sheet.
+  {
+    const { ctx, p } = await page(null);
+    await p.locator('[data-unit="all"]').tap();
+    const m = open[5], c = m.blue[0], name = D.teams[c].country || D.teams[c].name;
+    await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
+    await p.locator(`.tpage textarea[data-note="${c}"]`).fill("Robot battery issue\nAsk for Ana");
+    await p.locator('.tpage [data-a="close"]').tap(); await p.waitForTimeout(100);
+    await p.reload(); await p.waitForSelector(".match");
+    await p.locator("#searchBtn").tap(); await p.locator("#q").fill(name);
+    check(await p.locator(`.sres textarea[data-note="${c}"]`).inputValue() === "Robot battery issue\nAsk for Ana", "team note persists across reload and shows in search");
+    await p.locator(`.sres[data-c="${c}"] details[data-k="${m.id}"] summary`).tap();
+    await p.locator(`.sres[data-c="${c}"] details[data-k="${m.id}"] .mid`).tap();
+    check((await p.locator(`.sheet [data-a="tpage"][data-t="${c}"] .tn`).innerText()).includes("Robot battery issue"), "team note shows under the team in the match sheet");
+    await p.locator('.sheet [data-a="back"]').tap(); await p.waitForTimeout(100);
+    await p.locator(`.sres textarea[data-note="${c}"]`).fill("");
+    await p.locator('.search [data-a="close"]').tap(); await p.waitForTimeout(100);
+    check(await p.evaluate(k => Object.keys(JSON.parse(localStorage.getItem(k)).n || {}).length, Object.keys(await p.evaluate(() => ({ ...localStorage }))).find(k => k.startsWith("fgcq:"))) === 0, "clearing a note removes it");
+    await ctx.close();
+  }
   // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
   //     sheet has no delta controls. The menu switch turns it on.
   {
