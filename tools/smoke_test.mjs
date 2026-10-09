@@ -49,7 +49,18 @@ async function enableTiming(p) {
   await p.locator('.sheet [data-a="timing"]').check();
   await p.locator('.sheet [data-a="close"]').tap();
 }
-const row = (p, n) => p.locator(".match", { has: p.locator(".mnum", { hasText: new RegExp(`^${n}$`) }) });
+// A real touch long-press (touchstart, hold, touchend) through the DevTools protocol.
+async function longPress(p, loc) {
+  await loc.evaluate(e => e.scrollIntoView({ block: "center" }));
+  await p.waitForTimeout(150);
+  const b = await loc.boundingBox(), x = b.x + b.width / 2, y = b.y + b.height / 2;
+  const cdp = await p.context().newCDPSession(p);
+  await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x, y }] });
+  await p.waitForTimeout(700);
+  await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+  await p.waitForTimeout(100);
+}
+const row = (p, n) => p.locator("#list .match", { has: p.locator(".mnum", { hasText: new RegExp(`^${n}$`) }) });
 
 try {
   // 1. Everything renders; site-played matches show as played; breaks are marked.
@@ -59,6 +70,8 @@ try {
     check(await p.locator(".match").count() === D.matches.length, `All view shows all ${D.matches.length} matches`);
     check(await p.locator(".match.st-done").count() === played, `${played} matches imported as played`);
     check(await p.locator(".brk.lunch").count() >= 1, "lunch break marker present");
+    const days = new Set(D.matches.map(m => new Date(m.time).toLocaleDateString("en-CA", { timeZone: D.event.tz }))).size;
+    check(days > 1 && await p.locator(".brk.eod").count() === days - 1, `an end-of-day divider between each of the ${days} days`);
     check(await p.locator(".team img.flag").count() > 0, "flags render");
     await ctx.close();
   }
@@ -120,6 +133,72 @@ try {
     check((await chip2().innerText()).trim() === "On deck", "marking a team keeps a later stage");
     await chip2().tap(); await chip2().tap();
     check((await chip2().innerText()).trim() === "Scheduled", "a marked match can be set back to “Scheduled”");
+    await ctx.close();
+  }
+  // 2c. Team pages: search results expand each match into the full card; long-press on a team opens
+  //     its page; a team name in the match sheet opens it too; Back returns to the screen underneath.
+  {
+    const { ctx, p } = await page(null);
+    await p.locator('[data-unit="all"]').tap();
+    const m = open[4], c = m.red[0], cName = D.teams[c].country || D.teams[c].name, partner = m.red[1];
+    // Search: expand one of the team's matches.
+    await p.locator("#searchBtn").tap();
+    await p.locator("#q").fill(cName);
+    const card = p.locator(`.sres[data-c="${c}"]`);
+    const item = card.locator(`details[data-k="${m.id}"]`);
+    check(await item.locator(".match").isHidden(), "search result matches start collapsed");
+    await item.locator("summary").tap();
+    check(await item.locator(".match.mini .team").count() === m.red.length + m.blue.length, "expanded match shows both full alliances");
+    check(await item.locator(`.team.me[data-t="${c}"]`).count() === 1, "the searched team is outlined in its match");
+    await item.locator(`.team[data-t="${partner}"]`).tap();
+    check(await card.locator(`details[data-k="${m.id}"][open] .team.m-full[data-t="${partner}"]`).count() === 1, "marking a team inside the card works and keeps it expanded");
+    await card.locator(`details[data-k="${m.id}"] [data-a="go"]`).tap();
+    await p.waitForTimeout(1200);
+    check(await p.locator(".search").count() === 0 && await row(p, m.number).locator(`.team.m-full[data-t="${partner}"]`).count() === 1, "Show in schedule closes search; the mark is on the list");
+    // Long-press a team in the list: its page opens and the team is not marked.
+    const before = await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class");
+    await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
+    check(await p.locator(`.tpage .ttl`).innerText() === cName, "long-press on a team opens its team page");
+    check(await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class") === before, "long-press does not change the team's mark");
+    check(await p.locator('.tpage [data-a="back"]').count() === 0, "team page from the list has no Back button");
+    await p.goBack(); await p.waitForTimeout(100);
+    check(await p.locator(".tpage").count() === 0, "phone Back closes the team page");
+    // Long-press elsewhere on a match: its sheet. Tap a team name there: that team's page, then Back.
+    await longPress(p, row(p, m.number).locator(".time"));
+    check(await p.locator(".sheet h2").count() === 1, "long-press on a match opens its sheet");
+    await p.locator(`.sheet [data-a="tpage"][data-t="${partner}"]`).tap();
+    check(await p.locator(".tpage .ttl").innerText() === (D.teams[partner].country || D.teams[partner].name), "team name in the match sheet opens its team page");
+    await p.locator(`.tpage details[data-k="${m.id}"] summary`).tap();
+    await longPress(p, p.locator(`.tpage details[data-k="${m.id}"] .team[data-t="${c}"]`));
+    check(await p.locator(".tpage .ttl").innerText() === cName, "long-press on a partner inside a team page opens the partner's page");
+    await p.locator('.tpage [data-a="back"]').tap(); await p.waitForTimeout(100);
+    check(await p.locator(`.tpage details[data-k="${m.id}"][open]`).count() === 1, "Back returns to the previous team page as it was");
+    await p.goBack(); await p.waitForTimeout(100);
+    check(await p.locator(".sheet h2").count() === 1, "phone Back returns from a team page to the match sheet");
+    await p.locator(`.sheet [data-a="tpage"][data-t="${partner}"]`).tap();
+    await p.locator('.tpage [data-a="close"]').tap(); await p.waitForTimeout(100);
+    check(await p.locator("#overlayRoot").innerHTML() === "", "✕ closes every stacked screen");
+    check(await p.evaluate(() => history.state) === null, "✕ leaves no stray history entries (Back then leaves the app)");
+    await ctx.close();
+  }
+  // 2d. Team notes: typed on the team page, saved, shown in search and the match sheet.
+  {
+    const { ctx, p } = await page(null);
+    await p.locator('[data-unit="all"]').tap();
+    const m = open[5], c = m.blue[0], name = D.teams[c].country || D.teams[c].name;
+    await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
+    await p.locator(`.tpage textarea[data-note="${c}"]`).fill("Robot battery issue\nAsk for Ana");
+    await p.locator('.tpage [data-a="close"]').tap(); await p.waitForTimeout(100);
+    await p.reload(); await p.waitForSelector(".match");
+    await p.locator("#searchBtn").tap(); await p.locator("#q").fill(name);
+    check(await p.locator(`.sres textarea[data-note="${c}"]`).inputValue() === "Robot battery issue\nAsk for Ana", "team note persists across reload and shows in search");
+    await p.locator(`.sres[data-c="${c}"] details[data-k="${m.id}"] summary`).tap();
+    await p.locator(`.sres[data-c="${c}"] details[data-k="${m.id}"] .mid`).tap();
+    check((await p.locator(`.sheet [data-a="tpage"][data-t="${c}"] .tn`).innerText()).includes("Robot battery issue"), "team note shows under the team in the match sheet");
+    await p.locator('.sheet [data-a="back"]').tap(); await p.waitForTimeout(100);
+    await p.locator(`.sres textarea[data-note="${c}"]`).fill("");
+    await p.locator('.search [data-a="close"]').tap(); await p.waitForTimeout(100);
+    check(await p.evaluate(k => Object.keys(JSON.parse(localStorage.getItem(k)).n || {}).length, Object.keys(await p.evaluate(() => ({ ...localStorage }))).find(k => k.startsWith("fgcq:"))) === 0, "clearing a note removes it");
     await ctx.close();
   }
   // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
