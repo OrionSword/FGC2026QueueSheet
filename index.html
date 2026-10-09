@@ -298,6 +298,7 @@ img.flag { filter: drop-shadow(0 0 .5px rgba(0,0,0,.6)); }
 .sheet .back { position: sticky; top: 0; float: left; margin-right: 8px; }
 /* Long-press must not select text or pop up the iOS callout. */
 .match, .team { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+body.lp, body.lp * { -webkit-touch-callout: none !important; -webkit-user-select: none !important; user-select: none !important; }
 .sitem .al-red { color: var(--red); font-weight: 800; } .sitem .al-blue { color: var(--blue); font-weight: 800; }
 
 /* Replay planner (full screen, same frame as search) */
@@ -1109,8 +1110,8 @@ function openMenu() {
       case "export": exportBackup(); break;
       case "import": importBackup(); break;
       case "reset":
-        if (confirm("Erase ALL marks and replay flags on this phone? This cannot be undone (except by importing a backup).")) {
-          snapshot(); S.m = {}; S.r = normReplays(); save(); closeOverlay(); render(true); toast("All marks reset", [["Undo", undo]]);
+        if (confirm("Erase ALL marks, replay flags and team notes on this phone? This cannot be undone (except by importing a backup).")) {
+          snapshot(); S.m = {}; S.r = normReplays(); S.n = {}; save(); closeOverlay(); render(true); toast("All marks reset", [["Undo", undo]]);
         }
         break;
     }
@@ -1497,29 +1498,38 @@ listEl.addEventListener("click", e => {
 // Long-press: on a team opens its team page, elsewhere on a match its option sheet. Works in the
 // list and in team pages. Timed from touch/pointer events because iOS never fires contextmenu;
 // contextmenu still covers Android's own long-press and a right-click.
-let lpTimer = null, lpAt = null, lpFired = false;
+let lpTimer = null, lpAt = null, lpFired = false, lpEnd = null;
 const LP_TARGET = '[data-act="team"], .match[data-m]';
+// While a finger is held on a long-press target, nothing on the page can be selected: Android's own
+// long-press would otherwise select the text of whatever opened under the finger (the team page).
+const lpHold = on => document.body.classList.toggle("lp", on);
 function longPress(el) {
   const t = el.closest('[data-act="team"]'), m = el.closest(".match[data-m]");
   const open = t ? () => openTeam(t.dataset.t) : () => openMatchSheet(m.dataset.m);
   lpFired = true; clearTimeout(lpTimer); lpTimer = null;
   if (navigator.vibrate) navigator.vibrate(15);
   if (overlayRoot.contains(el)) openNested(open); else open();
+  const sel = window.getSelection && window.getSelection(); if (sel) sel.removeAllRanges();
 }
 document.addEventListener("pointerdown", e => {
-  lpFired = false; clearTimeout(lpTimer); lpTimer = null;
+  lpFired = false; clearTimeout(lpTimer); lpTimer = null; clearTimeout(lpEnd); lpHold(false);
   if (e.button !== 0 || !e.target.closest(LP_TARGET)) return;
   const el = e.target; lpAt = [e.clientX, e.clientY];
+  if (e.pointerType !== "mouse") lpHold(true);
   lpTimer = setTimeout(() => longPress(el), 500);
 });
 document.addEventListener("pointermove", e => {
   if (lpTimer && Math.hypot(e.clientX - lpAt[0], e.clientY - lpAt[1]) > 10) { clearTimeout(lpTimer); lpTimer = null; }
 });
 ["pointerup", "pointercancel"].forEach(t => document.addEventListener(t, () => { clearTimeout(lpTimer); lpTimer = null; }));
+// Android cancels the pointer once its own long-press starts, so the hold ends when the finger lifts.
+["pointerup", "touchend", "touchcancel"].forEach(t => document.addEventListener(t, () => { clearTimeout(lpEnd); lpEnd = setTimeout(() => lpHold(false), 300); }));
+document.addEventListener("selectstart", e => { if (document.body.classList.contains("lp")) e.preventDefault(); });
 document.addEventListener("contextmenu", e => {
-  if (!e.target.closest(LP_TARGET)) return;
+  // During a held long-press the menu can target what just opened under the finger: block it too.
+  if (!e.target.closest(LP_TARGET) && !document.body.classList.contains("lp")) return;
   e.preventDefault();
-  if (!lpFired) longPress(e.target);
+  if (!lpFired && e.target.closest(LP_TARGET)) longPress(e.target);
 });
 // The tap that ends a long-press must not also mark the team.
 document.addEventListener("click", e => { if (lpFired) { lpFired = false; e.preventDefault(); e.stopPropagation(); } }, true);

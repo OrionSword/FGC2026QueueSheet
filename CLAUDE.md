@@ -10,7 +10,7 @@ Static offline web app (no build step) replacing paper queuing sheets at the FIR
 - Flags must never be cropped (`object-fit: contain`). The official artwork is drawn on 5:3 canvases (Nepal is narrower).
 - Times always display in the event time zone (`event.tz`, Asia/Seoul), never the phone's.
 - Site-played matches (`played: true`) default to *Played*; a volunteer's own status (`S.m[id].s`) always wins, which is how replays are reopened.
-- Team notes live in `S.n` (`{ <team code>: text }`), edited on team pages; blank notes are removed. They are part of backups and undo snapshots, but *Reset all marks* keeps them.
+- Team notes live in `S.n` (`{ <team code>: text }`), edited on team pages; blank notes are removed. They are part of backups and undo snapshots, and *Reset all marks* erases them too.
 - Replays live in `S.r` (`ids`, `plan: [{id, s, f}]`, `done`, `mode`, `manual`), keyed by the same match ids. Replays never go on Field 3. A plan is an order of slots (one match per side pair per slot), never clock times. Played replays (`done`) must never move when re-planning.
 - Start delta = scheduled minute vs clock minute (`clockDelta`), so any second within the scheduled minute is "On time". `d === 0` (on time) and `d == null` (not recorded) must stay visually distinct. Start-time tracking is opt-in (`S.ui.timing`, default off): when off, the button reads “Mark done ✓”, no delta is recorded or shown, and the sheet has no delta controls.
 

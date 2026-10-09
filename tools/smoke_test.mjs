@@ -50,6 +50,7 @@ async function enableTiming(p) {
   await p.locator('.sheet [data-a="close"]').tap();
 }
 // A real touch long-press (touchstart, hold, touchend) through the DevTools protocol.
+// Returns what was true while the finger was still down: whether text selection was blocked.
 async function longPress(p, loc) {
   await loc.evaluate(e => e.scrollIntoView({ block: "center" }));
   await p.waitForTimeout(150);
@@ -57,8 +58,14 @@ async function longPress(p, loc) {
   const cdp = await p.context().newCDPSession(p);
   await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x, y }] });
   await p.waitForTimeout(700);
+  const held = await p.evaluate(() => {
+    // Simulate what Android's long-press does next: select the text now under the finger.
+    const ok = document.dispatchEvent(new Event("selectstart", { cancelable: true }));
+    return { blocked: !ok, userSelect: getComputedStyle(document.querySelector("#overlayRoot *") || document.body).userSelect };
+  });
   await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
-  await p.waitForTimeout(100);
+  await p.waitForTimeout(400);
+  return held;
 }
 const row = (p, n) => p.locator("#list .match", { has: p.locator(".mnum", { hasText: new RegExp(`^${n}$`) }) });
 
@@ -157,8 +164,10 @@ try {
     check(await p.locator(".search").count() === 0 && await row(p, m.number).locator(`.team.m-full[data-t="${partner}"]`).count() === 1, "Show in schedule closes search; the mark is on the list");
     // Long-press a team in the list: its page opens and the team is not marked.
     const before = await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class");
-    await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
+    const held = await longPress(p, row(p, m.number).locator(`.team[data-t="${c}"]`));
     check(await p.locator(`.tpage .ttl`).innerText() === cName, "long-press on a team opens its team page");
+    check(held.blocked && held.userSelect === "none", "text under the finger cannot be selected while the long-press is held");
+    check(await p.evaluate(() => !document.body.classList.contains("lp") && !String(getSelection())), "selection works again once the finger lifts; nothing selected");
     check(await row(p, m.number).locator(`.team[data-t="${c}"]`).getAttribute("class") === before, "long-press does not change the team's mark");
     check(await p.locator('.tpage [data-a="back"]').count() === 0, "team page from the list has no Back button");
     await p.goBack(); await p.waitForTimeout(100);
@@ -199,6 +208,13 @@ try {
     await p.locator(`.sres textarea[data-note="${c}"]`).fill("");
     await p.locator('.search [data-a="close"]').tap(); await p.waitForTimeout(100);
     check(await p.evaluate(k => Object.keys(JSON.parse(localStorage.getItem(k)).n || {}).length, Object.keys(await p.evaluate(() => ({ ...localStorage }))).find(k => k.startsWith("fgcq:"))) === 0, "clearing a note removes it");
+    const key = Object.keys(await p.evaluate(() => ({ ...localStorage }))).find(k => k.startsWith("fgcq:"));
+    await p.locator("#searchBtn").tap(); await p.locator("#q").fill(name);
+    await p.locator(`.sres textarea[data-note="${c}"]`).fill("Keep me?");
+    await p.locator('.search [data-a="close"]').tap(); await p.waitForTimeout(100);
+    p.once("dialog", d => d.accept());
+    await p.locator("#menuBtn").tap(); await p.locator('.sheet [data-a="reset"]').tap();
+    check(await p.evaluate(k => Object.keys(JSON.parse(localStorage.getItem(k)).n || {}).length, key) === 0, "Reset all marks also erases team notes");
     await ctx.close();
   }
   // 3a. Start-time tracking is off by default: the button only crosses the match out, and the
