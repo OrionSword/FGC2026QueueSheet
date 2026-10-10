@@ -4,8 +4,8 @@ self.FGC_DATA = {
 "id": "FGC_2026-FGC-CMP",
 "name": "2026 FIRST Global Challenge",
 "tz": "Asia/Seoul",
-"source": "results.first.global, fetched 2026-10-09 08:04 UTC",
-"rev": "b422c41f22"
+"source": "results.first.global, fetched 2026-10-10 04:01 UTC",
+"rev": "cdd247abd8"
 },
 "teams": {
 "AFG": {
@@ -6023,7 +6023,8 @@ self.FGC_DATA = {
 "TUR",
 "ISV",
 "YEM"
-]
+],
+"played": true
 },
 {
 "id": "t2-270",
@@ -6041,7 +6042,8 @@ self.FGC_DATA = {
 "MHL",
 "CAN",
 "GRN"
-]
+],
+"played": true
 },
 {
 "id": "t2-269",
@@ -6059,7 +6061,8 @@ self.FGC_DATA = {
 "IND",
 "NOR",
 "GEO"
-]
+],
+"played": true
 },
 {
 "id": "t2-271",
@@ -6077,7 +6080,8 @@ self.FGC_DATA = {
 "GUM",
 "UGA",
 "JPN"
-]
+],
+"played": true
 },
 {
 "id": "t2-273",
@@ -6095,7 +6099,8 @@ self.FGC_DATA = {
 "QAT",
 "KAZ",
 "VIN"
-]
+],
+"played": true
 },
 {
 "id": "t2-272",
@@ -6113,7 +6118,8 @@ self.FGC_DATA = {
 "COK",
 "NEP",
 "LCA"
-]
+],
+"played": true
 },
 {
 "id": "t2-274",
@@ -6131,7 +6137,8 @@ self.FGC_DATA = {
 "ARG",
 "IRQ",
 "HUN"
-]
+],
+"played": true
 },
 {
 "id": "t2-276",
@@ -6149,7 +6156,8 @@ self.FGC_DATA = {
 "FIN",
 "KIR",
 "MAW"
-]
+],
+"played": true
 },
 {
 "id": "t2-275",
@@ -6167,7 +6175,8 @@ self.FGC_DATA = {
 "GBR",
 "MAS",
 "BHU"
-]
+],
+"played": true
 },
 {
 "id": "t2-277",
@@ -6185,7 +6194,8 @@ self.FGC_DATA = {
 "FRA",
 "IRL",
 "HKG"
-]
+],
+"played": true
 },
 {
 "id": "t2-279",
@@ -6203,7 +6213,8 @@ self.FGC_DATA = {
 "PLE",
 "ERI",
 "CPV"
-]
+],
+"played": true
 },
 {
 "id": "t2-278",
@@ -6221,7 +6232,8 @@ self.FGC_DATA = {
 "CRO",
 "BUR",
 "COM"
-]
+],
+"played": true
 },
 {
 "id": "t2-280",
@@ -6239,7 +6251,8 @@ self.FGC_DATA = {
 "TJK",
 "CHA",
 "CHN"
-]
+],
+"played": true
 },
 {
 "id": "t2-282",
@@ -6257,7 +6270,8 @@ self.FGC_DATA = {
 "RWA",
 "PNG",
 "BOL"
-]
+],
+"played": true
 },
 {
 "id": "t2-281",
@@ -6275,7 +6289,8 @@ self.FGC_DATA = {
 "GRE",
 "USA",
 "DMA"
-]
+],
+"played": true
 },
 {
 "id": "t2-283",
@@ -6293,7 +6308,8 @@ self.FGC_DATA = {
 "CUB",
 "MYA",
 "INA"
-]
+],
+"played": true
 },
 {
 "id": "t2-285",
@@ -6311,7 +6327,8 @@ self.FGC_DATA = {
 "GUY",
 "MRI",
 "ASA"
-]
+],
+"played": true
 },
 {
 "id": "t2-284",
@@ -6329,7 +6346,8 @@ self.FGC_DATA = {
 "SKN",
 "CRC",
 "SRB"
-]
+],
+"played": true
 },
 {
 "id": "t2-286",
@@ -6347,7 +6365,8 @@ self.FGC_DATA = {
 "ALB",
 "ESP",
 "TTO"
-]
+],
+"played": true
 },
 {
 "id": "t2-288",
@@ -6365,7 +6384,8 @@ self.FGC_DATA = {
 "RUS",
 "BLR",
 "LBN"
-]
+],
+"played": true
 },
 {
 "id": "t2-287",
@@ -6383,7 +6403,8 @@ self.FGC_DATA = {
 "SUD",
 "MGL",
 "KOR"
-]
+],
+"played": true
 },
 {
 "id": "t2-289",
@@ -6401,7 +6422,8 @@ self.FGC_DATA = {
 "TOG",
 "TLS",
 "TKM"
-]
+],
+"played": true
 },
 {
 "id": "t2-291",
@@ -6419,7 +6441,8 @@ self.FGC_DATA = {
 "VEN",
 "ROU",
 "QAT"
-]
+],
+"played": true
 },
 {
 "id": "t2-290",
@@ -6437,7 +6460,8 @@ self.FGC_DATA = {
 "NGR",
 "LTU",
 "GER"
-]
+],
+"played": true
 },
 {
 "id": "t2-292",
@@ -6455,7 +6479,8 @@ self.FGC_DATA = {
 "JPN",
 "SSD",
 "LUX"
-]
+],
+"played": true
 },
 {
 "id": "t2-294",
@@ -6473,7 +6498,8 @@ self.FGC_DATA = {
 "SVK",
 "SRI",
 "GUA"
-]
+],
+"played": true
 },
 {
 "id": "t2-293",
@@ -6491,7 +6517,8 @@ self.FGC_DATA = {
 "KGZ",
 "BRA",
 "KAZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-295",
@@ -6509,7 +6536,8 @@ self.FGC_DATA = {
 "SYR",
 "POL",
 "ANG"
-]
+],
+"played": true
 },
 {
 "id": "t2-297",
@@ -6527,7 +6555,8 @@ self.FGC_DATA = {
 "CGO",
 "TUR",
 "DJI"
-]
+],
+"played": true
 },
 {
 "id": "t2-296",
@@ -6545,7 +6574,8 @@ self.FGC_DATA = {
 "HKG",
 "CAF",
 "CAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-298",
@@ -6563,7 +6593,8 @@ self.FGC_DATA = {
 "POR",
 "TPE",
 "BOT"
-]
+],
+"played": true
 },
 {
 "id": "t2-300",
@@ -6581,7 +6612,8 @@ self.FGC_DATA = {
 "FSM",
 "MTN",
 "IRQ"
-]
+],
+"played": true
 },
 {
 "id": "t2-299",
@@ -6599,7 +6631,8 @@ self.FGC_DATA = {
 "COK",
 "MHL",
 "PER"
-]
+],
+"played": true
 },
 {
 "id": "t2-301",
@@ -6617,7 +6650,8 @@ self.FGC_DATA = {
 "CHI",
 "CZE",
 "BIZ"
-]
+],
+"played": true
 },
 {
 "id": "t2-303",
@@ -6635,7 +6669,8 @@ self.FGC_DATA = {
 "GHA",
 "UGA",
 "IVB"
-]
+],
+"played": true
 },
 {
 "id": "t2-302",
@@ -6653,7 +6688,8 @@ self.FGC_DATA = {
 "VIN",
 "NIG",
 "ZAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-304",
@@ -6671,7 +6707,8 @@ self.FGC_DATA = {
 "MEX",
 "TGA",
 "THA"
-]
+],
+"played": true
 },
 {
 "id": "t2-306",
@@ -6689,7 +6726,8 @@ self.FGC_DATA = {
 "MDA",
 "BEL",
 "MKD"
-]
+],
+"played": true
 },
 {
 "id": "t2-305",
@@ -6707,7 +6745,8 @@ self.FGC_DATA = {
 "AFG",
 "EGY",
 "MAD"
-]
+],
+"played": true
 },
 {
 "id": "t2-307",
@@ -6725,7 +6764,8 @@ self.FGC_DATA = {
 "SOL",
 "BHU",
 "GUI"
-]
+],
+"played": true
 },
 {
 "id": "t2-309",
@@ -6743,7 +6783,8 @@ self.FGC_DATA = {
 "CIV",
 "ROU",
 "BAN"
-]
+],
+"played": true
 },
 {
 "id": "t2-308",
@@ -6761,7 +6802,8 @@ self.FGC_DATA = {
 "AZE",
 "NED",
 "COL"
-]
+],
+"played": true
 },
 {
 "id": "t2-310",
@@ -6779,7 +6821,8 @@ self.FGC_DATA = {
 "LBN",
 "HPE",
 "CMR"
-]
+],
+"played": true
 },
 {
 "id": "t2-312",
@@ -6797,7 +6840,8 @@ self.FGC_DATA = {
 "UKR",
 "SLE",
 "CUB"
-]
+],
+"played": true
 },
 {
 "id": "t2-311",
@@ -6815,7 +6859,8 @@ self.FGC_DATA = {
 "PAR",
 "USA",
 "PLE"
-]
+],
+"played": true
 },
 {
 "id": "t2-313",
@@ -6833,7 +6878,8 @@ self.FGC_DATA = {
 "BIH",
 "ISR",
 "SRI"
-]
+],
+"played": true
 },
 {
 "id": "t2-315",
@@ -6851,7 +6897,8 @@ self.FGC_DATA = {
 "HON",
 "GER",
 "BRA"
-]
+],
+"played": true
 },
 {
 "id": "t2-314",
@@ -6869,7 +6916,8 @@ self.FGC_DATA = {
 "DJI",
 "VAN",
 "BOT"
-]
+],
+"played": true
 },
 {
 "id": "t2-316",
@@ -6887,7 +6935,8 @@ self.FGC_DATA = {
 "LUX",
 "SLO",
 "VEN"
-]
+],
+"played": true
 },
 {
 "id": "t2-318",
@@ -6905,7 +6954,8 @@ self.FGC_DATA = {
 "SVK",
 "ZIM",
 "LBA"
-]
+],
+"played": true
 },
 {
 "id": "t2-317",
@@ -6923,7 +6973,8 @@ self.FGC_DATA = {
 "ESP",
 "DOM",
 "ANG"
-]
+],
+"played": true
 },
 {
 "id": "t2-319",
@@ -6941,7 +6992,8 @@ self.FGC_DATA = {
 "FSM",
 "CZE",
 "KOR"
-]
+],
+"played": true
 },
 {
 "id": "t2-321",
@@ -6959,7 +7011,8 @@ self.FGC_DATA = {
 "TUR",
 "NIG",
 "NEP"
-]
+],
+"played": true
 },
 {
 "id": "t2-320",
@@ -6977,7 +7030,8 @@ self.FGC_DATA = {
 "SWE",
 "TLS",
 "THA"
-]
+],
+"played": true
 },
 {
 "id": "t2-322",
@@ -6995,7 +7049,8 @@ self.FGC_DATA = {
 "RUS",
 "MHL",
 "MEX"
-]
+],
+"played": true
 },
 {
 "id": "t2-324",
@@ -7013,7 +7068,8 @@ self.FGC_DATA = {
 "JPN",
 "PUR",
 "GAB"
-]
+],
+"played": true
 },
 {
 "id": "t2-323",
@@ -7031,7 +7087,8 @@ self.FGC_DATA = {
 "IND",
 "HKG",
 "GAM"
-]
+],
+"played": true
 },
 {
 "id": "t2-325",
@@ -7049,7 +7106,8 @@ self.FGC_DATA = {
 "GBR",
 "NOR",
 "BAR"
-]
+],
+"played": true
 },
 {
 "id": "t2-327",
@@ -7067,7 +7125,8 @@ self.FGC_DATA = {
 "CGO",
 "FRA",
 "BRU"
-]
+],
+"played": true
 },
 {
 "id": "t2-326",
@@ -7085,7 +7144,8 @@ self.FGC_DATA = {
 "IRQ",
 "NED",
 "INA"
-]
+],
+"played": true
 },
 {
 "id": "t2-328",
@@ -7103,7 +7163,8 @@ self.FGC_DATA = {
 "URU",
 "ASA",
 "ITA"
-]
+],
+"played": true
 },
 {
 "id": "t2-330",
@@ -7121,7 +7182,8 @@ self.FGC_DATA = {
 "MKD",
 "TGA",
 "GEQ"
-]
+],
+"played": true
 },
 {
 "id": "t2-329",
@@ -7139,7 +7201,8 @@ self.FGC_DATA = {
 "CIV",
 "KEN",
 "SYR"
-]
+],
+"played": true
 },
 {
 "id": "t2-331",
@@ -7157,7 +7220,8 @@ self.FGC_DATA = {
 "COK",
 "AZE",
 "EGY"
-]
+],
+"played": true
 },
 {
 "id": "t2-333",
@@ -7175,7 +7239,8 @@ self.FGC_DATA = {
 "CHI",
 "CRO",
 "BEL"
-]
+],
+"played": true
 },
 {
 "id": "t2-332",
@@ -7193,7 +7258,8 @@ self.FGC_DATA = {
 "EST",
 "LAT",
 "LCA"
-]
+],
+"played": true
 },
 {
 "id": "t2-334",
@@ -7211,7 +7277,8 @@ self.FGC_DATA = {
 "ESA",
 "COL",
 "LBR"
-]
+],
+"played": true
 },
 {
 "id": "t2-336",
@@ -7229,7 +7296,8 @@ self.FGC_DATA = {
 "TJK",
 "CPV",
 "AUT"
-]
+],
+"played": true
 },
 {
 "id": "t2-335",
@@ -7247,7 +7315,8 @@ self.FGC_DATA = {
 "JOR",
 "MAS",
 "COD"
-]
+],
+"played": true
 },
 {
 "id": "t2-337",
@@ -7265,7 +7334,8 @@ self.FGC_DATA = {
 "CAN",
 "TPE",
 "BLR"
-]
+],
+"played": true
 },
 {
 "id": "t2-339",
@@ -7283,7 +7353,8 @@ self.FGC_DATA = {
 "GEO",
 "PHI",
 "ISV"
-]
+],
+"played": true
 },
 {
 "id": "t2-338",
@@ -7301,7 +7372,8 @@ self.FGC_DATA = {
 "VIN",
 "ECU",
 "STP"
-]
+],
+"played": true
 },
 {
 "id": "t2-340",
@@ -7319,8 +7391,474 @@ self.FGC_DATA = {
 "DJI",
 "UKR",
 "ERI"
-]
+],
+"played": true
+},
+{
+"id": "t3-1",
+"type": "playoff",
+"number": 1,
+"name": "Round Robin Match 1",
+"field": 1,
+"time": "2026-10-10T14:22:00.000+09:00",
+"red": [
+"KAZ",
+"OMA",
+"TJK",
+"MNE"
+],
+"blue": [
+"SRI",
+"VIE",
+"KGZ",
+"GBS"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-2",
+"type": "playoff",
+"number": 2,
+"name": "Round Robin Match 2",
+"field": 1,
+"time": "2026-10-10T14:30:00.000+09:00",
+"red": [
+"ESP",
+"VIN",
+"IRL",
+"MTN"
+],
+"blue": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-3",
+"type": "playoff",
+"number": 3,
+"name": "Round Robin Match 3",
+"field": 1,
+"time": "2026-10-10T14:38:00.000+09:00",
+"red": [
+"MEX",
+"POL",
+"GRE",
+"KOS"
+],
+"blue": [
+"IND",
+"BOL",
+"BIH",
+"COD"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-4",
+"type": "playoff",
+"number": 4,
+"name": "Round Robin Match 4",
+"field": 1,
+"time": "2026-10-10T14:46:00.000+09:00",
+"red": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"blue": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-5",
+"type": "playoff",
+"number": 5,
+"name": "Round Robin Match 5",
+"field": 1,
+"time": "2026-10-10T15:09:00.000+09:00",
+"red": [
+"ESP",
+"VIN",
+"IRL",
+"MTN"
+],
+"blue": [
+"KAZ",
+"OMA",
+"TJK",
+"MNE"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-6",
+"type": "playoff",
+"number": 6,
+"name": "Round Robin Match 6",
+"field": 1,
+"time": "2026-10-10T15:17:00.000+09:00",
+"red": [
+"MEX",
+"POL",
+"GRE",
+"KOS"
+],
+"blue": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-7",
+"type": "playoff",
+"number": 7,
+"name": "Round Robin Match 7",
+"field": 1,
+"time": "2026-10-10T15:25:00.000+09:00",
+"red": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"blue": [
+"SRI",
+"VIE",
+"KGZ",
+"GBS"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-8",
+"type": "playoff",
+"number": 8,
+"name": "Round Robin Match 8",
+"field": 1,
+"time": "2026-10-10T15:33:00.000+09:00",
+"red": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"blue": [
+"IND",
+"BOL",
+"BIH",
+"COD"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-9",
+"type": "playoff",
+"number": 9,
+"name": "Round Robin Match 9",
+"field": 1,
+"time": "2026-10-10T15:57:00.000+09:00",
+"red": [
+"MEX",
+"POL",
+"GRE",
+"KOS"
+],
+"blue": [
+"KAZ",
+"OMA",
+"TJK",
+"MNE"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-10",
+"type": "playoff",
+"number": 10,
+"name": "Round Robin Match 10",
+"field": 1,
+"time": "2026-10-10T16:05:00.000+09:00",
+"red": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"blue": [
+"ESP",
+"VIN",
+"IRL",
+"MTN"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-11",
+"type": "playoff",
+"number": 11,
+"name": "Round Robin Match 11",
+"field": 1,
+"time": "2026-10-10T16:13:00.000+09:00",
+"red": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"blue": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-12",
+"type": "playoff",
+"number": 12,
+"name": "Round Robin Match 12",
+"field": 1,
+"time": "2026-10-10T16:21:00.000+09:00",
+"red": [
+"SRI",
+"VIE",
+"KGZ",
+"GBS"
+],
+"blue": [
+"IND",
+"BOL",
+"BIH",
+"COD"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-13",
+"type": "playoff",
+"number": 13,
+"name": "Round Robin Match 13",
+"field": 1,
+"time": "2026-10-10T16:45:00.000+09:00",
+"red": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"blue": [
+"MEX",
+"POL",
+"GRE",
+"KOS"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-14",
+"type": "playoff",
+"number": 14,
+"name": "Round Robin Match 14",
+"field": 1,
+"time": "2026-10-10T16:53:00.000+09:00",
+"red": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"blue": [
+"KAZ",
+"OMA",
+"TJK",
+"MNE"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-15",
+"type": "playoff",
+"number": 15,
+"name": "Round Robin Match 15",
+"field": 1,
+"time": "2026-10-10T17:01:00.000+09:00",
+"red": [
+"ESP",
+"VIN",
+"IRL",
+"MTN"
+],
+"blue": [
+"IND",
+"BOL",
+"BIH",
+"COD"
+],
+"stage": "Round Robin"
+},
+{
+"id": "t3-16",
+"type": "playoff",
+"number": 16,
+"name": "Round Robin Match 16",
+"field": 1,
+"time": "2026-10-10T17:09:00.000+09:00",
+"red": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"blue": [
+"SRI",
+"VIE",
+"KGZ",
+"GBS"
+],
+"stage": "Round Robin"
 }
 ],
-"alliances": []
+"alliances": [
+{
+"n": 1,
+"name": "Alliance 1",
+"teams": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 2,
+"name": "Alliance 2",
+"teams": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 3,
+"name": "Alliance 3",
+"teams": [
+"MEX",
+"POL",
+"GRE",
+"KOS"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 4,
+"name": "Alliance 4",
+"teams": [
+"KAZ",
+"OMA",
+"TJK",
+"MNE"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 5,
+"name": "Alliance 5",
+"teams": [
+"ESP",
+"VIN",
+"IRL",
+"MTN"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 6,
+"name": "Alliance 6",
+"teams": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 7,
+"name": "Alliance 7",
+"teams": [
+"SRI",
+"VIE",
+"KGZ",
+"GBS"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+},
+{
+"n": 8,
+"name": "Alliance 8",
+"teams": [
+"IND",
+"BOL",
+"BIH",
+"COD"
+],
+"rounds": [
+"round_robin"
+],
+"rank": {
+"round_robin": 0
+}
+}
+]
 };
