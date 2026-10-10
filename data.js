@@ -4,8 +4,8 @@ self.FGC_DATA = {
 "id": "FGC_2026-FGC-CMP",
 "name": "2026 FIRST Global Challenge",
 "tz": "Asia/Seoul",
-"source": "results.first.global, fetched 2026-10-10 06:46 UTC",
-"rev": "4ce331aa6d"
+"source": "results.first.global, fetched 2026-10-10 07:23 UTC",
+"rev": "c71709e0e0"
 },
 "teams": {
 "AFG": {
@@ -7589,7 +7589,8 @@ self.FGC_DATA = {
 "TJK",
 "MNE"
 ],
-"stage": "Round Robin"
+"stage": "Round Robin",
+"played": true
 },
 {
 "id": "t3-10",
@@ -7607,10 +7608,11 @@ self.FGC_DATA = {
 "blue": [
 "ESP",
 "VIN",
-"IRL",
-"MTN"
+"MTN",
+"IRL"
 ],
-"stage": "Round Robin"
+"stage": "Round Robin",
+"played": true
 },
 {
 "id": "t3-11",
@@ -7753,7 +7755,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 2
+"round_robin": 5
 }
 },
 {
@@ -7785,7 +7787,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 4
+"round_robin": 3
 }
 },
 {
@@ -7801,7 +7803,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 5
+"round_robin": 2
 }
 },
 {
@@ -7817,7 +7819,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 7
+"round_robin": 4
 }
 },
 {
@@ -7833,7 +7835,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 3
+"round_robin": 6
 }
 },
 {
@@ -7865,7 +7867,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 6
+"round_robin": 7
 }
 }
 ]
