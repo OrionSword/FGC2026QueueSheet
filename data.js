@@ -4,8 +4,8 @@ self.FGC_DATA = {
 "id": "FGC_2026-FGC-CMP",
 "name": "2026 FIRST Global Challenge",
 "tz": "Asia/Seoul",
-"source": "results.first.global, fetched 2026-10-10 08:39 UTC",
-"rev": "2d8ca1e681"
+"source": "results.first.global, fetched 2026-10-10 08:40 UTC",
+"rev": "4857bc6824"
 },
 "teams": {
 "AFG": {
@@ -7821,10 +7821,12 @@ self.FGC_DATA = {
 "ESA"
 ],
 "rounds": [
-"round_robin"
+"round_robin",
+"finals"
 ],
 "rank": {
-"round_robin": 1
+"round_robin": 1,
+"finals": 3
 }
 },
 {
@@ -7837,10 +7839,12 @@ self.FGC_DATA = {
 "TUR"
 ],
 "rounds": [
-"round_robin"
+"round_robin",
+"finals"
 ],
 "rank": {
-"round_robin": 2
+"round_robin": 2,
+"finals": 1
 }
 },
 {
@@ -7901,10 +7905,12 @@ self.FGC_DATA = {
 "LUX"
 ],
 "rounds": [
-"round_robin"
+"round_robin",
+"finals"
 ],
 "rank": {
-"round_robin": 3
+"round_robin": 3,
+"finals": 4
 }
 },
 {
