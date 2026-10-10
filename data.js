@@ -4,8 +4,8 @@ self.FGC_DATA = {
 "id": "FGC_2026-FGC-CMP",
 "name": "2026 FIRST Global Challenge",
 "tz": "Asia/Seoul",
-"source": "results.first.global, fetched 2026-10-10 07:39 UTC",
-"rev": "7b3f248865"
+"source": "results.first.global, fetched 2026-10-10 08:39 UTC",
+"rev": "2d8ca1e681"
 },
 "teams": {
 "AFG": {
@@ -7677,7 +7677,8 @@ self.FGC_DATA = {
 "GRE",
 "KOS"
 ],
-"stage": "Round Robin"
+"stage": "Round Robin",
+"played": true
 },
 {
 "id": "t3-14",
@@ -7698,7 +7699,8 @@ self.FGC_DATA = {
 "TJK",
 "MNE"
 ],
-"stage": "Round Robin"
+"stage": "Round Robin",
+"played": true
 },
 {
 "id": "t3-15",
@@ -7719,7 +7721,8 @@ self.FGC_DATA = {
 "BIH",
 "COD"
 ],
-"stage": "Round Robin"
+"stage": "Round Robin",
+"played": true
 },
 {
 "id": "t3-16",
@@ -7740,7 +7743,71 @@ self.FGC_DATA = {
 "KGZ",
 "GBS"
 ],
-"stage": "Round Robin"
+"stage": "Round Robin",
+"played": true
+},
+{
+"id": "t4-1",
+"type": "playoff",
+"number": 1,
+"name": "Finals Match 1",
+"field": 3,
+"time": "2026-10-10T18:00:00.000+09:00",
+"red": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"blue": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"stage": "Finals"
+},
+{
+"id": "t4-2",
+"type": "playoff",
+"number": 2,
+"name": "Finals Match 2",
+"field": 3,
+"time": "2026-10-10T18:15:00.000+09:00",
+"red": [
+"UAE",
+"JPN",
+"HKG",
+"LUX"
+],
+"blue": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"stage": "Finals"
+},
+{
+"id": "t4-3",
+"type": "playoff",
+"number": 3,
+"name": "Finals Match 3",
+"field": 3,
+"time": "2026-10-10T18:30:00.000+09:00",
+"red": [
+"CHN",
+"TKM",
+"CAY",
+"TUR"
+],
+"blue": [
+"UZB",
+"MDA",
+"VEN",
+"ESA"
+],
+"stage": "Finals"
 }
 ],
 "alliances": [
@@ -7757,7 +7824,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 2
+"round_robin": 1
 }
 },
 {
@@ -7773,7 +7840,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 1
+"round_robin": 2
 }
 },
 {
@@ -7789,7 +7856,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 5
+"round_robin": 4
 }
 },
 {
@@ -7805,7 +7872,7 @@ self.FGC_DATA = {
 "round_robin"
 ],
 "rank": {
-"round_robin": 4
+"round_robin": 5
 }
 },
 {
