@@ -3,10 +3,17 @@
 # schedule within a few minutes (or at once with Menu → Check for schedule update).
 #
 # Run it by hand: GitHub → Actions → "Refresh schedule" → Run workflow (works from the GitHub
-# mobile app). The timer below is a safety net only: GitHub can delay scheduled runs.
+# mobile app). A manual run keeps watching: it checks the site every minute for the number of
+# minutes you choose (default 300 = 5 hours) and commits each change as it appears, so one
+# run covers a whole afternoon. Set it to 0 for a single check.
+# The timer below is only a fallback: GitHub often delays or drops scheduled runs.
 name: Refresh schedule
 on:
   workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Keep checking for this many minutes (0 = check once)"
+        default: "300"
   schedule:
     # Every 5 minutes, 12:00–20:55 Korea time (03:00–11:55 UTC), 8–11 October.
     - cron: "*/5 3-11 8-11 10 *"
@@ -19,27 +26,30 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch from results.first.global
-        # Exit code 3 = a team without a rendered flag (cannot happen once the event started;
-        # render flags locally with tools/rasterize_flags.mjs). Fail rather than ship it.
-        run: python3 tools/fetch_fgc_data.py
-      - name: Commit if the schedule changed
-        id: commit
-        run: |
-          if git diff --quiet -- data.js; then echo "No change."; exit 0; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.js
-          git commit -m "Refresh schedule from results.first.global ($(grep -o '"rev": "[^"]*"' data.js | cut -d'"' -f4))"
-          git push
-          echo "pushed=1" >> "$GITHUB_OUTPUT"
-      - name: Ask GitHub Pages to rebuild
-        # Pushes made with GITHUB_TOKEN normally trigger the Pages build already; this is a backup.
-        if: steps.commit.outputs.pushed == '1'
-        continue-on-error: true
+      - name: Fetch from results.first.global and commit changes
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+          MINUTES: ${{ github.event.inputs.minutes || '0' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          end=$(( $(date +%s) + ${MINUTES:-0} * 60 ))
+          while :; do
+            git pull -q --rebase origin main || true
+            # Exit code 3 = a team without a rendered flag (render flags locally with
+            # tools/rasterize_flags.mjs); a network hiccup is retried on the next round.
+            set +e; python3 tools/fetch_fgc_data.py; rc=$?; set -e
+            if [ $rc -eq 3 ]; then git checkout -- data.js; exit 3; fi
+            if [ $rc -eq 0 ] && ! git diff --quiet -- data.js; then
+              git add data.js
+              git commit -q -m "Refresh schedule from results.first.global ($(grep -o '"rev": "[^"]*"' data.js | cut -d'"' -f4))"
+              git push -q origin HEAD:main && echo "::notice::Pushed a new schedule at $(date -u +%H:%M) UTC"
+              # Pushes made with GITHUB_TOKEN normally trigger the Pages build already; this is a backup.
+              gh api -X POST "repos/${{ github.repository }}/pages/builds" >/dev/null 2>&1 || true
+            fi
+            [ "$(date +%s)" -lt "$end" ] || break
+            sleep 60
+          done
