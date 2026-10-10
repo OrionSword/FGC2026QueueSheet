@@ -4,8 +4,8 @@ self.FGC_DATA = {
 "id": "FGC_2026-FGC-CMP",
 "name": "2026 FIRST Global Challenge",
 "tz": "Asia/Seoul",
-"source": "results.first.global, fetched 2026-10-10 04:01 UTC",
-"rev": "cdd247abd8"
+"source": "results.first.global, fetched 2026-10-10 05:08 UTC",
+"rev": "bdc679f081"
 },
 "teams": {
 "AFG": {
@@ -7399,7 +7399,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 1,
 "name": "Round Robin Match 1",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T14:22:00.000+09:00",
 "red": [
 "KAZ",
@@ -7420,7 +7420,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 2,
 "name": "Round Robin Match 2",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T14:30:00.000+09:00",
 "red": [
 "ESP",
@@ -7441,7 +7441,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 3,
 "name": "Round Robin Match 3",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T14:38:00.000+09:00",
 "red": [
 "MEX",
@@ -7462,7 +7462,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 4,
 "name": "Round Robin Match 4",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T14:46:00.000+09:00",
 "red": [
 "UZB",
@@ -7483,7 +7483,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 5,
 "name": "Round Robin Match 5",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T15:09:00.000+09:00",
 "red": [
 "ESP",
@@ -7504,7 +7504,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 6,
 "name": "Round Robin Match 6",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T15:17:00.000+09:00",
 "red": [
 "MEX",
@@ -7525,7 +7525,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 7,
 "name": "Round Robin Match 7",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T15:25:00.000+09:00",
 "red": [
 "CHN",
@@ -7546,7 +7546,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 8,
 "name": "Round Robin Match 8",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T15:33:00.000+09:00",
 "red": [
 "UZB",
@@ -7567,7 +7567,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 9,
 "name": "Round Robin Match 9",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T15:57:00.000+09:00",
 "red": [
 "MEX",
@@ -7588,7 +7588,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 10,
 "name": "Round Robin Match 10",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T16:05:00.000+09:00",
 "red": [
 "CHN",
@@ -7609,7 +7609,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 11,
 "name": "Round Robin Match 11",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T16:13:00.000+09:00",
 "red": [
 "UZB",
@@ -7630,7 +7630,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 12,
 "name": "Round Robin Match 12",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T16:21:00.000+09:00",
 "red": [
 "SRI",
@@ -7651,7 +7651,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 13,
 "name": "Round Robin Match 13",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T16:45:00.000+09:00",
 "red": [
 "CHN",
@@ -7672,7 +7672,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 14,
 "name": "Round Robin Match 14",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T16:53:00.000+09:00",
 "red": [
 "UZB",
@@ -7693,7 +7693,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 15,
 "name": "Round Robin Match 15",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T17:01:00.000+09:00",
 "red": [
 "ESP",
@@ -7714,7 +7714,7 @@ self.FGC_DATA = {
 "type": "playoff",
 "number": 16,
 "name": "Round Robin Match 16",
-"field": 1,
+"field": 3,
 "time": "2026-10-10T17:09:00.000+09:00",
 "red": [
 "UAE",

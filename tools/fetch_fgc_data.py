@@ -38,6 +38,9 @@ BASE = "https://results.first.global"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FLAG_DIR = os.path.join(ROOT, "tools", ".flag-cache")
 # Special (non-ISO) flag codes, mirrored from the site's getFlagUrl().
+# The results site lists every playoff match on field 1 (its scoring system numbers the single
+# playoff field 1); at the 2026 event they are played on Field 3, the centre field.
+PLAYOFF_FIELD = 3
 SPECIAL_FLAGS = {"10": "10_hope", "11": "11_south-america", "12": "12_oceania",
                  "13": "13_north-america", "14": "14_europe"}
 
@@ -168,6 +171,8 @@ def main():
         })
         if kind == "playoff":
             matches[-1]["stage"] = stage_of(mt["name"])
+            if args.source == "/":
+                matches[-1]["field"] = PLAYOFF_FIELD
         if mt.get("played"):
             matches[-1]["played"] = True
     matches.sort(key=lambda x: (x["time"], x["field"], x["id"]))

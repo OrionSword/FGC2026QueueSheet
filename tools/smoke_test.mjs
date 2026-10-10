@@ -23,7 +23,17 @@ const URL_ = `http://localhost:${server.address().port}/`;
 // Load data.js the same way the page does.
 const sandbox = { self: {} };
 vm.runInNewContext(readFileSync(join(root, "data.js"), "utf8"), sandbox);
-const D = sandbox.self.FGC_DATA;
+const REAL = sandbox.self.FGC_DATA;
+// Most checks run on a fixed mid-event snapshot of the real data, so they keep working whatever
+// stage the event is at: ranking matches only (no playoffs, no alliances), with only the first
+// day's matches marked played. The offline check uses the real data.js.
+const day1 = new Date(REAL.matches[0].time).toLocaleDateString("en-CA", { timeZone: REAL.event.tz });
+const D = { ...REAL, alliances: [], event: { ...REAL.event, rev: "fixture" },
+  matches: REAL.matches.filter(m => m.type !== "playoff").map(m => {
+    const { played: pl, ...rest } = m;
+    return pl && new Date(m.time).toLocaleDateString("en-CA", { timeZone: REAL.event.tz }) === day1 ? m : rest;
+  }) };
+const FIXTURE = `self.FGC_DATA = ${JSON.stringify(D)};`;
 const played = D.matches.filter(m => m.played).length;
 const open = D.matches.filter(m => !m.played).sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
 
@@ -32,8 +42,9 @@ const check = (ok, msg) => { console.log(`${ok ? "PASS" : "FAIL"}  ${msg}`); if 
 
 const browser = await chromium.launch();
 const errors = [];
-async function page(isoNow, { frozen = true, viewport = { width: 400, height: 860 }, data = null, sw = true } = {}) {
-  // data: a replacement data.js (playoff scenarios); service workers are blocked so the route applies.
+async function page(isoNow, { frozen = true, viewport = { width: 400, height: 860 }, data = FIXTURE, sw = true } = {}) {
+  // data: the data.js to serve (default: the fixture; null = the real file). Service workers are
+  // blocked while a replacement is served, so the route applies.
   const ctx = await browser.newContext({ viewport, isMobile: true, hasTouch: true, serviceWorkers: sw && !data ? "allow" : "block" });
   if (data) await ctx.route(/\/data\.js(\?|$)/, r => r.fulfill({ contentType: "text/javascript", body: typeof data === "function" ? data(r.request().url()) : data }));
   if (isoNow) await ctx.addInitScript(([t, frozen]) => {
@@ -439,14 +450,17 @@ try {
   }
   // 5. Works offline after the first visit (service worker cache).
   {
-    const { ctx, p } = await page(null);
+    const { ctx, p } = await page(null, { data: null });
     await p.evaluate(() => navigator.serviceWorker.ready);
     await p.waitForTimeout(1500);
     await ctx.setOffline(true);
     await p.reload(); await p.waitForSelector(".match");
     await p.locator('[data-unit="all"]').tap();
     const broken = await p.evaluate(() => [...document.querySelectorAll("img.flag")].filter(i => i.complete && !i.naturalWidth).length);
-    check(await p.locator(".match").count() === D.matches.length && broken === 0, "loads offline with all flags");
+    check(await p.locator(".match").count() === REAL.matches.length && broken === 0, "loads offline with all flags");
+    const po = REAL.matches.filter(m => m.type === "playoff");
+    if (po.length) check(await p.locator('#list .match[data-m^="t3-"] .fld.f3').count() === po.filter(m => m.id.startsWith("t3-")).length,
+      "published playoff matches show on Field 3, where they are played");
     await ctx.close();
   }
   check(errors.length === 0, `no page errors${errors.length ? ": " + errors.join("; ") : ""}`);
